@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<ruleset name="Custom Rules"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>
+        JUnit-related rules of PMD.
+    </description>
+
+
+    <!-- SELECTED RULES -->
+
+    <!-- JUnit4SuitesShouldUseSuiteAnnotation -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junit4suitesshouldusesuiteannotation -->
+    <rule ref="category/java/bestpractices.xml/JUnit4SuitesShouldUseSuiteAnnotation" />
+
+    <!-- JUnit4TestShouldUseAfterAnnotation -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junit4testshoulduseafterannotation -->
+    <rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseAfterAnnotation" />
+
+    <!-- JUnit4TestShouldUseBeforeAnnotation -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junit4testshouldusebeforeannotation -->
+    <rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseBeforeAnnotation" />
+
+    <!-- JUnit4TestShouldUseTestAnnotation -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junit4testshouldusetestannotation -->
+    <rule ref="category/java/bestpractices.xml/JUnit4TestShouldUseTestAnnotation" />
+
+    <!-- JUnit5TestShouldBePackagePrivate -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junit5testshouldbepackageprivate -->
+    <rule ref="category/java/bestpractices.xml/JUnit5TestShouldBePackagePrivate" />
+
+    <!-- JUnitAssertionsShouldIncludeMessage -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junitassertionsshouldincludemessage -->
+    <rule ref="category/java/bestpractices.xml/JUnitAssertionsShouldIncludeMessage" />
+
+    <!-- JUnitTestContainsTooManyAsserts -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junittestcontainstoomanyasserts -->
+    <rule ref="category/java/bestpractices.xml/JUnitTestContainsTooManyAsserts" />
+
+    <!-- JUnitTestsShouldIncludeAssert -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junittestsshouldincludeassert -->
+    <rule ref="category/java/bestpractices.xml/JUnitTestsShouldIncludeAssert" />
+
+    <!-- JUnitUseExpected -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#junituseexpected -->
+    <rule ref="category/java/bestpractices.xml/JUnitUseExpected" />
+
+    <!-- JUnitSpelling -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_errorprone.html#junitspelling -->
+    <rule ref="category/java/errorprone.xml/JUnitSpelling" />
+
+    <!-- JUnitStaticSuite -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_errorprone.html#junitstaticsuite -->
+    <rule ref="category/java/errorprone.xml/JUnitStaticSuite" />
+
+    <!-- UnnecessaryBooleanAssertion -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_errorprone.html#unnecessarybooleanassertion -->
+    <rule ref="category/java/errorprone.xml/UnnecessaryBooleanAssertion" />
+
+    <!-- SimplifiableTestAssertion -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_bestpractices.html#simplifiabletestassertion -->
+    <rule ref="category/java/bestpractices.xml/SimplifiableTestAssertion" />
+
+    <!-- TestClassWithoutTestCases -->
+    <!-- https://pmd.github.io/latest/pmd_rules_java_errorprone.html#testclasswithouttestcases -->
+    <rule ref="category/java/errorprone.xml/TestClassWithoutTestCases" />
+
+
+</ruleset>

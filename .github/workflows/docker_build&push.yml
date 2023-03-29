@@ -1,0 +1,53 @@
+name: Docker Build & Push
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+
+jobs:
+
+  docker-build-and-push:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Check-out the repo under $GITHUB_WORKSPACE, so this workflow can access it.
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+        # Set up JDK
+      - name: Set up JDK 19
+        uses: actions/setup-java@v1
+        with:
+          java-version: 19
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+        # Gradle build task
+      - name: Invoke gradle task - BUILD
+        run: ./gradlew build
+
+      # Build Docker image
+      - name: Build image
+        run: docker image build . --tag image --label "org.opencontainers.image.source=https://github.com/${{ github.repository }}"
+
+      # Log into registry (GitHub Packages)
+      - name: Log into registry
+        run: echo "${{ secrets.GH_ACCESS_TOKEN }}" | docker login ghcr.io -u ${{ secrets.GH_USERNAME }} --password-stdin
+
+      # Build Docker image and push it to GitHub Packages
+      - name: Push image
+        run: |
+          TEAM_NAME="$(echo $GITHUB_REPOSITORY | cut -d'/' -f 2 | cut -d'-' -f 2)"
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/battleship-${TEAM_NAME}
+
+          # Convert IMAGE_ID to lowercase (repository name must be lowercase)
+          IMAGE_ID=$(echo "$IMAGE_ID" | tr "[:upper:]" "[:lower:]")
+
+          docker tag image $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest

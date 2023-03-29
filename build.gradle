@@ -1,0 +1,98 @@
+plugins {
+    id "java"
+    id "checkstyle"
+    id "pmd"
+    id "com.github.spotbugs" version "5.0.13"
+    id "application"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation(platform('org.junit:junit-bom:5.9.2'))
+	testImplementation('org.junit.jupiter:junit-jupiter')
+    compileOnly("com.github.spotbugs:spotbugs-annotations:${spotbugs.toolVersion.get()}")
+}
+
+
+/**************
+* PLUGINS SETUP
+***************/
+
+java {
+  toolchain {
+    languageVersion.set(JavaLanguageVersion.of(19))
+  }
+}
+
+checkstyle {
+	ignoreFailures = true
+	toolVersion "10.8.1"
+}
+
+pmd {
+  ignoreFailures = true
+  toolVersion = '6.55.0'
+  consoleOutput = true
+  ruleSets = []
+  ruleSetFiles = files("$projectDir/config/pmd/pmd-ruleset.xml")
+  reportsDir = file("$buildDir/reports/pmd")
+}
+
+spotbugs {
+    ignoreFailures = true
+    toolVersion = "4.7.3"
+}
+
+
+/***********
+* TASK SETUP
+************/
+
+checkstyleMain {
+    source = 'src/main/java'
+}
+
+checkstyleTest {
+    source ='src/test/java'
+}
+
+run {
+    standardInput = System.in
+}
+// To run the program via Gradle, invoke the `run` task as follows.
+// ./gradlew run -q --console=plain
+
+test {
+    // Use JUnit 5
+    useJUnitPlatform()
+
+    // Always run tests, even when nothing changed.
+    dependsOn 'cleanTest'
+
+    // Show test results.
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+}
+
+// Generate the executable Jar (to be included in the Docker container)
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'it.uniba.app/App'
+    }
+    archiveBaseName = project.name + '-all'
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+project.tasks.getByName('build').dependsOn fatJar
+
+
+/***********************
+* MAIN CLASS DECLARATION
+************************/
+
+mainClassName = 'it.uniba.app/App'
