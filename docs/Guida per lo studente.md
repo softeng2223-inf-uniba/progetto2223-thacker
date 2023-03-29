@@ -93,7 +93,7 @@ Il repository che vi è stato assegnato contiene tutto il necessario per cominci
 
 In particolare, in `.github/workflows`, trovate un file di configurazione di GitHub Actions, denominato `ingsw2122.yml`. [Actions](https://github.com/features/actions) è una funzionalità di GitHub che consente la definizione e l'esecuzione automatizzata di pipeline di Continuous Integration / Continuous Deployment (CI/CD). In GitHub Actions, i passaggi di una pipeline vengono specificati in un file `.yml`, detto *workflow*. Generalmente, le pipeline di CI/CD comprendono operazioni di testing, releasing e deployment di un sistema software. Nello specifico, la vostra pipeline è impostata per realizzare:
 
-1. il testing del vostro codice (unit test con [JUnit](https://junit.org/)) e l'analisi dello stesso con strumenti di quality assurance ([Checkstyle](https://checkstyle.org/) e [Spotbugs](https://spotbugs.github.io));
+1. il testing del vostro codice (unit test con [JUnit](https://junit.org/)) e l'analisi dello stesso con strumenti di quality assurance ([Checkstyle](https://checkstyle.org/), [Spotbugs](https://spotbugs.github.io), [PMD](https://pmd.github.io/));
 2. la costruzione di un eseguibile (build) a partire dai sorgenti che svilupperete;
 3. la costruzione di un'immagine Docker con la vostra applicazione e il caricamento della stessa su [GitHub Packages](https://github.com/features/packages).
 
