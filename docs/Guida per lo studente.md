@@ -1,5 +1,4 @@
 # Guida allo studente
-# Guida allo studente
 
 ## Indice
 
