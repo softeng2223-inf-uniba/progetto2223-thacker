@@ -15,6 +15,8 @@
 **Scrittura codice**
 -	Scriverò codice che aderisca alle convenzioni di formattazione e stile del mio team.
 -	Mi impegnerò a produrre codice in modo autonomo senza copiarlo da internet. 
+-	Scriverò sempre una documentazione dettagliata del mio codice.
+-	Aggiungerò commenti solo se non sarò riuscito a rendere chiaro il funzionamento del mio codice.
 
 **Commit e Review** 
 -	Mi impegnerò a dare feedback onesti e dettagliati sul lavoro svolto da altri. 
