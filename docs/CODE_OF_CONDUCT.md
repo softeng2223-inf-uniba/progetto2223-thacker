@@ -9,7 +9,8 @@
 **Partecipazione**
 -	Sistemare eventuali problemi all'interno del codice è una delle nostre più alte priorità.
 -	Scrivere codice ordinato e comprensibile è una delle nostre più alte priorità.
-
+-	La partecipazione alle riunioni di team è fortemente consigliata.
+-	Chiederò aiuto ai miei colleghi solo dopo aver effettuato una prima ricerca del problema online.
 
 **Scrittura codice**
 -	Scriverò codice che aderisca alle convenzioni di formattazione e stile del mio team.
