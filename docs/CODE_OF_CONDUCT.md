@@ -3,6 +3,8 @@
 **Comportamento**
 -	Userò un linguaggio non offensivo.
 -	Rispetterò tutti i diversi punti di vista ed esperienze. 
+-	Rispetterò i miei colleghi e comunicherò civilmente eventuali problemi.
+-	Accetterò le responsabilità dei miei errori.
 
 **Partecipazione**
 -	Sistemare eventuali problemi all'interno del codice è una delle nostre più alte priorità.
