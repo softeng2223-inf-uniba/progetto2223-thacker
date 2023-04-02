@@ -18,3 +18,6 @@
 **Commit e Review** 
 -	Mi impegnerò a dare feedback onesti e dettagliati sul lavoro svolto da altri. 
 -	Sarò aperto a ricevere feedback quando altri revisioneranno il mio lavoro. 
+-	Non richiederò la revisione del mio codice senza aver prima effettuato test approfonditi.
+-	Scriverò sempre descrizioni chiare ed esaustive ad ogni pull request e commit.
+
