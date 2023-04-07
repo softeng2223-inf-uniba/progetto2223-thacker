@@ -176,9 +176,11 @@ Per aggiungere il badge che riporta l'ultimo esito dell'esecuzione del workflow 
 - entrare nella pagina principale del repository e cliccare su `Actions` (subito sotto il titolo, in alto al centro);
 ![Update_GitHub_badge_1](./img/Update_GitHub_badge_1.png)
 - la pagina *"All workflows"* sotto la tab *"Actions"*, riporta l'elenco delle esecuzioni (*run*) di tutti i workflow di GitHub Actions attivabili nel repository; per filtrarne il contenuto e visualizzare soltanto le esecuzioni relative al workflow `docker_build&push.yml`, fare click sulla voce corrispondente nel pannello laterale a sinistra. (**N.B.**: all'inizio del progetto, è del tutto normale che queste liste siano vuote. I workflow si attiveranno per la prima volta quando modificherete il codice nella cartella `src/` ed effettuerete Pull Request o operazioni di push/merge sul branch `main`);
+![Update_GitHub_badge_1](./img/Update_GitHub_badge_2.png)
 - Una volta selezionato il workflow `docker_build&push.yml` dal pannello laterale, in alto a destra nella pagina – di fianco alla text box con la scritta "Filter workflow runs" – comparirà un nuovo bottone con tre puntini `•••`. Fare click su tale bottone e poi selezionare la voce "Create status badge" nel menù a tendina.
+  ![Update_GitHub_badge_3_1](./img/Update_GitHub_badge_3_1.png)
 - Lasciando invariate le impostazioni di default (`branch` e `event`) nella finestra a comparsa, fare click su `Copy status badge Markdown`;
-  ![Update_GitHub_badge_3](./img/Update_GitHub_badge_3.png)
+  ![Update_GitHub_badge_3_2](./img/Update_GitHub_badge_3_2.png)
 - La modifica del file Markdown `README.md`sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
   ![Update_GitHub_badge_4](./img/Update_GitHub_badge_4.png)
 
