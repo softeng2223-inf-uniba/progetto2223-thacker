@@ -149,11 +149,11 @@ A questo punto, il membro del team che ha generato il token dovrà:
 - fare click sul pulsante *"New repository secret"*:
  ![SaveTokenInSecret_6](./img/SaveTokenInSecret_7.png)
   - inserire la stringa `GH_ACCESS_TOKEN` nella textbox con l'etichetta *"Name"*;
-  - inserire il Personal Access Token precedentemente generato nella textarea con l'etichetta *"Value"*;
+  - inserire il Personal Access Token precedentemente generato nella textarea con l'etichetta *"Secret"*;
   - concludere l'operazione cliccando sul pulsante *"Add secret"*.
 - ripetere l'operazione per l'aggiunta di un secret col proprio username: fare click sul link *"New repository secret"*;
   - inserire la stringa `GH_USERNAME` nella textbox con l'etichetta *"Name"*;
-  - inserire il proprio username GitHub nella textarea con l'etichetta *"Value"*;
+  - inserire il proprio username GitHub nella textarea con l'etichetta *"Secret"*;
   - concludere l'operazione cliccando sul pulsante *"Add secret"*.
 
 **N.B.:** È fondamentale che i nomi dei due GitHub Secret vengano scritti esattamente come sono riportati in questa guida: `GH_ACCESS_TOKEN` e `GH_USERNAME`(rispettando le maiuscole e gli underscore).
@@ -181,7 +181,7 @@ Per aggiungere il badge che riporta l'ultimo esito dell'esecuzione del workflow 
   ![Update_GitHub_badge_3_1](./img/Update_GitHub_badge_3_1.png)
 - Lasciando invariate le impostazioni di default (`branch` e `event`) nella finestra a comparsa, fare click su `Copy status badge Markdown`;
   ![Update_GitHub_badge_3_2](./img/Update_GitHub_badge_3_2.png)
-- La modifica del file Markdown `README.md`sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
+- La modifica del file Markdown `README.md` sarà fatta come parte dei task dello *Sprint 0* incollando il codice markdown per la costruzione del badge in cima al `README.md`, accanto al titolo del repository.
   ![Update_GitHub_badge_4](./img/Update_GitHub_badge_4.png)
 
 Il titolo del README.md dovrà apparire come nella seguente figura:
