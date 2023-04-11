@@ -21,6 +21,7 @@ La struttura della repository si presenta nel seguente modo:
 |    |–– img
 |    |–– Report.md
 |    |–– CODE_OF_CONDUCT.md
+|    |–– ISPIRATORE.md
 |–– drawings
 |–– gradle
 |–– lib
