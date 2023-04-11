@@ -46,6 +46,7 @@ Nel seguito si dettagliano i ruoli dei diversi componenti:
   Il file `Report.md` verrà usato per redigere la relazione finale del progetto.
   La cartella raccoglie inoltre:
   - `Assegnazione progetto.md`: contenente la descrizione dettagliata del progetto assegnato;
+  - `CODE_OF_CONDUCT.md`: contenente la descrizione delle linee guida per il comportamento dei membri del team; 
   - `Guida per lo studente.md`: contenente la descrizione di tutti i passi di configurazione necessari per l'attivazione del flusso di lavoro a supporto dello sviluppo del progetto;
 - `gradle/`: ospita il `.jar` relativo al sistema di gestione delle dipendenze *Gradle*.
 - `lib`: include eventuali librerie esterne utilizzate dal progetto.
