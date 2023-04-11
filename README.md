@@ -20,6 +20,7 @@ La struttura della repository si presenta nel seguente modo:
 |    |–– Guida per lo studente.md
 |    |–– img
 |    |–– Report.md
+|    |–– CODE_OF_CONDUCT.md
 |–– drawings
 |–– gradle
 |–– lib
