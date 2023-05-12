@@ -21,6 +21,7 @@
         Tentativo <|-- Colpo
         Tentativo <|-- Affondamento
 
+        Difficolta -- Partita
         Difficolta <|-- Facile
         Difficolta <|-- Medio
         Difficolta <|-- Difficile
