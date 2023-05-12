@@ -18,7 +18,7 @@
         Difficolta <|-- Difficile 
 
         Nave <|-- Cacciatorpediniere
-        Nave <|-- Incrociata
+        Nave <|-- Incrociatore
         Nave <|-- Corazzata
         Nave <|-- Portaerea
         
