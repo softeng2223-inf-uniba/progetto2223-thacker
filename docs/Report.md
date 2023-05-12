@@ -30,7 +30,7 @@
         Tentativo "0..*" -- "1" Partita : Appartiene
         Tentativo "0..1" -- "1" Cella : Colpisce
 
-        Griglia *-- Cella
+        Griglia *-- "*" Cella
         Partita -- Griglia : Genera
         Cella "0..*" -- "0..1" Nave : è occupata da
         Colpo "0..*" -- "1" Nave : è subito da
