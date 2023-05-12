@@ -30,7 +30,6 @@
         Tentativo <|-- Colpo
         Tentativo <|-- Affondamento
 
-        Acqua -- Partita
         Colpo "0..*" -- "1" Nave : Subire
         Affondamento "0..1" -- "1" Nave : Subire
 
