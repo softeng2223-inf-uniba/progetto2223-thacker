@@ -73,6 +73,14 @@
 | nome | Giocatore | Nome del giocatore |
 | numFalliti | Partita| Numero corrente di tentativi falliti; Si ottiene contando il numero di istanze di Acqua relative alla Partita. |
 
+### Note
+- (Definizione) Tra *Griglia* e *Cella* vi è una **composizione**:
+    - Una *Griglia* è composta da più *Celle* (vedi molteplicità `*` nel diagramma)
+    - **dipendenza esistenziale**: Una *Cella* esiste solo se parte di una *Griglia*
+    - **esclusività**: Una *Cella* può appartenere ad una e una sola *Griglia*
+- (Notazione) Si dice fallito un *Tentativo* di tipo *Acqua*.
+
+
 ## (3) Requisiti Specifici
 ### (3.1) Requisiti funzionali
 ### (3.2) Requisiti non funzionali
