@@ -9,7 +9,7 @@
     classDiagram
         
         Giocatore -- Tentativo : Effettua
-        Giocatore -- Partita : Svolge
+        Giocatore "1" -- "0..*" Partita : Svolge
         Giocatore -- Difficolta : Imposta
 
         Partita -- Griglia : Genera
