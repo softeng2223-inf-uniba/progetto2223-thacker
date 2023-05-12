@@ -17,10 +17,18 @@
         Tentativo <|-- Colpo
         Tentativo <|-- Affondamento
 
+        Difficolta <|-- Facile
+        Difficolta <|-- Medio
+        Difficolta <|-- Difficile
 
         class Nave{
             dimensione
         }
+
+        class Difficolta{
+            maxFallibili
+        }
+
 
 ```
 
