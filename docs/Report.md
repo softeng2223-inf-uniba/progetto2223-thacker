@@ -10,7 +10,7 @@
         
         Giocatore "1" -- "0..*" Tentativo : Effettuare
         Giocatore "1" -- "0..*" Partita : Svolgere
-        Giocatore -- Difficolta : Imposta
+        Giocatore -- Difficolta : Impostare
 
         Difficolta "1" -- "0..*" Partita : Influenzare
         Difficolta <|-- Facile
