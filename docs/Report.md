@@ -12,11 +12,16 @@
         Nave <|-- Incrociata
         Nave <|-- Corazzata
         Nave <|-- Portaerea
+        
+        Tentativo <|-- Acqua
+        Tentativo <|-- Colpo
+        Tentativo <|-- Affondamento
+
 
         class Nave{
             dimensione
         }
-        
+
 ```
 
 ## (3) Requisiti Specifici
