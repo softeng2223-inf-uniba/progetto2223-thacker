@@ -15,11 +15,7 @@
         Difficolta "1" -- "0..*" Partita : Influenzare
         Difficolta <|-- Facile
         Difficolta <|-- Medio
-        Difficolta <|-- Difficile
-
-        Griglia <|-- GrigliaNavi
-        Griglia <|-- GrigliaAttacchi
-        Giocatore -- GrigliaAttacchi : Possedere
+        Difficolta <|-- Difficile 
 
         Nave <|-- Cacciatorpediniere
         Nave <|-- Incrociata
