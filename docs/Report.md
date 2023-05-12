@@ -8,14 +8,14 @@
     
     classDiagram
         
-        Giocatore -- Tentativo : Effettua
+        Giocatore "1" -- "0..*" Tentativo : Effettuare
         Giocatore "1" -- "0..*" Partita : Svolge
         Giocatore -- Difficolta : Imposta
 
         Partita -- Griglia : Genera
         Griglia *-- Cella
-        Cella -- Nave : Occupa
-        Tentativo -- Cella : Attacca
+        Cella "0..*" -- "0..1" Nave : Occupa
+        Tentativo "0..1" -- "1" Cella : Attacca
 
 
         Nave <|-- Cacciatorpediniere
@@ -28,8 +28,8 @@
         Tentativo <|-- Affondamento
 
         Acqua -- Partita
-        Colpo -- Nave : Subisce
-        Affondamento -- Nave : Subisce
+        Colpo "0..*" -- "1" Nave : Subire
+        Affondamento "0..1" -- "1" Nave : Subire
 
         Difficolta -- Partita
         Difficolta <|-- Facile
