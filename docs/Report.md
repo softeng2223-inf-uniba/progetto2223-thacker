@@ -7,7 +7,7 @@
 ```mermaid
     
     classDiagram
-        
+            
         Giocatore "1" -- "0..*" Tentativo : Effettua
         Giocatore "1" -- "0..*" Partita : Svolge
         Giocatore -- Difficolta : Imposta
@@ -43,6 +43,22 @@
             maxFallibili
         }
 
+        class Giocatore{
+            nome
+        }
+
+        class Partita{
+            numFalliti
+        }
+
+        class Cella{
+            coordinate
+        }
+
+        class Griglia{
+            dimensione
+        }
+        
 
 ```
 
