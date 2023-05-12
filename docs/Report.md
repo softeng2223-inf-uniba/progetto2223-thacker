@@ -11,12 +11,16 @@
         Giocatore "1" -- "0..*" Tentativo : Effettuare
         Giocatore "1" -- "0..*" Partita : Svolge
         Giocatore -- Difficolta : Imposta
+        
+        Griglia <|-- GrigliaNavi
+        Griglia <|-- GrigliaAttacchi
+
+        Giocatore -- GrigliaAttacchi : Possedere
 
         Partita -- Griglia : Genera
         Griglia *-- Cella
         Cella "0..*" -- "0..1" Nave : Occupa
         Tentativo "0..1" -- "1" Cella : Attacca
-
 
         Nave <|-- Cacciatorpediniere
         Nave <|-- Incrociata
