@@ -11,6 +11,8 @@
         Partita -- Griglia : Genera
         Griglia *-- Cella
         Cella -- Nave : Occupa
+        Tentativo -- Cella : Attacca
+
 
         Nave <|-- Cacciatorpediniere
         Nave <|-- Incrociata
