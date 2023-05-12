@@ -9,17 +9,17 @@
     classDiagram
         
         Giocatore "1" -- "0..*" Tentativo : Effettuare
-        Giocatore "1" -- "0..*" Partita : Svolge
+        Giocatore "1" -- "0..*" Partita : Svolgere
         Giocatore -- Difficolta : Imposta
+
+        Difficolta "1" -- "0..*" Partita : Influenzare
+        Difficolta <|-- Facile
+        Difficolta <|-- Medio
+        Difficolta <|-- Difficile
 
         Griglia <|-- GrigliaNavi
         Griglia <|-- GrigliaAttacchi
         Giocatore -- GrigliaAttacchi : Possedere
-
-        Partita -- Griglia : Genera
-        Griglia *-- Cella
-        Cella "0..*" -- "0..1" Nave : Occupa
-        Tentativo "0..1" -- "1" Cella : Attacca
 
         Nave <|-- Cacciatorpediniere
         Nave <|-- Incrociata
@@ -29,14 +29,15 @@
         Tentativo <|-- Acqua
         Tentativo <|-- Colpo
         Tentativo <|-- Affondamento
+        Tentativo "0..*" -- "1" Partita : Appartenere
+        Tentativo "0..1" -- "1" Cella : Colpire
 
+        Griglia *-- Cella
+        Partita -- Griglia : Genera
+        Cella "0..*" -- "0..1" Nave : Occupare
         Colpo "0..*" -- "1" Nave : Subire
         Affondamento "0..1" -- "1" Nave : Subire
 
-        Difficolta "1" -- "0..*" Partita : Influenzare
-        Difficolta <|-- Facile
-        Difficolta <|-- Medio
-        Difficolta <|-- Difficile
 
         class Nave{
             dimensione
