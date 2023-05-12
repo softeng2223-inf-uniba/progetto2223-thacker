@@ -7,6 +7,7 @@
 ```mermaid
     
     classDiagram
+        direction LR
             
         Giocatore "1" -- "0..*" Tentativo : Effettua
         Giocatore "1" -- "0..*" Partita : Svolge
@@ -58,7 +59,7 @@
         class Griglia{
             dimensione
         }
-        
+
 
 ```
 
