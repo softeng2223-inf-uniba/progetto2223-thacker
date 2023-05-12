@@ -7,6 +7,10 @@
 ```mermaid
     
     classDiagram
+        
+        Partita -- Griglia : Genera
+        Griglia *-- Cella
+        Cella -- Nave : Occupa
 
         Nave <|-- Cacciatorpediniere
         Nave <|-- Incrociata
