@@ -21,6 +21,10 @@
         Tentativo <|-- Colpo
         Tentativo <|-- Affondamento
 
+        Acqua -- Partita
+        Colpo -- Nave : Subisce
+        Affondamento -- Nave : Subisce
+
         Difficolta -- Partita
         Difficolta <|-- Facile
         Difficolta <|-- Medio
