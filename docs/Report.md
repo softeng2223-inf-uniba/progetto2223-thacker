@@ -4,6 +4,7 @@
 
 ## (2) Modello di Dominio
 
+### diagramma
 ```mermaid
     
     classDiagram
@@ -62,6 +63,15 @@
 
 
 ```
+### Glossario degli attributi
+|Attributo|Concetto di appartenenza|Descrizione|
+|-|-|-|
+| coordinate | Cella | coppia che individua univocamente una Cella di una Griglia. |
+| dimensione | Griglia | Numero di righe e di celle per riga. Per esempio, `dimensione=10` implica $10^2$ celle. |
+| dimensione | Nave | Numero di celle che la nave occupa. |
+| maxFallibili | Difficoltà | Numero massimo di tentativi fallibili. |
+| nome | Giocatore | Nome del giocatore |
+| numFalliti | Partita| Numero corrente di tentativi falliti; Si ottiene contando il numero di istanze di Acqua relative alla Partita. |
 
 ## (3) Requisiti Specifici
 ### (3.1) Requisiti funzionali
