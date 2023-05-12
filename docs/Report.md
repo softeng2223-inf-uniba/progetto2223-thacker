@@ -8,6 +8,10 @@
     
     classDiagram
         
+        Giocatore -- Tentativo : Effettua
+        Giocatore -- Partita : Svolge
+        Giocatore -- Difficolta : Imposta
+
         Partita -- Griglia : Genera
         Griglia *-- Cella
         Cella -- Nave : Occupa
