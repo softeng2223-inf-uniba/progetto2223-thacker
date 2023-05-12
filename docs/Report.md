@@ -11,10 +11,9 @@
         Giocatore "1" -- "0..*" Tentativo : Effettuare
         Giocatore "1" -- "0..*" Partita : Svolge
         Giocatore -- Difficolta : Imposta
-        
+
         Griglia <|-- GrigliaNavi
         Griglia <|-- GrigliaAttacchi
-
         Giocatore -- GrigliaAttacchi : Possedere
 
         Partita -- Griglia : Genera
@@ -35,7 +34,7 @@
         Colpo "0..*" -- "1" Nave : Subire
         Affondamento "0..1" -- "1" Nave : Subire
 
-        Difficolta -- Partita
+        Difficolta "1" -- "0..*" Partita : Influenzare
         Difficolta <|-- Facile
         Difficolta <|-- Medio
         Difficolta <|-- Difficile
