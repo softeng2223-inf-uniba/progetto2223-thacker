@@ -8,11 +8,11 @@
     
     classDiagram
         
-        Giocatore "1" -- "0..*" Tentativo : Effettuare
-        Giocatore "1" -- "0..*" Partita : Svolgere
-        Giocatore -- Difficolta : Impostare
+        Giocatore "1" -- "0..*" Tentativo : Effettua
+        Giocatore "1" -- "0..*" Partita : Svolge
+        Giocatore -- Difficolta : Imposta
 
-        Difficolta "1" -- "0..*" Partita : Influenzare
+        Difficolta "1" -- "0..*" Partita : Influenza
         Difficolta <|-- Facile
         Difficolta <|-- Medio
         Difficolta <|-- Difficile 
@@ -25,14 +25,14 @@
         Tentativo <|-- Acqua
         Tentativo <|-- Colpo
         Tentativo <|-- Affondamento
-        Tentativo "0..*" -- "1" Partita : Appartenere
-        Tentativo "0..1" -- "1" Cella : Colpire
+        Tentativo "0..*" -- "1" Partita : Appartiene
+        Tentativo "0..1" -- "1" Cella : Colpisce
 
         Griglia *-- Cella
         Partita -- Griglia : Genera
-        Cella "0..*" -- "0..1" Nave : Occupare
-        Colpo "0..*" -- "1" Nave : Subire
-        Affondamento "0..1" -- "1" Nave : Subire
+        Cella "0..*" -- "0..1" Nave : è occupata da
+        Colpo "0..*" -- "1" Nave : è subito da
+        Affondamento "0..1" -- "1" Nave : è subito da
 
 
         class Nave{
