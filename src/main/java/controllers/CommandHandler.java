@@ -49,8 +49,9 @@ public class CommandHandler {
         params += 1;
         if (minNumOfTokens<maxNumOfTokens) {
             int length = tokens.length;
-            if (length <= maxNumOfTokens && length >= minNumOfTokens)
+            if (length <= maxNumOfTokens && length >= minNumOfTokens) {
                 return true;
+            }
         }
         return false;
     }
