@@ -4,9 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
-public class CommandHandler {
+public final class CommandHandler {
     private static final String MSG_INVALID = "Comando non valido";
 
+    private CommandHandler() { }
     public static String readCommand() {
         BufferedReader buffer = null;
         String command = "";
