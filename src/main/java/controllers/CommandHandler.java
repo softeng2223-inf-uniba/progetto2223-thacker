@@ -37,6 +37,7 @@ public final class CommandHandler {
     /**
      * La funzione esegue il comando passato come parametro.
      * In base al comando esegue un'azione diversa.
+     *
      * @param input comando da eseguire
      * @return true se il comando è stato eseguito correttamente, false altrimenti
      */
@@ -45,9 +46,15 @@ public final class CommandHandler {
         String comand   = tokens[0];                  // contiene il comando
 
         switch (comand) {
-            case "/prova":
+            case "/prova1":
                 if (needParams(tokens, 2)) {
-                    // codice per eseguire comando "/prova"
+                    // codice per eseguire comando "/prova1" con 2 parametri
+                    return true;
+                }
+                break;
+            case "/prova2":
+                if (needParams(tokens, 0)) {
+                    // codice per eseguire comando "/prova2" con 0 parametri
                     return true;
                 }
                 break;
@@ -61,6 +68,7 @@ public final class CommandHandler {
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene params parametri.
+     *
      * @param tokens comando da eseguire con i parametri
      * @param params numero di parametri che il comando deve avere
      * @return true se il comando ha params parametri, false altrimenti
@@ -76,6 +84,7 @@ public final class CommandHandler {
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene un numero di parametri compreso tra min e max.
+     *
      * @param tokens comando da eseguire con i parametri
      * @param min numero minimo di parametri che il comando deve avere
      * @param max numero massimo di parametri che il comando deve avere
