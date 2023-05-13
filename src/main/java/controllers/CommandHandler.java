@@ -21,5 +21,12 @@ public class CommandHandler {
 
         return command;
     }
+	
+	private static boolean needParams(String[] tokens, int params){
+        if(tokens.length != params+1){
+            return false;
+        }
+        return true;
+    }
 
 }
