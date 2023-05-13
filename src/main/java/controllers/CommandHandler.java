@@ -12,23 +12,23 @@ public class CommandHandler {
         BufferedReader buffer = null;
         String command = "";
 
-        try{
+        try {
             buffer = new BufferedReader(new InputStreamReader(System.in));
             command = buffer.readLine();
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
         return command;
     }
 
-    public static boolean executeCommand(String input){
+    public static boolean executeCommand(String input) {
         String[] tokens = input.split(" ");
         String comand   = tokens[0];
 
-        switch(comand){
+        switch (comand) {
             case "/prova":
-                if(needParams(tokens,2)) {
+                if (needParams(tokens,2)) {
                     // esegue comando
                     return true;
                 }
@@ -38,8 +38,8 @@ public class CommandHandler {
         return false;
     }
 
-    private static boolean needParams(String[] tokens, int params){
-        if(tokens.length != params+1){
+    private static boolean needParams(String[] tokens, int params) {
+        if (tokens.length != params + 1) {
             return false;
         }
         return true;
@@ -47,9 +47,9 @@ public class CommandHandler {
 
     private static boolean needParams(String[] tokens, int params, int minNumOfTokens, int maxNumOfTokens){
         params += 1;
-        if(minNumOfTokens<maxNumOfTokens){
+        if (minNumOfTokens<maxNumOfTokens) {
             int length = tokens.length;
-            if(length <= maxNumOfTokens && length >= minNumOfTokens)
+            if (length <= maxNumOfTokens && length >= minNumOfTokens)
                 return true;
         }
         return false;
