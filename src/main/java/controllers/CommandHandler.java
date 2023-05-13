@@ -21,7 +21,21 @@ public class CommandHandler {
 
         return command;
     }
-	
+    public static boolean executeCommand(String input){
+        String[] tokens = input.split(" ");
+        String comand   = tokens[0];
+
+        switch(comand){
+            case "/prova":
+                if(needParams(tokens,2)) {
+                    // esegue comando
+                    return true;
+                }
+                break;
+        }
+        System.out.println(MSG_INVALID);
+        return false;
+    }
 	private static boolean needParams(String[] tokens, int params){
         if(tokens.length != params+1){
             return false;
