@@ -4,11 +4,22 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
+/**
+ * Modella un gestore di comandi.
+ *
+ * Fornisce metodi utili a gestire le richieste presentate dell'utente ed esegure determinate operazioni.
+*/
 public final class CommandHandler {
     private static final String MSG_INVALID = "Comando non valido";
 
     private CommandHandler() { }
 
+    /**
+     * Richiede all'utente di digitare un comando dal terminale,
+     * il quale verrà successivamente convertito in Stringa.
+     *
+     * @return comando letto da terminale
+     */
     public static String readCommand() {
         BufferedReader buffer = null;
         String command = "";
