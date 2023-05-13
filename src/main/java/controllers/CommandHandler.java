@@ -27,6 +27,15 @@ public class CommandHandler {
             return false;
         }
         return true;
+    }    
+	private static boolean needParams(String[] tokens, int minNumOfTokens, int maxNumOfTokens){
+        params += 1;
+        if(minNumOfTokens<maxNumOfTokens){
+            int length = tokens.length;
+            if(length <= maxNumOfTokens && length >= minNumOfTokens)
+                return true;
+        }
+        return false;
     }
 
 }
