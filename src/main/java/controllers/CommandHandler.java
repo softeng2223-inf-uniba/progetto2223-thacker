@@ -24,6 +24,8 @@ public final class CommandHandler {
         BufferedReader buffer = null;
         String command = "";
 
+        System.out.print("> ");
+
         try {
             buffer = new BufferedReader(new InputStreamReader(System.in));
             command = buffer.readLine();
@@ -32,6 +34,19 @@ public final class CommandHandler {
         }
 
         return command;
+    }
+
+    /**
+     * Invia un messaggio e poi richiede all'utente di digitare un comando dal terminale,
+     * Il quale verrà successivamente convertito in Stringa.
+     *
+     * @param inputMessage messaggio da inviare prima della richiesta di input
+     * @return comando letto in input
+     */
+    public static String readCommand(final String inputMessage) {
+        System.out.println(inputMessage);
+        System.out.print("> ");
+        return readCommand();
     }
 
     /**
