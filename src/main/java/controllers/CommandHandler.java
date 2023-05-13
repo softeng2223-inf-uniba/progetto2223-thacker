@@ -8,6 +8,7 @@ public final class CommandHandler {
     private static final String MSG_INVALID = "Comando non valido";
 
     private CommandHandler() { }
+
     public static String readCommand() {
         BufferedReader buffer = null;
         String command = "";
