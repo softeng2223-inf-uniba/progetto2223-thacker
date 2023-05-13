@@ -42,10 +42,11 @@ public final class CommandHandler {
      * @return true se il comando è stato eseguito correttamente, false altrimenti
      */
     public static boolean executeCommand(final String input) {
-        String[] tokens = input.split(" ");     // contiene il comando e i parametri
-        String comand   = tokens[0];                  // contiene il comando
+        String[] tokens = input.split(" ");   // contiene il comando e i parametri
+        String command = tokens[0];                 // contiene il comando
 
-        switch (comand) {
+        switch (command) {
+            // eliminare comandi prova1 e prova2 quando non più utili
             case "/prova1":
                 if (needParams(tokens, 2)) {
                     // codice per eseguire comando "/prova1" con 2 parametri
