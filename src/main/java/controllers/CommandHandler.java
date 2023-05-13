@@ -28,7 +28,7 @@ public class CommandHandler {
 
         switch (comand) {
             case "/prova":
-                if (needParams(tokens,2)) {
+                if (needParams(tokens, 2)) {
                     // esegue comando
                     return true;
                 }
@@ -47,7 +47,7 @@ public class CommandHandler {
 
     private static boolean needParams(String[] tokens, int params, int minNumOfTokens, int maxNumOfTokens){
         params += 1;
-        if (minNumOfTokens<maxNumOfTokens) {
+        if (minNumOfTokens < maxNumOfTokens) {
             int length = tokens.length;
             if (length <= maxNumOfTokens && length >= minNumOfTokens) {
                 return true;
