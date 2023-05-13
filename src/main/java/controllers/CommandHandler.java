@@ -89,7 +89,6 @@ public final class CommandHandler {
      * @param params numero di parametri che il comando deve avere
      * @return true se il comando ha params parametri, false altrimenti
      */
-
     private static boolean needParams(final String[] tokens, final int params) {
         if (tokens.length != params + 1) {  // +1 perchè tokens[0] è il comando
             return false;
