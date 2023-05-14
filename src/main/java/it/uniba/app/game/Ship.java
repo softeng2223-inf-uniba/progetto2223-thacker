@@ -24,5 +24,9 @@ public abstract class Ship {
 
     abstract String getShipColoredSymbol();
 
+    public int getShipsNumber() {
+        return SHIPS_NUMBER;
+    }
+
 
 }
