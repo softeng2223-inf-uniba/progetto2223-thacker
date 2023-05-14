@@ -101,6 +101,8 @@
   - (RF9.4) `/facile`: imposta la difficoltà di gioco a _FACILE_.
   - (RF9.5) `/medio`: imposta la difficoltà di gioco a _MEDIO_.
   - (RF9.6) `/difficile`: imposta la difficoltà di gioco a _DIFFICILE_.
+  - (RF9.7) `/mostranavi`: visualizza per ogni tipo di nave la dimensione in quadratini e il numero di esemplare da affondare.
+  - (RF9.8) `/mostralivello`: visualizza il livello di difficoltà impostato e il numero massimo di tentativi fallibili.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
