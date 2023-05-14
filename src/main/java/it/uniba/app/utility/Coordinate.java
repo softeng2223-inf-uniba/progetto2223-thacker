@@ -51,6 +51,11 @@ public class Coordinate implements Cloneable {
         return row;
     }
 
+    /**
+     * Permette di ottenere il valore della coordinata che fa
+     * riferimento alla colonna.
+     * @return indice di colonna della coordianta
+     */
     public int getCol() {
         return col;
     }
