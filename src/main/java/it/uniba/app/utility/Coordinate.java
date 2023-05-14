@@ -45,7 +45,7 @@ public class Coordinate implements Cloneable {
     /**
      * Permette di ottenere il valore della coordinata che fa
      * riferimento alla riga.
-     * @return indice di colonna della coordianta
+     * @return indice di colonna della coordianta.
      */
     public int getRow() {
         return row;
@@ -54,7 +54,7 @@ public class Coordinate implements Cloneable {
     /**
      * Permette di ottenere il valore della coordinata che fa
      * riferimento alla colonna.
-     * @return indice di colonna della coordianta
+     * @return indice di colonna della coordianta.
      */
     public int getCol() {
         return col;
@@ -62,7 +62,7 @@ public class Coordinate implements Cloneable {
 
     /**
      * Permette di specificare un valore di riga di tipo {@code int} nella coordinata.
-     * @param val valore di riga da inserire nella coordinata
+     * @param val valore di riga da inserire nella coordinata.
      */
     public void setRow(final int val) {
         row = val;
@@ -70,7 +70,7 @@ public class Coordinate implements Cloneable {
 
     /**
      * Permette di specificare un valore di colonna di tipo {@code int} nella coordinata.
-     * @param val valore di colonna da inserire nella coordinata
+     * @param val valore di colonna da inserire nella coordinata.
      */
     public void setCol(final int val) {
         col = val;
@@ -81,11 +81,11 @@ public class Coordinate implements Cloneable {
      * il metodo. Bisogna sempre effettuare il cast a {@code Coordinate} quando
      * il metodo {@code clone} viene invocato.
      * <p><blockquote><pre>
-     * Coordinates coord = new Coordinates(2, 5);
-     * Coordinates cloneCoord = (Coordinates) coord.clone();
+     * Coordinate coord = new Coordinate(2, 5);
+     * Coordinate cloneCoord = (Coordinate) coord.clone();
      * </pre></blockquote></p>
      * Così facendo eventuali cambiamenti su {@code cloneCoord} non si ripercuoteranno su {@code coord}
-     * @return restituisce un clone dell'oggetto Coordinates.
+     * @return restituisce un clone dell'oggetto Coordinate.
      */
     public Object clone() {
         Object obj = null;
