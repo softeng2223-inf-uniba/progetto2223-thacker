@@ -6,7 +6,10 @@ public abstract class Ship {
      * che si possono trovare all'interno del gioco.
      */
     private static final int SHIPS_NUMBER = 4;
-
+    /**
+     * {@code SHIPS_SYMBOL} contiene il valore in formato stringa
+     * per mostrare a schermo il simbolo nave ⛝.
+     */
     private static final String SHIPS_SYMBOL = "\u22A0";
 
     private static final String SYMBOL_WHITE_COLOR = "\u001B[0m";
