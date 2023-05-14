@@ -1,8 +1,22 @@
 package it.uniba.app.utility;
 
 /**
- * JavaDoc momentaneo. La classe {@code Coordinate} astrae
- * il concetto di riga e colonna per la {@code Board}.
+ * La classe {@code Coordinate} incapsula il concetto di riga e colonna per la matrice di gioco.
+ * Implementa l'interfaccia {@code Cloneable} per poter effettuare modifiche su una copia dell'oggetto
+ * senza che queste si riflettano sulle coordinate originali.
+ * Ha due costruttori, uno che prende due parametri di tipo {@code int} ed un altro senza parametri.
+ * <p><blockquote><pre>
+ * Coordinate coord = new Coordinate();
+ * Coordinate coord = new Coordinate(5, 8);
+ * </pre></blockquote></p>
+ * Per il recupero dei valori di riga e colonna all'interno della classe e per poterli modificare
+ * dopo averli già impostati nel costruttore, la classe {@code Coordinates} offre metodi {@code get} e {@code set}
+ * <p> <blockquote> <pre>
+ * coord.setX(1);
+ * coord.setY(7);
+ * int xValue = coord.getX();
+ * int yValue = coord.getY();
+ * </pre> </blockquote> </p>
  */
 public class Coordinate implements Cloneable {
     private int row;
