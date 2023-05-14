@@ -18,7 +18,7 @@ public class DifficultyManager {
 
     /* METHODS */
 
-    DifficultyManager() {
+    private DifficultyManager() {
         setEasyLevel();
     }
 
