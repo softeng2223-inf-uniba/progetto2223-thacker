@@ -18,30 +18,30 @@ public class DifficultyManager {
 
     /* METHODS */
 
-    DifficultyManager(){
+    DifficultyManager() {
         setEasyLevel();
     }
 
-    public static void setEasyLevel(){
+    public static void setEasyLevel() {
         curLevelName = EASY_NAME;
         maxFailable = EASY_MAX_ATTEMPTS;
     }
 
-    public static void setMedLevel(){
+    public static void setMedLevel() {
         curLevelName = MED_NAME;
         maxFailable = MED_MAX_ATTEMPTS;
     }
 
-    public static void setHardLevel(){
+    public static void setHardLevel() {
         curLevelName = HARD_NAME;
         maxFailable = HARD_MAX_ATTEMPTS;
     }
 
-    public static String getLevelName(){
+    public static String getLevelName() {
         return curLevelName;
     }
 
-    public static int getMaxFailedAttempts(){
+    public static int getMaxFailedAttempts() {
         return maxFailable;
     }
 
