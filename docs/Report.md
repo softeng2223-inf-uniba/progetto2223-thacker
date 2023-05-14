@@ -91,6 +91,7 @@
   - (RF5.1) Se la difficoltà è _FACILE_ il numero massimo di tentativi fallibili è 60
   - (RF5.2) Se la difficoltà è _MEDIO_ il numero massimo di tentativi fallibili è 25.
   - (RF5.3) Se la difficoltà è _DIFFICILE_ il numero massimo di tentativi fallibili è 5.
+- (RF6) Il sistema deve permettere di mostrare il livello di dificoltà impostato.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
