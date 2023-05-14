@@ -1,7 +1,10 @@
 package it.uniba.app.game;
 
 public abstract class Ship {
-
+    /**
+     * {@code SHIPS_NUMBER} rappresenta il numero di tipi di nave
+     * che si possono trovare all'interno del gioco.
+     */
     private static final int SHIPS_NUMBER = 4;
 
     private static final String SHIPS_SYMBOL = "\u22A0";
