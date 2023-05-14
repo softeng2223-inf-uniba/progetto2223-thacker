@@ -84,6 +84,7 @@
 ## (3) Requisiti Specifici
 ### (3.1) Requisiti funzionali
 - (RF1) Il sistema deve permettere di creare una nuova partita.
+- (RF2) Il sistema deve permettere di chiuedere l'applicazione.
 ### (3.2) Requisiti non funzionali
 
 
