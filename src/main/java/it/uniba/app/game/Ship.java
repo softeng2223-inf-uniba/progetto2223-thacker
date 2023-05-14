@@ -22,5 +22,7 @@ public abstract class Ship {
 
     abstract String getName();
 
+    abstract String getShipColoredSymbol();
+
 
 }
