@@ -28,5 +28,9 @@ public abstract class Ship {
         return SHIPS_NUMBER;
     }
 
+    public int getShipSize() {
+        return shipSize;
+    }
+
 
 }
