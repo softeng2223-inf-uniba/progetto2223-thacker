@@ -11,7 +11,10 @@ public abstract class Ship {
      * per mostrare a schermo il simbolo nave ⛝.
      */
     private static final String SHIPS_SYMBOL = "\u22A0";
-
+    /**
+     * {@code SYMBOL_WHITE_COLOR} contiene il colore neutro del
+     * simbolo nave.
+     */
     private static final String SYMBOL_WHITE_COLOR = "\u001B[0m";
 
     private int shipSize;
