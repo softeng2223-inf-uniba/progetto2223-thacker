@@ -12,6 +12,10 @@ public class Coordinate {
         row = 0;
         col = 0;
     }
+    public Coordinate(final int row, final int col) {
+        this.row = row;
+        this.col = col;
+    }
     public int getRow() {
         return row;
     }
