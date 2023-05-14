@@ -14,4 +14,10 @@ public abstract class Ship {
 
     private int hitsTaken;
 
+    public Ship(final int size, final int val) {
+        shipSize = size;
+        numberOfInstances = val;
+        hitsTaken = 0;
+    }
+
 }
