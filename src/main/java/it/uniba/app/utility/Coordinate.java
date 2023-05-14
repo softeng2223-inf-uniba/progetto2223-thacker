@@ -2,7 +2,7 @@ package it.uniba.app.utility;
 
 /**
  * JavaDoc momentaneo. La classe {@code Coordinate} astrae
- * il concetto di riga e colonna per la {code Board}.
+ * il concetto di riga e colonna per la {@code Board}.
  */
 public class Coordinate {
     private int row;
@@ -11,7 +11,7 @@ public class Coordinate {
     public int getRow() {
         return row;
     }
-    
+
     public int getCol() {
         return col;
     }
