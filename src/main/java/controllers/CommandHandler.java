@@ -15,7 +15,8 @@ public final class CommandHandler {
     private static final String CMD_PROVA1 = "/prova1";
     private static final String CMD_PROVA2 = "/prova2";
 
-    
+    private static final String SYMBOL_INPUT_PROMPT = "> ";
+
     private CommandHandler() { }
 
     /**
@@ -28,7 +29,7 @@ public final class CommandHandler {
         BufferedReader buffer = null;
         String command = "";
 
-        System.out.print("> ");
+        System.out.print(SYMBOL_INPUT_PROMPT);
 
         try {
             buffer = new BufferedReader(new InputStreamReader(System.in));
