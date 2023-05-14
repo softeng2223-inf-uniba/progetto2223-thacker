@@ -8,4 +8,10 @@ public class Incrociatore extends Ship {
 
     private static final String INCROCIATORE_COLOR = "\u001B[34m";
 
+    private String name;
+
+    Incrociatore() {
+        super(SHIP_SIZE, NUMBER_OF_INSTANCES);
+        name = "Incrociatore";
+    }
 }
