@@ -14,4 +14,12 @@ public class Incrociatore extends Ship {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES);
         name = "Incrociatore";
     }
+
+    String getName() {
+        return name;
+    }
+
+    String getShipColoredSymbol() {
+        return INCROCIATORE_COLOR;
+    }
 }
