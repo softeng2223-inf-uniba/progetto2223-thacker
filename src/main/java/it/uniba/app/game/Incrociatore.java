@@ -22,4 +22,8 @@ public class Incrociatore extends Ship {
     String getShipColoredSymbol() {
         return INCROCIATORE_COLOR;
     }
+
+    public String toString() {
+        return INCROCIATORE_COLOR + getShipSymbol() + getShipWhiteSymbol();
+    }
 }
