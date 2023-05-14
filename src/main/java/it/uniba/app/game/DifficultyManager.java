@@ -16,4 +16,25 @@ public class DifficultyManager {
     private static String curLevelName;
     private static int maxFailable;
 
+    /* METHODS */
+    
+    DifficultyManager(){
+        setEasyLevel();
+    }
+
+    public static void setEasyLevel(){
+        curLevelName = EASY_NAME;
+        maxFailable = EASY_MAX_ATTEMPTS;
+    }
+
+    public static void setMedLevel(){
+        curLevelName = MED_NAME;
+        maxFailable = MED_MAX_ATTEMPTS;
+    }
+
+    public static void setHardLevel(){
+        curLevelName = HARD_NAME;
+        maxFailable = HARD_MAX_ATTEMPTS;
+    }
+
 }
