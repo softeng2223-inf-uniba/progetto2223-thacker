@@ -36,5 +36,9 @@ public abstract class Ship {
         return numberOfInstances;
     }
 
+    public int getHitsTaken() {
+        return hitsTaken;
+    }
+
 
 }
