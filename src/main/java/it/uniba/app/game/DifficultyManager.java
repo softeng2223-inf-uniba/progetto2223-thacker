@@ -37,4 +37,12 @@ public class DifficultyManager {
         maxFailable = HARD_MAX_ATTEMPTS;
     }
 
+    public static String getLevelName(){
+        return curLevelName;
+    }
+
+    public static int getMaxFailedAttempts(){
+        return maxFailable;
+    }
+    
 }
