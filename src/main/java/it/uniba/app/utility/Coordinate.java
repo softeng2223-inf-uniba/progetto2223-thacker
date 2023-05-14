@@ -68,6 +68,10 @@ public class Coordinate implements Cloneable {
         row = val;
     }
 
+    /**
+     * Permette di specificare un valore di colonna di tipo {@code int} nella coordinata.
+     * @param val valore di colonna da inserire nella coordinata
+     */
     public void setCol(final int val) {
         col = val;
     }
