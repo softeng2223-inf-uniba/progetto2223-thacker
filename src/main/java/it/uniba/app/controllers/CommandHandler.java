@@ -1,4 +1,4 @@
-package controllers;
+package it.uniba.app.controllers;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
