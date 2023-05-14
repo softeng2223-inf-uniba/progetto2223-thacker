@@ -48,4 +48,7 @@ public abstract class Ship {
         return SYMBOL_WHITE_COLOR;
     }
 
+    public void incrementHitsTaken() {
+        hitsTaken++;
+    }
 }
