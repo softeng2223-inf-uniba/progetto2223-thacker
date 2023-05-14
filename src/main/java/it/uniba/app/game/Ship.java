@@ -40,5 +40,8 @@ public abstract class Ship {
         return hitsTaken;
     }
 
+    public String getShipSymbol() {
+        return SHIPS_SYMBOL;
+    }
 
 }
