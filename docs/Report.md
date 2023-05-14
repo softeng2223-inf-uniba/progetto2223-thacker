@@ -86,7 +86,7 @@
 - (RF1) Il sistema deve permettere di creare una nuova partita.
 - (RF2) Il sistema deve permettere di chiuedere l'applicazione.
 ### (3.2) Requisiti non funzionali
-
+- (RNF1) Il sistema deve essere sviluppato in Java.
 
 ## (7) Manuale Utente
 
