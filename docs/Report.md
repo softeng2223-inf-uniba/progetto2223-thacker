@@ -98,6 +98,9 @@
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco 
   - (RF9.2) `/gioca`: avvia una nuova partita.
   - (RF9.3) `/esci`: chiude l'applicazione.
+  - (RF9.4) `/facile`: imposta la difficoltà di gioco a _FACILE_.
+  - (RF9.5) `/medio`: imposta la difficoltà di gioco a _MEDIO_.
+  - (RF9.6) `/difficile`: imposta la difficoltà di gioco a _DIFFICILE_.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
