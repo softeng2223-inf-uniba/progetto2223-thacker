@@ -1,7 +1,7 @@
 package it.uniba.app.game;
 
 // TODO javadoc
-public class DifficultyManager {
+public final class DifficultyManager {
 
     /* CONSTANTS */
     private static final String EASY_NAME = "Facile";
