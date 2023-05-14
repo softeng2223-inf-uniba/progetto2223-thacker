@@ -12,5 +12,6 @@ public abstract class Ship {
 
     private int numberOfInstances;
 
+    private int hitsTaken;
 
 }
