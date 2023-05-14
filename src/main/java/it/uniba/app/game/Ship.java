@@ -44,4 +44,8 @@ public abstract class Ship {
         return SHIPS_SYMBOL;
     }
 
+    public String getShipWhiteSymbol() {
+        return SYMBOL_WHITE_COLOR;
+    }
+
 }
