@@ -23,5 +23,8 @@ public class Portaerei extends Ship {
         return PORTAEREI_COLOR;
     }
 
+    public String toString() {
+        return PORTAEREI_COLOR + getShipSymbol() + getShipWhiteSymbol();
+    }
 }
 
