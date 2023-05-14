@@ -23,5 +23,9 @@ public class Cacciatorpediniere extends Ship {
         return CACCIATORPEDINIERE_COLOR;
     }
 
+    public String toString() {
+        return CACCIATORPEDINIERE_COLOR + getShipSymbol() + getShipWhiteSymbol();
+    }
+
 }
 
