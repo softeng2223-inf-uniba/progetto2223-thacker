@@ -20,4 +20,7 @@ public abstract class Ship {
         hitsTaken = 0;
     }
 
+    abstract String getName();
+
+
 }
