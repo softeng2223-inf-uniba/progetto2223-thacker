@@ -8,5 +8,7 @@ public class Cacciatorpediniere extends Ship {
 
     private static final String CACCIATORPEDINIERE_COLOR = "\u001B[31m";
 
+    private String name;
+
 }
 
