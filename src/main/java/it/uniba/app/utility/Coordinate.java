@@ -60,6 +60,10 @@ public class Coordinate implements Cloneable {
         return col;
     }
 
+    /**
+     * Permette di specificare un valore di riga di tipo {@code int} nella coordinata.
+     * @param val valore di riga da inserire nella coordinata
+     */
     public void setRow(final int val) {
         row = val;
     }
