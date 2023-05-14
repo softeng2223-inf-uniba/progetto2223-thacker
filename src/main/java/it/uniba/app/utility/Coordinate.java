@@ -22,12 +22,16 @@ public class Coordinate implements Cloneable {
     private int row;
     private int col;
 
+    /**
+     * Costruisce un oggetto {@code Coordinate} con parametri
+     * di riga e colonna impostati di default a 0.
+     */
     public Coordinate() {
         row = 0;
         col = 0;
     }
     /**
-     * Costruisce un oggetto {@code Coordinates} prendendo come parametri
+     * Costruisce un oggetto {@code Coordinate} prendendo come parametri
      * due variabili di tipo {@code int} che rappresentano valore dell'indice
      * delle righe e delle colonne.
      * @param newRow indice della riga.
