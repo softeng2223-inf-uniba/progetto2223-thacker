@@ -16,7 +16,9 @@ public abstract class Ship {
      * simbolo nave.
      */
     private static final String SYMBOL_WHITE_COLOR = "\u001B[0m";
-
+    /**
+     * {@code shipSize} rappresenta la dimensione di ogni tipo di nave.
+     */
     private int shipSize;
 
     private int numberOfInstances;
