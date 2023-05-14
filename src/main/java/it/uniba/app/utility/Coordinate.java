@@ -16,11 +16,11 @@ public class Coordinate {
         return col;
     }
 
-    public void setRow(int val) {
+    public void setRow(final int val) {
         row = val;
     }
 
-    public void setCol(int val) {
+    public void setCol(final int val) {
         col = val;
     }
 }
