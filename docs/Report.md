@@ -85,8 +85,14 @@
 ### (3.1) Requisiti funzionali
 - (RF1) Il sistema deve permettere di creare una nuova partita.
 - (RF2) Il sistema deve permettere di chiudere l'applicazione.
+- (RF3) Il sistema deve permettere di impostare la difficoltà di gioco tra _FACILE_, _MEDIO_ e _DIFFICILE_. 
+- (RF4) Il sistema, in base alla difficoltà impostata deve impostare il numero massimo di tentativi fallibili.
+- (RF5) Il sistema imposta i tentativi fallibili nel seguente modo:
+  - (RF5.1) Se la difficoltà è _FACILE_ il numero massimo di tentativi fallibili è 60
+  - (RF5.2) Se la difficoltà è _MEDIO_ il numero massimo di tentativi fallibili è 25.
+  - (RF5.3) Se la difficoltà è _DIFFICILE_ il numero massimo di tentativi fallibili è 5.
 ### (3.2) Requisiti non funzionali
-- (RNF1) Il sistema deve essere sviluppato in Java.
+- (RNF1) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
 ## (7) Manuale Utente
 
