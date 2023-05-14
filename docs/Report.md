@@ -93,6 +93,7 @@
   - (RF5.3) Se la difficoltà è _DIFFICILE_ il numero massimo di tentativi fallibili è 5.
 - (RF6) Il sistema deve permettere di mostrare il livello di dificoltà impostato.
 - (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
+- (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
