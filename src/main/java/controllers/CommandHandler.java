@@ -11,7 +11,11 @@ import java.io.IOException;
 */
 public final class CommandHandler {
     private static final String MSG_INVALID = "Comando non valido";
+    
+    private static final String CMD_PROVA1 = "/prova1";
+    private static final String CMD_PROVA2 = "/prova2";
 
+    
     private CommandHandler() { }
 
     /**
@@ -45,7 +49,6 @@ public final class CommandHandler {
      */
     public static String readCommand(final String inputMessage) {
         System.out.println(inputMessage);
-        System.out.print("> ");
         return readCommand();
     }
 
@@ -62,13 +65,13 @@ public final class CommandHandler {
 
         switch (command) {
             // eliminare comandi prova1 e prova2 quando non più utili
-            case "/prova1":
+            case CMD_PROVA1:
                 if (needParams(tokens, 2)) {
                     // codice per eseguire comando "/prova1" con 2 parametri
                     return true;
                 }
                 break;
-            case "/prova2":
+            case CMD_PROVA2:
                 if (needParams(tokens, 0)) {
                     // codice per eseguire comando "/prova2" con 0 parametri
                     return true;
