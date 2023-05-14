@@ -20,9 +20,16 @@ public abstract class Ship {
      * {@code shipSize} rappresenta la dimensione di ogni tipo di nave.
      */
     private int shipSize;
-
+    /**
+     * {@code numberOfInstances} indica il numero di
+     * istanze massimo per tipo di nave.
+     */
     private int numberOfInstances;
-
+    /**
+     * {@code hitsTaken} contiene il numero di colpi che una singola
+     * nave ha ricevuto. Deve essere incrementato ad ogni colpo
+     * andato a segno.
+     */
     private int hitsTaken;
 
     public Ship(final int size, final int val) {
