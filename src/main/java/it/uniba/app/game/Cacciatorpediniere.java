@@ -15,5 +15,13 @@ public class Cacciatorpediniere extends Ship {
         name = "Cacciatorpediniere";
     }
 
+    String getName() {
+        return name;
+    }
+
+    String getShipColoredSymbol() {
+        return CACCIATORPEDINIERE_COLOR;
+    }
+
 }
 
