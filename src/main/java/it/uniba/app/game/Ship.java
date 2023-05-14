@@ -8,5 +8,9 @@ public abstract class Ship {
 
     private static final String SYMBOL_WHITE_COLOR = "\u001B[0m";
 
+    private int shipSize;
+
+    private int numberOfInstances;
+
 
 }
