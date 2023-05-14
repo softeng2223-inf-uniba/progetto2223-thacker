@@ -10,6 +10,10 @@ public class Portaerei extends Ship {
 
     private String name;
 
+    Portaerei() {
+        super(SHIP_SIZE, NUMBER_OF_INSTANCES);
+        name = "Portaerei";
+    }
 
 }
 
