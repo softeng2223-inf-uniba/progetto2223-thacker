@@ -10,11 +10,15 @@ import java.io.IOException;
  * Fornisce metodi utili a gestire le richieste presentate dell'utente ed esegure determinate operazioni.
 */
 public final class CommandHandler {
+
+    /* === MESSAGGI === */
     private static final String MSG_INVALID = "Comando non valido";
     
-    private static final String CMD_PROVA1 = "/prova1";
-    private static final String CMD_PROVA2 = "/prova2";
+    /* === COMANDI === */
+    private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
+    private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
 
+    /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
 
     private CommandHandler() { }
@@ -65,7 +69,6 @@ public final class CommandHandler {
         String command = tokens[0];                 // contiene il comando
 
         switch (command) {
-            // eliminare comandi prova1 e prova2 quando non più utili
             case CMD_PROVA1:
                 if (needParams(tokens, 2)) {
                     // codice per eseguire comando "/prova1" con 2 parametri
