@@ -15,5 +15,13 @@ public class Portaerei extends Ship {
         name = "Portaerei";
     }
 
+    String getName() {
+        return name;
+    }
+
+    String getShipColoredSymbol() {
+        return PORTAEREI_COLOR;
+    }
+
 }
 
