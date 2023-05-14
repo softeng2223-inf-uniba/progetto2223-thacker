@@ -23,7 +23,7 @@ public class Corazzata extends Ship {
     String getShipColoredSymbol() {
         return CORAZZATA_COLOR;
     }
-    
+
     public String toString() {
         return CORAZZATA_COLOR + getShipSymbol() + getShipWhiteSymbol();
     }
