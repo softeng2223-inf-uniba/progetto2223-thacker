@@ -32,5 +32,9 @@ public abstract class Ship {
         return shipSize;
     }
 
+    public int getNumberOfInstances() {
+        return numberOfInstances;
+    }
+
 
 }
