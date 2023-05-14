@@ -26,7 +26,13 @@ public class Coordinate implements Cloneable {
         row = 0;
         col = 0;
     }
-
+    /**
+     * Costruisce un oggetto {@code Coordinates} prendendo come parametri
+     * due variabili di tipo {@code int} che rappresentano valore dell'indice
+     * delle righe e delle colonne.
+     * @param row indice della riga.
+     * @param col indice della colonna.
+     */
     public Coordinate(final int row, final int col) {
         this.row = row;
         this.col = col;
