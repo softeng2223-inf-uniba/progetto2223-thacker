@@ -31,7 +31,13 @@ public abstract class Ship {
      * andato a segno.
      */
     private int hitsTaken;
-
+    /**
+     * Unico costruttore della classe che sarà invocato
+     * dalle sottoclassi, in cui inizializziamo attributi
+     * da ereditare.
+     * @param size lunghezza della nave.
+     * @param val numero di istanze di una specializzazione di nave.
+     */
     public Ship(final int size, final int val) {
         shipSize = size;
         numberOfInstances = val;
