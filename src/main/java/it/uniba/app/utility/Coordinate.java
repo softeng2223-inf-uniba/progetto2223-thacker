@@ -7,4 +7,8 @@ package it.uniba.app.utility;
 public class Coordinate {
     private int row;
     private int col;
+
+    public int getRow() {
+        return row;
+    }
 }
