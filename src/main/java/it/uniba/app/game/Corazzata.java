@@ -10,6 +10,10 @@ public class Corazzata extends Ship {
     private static final String CORAZZATA_COLOR = "\u001B[32m";
 
     private String name;
-
+    
+    Corazzata() {
+        super(SHIP_SIZE, NUMBER_OF_INSTANCES);
+        name = "Corazzata";
+    }
  
 }
