@@ -94,7 +94,10 @@
 - (RF6) Il sistema deve permettere di mostrare il livello di dificoltà impostato.
 - (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
-- (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. 
+- (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
+  - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco 
+  - (RF9.2) `/gioca`: avvia una nuova partita.
+  - (RF9.3) `/esci`: chiude l'applicazione.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
