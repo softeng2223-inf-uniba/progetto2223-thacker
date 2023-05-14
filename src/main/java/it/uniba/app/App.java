@@ -1,6 +1,6 @@
 package it.uniba.app;
 
-import controllers.CommandHandler;
+import it.uniba.app.controllers.CommandHandler;
 
 /**
  * Main class of the application.
