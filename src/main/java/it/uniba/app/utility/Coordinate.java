@@ -8,7 +8,7 @@ public class Coordinate {
     private int row;
     private int col;
 
-    public Coordinate(){
+    public Coordinate() {
         row = 0;
         col = 0;
     }
