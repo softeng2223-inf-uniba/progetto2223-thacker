@@ -1,4 +1,4 @@
-package controllers;
+package it.uniba.app.controllers;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,7 +13,7 @@ public final class CommandHandler {
 
     /* === MESSAGGI === */
     private static final String MSG_INVALID = "Comando non valido";
-    
+
     /* === COMANDI === */
     private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
     private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
