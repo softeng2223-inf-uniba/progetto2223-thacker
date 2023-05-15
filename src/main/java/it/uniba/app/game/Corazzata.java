@@ -19,7 +19,10 @@ public class Corazzata extends Ship {
      * la nave all'interno della {@code Griglia delle Navi}.
      */
     private static final String CORAZZATA_COLOR = "\u001B[32m";
-
+    /**
+     * {@code name} contiene il nome della nave rappresentata
+     * da questa classe.
+     */
     private String name;
 
     Corazzata() {
