@@ -1,5 +1,12 @@
 package it.uniba.app.game;
-
+/**
+ * Specializzazione della classe {@code Ship} che rappresenta
+ * la nave {@code Cacciatorpediniere} di lunghezza 2, di
+ * cui possiamo avere 4 istanze.
+ * Contiene i metodi di accesso e i metodi necessari per la stampa
+ * delle informazioni relative alla nave e per la stampa
+ * della nave all'interno della {@code Griglia delle Navi}.
+ */
 public class Cacciatorpediniere extends Ship {
     /**
      * {@code SHIP_SIZE} rappresenta la lunghezza
