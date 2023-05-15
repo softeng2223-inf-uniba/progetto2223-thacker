@@ -109,6 +109,7 @@
   - (RNF1.2) Per Windows si consiglia di utilizzare Powershell o il terminale di git bash.
 - (RNF2) Per eseguire il container docker dell'app è necessario:
   - (RNF2.1) Avere installato docker sul proprio sistema operativo.
+  - (RNF2.2) Eseguire il comando docker pull copiandolo da GitHub Packages.
 - (RNF3) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
 ## (7) Manuale Utente
