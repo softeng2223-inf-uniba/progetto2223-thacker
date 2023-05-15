@@ -29,7 +29,7 @@ public class Corazzata extends Ship {
      * {@code name} contiene il nome della nave rappresentata
      * da questa classe.
      */
-    private String name;
+    private static final String SHIP_NAME = "Corazzata";
     /**
      * Costruttore della classe che chiama il costruttore
      * della superclasse per inizializzare gli attributi
@@ -45,7 +45,7 @@ public class Corazzata extends Ship {
      * @return nome della nave.
      */
     String getName() {
-        return name + "            ";
+        return SHIP_NAME + "            ";
     }
     /**
      * Restituisce la stringa che contiene il
