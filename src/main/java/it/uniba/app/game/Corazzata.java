@@ -1,6 +1,12 @@
 package it.uniba.app.game;
-
-
+/**
+ * Specializzazione della classe {@code Ship} che rappresenta
+ * la nave {@code Corazzata} di lunghezza 4, di
+ * cui possiamo avere 2 istanze.
+ * Contiene i metodi di accesso e i metodi necessari per la stampa
+ * delle informazioni relative alla nave e per la stampa
+ * della nave all'interno della {@code Griglia delle Navi}.
+ */
 public class Corazzata extends Ship {
     /**
      * {@code SHIP_SIZE} rappresenta la lunghezza
