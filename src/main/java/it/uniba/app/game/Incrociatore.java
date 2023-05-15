@@ -26,22 +26,23 @@ public class Incrociatore extends Ship {
      */
     private static final String INCROCIATORE_COLOR = "\u001B[34m";
     /**
-     * {@code name} contiene il nome della nave rappresentata
+     * {@code SHIP_NAME} contiene il nome della nave rappresentata
      * da questa classe.
      */
     private static final String SHIP_NAME = "Incrociatore";
     /**
      * Costruttore della classe che chiama il costruttore
      * della superclasse per inizializzare gli attributi
-     * ereditati e in piu' inizializza l'attributo
-     * {@code name} della nave.
+     * ereditati.
      */
     Incrociatore() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
     /**
-     * Restituisce il {@code name} della nave {@code Incrociatore}.
-     * @return nome della nave.
+     * Restituisce il {@code SHIP_NAME} della nave {@code Incrociatore}.
+     * @return nome della nave con un'aggiunta di spazio
+     * necessario per stampare correttamente la nave
+     * in risposta al comando {@code /mostranavi}.
      */
     String getName() {
         return SHIP_NAME + "         ";
