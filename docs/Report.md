@@ -103,6 +103,7 @@
   - (RF9.6) `/difficile`: imposta la difficoltà di gioco a _DIFFICILE_.
   - (RF9.7) `/mostranavi`: visualizza per ogni tipo di nave il nome, la dimensione in quadratini e il numero di esemplari da affondare.
   - (RF9.8) `/mostralivello`: visualizza il livello di difficoltà impostato e il numero massimo di tentativi fallibili.
+  - (RF9.9) `/svelagriglia`: svela la posizione delle navi nella griglia della partita in corso.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 e UTF-16.
   - (RNF1.1) Per linux e macos si consiglia di utilizzare il terminale di default.
