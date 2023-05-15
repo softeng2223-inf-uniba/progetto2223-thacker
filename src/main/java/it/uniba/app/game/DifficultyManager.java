@@ -30,9 +30,7 @@ public final class DifficultyManager {
 
     /* METHODS */
 
-    private DifficultyManager() {
-    
-    }
+    private DifficultyManager() { }
 
     /**
      * Imposta il livello Easy (Facile).
