@@ -21,6 +21,10 @@ public final class CommandHandler {
     private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
     private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
 
+    private static final String CMD_DIFF_EASY = "/facile";
+    private static final String CMD_DIFF_MED = "/medio";
+    private static final String CMD_DIFF_HARD = "/difficile";
+
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
 
@@ -87,15 +91,15 @@ public final class CommandHandler {
 
             /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
              */
-            case "/facile":
+            case CMD_DIFF_EASY:
                 DifficultyManager.setEasyLevel();
                 System.out.println("OK: " + DifficultyManager.getLevelName());  // TODO DM1
                 return true;
-            case "/medio":
+            case CMD_DIFF_MED:
                 DifficultyManager.setMedLevel();
                 System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM2
                 return true;
-            case "/difficile":
+            case CMD_DIFF_HARD:
                 DifficultyManager.setHardLevel();
                 System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM3
                 return true;
