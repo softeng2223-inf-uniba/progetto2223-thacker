@@ -21,6 +21,7 @@ public final class CommandHandler {
     /* === COMANDI === */
     private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
     private static final String CMD_PROVA2 = "/prova2"; // da rimuovere quando non più utile
+    private static final String CMD_DIFF_SHOW = "/mostralivello";
 
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
@@ -88,7 +89,7 @@ public final class CommandHandler {
                 }
                 break;
 
-            case "/mostralivello":
+            case CMD_DIFF_SHOW:
                 System.out.println(DifficultyManager.getLevelName());
                 System.out.println(DifficultyManager.getMaxFailedAttempts());
                 return true;
