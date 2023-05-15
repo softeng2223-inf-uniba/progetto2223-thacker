@@ -83,15 +83,28 @@ public abstract class Ship {
     public int getNumberOfInstances() {
         return numberOfInstances;
     }
-
+    /**
+     * Restituisce il numero di colpi
+     * che ha subito la singola nave.
+     * @return numero di colpi subiti da un oggetto nave.
+    */
     public int getHitsTaken() {
         return hitsTaken;
     }
-
+    /**
+     * Restituisce il simbolo quadrato condiviso da
+     * tutti i tipi di nave.
+     * @return Stringa che contiene il simbolo della nave scelto.
+     */
     public String getShipSymbol() {
         return SHIPS_SYMBOL;
     }
-
+    /**
+     * Restituisce la stringa che contiene
+     * il colore neutro da assegnare alla nave
+     * dopo la stampa.
+     * @return stringa con colore neutro.
+     */
     public String getShipWhiteSymbol() {
         return SYMBOL_WHITE_COLOR;
     }
