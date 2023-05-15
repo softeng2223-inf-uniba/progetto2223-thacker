@@ -18,7 +18,10 @@ public class Portaerei extends Ship {
      * la nave all'interno della {@code Griglia delle Navi}.
      */
     private static final String PORTAEREI_COLOR = "\u001B[33m";
-
+    /**
+     * {@code name} contiene il nome della nave rappresentata
+     * da questa classe.
+     */
     private String name;
 
     Portaerei() {
