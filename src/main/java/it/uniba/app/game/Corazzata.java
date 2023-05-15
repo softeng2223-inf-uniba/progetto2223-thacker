@@ -26,22 +26,23 @@ public class Corazzata extends Ship {
      */
     private static final String CORAZZATA_COLOR = "\u001B[32m";
     /**
-     * {@code name} contiene il nome della nave rappresentata
+     * {@code SHIP_NAME} contiene il nome della nave rappresentata
      * da questa classe.
      */
     private static final String SHIP_NAME = "Corazzata";
     /**
      * Costruttore della classe che chiama il costruttore
      * della superclasse per inizializzare gli attributi
-     * ereditati e in piu' inizializza l'attributo
-     * {@code name} della nave.
+     * ereditati.
      */
     Corazzata() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
     /**
      * Restituisce il {@code name} della nave {@code Corazzata}.
-     * @return nome della nave.
+     * @return nome della nave con un'aggiunta di spazio
+     * necessario per stampare correttamente la nave
+     * in risposta al comando {@code /mostranavi}.
      */
     String getName() {
         return SHIP_NAME + "            ";
