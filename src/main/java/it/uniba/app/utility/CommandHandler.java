@@ -3,7 +3,7 @@ package it.uniba.app.utility;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
-
+import it.uniba.app.utility.help.Help;
 /**
  * Modella un gestore di comandi.
  *
@@ -81,6 +81,14 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
+            case "/help":
+                try {
+                    Help.Stampatitolo();
+                    Help.Stampatesto();
+                    
+                } catch (IOException | InterruptedException e) {
+                    System.out.println("Eccezione: " + e.getMessage()); 
+                }
             default:
                 break;
         }
