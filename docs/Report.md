@@ -91,7 +91,7 @@
   - (RF5.1) Se la difficoltà è _FACILE_ il numero massimo di tentativi fallibili è 50.
   - (RF5.2) Se la difficoltà è _MEDIO_ il numero massimo di tentativi fallibili è 30.
   - (RF5.3) Se la difficoltà è _DIFFICILE_ il numero massimo di tentativi fallibili è 10.
-- (RF6) Il sistema deve permettere di mostrare il livello di dificoltà impostato.
+- (RF6) Il sistema deve permettere di mostrare il livello di difficoltà impostato.
 - (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
