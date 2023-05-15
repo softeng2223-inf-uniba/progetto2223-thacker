@@ -73,12 +73,16 @@ public final class CommandHandler {
                 if (needParams(tokens, 2)) {
                     // codice per eseguire comando "/prova1" con 2 parametri
                     return true;
+                } else {
+                    System.out.println("Numero di parametri errato");
                 }
                 break;
             case CMD_PROVA2:
                 if (needParams(tokens, 0)) {
                     // codice per eseguire comando "/prova2" con 0 parametri
                     return true;
+                } else {
+                    System.out.println("Numero di parametri errato");
                 }
                 break;
             default:
