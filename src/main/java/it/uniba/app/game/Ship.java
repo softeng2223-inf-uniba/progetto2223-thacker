@@ -59,15 +59,27 @@ public abstract class Ship {
      * @return stringa che contiene il colore della nave.
      */
     abstract String getShipColoredSymbol();
-
+    /**
+     * Restituisce il numero di tipi
+     * di nave presenti.
+     * @return numero di tipi di nave.
+     */
     public int getShipsNumber() {
         return SHIPS_NUMBER;
     }
-
+    /**
+     * Restituisce la dimensione
+     * della nave presa in considerazione.
+     * @return lunghezza nave.
+     */
     public int getShipSize() {
         return shipSize;
     }
-
+    /**
+     * Restituisce il numero di istanze
+     * massimo del tipo di nave.
+     * @return numero di istanze massimo per tipo di nave.
+     */
     public int getNumberOfInstances() {
         return numberOfInstances;
     }
