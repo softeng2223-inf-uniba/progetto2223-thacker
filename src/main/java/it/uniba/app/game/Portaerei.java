@@ -45,7 +45,7 @@ public class Portaerei extends Ship {
      * in risposta al comando {@code /mostranavi}.
      */
     String getName() {
-        return SHIP_NAME + "            ";
+        return SHIP_NAME;
     }
     /**
      * Restituisce la stringa che contiene il
