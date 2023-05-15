@@ -40,9 +40,7 @@ public class Incrociatore extends Ship {
     }
     /**
      * Restituisce il {@code SHIP_NAME} della nave {@code Incrociatore}.
-     * @return nome della nave con un'aggiunta di spazio
-     * necessario per stampare correttamente la nave
-     * in risposta al comando {@code /mostranavi}.
+     * @return nome della nave.
      */
     String getName() {
         return SHIP_NAME;
