@@ -29,7 +29,7 @@ public class Cacciatorpediniere extends Ship {
      * {@code name} contiene il nome della nave rappresentata
      * da questa classe.
      */
-    private String name;
+    private static final String SHIP_NAME = "Cacciatorpediniere";
     /**
      * Costruttore della classe che chiama il costruttore
      * della superclasse per inizializzare gli attributi
@@ -37,8 +37,7 @@ public class Cacciatorpediniere extends Ship {
      * {@code name} della nave.
      */
     Cacciatorpediniere() {
-        super(SHIP_SIZE, NUMBER_OF_INSTANCES);
-        name = "Cacciatorpediniere";
+        super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
     /**
      * Restituisce il {@code name} della nave {@code Cacciatorpediniere}.
