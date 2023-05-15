@@ -40,9 +40,7 @@ public class Portaerei extends Ship {
     }
     /**
      * Restituisce il {@code name} della nave {@code Portaerei}.
-     * @return nome della nave con un'aggiunta di spazio
-     * necessario per stampare correttamente la nave
-     * in risposta al comando {@code /mostranavi}.
+     * @return nome della nave.
      */
     String getName() {
         return SHIP_NAME;
