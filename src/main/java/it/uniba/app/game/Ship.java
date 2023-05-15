@@ -28,7 +28,10 @@ public abstract class Ship {
      * {@code shipSize} rappresenta la dimensione di ogni tipo di nave.
      */
     private int shipSize;
-
+    /**
+     * {@code name} contiene il nome della nave rappresentata
+     * dalla sottoclasse.
+     */
     private String name;
     /**
      * {@code numberOfInstances} indica il numero di
@@ -47,6 +50,7 @@ public abstract class Ship {
      * da ereditare.
      * @param size lunghezza della nave.
      * @param val numero di istanze di una specializzazione di nave.
+     * @param nome nome del tipo di nave specifico.
      */
     public Ship(final int size, final int val, final String nome) {
         shipSize = size;
