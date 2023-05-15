@@ -1,5 +1,12 @@
 package it.uniba.app.game;
-
+/**
+ * Specializzazione della classe {@code Ship} che rappresenta
+ * la nave {@code Portaerei} di lunghezza 5, di
+ * cui possiamo avere 1 istanze.
+ * Contiene i metodi di accesso e i metodi necessari per la stampa
+ * delle informazioni relative alla nave e per la stampa
+ * della nave all'interno della {@code Griglia delle Navi}.
+ */
 public class Portaerei extends Ship {
     /**
      * {@code SHIP_SIZE} rappresenta la lunghezza
