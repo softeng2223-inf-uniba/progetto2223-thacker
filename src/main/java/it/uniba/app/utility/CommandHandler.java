@@ -82,9 +82,10 @@ public final class CommandHandler {
                 }
                 break;
             default:
+                System.out.println(MSG_INVALID);
                 break;
         }
-        System.out.println(MSG_INVALID);
+
         return false;
     }
 
