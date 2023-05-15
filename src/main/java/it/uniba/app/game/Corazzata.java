@@ -34,15 +34,28 @@ public class Corazzata extends Ship {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES);
         name = "Corazzata";
     }
- 
+    /**
+     * Restituisce il {@code name} della nave {@code Corazzata}.
+     * @return nome della nave.
+     */
     String getName() {
         return name + "            ";
     }
-
+    /**
+     * Restituisce la stringa che contiene il
+     * colore del tipo di nave specifico.
+     * @return stringa che contiene il colore della nave.
+     */
     String getShipColoredSymbol() {
         return CORAZZATA_COLOR;
     }
-
+    /**
+     * Restituisce il simbolo comune alle navi colorato
+     * con il colore scelto per le navi {@code Corazzata}.
+     * Da utilizzare per la stampa della nave nella {@code Griglia
+     * delle Navi}.
+     * @return simbolo nave {@code Corazzata} colorato.
+     */
     public String toString() {
         return CORAZZATA_COLOR + getShipSymbol() + getShipWhiteSymbol();
     }
