@@ -37,8 +37,7 @@ public class Incrociatore extends Ship {
      * {@code name} della nave.
      */
     Incrociatore() {
-        super(SHIP_SIZE, NUMBER_OF_INSTANCES);
-        name = "Incrociatore";
+        super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
     /**
      * Restituisce il {@code name} della nave {@code Incrociatore}.
