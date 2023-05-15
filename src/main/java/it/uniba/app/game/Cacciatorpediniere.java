@@ -46,7 +46,7 @@ public class Cacciatorpediniere extends Ship {
      * .
      */
     String getName() {
-        return SHIP_NAME + "   ";
+        return SHIP_NAME;
     }
     /**
      * Restituisce la stringa che contiene il
