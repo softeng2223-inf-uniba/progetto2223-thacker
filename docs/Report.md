@@ -105,6 +105,7 @@
   - (RF9.8) `/mostralivello`: visualizza il livello di difficoltà impostato e il numero massimo di tentativi fallibili.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 e UTF-16.
+  - (RNF1.1) Per linux e macos si consiglia di utilizzare il terminale di default.
 - (RNF2) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
 ## (7) Manuale Utente
