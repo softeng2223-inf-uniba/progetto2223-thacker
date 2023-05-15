@@ -88,14 +88,14 @@
 - (RF3) Il sistema deve permettere di impostare la difficoltà di gioco tra _FACILE_, _MEDIO_ e _DIFFICILE_. 
 - (RF4) Il sistema, in base alla difficoltà impostata deve impostare il numero massimo di tentativi fallibili.
 - (RF5) Il sistema imposta i tentativi fallibili nel seguente modo:
-  - (RF5.1) Se la difficoltà è _FACILE_ il numero massimo di tentativi fallibili è 50
+  - (RF5.1) Se la difficoltà è _FACILE_ il numero massimo di tentativi fallibili è 50.
   - (RF5.2) Se la difficoltà è _MEDIO_ il numero massimo di tentativi fallibili è 30.
   - (RF5.3) Se la difficoltà è _DIFFICILE_ il numero massimo di tentativi fallibili è 10.
 - (RF6) Il sistema deve permettere di mostrare il livello di dificoltà impostato.
 - (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
-  - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco 
+  - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
   - (RF9.2) `/gioca`: avvia una nuova partita.
   - (RF9.3) `/esci`: chiude l'applicazione.
   - (RF9.4) `/facile`: imposta la difficoltà di gioco a _FACILE_.
