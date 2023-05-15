@@ -23,7 +23,12 @@ public class Portaerei extends Ship {
      * da questa classe.
      */
     private String name;
-
+    /**
+     * Costruttore della classe che chiama il costruttore
+     * della superclasse per inizializzare gli attributi
+     * ereditati e in piu' inizializza l'attributo
+     * {@code name} della nave.
+     */
     Portaerei() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES);
         name = "Portaerei";
