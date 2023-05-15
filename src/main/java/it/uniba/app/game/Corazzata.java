@@ -37,8 +37,7 @@ public class Corazzata extends Ship {
      * {@code name} della nave.
      */
     Corazzata() {
-        super(SHIP_SIZE, NUMBER_OF_INSTANCES);
-        name = "Corazzata";
+        super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
     /**
      * Restituisce il {@code name} della nave {@code Corazzata}.
