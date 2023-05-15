@@ -17,7 +17,7 @@ public class Corazzata extends Ship {
     }
  
     String getName() {
-        return name;
+        return name + "            ";
     }
 
     String getShipColoredSymbol() {
