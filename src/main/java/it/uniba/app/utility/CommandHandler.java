@@ -91,8 +91,10 @@ public final class CommandHandler {
 
             case CMD_DIFF_SHOW:
                 if (needParams(tokens, 0)) {
-                    System.out.println("Il livello di difficoltà selezionato è: " + DifficultyManager.getLevelName());
-                    System.out.println("Il numero massimo di tentativi falliti è: " + DifficultyManager.getMaxFailedAttempts());
+                    System.out.println("Il livello di difficoltà selezionato è: "
+                        + DifficultyManager.getLevelName());
+                    System.out.println("Il numero massimo di tentativi falliti è: "
+                        + DifficultyManager.getMaxFailedAttempts());
                     return true;
                 }
                 break;
