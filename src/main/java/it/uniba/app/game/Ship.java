@@ -43,9 +43,21 @@ public abstract class Ship {
         numberOfInstances = val;
         hitsTaken = 0;
     }
-
+    /**
+     * Restituisce il nome della nave presa
+     * in considerazione. Metodo astratto che verrà
+     * implementato nelle sottoclassi.
+     * @return il nome del tipo di nave
+     * su cui viene chiamata la funzione.
+    */
     abstract String getName();
-
+    /**
+     * Restituisce la stringa che contiene il
+     * colore del tipo di nave specifico.
+     * Metodo astratto che verrà implementato nelle
+     * sottoclassi.
+     * @return stringa che contiene il colore della nave.
+     */
     abstract String getShipColoredSymbol();
 
     public int getShipsNumber() {
