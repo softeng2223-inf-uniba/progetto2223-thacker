@@ -18,7 +18,10 @@ public class Incrociatore extends Ship {
      * la nave all'interno della {@code Griglia delle Navi}.
      */
     private static final String INCROCIATORE_COLOR = "\u001B[34m";
-
+    /**
+     * {@code name} contiene il nome della nave rappresentata
+     * da questa classe.
+     */
     private String name;
 
     Incrociatore() {
