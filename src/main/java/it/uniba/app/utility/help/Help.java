@@ -10,9 +10,6 @@ public class Help {
     static String testo = "";
     static String titolo = "";
 
-    static int p = 0;
-    static int i = 0;
-
     public static void Stampatitolo() throws IOException,InterruptedException{
         try {
             reader = new BufferedReader(new FileReader("src/main/java/it/uniba/app/utility/help/files/regole_base.txt"));
@@ -42,7 +39,7 @@ public class Help {
         }catch (InterruptedException p){
             System.out.println(p + "Thread interrotto");
         }catch (IOException e ){
-            System.out.println(p + "Errore di Input/Ouput");
+            System.out.println(e + "Errore di Input/Ouput");
         }
 
     }
