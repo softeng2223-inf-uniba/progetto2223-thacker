@@ -33,15 +33,28 @@ public class Incrociatore extends Ship {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES);
         name = "Incrociatore";
     }
-
+    /**
+     * Restituisce il {@code name} della nave {@code Incrociatore}.
+     * @return nome della nave.
+     */
     String getName() {
         return name + "         ";
     }
-
+    /**
+     * Restituisce la stringa che contiene il
+     * colore del tipo di nave specifico.
+     * @return stringa che contiene il colore della nave.
+     */
     String getShipColoredSymbol() {
         return INCROCIATORE_COLOR;
     }
-
+    /**
+     * Restituisce il simbolo comune alle navi colorato
+     * con il colore scelto per le navi Corazzata.
+     * Da utilizzare per la stampa della nave nella {@code Griglia
+     * delle Navi}.
+     * @return simbolo nave {@code Incrociatore} colorato.
+     */
     public String toString() {
         return INCROCIATORE_COLOR + getShipSymbol() + getShipWhiteSymbol();
     }
