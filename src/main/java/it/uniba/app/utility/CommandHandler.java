@@ -2,6 +2,9 @@ package it.uniba.app.utility;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
+import it.uniba.app.game.DifficultyManager;
+
 import java.io.IOException;
 
 /**
@@ -86,8 +89,9 @@ public final class CommandHandler {
                 break;
 
             case "/mostralivello":
-
-                break;
+                System.out.println(DifficultyManager.getLevelName());
+                System.out.println(DifficultyManager.getMaxFailedAttempts());
+                return true;
 
             default:
                 break;
