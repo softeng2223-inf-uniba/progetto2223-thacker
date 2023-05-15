@@ -1,5 +1,13 @@
 package it.uniba.app.game;
-
+/**
+ * La classe astratta 'Ship' è utilizzata come serbatoio
+ * di conoscenza per le sue sottoclassi. Contiene gli
+ * attributi comuni a tutte le sottoclassi, che verranno
+ * ereditati e inizializzati in maniera opportuna.
+ * Inoltre, contiene i metodi di accesso agli attributi
+ * e il metodo {@code incrementHitsTaken}, che servirà per
+ * salvare il numero di colpi subiti da un oggetto {@code nave}.
+ */
 public abstract class Ship {
     /**
      * {@code SHIPS_NUMBER} rappresenta il numero di tipi di nave
