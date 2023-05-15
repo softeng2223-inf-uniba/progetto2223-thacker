@@ -37,8 +37,7 @@ public class Portaerei extends Ship {
      * {@code name} della nave.
      */
     Portaerei() {
-        super(SHIP_SIZE, NUMBER_OF_INSTANCES);
-        name = "Portaerei";
+        super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
     /**
      * Restituisce il {@code name} della nave {@code Portaerei}.
