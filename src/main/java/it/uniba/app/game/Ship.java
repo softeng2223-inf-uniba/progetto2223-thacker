@@ -28,6 +28,8 @@ public abstract class Ship {
      * {@code shipSize} rappresenta la dimensione di ogni tipo di nave.
      */
     private int shipSize;
+
+    private String name;
     /**
      * {@code numberOfInstances} indica il numero di
      * istanze massimo per tipo di nave.
