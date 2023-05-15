@@ -2,11 +2,22 @@ package it.uniba.app.game;
 
 
 public class Corazzata extends Ship {
-
+    /**
+     * {@code SHIP_SIZE} rappresenta la lunghezza
+     * della nave {@code Corazzata}.
+     */
     private static final int SHIP_SIZE = 4;
-
+    /**
+     * {@code NUMBER_OF_INSTANCES} rappresenta il numero di navi
+     * {@code Corazzata} che si possono istanziare
+     * durante una partita.
+    */
     private static final int NUMBER_OF_INSTANCES = 2;
-
+    /**
+     * {@code CORAZZATA_COLOR} contiene il colore scelto
+     * per la nave Corazzata che servirà per rappresentare
+     * la nave all'interno della {@code Griglia delle Navi}.
+     */
     private static final String CORAZZATA_COLOR = "\u001B[32m";
 
     private String name;
