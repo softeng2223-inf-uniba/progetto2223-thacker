@@ -48,10 +48,11 @@ public abstract class Ship {
      * @param size lunghezza della nave.
      * @param val numero di istanze di una specializzazione di nave.
      */
-    public Ship(final int size, final int val) {
+    public Ship(final int size, final int val, final String nome) {
         shipSize = size;
         numberOfInstances = val;
         hitsTaken = 0;
+        name = nome;
     }
     /**
      * Restituisce il nome della nave presa
