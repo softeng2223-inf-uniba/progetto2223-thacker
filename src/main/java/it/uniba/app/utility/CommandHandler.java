@@ -2,6 +2,9 @@ package it.uniba.app.utility;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
+import it.uniba.app.game.DifficultyManager;
+
 import java.io.IOException;
 
 /**
@@ -81,6 +84,22 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
+
+            /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
+             */
+            case "/facile":
+                DifficultyManager.setEasyLevel();
+                System.out.println("OK: " + DifficultyManager.getLevelName());  // TODO DM1
+                return true;
+            case "/medio":
+                DifficultyManager.setMedLevel();
+                System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM2
+                return true;
+            case "/difficile":
+                DifficultyManager.setHardLevel();
+                System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM3
+                return true;
+
             default:
                 break;
         }
