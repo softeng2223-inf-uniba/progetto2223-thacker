@@ -7,21 +7,23 @@ import java.io.IOException;
 /**
  * Modella un gestore di comandi.
  *
- * Fornisce metodi utili a gestire le richieste presentate dell'utente ed esegure determinate operazioni.
-*/
+ * Fornisce metodi utili a gestire le richieste presentate dell'utente ed
+ * esegure determinate operazioni.
+ */
 public final class CommandHandler {
 
     /* === MESSAGGI === */
     private static final String MSG_INVALID = "Comando non valido";
 
     /* === COMANDI === */
-    private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
-    private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
+    private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
+    private static final String CMD_PROVA2 = "/prova2"; // da rimuovere quando non più utile
 
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
 
-    private CommandHandler() { }
+    private CommandHandler() {
+    }
 
     /**
      * Richiede all'utente di digitare un comando dal terminale,
@@ -46,7 +48,8 @@ public final class CommandHandler {
     }
 
     /**
-     * Invia un messaggio e poi richiede all'utente di digitare un comando dal terminale,
+     * Invia un messaggio e poi richiede all'utente di digitare un comando dal
+     * terminale,
      * Il quale verrà successivamente convertito in Stringa.
      *
      * @param inputMessage messaggio da inviare prima della richiesta di input
@@ -65,8 +68,8 @@ public final class CommandHandler {
      * @return true se il comando è stato eseguito correttamente, false altrimenti
      */
     public static boolean executeCommand(final String input) {
-        String[] tokens = input.split(" ");   // contiene il comando e i parametri
-        String command = tokens[0];                 // contiene il comando
+        String[] tokens = input.split(" "); // contiene il comando e i parametri
+        String command = tokens[0]; // contiene il comando
 
         switch (command) {
             case CMD_PROVA1:
@@ -81,6 +84,11 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
+
+            case "/mostralivello":
+
+                break;
+
             default:
                 break;
         }
@@ -97,7 +105,7 @@ public final class CommandHandler {
      * @return true se il comando ha params parametri, false altrimenti
      */
     private static boolean needParams(final String[] tokens, final int params) {
-        if (tokens.length != params + 1) {  // +1 perchè tokens[0] è il comando
+        if (tokens.length != params + 1) { // +1 perchè tokens[0] è il comando
             return false;
         }
         return true;
@@ -108,9 +116,10 @@ public final class CommandHandler {
      * contiene un numero di parametri compreso tra min e max.
      *
      * @param tokens comando da eseguire con i parametri
-     * @param min numero minimo di parametri che il comando deve avere
-     * @param max numero massimo di parametri che il comando deve avere
-     * @return true se il comando ha un numero di parametri compreso tra min e max, false altrimenti
+     * @param min    numero minimo di parametri che il comando deve avere
+     * @param max    numero massimo di parametri che il comando deve avere
+     * @return true se il comando ha un numero di parametri compreso tra min e max,
+     *         false altrimenti
      */
     private static boolean needParams(final String[] tokens, final int min, final int max) {
         int minNumOfTokens = min + 1; // +1 perchè tokens[0] è il comando
