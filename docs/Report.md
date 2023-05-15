@@ -107,8 +107,8 @@
 - (RNF1) Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 e UTF-16.
   - (RNF1.1) Per linux e macos si consiglia di utilizzare il terminale di default.
   - (RNF1.2) Per Windows si consiglia di utilizzare Powershell o il terminale di git bash.
-- (RNF2) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
-- (RNF3) Per eseguire il container docker dell'app è necessario:
+- (RNF2) Per eseguire il container docker dell'app è necessario:
+- (RNF3) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
 ## (7) Manuale Utente
 
