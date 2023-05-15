@@ -108,7 +108,10 @@ public abstract class Ship {
     public String getShipWhiteSymbol() {
         return SYMBOL_WHITE_COLOR;
     }
-
+    /**
+     * Incrementa il valore dell'attributo {@code hitsTaken}
+     * di 1 ogni volta che la nave viene colpita.
+    */
     public void incrementHitsTaken() {
         hitsTaken++;
     }
