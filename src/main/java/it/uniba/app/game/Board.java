@@ -59,4 +59,13 @@ public class Board {
     public void setElement(final Coordinate coord, final Ship ship) {
         shipMap[coord.getRow()][coord.getCol()] = ship;
     }
+
+    /**
+     * JavaDoc momentaneo.
+     * @param coord
+     * @return qualcosa
+     */
+    public Ship getElement(final Coordinate coord) {
+        return shipMap[coord.getRow()][coord.getCol()];
+    }
 }
