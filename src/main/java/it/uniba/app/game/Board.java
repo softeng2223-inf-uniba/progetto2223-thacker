@@ -147,9 +147,9 @@ public class Board {
     }
 
     /**
-     * JavaDoc Momentaneo.
-     * @param coord momentaneo
-     * @return momentaneo
+     * Controlla se la cella definita dalle coordinate passate come parametro è già stata colpita.
+     * @param coord  coordinate della cella da controllare.
+     * @return {@code true} se la cella è già stata colpita, {@code false} altrimenti.
      */
     public boolean isAlreadyMarked(final Coordinate coord) {
         if (get(coord) == "X" || get(coord) == "~") {
