@@ -25,14 +25,12 @@ public final class DifficultyManager {
     private static final int HARD_MAX_ATTEMPTS = 10;
 
     /* VARIABLES */
-    private static String curLevelName;
-    private static int maxFailable;
+    private static String curLevelName = EASY_NAME;
+    private static int maxFailable = EASY_MAX_ATTEMPTS;
 
     /* METHODS */
 
-    private DifficultyManager() {
-        setEasyLevel();
-    }
+    private DifficultyManager() { }
 
     /**
      * Imposta il livello Easy (Facile).
