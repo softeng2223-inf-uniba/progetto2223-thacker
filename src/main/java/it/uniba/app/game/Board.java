@@ -41,4 +41,13 @@ public class Board {
     public boolean isCellAvailable(final Coordinate coord) {
         return shipMap[coord.getRow()][coord.getCol()] == null;
     }
+
+    /**
+     * JavaDoc momentaneo.
+     * @param coord
+     * @return
+     */
+    public boolean isCellOccupiedByShip(final Coordinate coord) {
+        return shipMap[coord.getRow()][coord.getCol()] != null;
+    }
 }
