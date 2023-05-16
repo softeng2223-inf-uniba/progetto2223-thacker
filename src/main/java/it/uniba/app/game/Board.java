@@ -105,8 +105,8 @@ public class Board {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @return momentaneo.
+     * Restituisce la mappa dei colpi contenuta all'interno di {@code Board}.
+     * @return mappa dei colpi.
      */
     public String[][] getPlayerMap() {
         return playerMap;
