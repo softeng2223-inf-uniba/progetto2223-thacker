@@ -38,14 +38,7 @@ public class Cacciatorpediniere extends Ship {
     Cacciatorpediniere() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
-    /**
-     * Restituisce il {@code SHIP_NAME} della nave {@code Cacciatorpediniere}.
-     * @return nome della nave.
-     * .
-     */
-    String getName() {
-        return SHIP_NAME;
-    }
+
     /**
      * Restituisce la stringa che contiene il
      * colore del tipo di nave specifico.
