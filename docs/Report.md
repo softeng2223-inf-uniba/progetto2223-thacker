@@ -10,11 +10,19 @@ In ogni modalità vi è un numero massimo di tentativi fallibili:
 - Difficoltà `media`: 30. 
 - Difficoltà `difficile`: 10.
 
-La modalità sarà scelta prima di iniziare il gioco. 
-Nel gioco sono presenti **due mappe**, entrambe di dimensione `10x10` (concordata con il _Product Owner_). 
-Le celle della tabella sono identificate da coordinate che contengono i valori di riga e colonna: le colonne sono identificate da **lettere** e le righe da **numeri**. 
-Le righe numerate da _1 a 10_ e le colonne messe in ordine dalla _A alla J_ (un esempio: `F-3`, e così via). 
+La modalità sarà scelta prima di iniziare il gioco. <br/>
+Nel gioco sono presenti **due mappe**, entrambe di dimensione `10x10` (concordata con il _Product Owner_). <br/>
+Le celle della tabella sono identificate da coordinate che contengono i valori di riga e colonna: le colonne sono identificate da **lettere** e le righe da **numeri**. <br/>
+Le righe numerate da _1 a 10_ e le colonne messe in ordine dalla _A alla J_ (un esempio: `F-3`, e così via). <br/>
 Le navi saranno posizionate automaticamente tramite un algoritmo, tenendole nascoste al giocatore.
+
+Due o più navi _possono toccarsi_.<br/>
+Una nave occupa un certo numero di celle in modo verticale oppure orizzontale (non in obliquo). <br/> 
+Esistono **quattro** tipi di navi di diverse dimensioni:  
+- la nave `Cacciatorpediniere` ha dimensione `2` (occupa due celle); 
+- la nave `Incrociatore` di dimensione `3` (occupa tre celle); 
+- la nave `Corazzata` di dimensione `4` (occupa quattro celle); 
+- la nave `Portaerei` di dimensione `5` (occupa cinque celle);
 ## (2) Modello di Dominio
 
 ### diagramma
