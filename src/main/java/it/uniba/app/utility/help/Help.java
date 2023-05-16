@@ -2,6 +2,7 @@ package it.uniba.app.utility.help;
 
 import java.io.IOException;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 /**
  * <p>
@@ -19,6 +20,10 @@ public final class Help {
      *
      */
     private static final int THREAD_DELAY_TEXT = 5;
+
+
+    private static final File TITLE_FILE = new File("src/main/java/it/uniba/app/utility/help/title.txt");
+
     /**
      * <p>
      * Costruttore privato di Help.
@@ -38,7 +43,7 @@ public final class Help {
         BufferedReader reader = null;
         String title = "";
         try {
-        reader = new BufferedReader(new FileReader("src/main/java/it/uniba/app/utility/help/title.txt"));
+        reader = new BufferedReader(new FileReader(TITLE_FILE));
             while (reader.read() != -1) {
                 title = reader.readLine();
                 Thread.sleep(THREAD_DELAY_TITLE);
