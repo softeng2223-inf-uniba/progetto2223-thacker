@@ -1,4 +1,4 @@
-package it.uniba.app.utility.Help;
+package it.uniba.app.utility.help;
 
 import java.io.IOException;
 import java.io.BufferedReader;
