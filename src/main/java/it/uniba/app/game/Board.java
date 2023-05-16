@@ -45,6 +45,10 @@ public class Board {
         }
     }
 
+    /**
+     * Restituisce un valore {@code int} che rappresenta la dimensione delle mappe.
+     * @return dimensione mappe.
+     */
     public static int getSize() {
         return NUM_OF_CELL;
     }
