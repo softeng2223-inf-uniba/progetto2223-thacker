@@ -68,4 +68,13 @@ public class Board {
     public Ship getElement(final Coordinate coord) {
         return shipMap[coord.getRow()][coord.getCol()];
     }
+
+/**
+     * JavaDoc momentaneo.
+     * @return momentaneo.
+     */
+    public Ship[][] getshipMap() {
+        return shipMap;
+    }
+
 }
