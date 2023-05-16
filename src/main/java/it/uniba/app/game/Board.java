@@ -123,9 +123,9 @@ public class Board {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param coord momentaneo
-     * @return momentaneo
+     * Restituisce il valore che trova nella mappa {@code playerMap} nella cella definita dalle coordinate.
+     * @param coord coordinate della cella in cui inserire il valore.
+     * @return valore della cella individuata dalle coordinate.
      */
     private String get(final Coordinate coord) {
         return playerMap[coord.getRow()][coord.getCol()];
