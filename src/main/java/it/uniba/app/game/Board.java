@@ -101,4 +101,16 @@ public class Board {
         return playerMap[coord.getRow()][coord.getCol()];
     }
 
+/**
+     * JavaDoc Momentaneo.
+     * @param coord momentaneo
+     * @return momentaneo
+     */
+    public boolean isAlreadyMarked(final Coordinate coord) {
+        if (get(coord) == "X" || get(coord) == "~") {
+            return false;
+        }
+        return true;
+    }
+
 }
