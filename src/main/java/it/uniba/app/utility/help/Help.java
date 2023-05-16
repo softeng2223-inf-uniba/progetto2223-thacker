@@ -28,6 +28,8 @@ public final class Help {
      * <b> Classe PrintTitle</b>
      * </p>
      * Legge il file title.txt e stampa a video ogni stringa da cui è composto quest'ultimo. 
+     * </p>
+     * Tra la stampa di una stringa  e l'altra c'è un delay di 100 millisecondi.
      * 
      */
     private static void printTitle() throws IOException {
@@ -50,7 +52,12 @@ public final class Help {
         reader.close();
     }
     /**
-     * PROVA.
+     * <p>
+     * <b>Classe printText</b>
+     * </p>
+     * Legge il file text.txt e stampa a video ogni carattere da cui è composto quest'ultimo.
+     * </p>
+     * Tra la stampa di un carattere e l'altro c'è un delay di 5 millisecondi.
      */
     private static void printText() throws IOException {
         BufferedReader readerText = null;
@@ -69,7 +76,7 @@ public final class Help {
         readerText.close();
     }
     /**
-     * prova.
+     * 
      */
     public static void printHelp() {
         try {
