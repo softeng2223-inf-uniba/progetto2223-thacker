@@ -38,7 +38,7 @@ public final class Help {
         BufferedReader reader = null;
         String title = "";
         try {
-        reader = new BufferedReader(new FileReader("c:/Users/stefa/Desktop/HelpStefano/title.txt"));
+        reader = new BufferedReader(new FileReader("src/main/java/it/uniba/app/utility/help/title.txt"));
             while (reader.read() != -1) {
                 title = reader.readLine();
                 Thread.sleep(THREAD_DELAY_TITLE);
