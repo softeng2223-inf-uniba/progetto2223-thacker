@@ -59,11 +59,8 @@ public abstract class Ship {
         name = nome;
     }
     /**
-     * Restituisce il nome della nave presa
-     * in considerazione. Metodo astratto che verrà
-     * implementato nelle sottoclassi.
+     * Restituisce il nome della nave presa in considerazione.
      * @return il nome del tipo di nave
-     * su cui viene chiamata la funzione.
     */
     public String getName() {
         return name;
