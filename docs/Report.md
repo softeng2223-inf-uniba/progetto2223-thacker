@@ -28,7 +28,9 @@ Il giocatore deve **distruggere**:
 - `4` navi di tipo `Cacciatorpediniere`; 
 - `3` navi di tipo `Incrociatore`; 
 - `2` navi di tipo `Corazzata`; 
-- `1` navi di tipo `Portaerei`; <br/> 
+- `1` navi di tipo `Portaerei`; 
+
+**Una volta posizionate le navi, inizierà il gioco.**
 
 Il giocatore/utente **spara un colpo** scegliendo una cella (per esempio `A-8`, ovvero prima colonna e ottava riga). <br/> 
 All'inizio la mappa dei colpi a disposizione dell'utente mostrerà in _tutte_ le sue celle un simbolo che indica che quella cella non è stata ancora colpita.  
@@ -36,7 +38,15 @@ Dopo aver effettuato il colpo, la mappa si aggiornerà in base a cosa è stato c
 - se colpiremo un pezzo della nave, visualizzeremo la "X"; 
 - se colpiremo l'acqua, ovvero nessuna nave, allora visualizzeremo il seguente simbolo "~".
 
-**Una volta posizionate le navi, inizierà il gioco.**
+La **partita finirà** se: 
+- abbiamo affondato tutte le navi posizionate sulla mappa; 
+- abbiamo esaurito il numero massimo di tentativi fallibili messi a disposizione dal gioco in base al livello. 
+
+Durante la partita: 
+- _si può uscire dal gioco_; 
+- _è possibile svelare la griglia con le navi posizionate sotto richiesta del giocatore_.
+
+
 ## (2) Modello di Dominio
 
 ### diagramma
