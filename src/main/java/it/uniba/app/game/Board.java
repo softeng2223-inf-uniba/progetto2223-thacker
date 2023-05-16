@@ -91,4 +91,14 @@ public class Board {
     private void set(final Coordinate coord, final String val) {
         playerMap[coord.getRow()][coord.getCol()] = val;
     }
+
+    /**
+     * JavaDoc momentaneo.
+     * @param coord momentaneo
+     * @return momentaneo
+     */
+    private String get(final Coordinate coord) {
+        return playerMap[coord.getRow()][coord.getCol()];
+    }
+
 }
