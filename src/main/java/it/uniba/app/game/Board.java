@@ -27,7 +27,10 @@ public class Board {
     private String[][] playerMap;
 
     /**
-     * JavaDoc momentaneo.
+     * Il costruttore {@code Board} inizializza sia la mappa dei colpi
+     * che la mappa delle navi con elementi di default.
+     * Essenzialmente, predispone entrambe le mappe per il posizionamento
+     * delle navi e il lancio dei colpi.
      */
     public Board() {
         shipMap = new Ship[NUM_OF_CELL][NUM_OF_CELL];
