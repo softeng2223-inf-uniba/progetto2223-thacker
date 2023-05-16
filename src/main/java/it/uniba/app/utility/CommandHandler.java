@@ -94,7 +94,7 @@ public final class CommandHandler {
                     PrintHandler.print("Il livello di difficoltà selezionato è: ");
                     PrintHandler.print(DifficultyManager.getLevelName());
                     PrintHandler.print("Il numero massimo di tentativi falliti è: ");
-                    PrintHandler.print(DifficultyManager.getMaxFailedAttempts());
+                    PrintHandler.print(String.valueOf(DifficultyManager.getMaxFailedAttempts()));
                     return true;
                 }
                 break;
