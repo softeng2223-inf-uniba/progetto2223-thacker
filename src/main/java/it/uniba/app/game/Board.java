@@ -84,4 +84,11 @@ public class Board {
     public String[][] getPlayerMap() {
         return playerMap;
     }
+
+    /**
+     * JavaDoc momentaneo.
+     */
+    private void set(final Coordinate coord, final String val) {
+        playerMap[coord.getRow()][coord.getCol()] = val;
+    }
 }
