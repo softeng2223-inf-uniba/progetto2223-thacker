@@ -3,7 +3,12 @@
 ## (1) Introduzione
 _Benvenuti_ nell'introduzione del progetto di **Battaglia Navale**.  
 La nostra **BattleShip** permette di giocare in solitaria contro un giocatore virtuale (il computer).  
+
 Ci sono varie modalità di gioco: facile, medio e difficile.
+In ogni modalità vi è un numero massimo di tentativi fallibili: 
+- Difficoltà `facile`: 50. 
+- Difficoltà `media`: 30. 
+- Difficoltà `difficile`: 10.
 ## (2) Modello di Dominio
 
 ### diagramma
