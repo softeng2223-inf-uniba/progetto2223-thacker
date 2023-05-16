@@ -29,6 +29,13 @@ Il giocatore deve **distruggere**:
 - `3` navi di tipo `Incrociatore`; 
 - `2` navi di tipo `Corazzata`; 
 - `1` navi di tipo `Portaerei`; <br/> 
+
+Il giocatore/utente **spara un colpo** scegliendo una cella (per esempio `A-8`, ovvero prima colonna e ottava riga). <br/> 
+All'inizio la mappa dei colpi a disposizione dell'utente mostrerà in _tutte_ le sue celle un simbolo che indica che quella cella non è stata ancora colpita.  
+Dopo aver effettuato il colpo, la mappa si aggiornerà in base a cosa è stato colpito: <br/> 
+- se colpiremo un pezzo della nave, visualizzeremo la "X"; 
+- se colpiremo l'acqua, ovvero nessuna nave, allora visualizzeremo il seguente simbolo "~".
+
 **Una volta posizionate le navi, inizierà il gioco.**
 ## (2) Modello di Dominio
 
