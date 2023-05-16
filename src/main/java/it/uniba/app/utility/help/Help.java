@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 /**
- * prova.
+ * <p>
+ * Classe principale. Contiene le funzioni che stampa a video il file di testo
+ * contenente le istruzioni per l'utilizzo del programma.
  */
 public final class Help {
     /**
@@ -19,20 +21,16 @@ public final class Help {
     private static final int THREAD_DELAY_TEXT = 5;
     /**
      * <p>
-     * <b>Costruttore della  classe</b>
+     * Costruttore privato di Help.
      * </p>
-     * Ha zero argomenti.
-     *
-     *  Dichiarato privato al fine di evitare l'istanziazione della classe
-     *  (che è una classe di sola utilità e non ha bisogno di essere istanziata).
+     * Ha zero argomenti.Dichiarato privato al fine di evitare l'istanziazione della classe
+     * (che è una classe di sola utilità e non ha bisogno di essere istanziata).
      */
     private Help() { }
     /**
      * <p>
-     * <b> Classe PrintTitle</b>
-     * </p>
      * Legge il file title.txt e stampa a video ogni stringa da cui è composto quest'ultimo.
-     *
+     * </p>
      * Tra la stampa di una stringa  e l'altra c'è un delay di 100 millisecondi.
      *
      */
@@ -57,10 +55,9 @@ public final class Help {
     }
     /**
      * <p>
-     * <b>Classe printText</b>
-     * </p>
-     * Legge il file text.txt e stampa a video ogni carattere da cui è composto quest'ultimo.
      *
+     * Legge il file text.txt e stampa a video ogni carattere da cui è composto quest'ultimo.
+     *</p>
      * Tra la stampa di un carattere e l'altro c'è un delay di 5 millisecondi.
      */
     private static void printText() throws IOException {
@@ -81,8 +78,6 @@ public final class Help {
     }
     /**
      * <p>
-     * <b>Classe printHelp</b>
-     * </p>
      * Invoca le uniche due funzioni di Help: printTitle e printText.
      *
      */
