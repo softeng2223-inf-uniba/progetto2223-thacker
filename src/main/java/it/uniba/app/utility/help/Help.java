@@ -76,7 +76,11 @@ public final class Help {
         readerText.close();
     }
     /**
-     * 
+     * <p>
+     * <b>Classe printHelp</b>
+     * </p>
+     * Invoca le uniche due funzioni di Help: printTitle e printText.
+     * </p>
      */
     public static void printHelp() {
         try {
