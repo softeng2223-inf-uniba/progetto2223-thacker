@@ -21,9 +21,14 @@ public final class Help {
      */
     private static final int THREAD_DELAY_TEXT = 5;
 
-
+    /**
+    * Variabile che contiene il file title.txt.
+    */
     private static final File TITLE_FILE = new File("src/main/java/it/uniba/app/utility/help/title.txt");
 
+    /**
+    * Variabile che contiene il file text.txt.
+    */
     private static final File TEXT_FILE = new File("src/main/java/it/uniba/app/utility/help/text.txt");
 
     /**
