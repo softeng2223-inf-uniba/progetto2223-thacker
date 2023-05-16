@@ -14,12 +14,20 @@ public final class Help {
      * 
      */
     private static final int THREAD_DELAY_TEXT = 5;
-    /**
-     * Classe principale. 
-     * Al suo interno sono contenuti i due metodi di classe PrintTitle e PrintText, i quali permettono relativamente di stampare il titolo e il testo dai corrispondenti file di testo.
+    /**<p>
+     * <b>Costruttore della  classe</b>
+     * </p>
+     * Ha zero argomenti. 
+     * </p>
+     *  Dichiarato privato al fine di evitare l'istanziazione della classe 
+     * <p> 
      */
     private Help() { }
     /**
+     * <p>
+     * <b> Classe PrintTitle</b>
+     * </p>
+     * Legge il file title.txt e stampa a video ogni stringa da cui è composto quest'ultimo. 
      * 
      */
     private static void printTitle() throws IOException {
