@@ -24,6 +24,8 @@ public final class Help {
 
     private static final File TITLE_FILE = new File("src/main/java/it/uniba/app/utility/help/title.txt");
 
+    private static final File TEXT_FILE = new File("src/main/java/it/uniba/app/utility/help/text.txt");
+
     /**
      * <p>
      * Costruttore privato di Help.
@@ -68,7 +70,7 @@ public final class Help {
     private static void printText() throws IOException {
         BufferedReader readerText = null;
         try {
-            readerText = new BufferedReader(new FileReader("src/main/java/it/uniba/app/utility/help/text.txt"));
+            readerText = new BufferedReader(new FileReader(TEXT_FILE));
             int num;
             while ((num = readerText.read()) != -1) {
                 System.out.print((char) num);
