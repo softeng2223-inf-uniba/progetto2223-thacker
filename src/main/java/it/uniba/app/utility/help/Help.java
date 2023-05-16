@@ -6,19 +6,21 @@ import java.io.FileReader;
  */
 public final class Help {
     /**
-     * prova.
+     * Variabile costante che indica il tempo di attesa tra la stampa di una stringa del titolo e la successiva, in millisecondi.
      */
     private static final int THREAD_DELAY_TITLE = 100;
     /**
-     * prova.
+     * Variabile costante che indica il tempo di attesa tra la stampa di un carattere e l'altro, in millisecondi.
+     * 
      */
     private static final int THREAD_DELAY_TEXT = 5;
     /**
-     * PROVA.
+     * Classe principale. 
+     * Al suo interno sono contenuti i due metodi di classe PrintTitle e PrintText, i quali permettono relativamente di stampare il titolo e il testo dai corrispondenti file di testo.
      */
     private Help() { }
     /**
-     * prova.
+     * 
      */
     private static void printTitle() throws IOException {
         BufferedReader reader = null;
