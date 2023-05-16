@@ -65,9 +65,11 @@ public class Board {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param coord
-     * @return
+     * Controlla se, nelle coordinate passate come parametro del metodo, esiste una nave
+     * nella cella indicata dalle coordinate in {@code shipMap}. Se la cella della mappa contiene
+     * una nave, restituisce {@code true}, altrimenti {@code false}.
+     * @param coord coordinate su cui effettuare il controllo sulla mappa.
+     * @return {@code true} se la cella definita dalle coordinate è occupata da una nave, {@code false} altrimenti.
      */
     public boolean isCellOccupiedByShip(final Coordinate coord) {
         return shipMap[coord.getRow()][coord.getCol()] != null;
