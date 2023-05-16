@@ -4,14 +4,25 @@ import java.util.Arrays;
 import it.uniba.app.utility.Coordinate;
 
 /**
- * JavaDoc momentaneo.
+ * Rappresenta la tavola da gioco nella sua interezza, comprende la mappa dei {@code colpi}
+ * e la mappa {@code navi}.
+ * Presenta un solo costruttore con zero argomenti che inizializza entrambe le mappe.
+ * <p><quoteblock><pre>
+ * Board tavola = new Board();
+ * </pre></p>
+ * La classe {@code Board} espone metodi per accedere ai campi di entrambe le mappe
+ * e per effettuare controlli, come per esempio {@code isCellOccupiedByShip} che prende
+ * in input un oggetto di tipo {@link Coordinates}.
+ * <p><quoteblock><pre>
+ * if (!isCellOccupiedByShip(myCoord)) {
+ *      tavola.setElement(myCoord, myShip);
+ * }
+ * </pre></p>
  */
 public class Board {
     private static final int NUM_OF_CELL = 10;
     private static final String DOT = "\u00B7";
-    /**
-     * JavaDoc momentaneo.
-     */
+
     private Ship[][] shipMap;
     private String[][] playerMap;
 
@@ -125,5 +136,4 @@ public class Board {
         }
         return true;
     }
-
 }
