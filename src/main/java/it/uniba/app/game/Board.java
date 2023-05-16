@@ -69,7 +69,7 @@ public class Board {
         return shipMap[coord.getRow()][coord.getCol()];
     }
 
-/**
+    /**
      * JavaDoc momentaneo.
      * @return momentaneo.
      */
@@ -77,4 +77,11 @@ public class Board {
         return shipMap;
     }
 
+    /**
+     * JavaDoc momentaneo.
+     * @return momentaneo.
+     */
+    public String[][] getPlayerMap() {
+        return playerMap;
+    }
 }
