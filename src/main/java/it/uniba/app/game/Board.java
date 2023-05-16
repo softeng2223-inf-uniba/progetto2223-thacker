@@ -132,8 +132,10 @@ public class Board {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param coord momentaneo
+     * Ad ogni colpo sulla mappa dei colpi, la funzione aggiorna la cella di {@code playerMap}
+     * definita dalla coordinata passata come parametro. Se la cella è occupata da una nave,
+     * viene inserito il valore {@code X}, altrimenti {@code ~}.
+     * @param coord coordinate della cella da aggiornare.
      */
     public void updateMap(final Coordinate coord) {
         boolean occupied = isCellOccupiedByShip(coord);
