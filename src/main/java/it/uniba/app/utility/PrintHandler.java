@@ -1,3 +1,5 @@
 package it.uniba.app.utility;
 
-public class PrintHandler { }
+public class PrintHandler {
+    private static final PRINTEXAMPLE = "PROVA";
+}
