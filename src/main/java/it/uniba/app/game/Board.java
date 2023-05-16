@@ -75,10 +75,11 @@ public class Board {
         return shipMap[coord.getRow()][coord.getCol()] != null;
     }
 
-     /**
-     * JavaDoc momentaneo.
-     * @param coord
-     * @param ship
+    /**
+     * Inserisce nella cella di {@code shipMap} individuata dalle coordinate passate come parametro
+     * la nave definita dal tipo {@code ship}, che è parametro del metodo..
+     * @param coord coordinate della cella in cui inserire la nave.
+     * @param ship nave da inserire nella cella.
      */
     public void setElement(final Coordinate coord, final Ship ship) {
         shipMap[coord.getRow()][coord.getCol()] = ship;
