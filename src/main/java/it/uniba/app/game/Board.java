@@ -113,7 +113,10 @@ public class Board {
     }
 
     /**
-     * JavaDoc momentaneo.
+     * Inserisce nella mappa dei colpi {@code playerMap} il valore {@code val} nella cella
+     * definita dalle coordinate passate come parametro.
+     * @param coord coordinate della cella in cui inserire il valore.
+     * @param val valore da inserire nella cella.
      */
     private void set(final Coordinate coord, final String val) {
         playerMap[coord.getRow()][coord.getCol()] = val;
