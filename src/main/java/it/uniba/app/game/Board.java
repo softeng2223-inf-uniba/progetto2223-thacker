@@ -86,9 +86,10 @@ public class Board {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param coord
-     * @return qualcosa
+     * Restituisce l'elemento che trova nella mappa {@code shipMap} nella cella definita dalle coordinate
+     * che vengono passate come argomento.
+     * @param coord coordinate della cella da cui estrarre l'elemento.
+     * @return elemento della cella.
      */
     public Ship getElement(final Coordinate coord) {
         return shipMap[coord.getRow()][coord.getCol()];
