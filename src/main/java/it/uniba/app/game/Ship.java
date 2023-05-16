@@ -65,7 +65,9 @@ public abstract class Ship {
      * @return il nome del tipo di nave
      * su cui viene chiamata la funzione.
     */
-    abstract String getName();
+    String getName() {
+        return name;
+    }
     /**
      * Restituisce la stringa che contiene il
      * colore del tipo di nave specifico.
