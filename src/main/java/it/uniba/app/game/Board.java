@@ -50,4 +50,13 @@ public class Board {
     public boolean isCellOccupiedByShip(final Coordinate coord) {
         return shipMap[coord.getRow()][coord.getCol()] != null;
     }
+
+     /**
+     * JavaDoc momentaneo.
+     * @param coord
+     * @param ship
+     */
+    public void setElement(final Coordinate coord, final Ship ship) {
+        shipMap[coord.getRow()][coord.getCol()] = ship;
+    }
 }
