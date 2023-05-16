@@ -1,5 +1,9 @@
 package it.uniba.app.utility;
 
+/**
+ * La classe PrintHandler fornisce funzionalità
+ * per la gestione delle stampe a video.
+ */
 public class PrintHandler {
     private static final String PRINTEXAMPLE = "PROVA";
 
