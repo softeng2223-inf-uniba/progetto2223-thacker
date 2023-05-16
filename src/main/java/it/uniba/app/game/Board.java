@@ -101,7 +101,20 @@ public class Board {
         return playerMap[coord.getRow()][coord.getCol()];
     }
 
-/**
+    /**
+     * JavaDoc momentaneo.
+     * @param coord momentaneo
+     */
+    public void updateMap(final Coordinate coord) {
+        boolean occupied = isCellOccupiedByShip(coord);
+        if (occupied) {
+            set(coord, "X");
+        } else {
+            set(coord, "~");
+        }
+    }
+
+    /**
      * JavaDoc Momentaneo.
      * @param coord momentaneo
      * @return momentaneo
