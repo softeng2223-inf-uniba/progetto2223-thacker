@@ -1,6 +1,7 @@
 package it.uniba.app.game;
 
 import java.util.Arrays;
+import it.uniba.app.utility.Coordinate;
 
 /**
  * JavaDoc momentaneo.
@@ -32,5 +33,12 @@ public class Board {
 
     public static int getSize() {
         return NUM_OF_CELL;
+    }
+
+    /**
+     * JavaDoc momentaneo.
+     */
+    public boolean isCellAvailable(final Coordinate coord) {
+        return shipMap[coord.getRow()][coord.getCol()] == null;
     }
 }
