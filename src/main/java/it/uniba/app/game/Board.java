@@ -95,9 +95,10 @@ public class Board {
         return shipMap[coord.getRow()][coord.getCol()];
     }
 
+
     /**
-     * JavaDoc momentaneo.
-     * @return momentaneo.
+     * Restituisce la mappa delle navi contenuta all'interno di {@code Board}.
+     * @return mappa delle navi.
      */
     public Ship[][] getshipMap() {
         return shipMap;
