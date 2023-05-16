@@ -29,4 +29,8 @@ public class Board {
             Arrays.fill(playerMap[i], DOT);
         }
     }
+
+    public static int getSize() {
+        return NUM_OF_CELL;
+    }
 }
