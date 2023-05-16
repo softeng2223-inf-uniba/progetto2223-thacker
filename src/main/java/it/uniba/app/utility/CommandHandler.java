@@ -82,13 +82,7 @@ public final class CommandHandler {
                 }
                 break;
             case "/help":
-                try {
-                    Help.Stampatitolo();
-                    Help.Stampatesto();
-                    
-                } catch (IOException | InterruptedException e) {
-                    System.out.println("Eccezione: " + e.getMessage()); 
-                }
+                Help.printHelp();
             default:
                 break;
         }
