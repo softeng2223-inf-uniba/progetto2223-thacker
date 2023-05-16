@@ -23,6 +23,13 @@ Esistono **quattro** tipi di navi di diverse dimensioni:
 - la nave `Incrociatore` di dimensione `3` (occupa tre celle); 
 - la nave `Corazzata` di dimensione `4` (occupa quattro celle); 
 - la nave `Portaerei` di dimensione `5` (occupa cinque celle);
+
+Il giocatore deve **distruggere**: 
+- `4` navi di tipo `Cacciatorpediniere`; 
+- `3` navi di tipo `Incrociatore`; 
+- `2` navi di tipo `Corazzata`; 
+- `1` navi di tipo `Portaerei`; <br/> 
+**Una volta posizionate le navi, inizierà il gioco.**
 ## (2) Modello di Dominio
 
 ### diagramma
