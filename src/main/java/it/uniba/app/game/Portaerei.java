@@ -38,13 +38,7 @@ public class Portaerei extends Ship {
     Portaerei() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
-    /**
-     * Restituisce il {@code name} della nave {@code Portaerei}.
-     * @return nome della nave.
-     */
-    String getName() {
-        return SHIP_NAME;
-    }
+
     /**
      * Restituisce la stringa che contiene il
      * colore del tipo di nave specifico.
