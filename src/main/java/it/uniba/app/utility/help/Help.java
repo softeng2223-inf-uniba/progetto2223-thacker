@@ -1,46 +1,72 @@
-package it.uniba.app.utility.help;
-import java.io.*;
-import java.nio.file.*;
-
-
-public class Help {
-    static BufferedReader reader;
-    static BufferedReader readertesto;
-
-    static String testo = "";
-    static String titolo = "";
-
-    public static void Stampatitolo() throws IOException,InterruptedException{
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+/**
+ * prova.
+ */
+public final class Help {
+    /**
+     * prova.
+     */
+    private static final int THREAD_DELAY_TITLE = 100;
+    /**
+     * prova.
+     */
+    private static final int THREAD_DELAY_TEXT = 5;
+    /**
+     * PROVA.
+     */
+    private Help() { }
+    /**
+     * prova.
+     */
+    private static void printTitle() throws IOException {
+        BufferedReader reader = null;
+        String title = "";
         try {
-            reader = new BufferedReader(new FileReader("src/main/java/it/uniba/app/utility/help/files/regole_base.txt"));
+        reader = new BufferedReader(new FileReader("c:/Users/stefa/Desktop/HelpStefano/title.txt"));
             while (reader.read() != -1) {
-                titolo = reader.readLine();
-                Thread.sleep(100);
-                titolo = titolo + "\r";
-                System.out.println(titolo);
-                
+                title = reader.readLine();
+                Thread.sleep(THREAD_DELAY_TITLE);
+                title = title + "\r";
+                System.out.println(title);
             }
-            titolo = titolo + "\r";
-        }catch (IOException | InterruptedException e){
-            System.out.println("Errore: " + e.getMessage());
+            title = title + "\r";
+        } catch (IOException e) {
+            System.out.println("Input/Output error" + e);
+        } catch (InterruptedException e) {
+            System.out.println("InterruptedException error: " + e);
         }
+        reader.close();
     }
-
-    public static void Stampatesto() throws FileNotFoundException,InterruptedException{
+    /**
+     * PROVA.
+     */
+    private static void printText() throws IOException {
+        BufferedReader readerText = null;
         try {
-            readertesto = new BufferedReader(new FileReader("src/main/java/it/uniba/app/utility/help/files/testo_base.txt"));
-            while(readertesto.read() != -1) {
-                testo = readertesto.readLine();
-                for (char c : testo.toCharArray()) {
-                    System.out.print(c);
-                    Thread.sleep(5);
-                }
+            readerText = new BufferedReader(new FileReader("c:/Users/stefa/Desktop/HelpStefano/text.txt"));
+            int num;
+            while ((num = readerText.read()) != -1) {
+                System.out.print((char) num);
+                Thread.sleep(THREAD_DELAY_TEXT);
             }
-        }catch (InterruptedException p){
-            System.out.println(p + "Thread interrotto");
-        }catch (IOException e ){
-            System.out.println(e + "Errore di Input/Ouput");
+        } catch (IOException e) {
+                System.out.println("Input/Output error: " + e);
+        } catch (InterruptedException p) {
+            System.out.println("Thread interrotto" + p);
         }
-
+        readerText.close();
+    }
+    /**
+     * prova.
+     */
+    public static void printHelp() {
+        try {
+            Help.printTitle();
+            Help.printText();
+        } catch (IOException e) {
+            System.out.println("Input/Output error: " + e);
+        }
     }
 }
