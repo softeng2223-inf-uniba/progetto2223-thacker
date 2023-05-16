@@ -63,7 +63,7 @@ public final class Help {
     private static void printText() throws IOException {
         BufferedReader readerText = null;
         try {
-            readerText = new BufferedReader(new FileReader("c:/Users/stefa/Desktop/HelpStefano/text.txt"));
+            readerText = new BufferedReader(new FileReader("src/main/java/it/uniba/app/utility/help/text.txt"));
             int num;
             while ((num = readerText.read()) != -1) {
                 System.out.print((char) num);
