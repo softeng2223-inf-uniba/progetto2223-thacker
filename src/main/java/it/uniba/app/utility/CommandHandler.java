@@ -23,9 +23,9 @@ public final class CommandHandler {
     private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
 
     private static final String CMD_DIFF_EASY = "/facile";
-    private static final String CMD_DIFF_MED = "/medio";
+    private static final String CMD_DIFF_MED  = "/medio";
     private static final String CMD_DIFF_HARD = "/difficile";
-    private static final String CMD_START = "/gioca";
+    private static final String CMD_START     = "/gioca";
 
     private static boolean isGameRunning = false;
 
