@@ -120,7 +120,7 @@ public class InitializeGame {
         }
         for (int i = 0; i < ship.getShipSize(); i++) {
             if (map.isCellOccupiedByShip(coord)) {
-                return false; 
+                return false;
             }
             coord.setCol(coord.getCol() + 1);
         }
@@ -133,7 +133,7 @@ public class InitializeGame {
         }
         for (int i = 0; i < ship.getShipSize(); i++) {
             if (map.isCellOccupiedByShip(coord)) {
-                return false; 
+                return false;
             }
             coord.setCol(coord.getRow() + 1);
         }
