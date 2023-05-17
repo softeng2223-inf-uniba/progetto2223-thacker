@@ -89,21 +89,21 @@ public final class CommandHandler {
                 }
                 break;
             case CMD_DIFF_EASY:
-                if (needParam(tokens, 0)) {
+                if (needParams(tokens, 0)) {
                     DifficultyManager.setEasyLevel();
                     PrintHandler.printLevelName();
                     return true;
                 }
                 break;
             case CMD_DIFF_MED:
-                if (needParam(tokens, 0)) {
+                if (needParams(tokens, 0)) {
                     DifficultyManager.setMedLevel();
                     PrintHandler.printLevelName();
                     return true;
                 }
                 break;
             case CMD_DIFF_HARD:
-                if (needParam(tokens, 0)) {
+                if (needParams(tokens, 0)) {
                     DifficultyManager.setHardLevel();
                     PrintHandler.printLevelName();
                     return true;
