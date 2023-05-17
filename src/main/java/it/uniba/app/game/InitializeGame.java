@@ -54,7 +54,8 @@ public final class InitializeGame {
      * @param ship nave da inserire in posizione randomica.
      */
     private static void randomlyInsertShip(final Ship ship) {
-        int direction = getRandomDirection();
+        Random rand = new Random();
+        int direction = rand.nextInt(POSSIBLE_DIRECTIONS);
 
         Coordinate coord;
         do {
@@ -90,17 +91,6 @@ public final class InitializeGame {
             map.setElement(coord, ship);
             coord.setCol(coord.getCol() + 1);
         }
-    }
-
-    /**
-     * Genera un {@code int} compreso tra {@code 0} ed {@code 1} che corrisponde all'orientamento.
-     * della nave. 0 indica un orientamento verticale; 1 indica un orientamento
-     * orizzontale.
-     * @return un intero compreso tra {@code 0} ed {@code 1} generato randomicamente.
-     */
-    private static int getRandomDirection() {
-        Random rand = new Random();
-        return rand.nextInt(POSSIBLE_DIRECTIONS);
     }
 
      /**
