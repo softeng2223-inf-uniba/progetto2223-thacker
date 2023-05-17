@@ -11,7 +11,7 @@ public class PrintHandler {
      * Stampa il messaggio fornito in input sulla console.
      * @param msg messaggio da stampare
      */
-    public void print(final String msg) {
+    public static void print(final String msg) {
         System.out.println(msg);
     }
 
