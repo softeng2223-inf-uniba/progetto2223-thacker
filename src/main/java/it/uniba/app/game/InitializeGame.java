@@ -1,6 +1,7 @@
 package it.uniba.app.game;
 
 import java.util.Random;
+import it.uniba.app.utility.Coordinate;
 
 /**
  * JavaDoc momentaneo.
@@ -33,5 +34,15 @@ public class InitializeGame {
     private int getRandomDirection() {
         Random rand = new Random();
         return rand.nextInt(2);
+    }
+
+    /**
+     * JavaDoc momentaneo.
+     * @return coordinate randomiche.
+     */
+    private Coordinate getRandomCoordinates() {
+        Random rand  = new Random();
+        return new Coordinate(rand.nextInt(Board.getSize()),
+            rand.nextInt(Board.getSize()));
     }
 }
