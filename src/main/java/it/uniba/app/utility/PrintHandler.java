@@ -6,7 +6,7 @@ import it.uniba.app.game.DifficultyManager;
  * per la gestione delle stampe a video.
  */
 public final class PrintHandler {
-    private PrintHandler(){ }
+    private PrintHandler() { }
     /**
      * Stampa il messaggio fornito in input sulla console senza andare a capo.
      * @param msg messaggio da stampare
