@@ -8,6 +8,9 @@ import it.uniba.app.utility.Coordinate;
  * JavaDoc momentaneo.
  */
 public class InitializeGame {
+    private static final int VERTICAL = 0;
+    private static final int POSSIBLE_DIRECTIONS = 2;
+
     private Board map;
 
     /**
@@ -35,7 +38,7 @@ public class InitializeGame {
         // per il posizionamento di una nave.
         Coordinate coord = getRandomCoordinates();
 
-        if (direction == 0) {
+        if (direction == VERTICAL) {
             for (int i = 0; i <= ship.getShipSize(); i++) {
                 map.setElement(coord, ship);
                 coord.setCol(coord.getCol() + 1);
@@ -54,7 +57,7 @@ public class InitializeGame {
      */
     private int getRandomDirection() {
         Random rand = new Random();
-        return rand.nextInt(2);
+        return rand.nextInt(POSSIBLE_DIRECTIONS);
     }
 
     /**
@@ -63,8 +66,9 @@ public class InitializeGame {
      */
     private Coordinate getRandomCoordinates() {
         Random rand  = new Random();
-        return new Coordinate(rand.nextInt(Board.getSize()),
-            rand.nextInt(Board.getSize()));
+        int    first = rand.nextInt(Board.getSize());
+        int    sec   = rand.nextInt(Board.getSize());
+        return new Coordinate(first, sec);
     }
 
     private boolean isPositionAvailable(final Coordinate coord,
@@ -74,7 +78,7 @@ public class InitializeGame {
             // dev'essere fatta una funzione che controlla se, a partire
             // dalle coordinate generate randomicamente, c'è abbastanza spazio
             // per inserire la nave.
-            if (direction == 0) {
+            if (direction == VERTICAL) {
 
             } else {
 
