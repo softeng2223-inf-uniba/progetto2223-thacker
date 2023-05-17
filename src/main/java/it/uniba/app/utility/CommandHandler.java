@@ -15,11 +15,18 @@ import java.io.IOException;
 public final class CommandHandler {
 
     /* === MESSAGGI === */
-    private static final String MSG_INVALID = "Comando non valido";
+    private static final String MSG_INVALID_COMMAND = "Comando non valido";
+    private static final String MSG_INVALID_ANSWER = "Risposta non valida, comando annullato";
+    private static final String MSG_CONFIRM = "Sei sicuro di voler uscire? (si/no)";
+    private static final String MSG_DENIAL = "Operazione annullata";
 
     /* === COMANDI === */
     private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
     private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
+
+    private static final String CMD_LEFT = "/esci";
+    private static final String CMD_CONFIRM = "si";
+    private static final String CMD_DENIAL = "no";
 
     private static final String CMD_DIFF_EASY = "/facile";
     private static final String CMD_DIFF_MED = "/medio";
@@ -41,7 +48,7 @@ public final class CommandHandler {
         BufferedReader buffer = null;
         String command = "";
 
-        PrintHandler.println(SYMBOL_INPUT_PROMPT);
+        PrintHandler.print(SYMBOL_INPUT_PROMPT);
 
         try {
             buffer = new BufferedReader(new InputStreamReader(System.in, ENCODER_USED));
@@ -110,14 +117,37 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
-
+            case CMD_LEFT:
+                if (needParams(tokens, 0)) {
+                    if (readConfirm()) {
+                        System.exit(0);
+                    }
+                    return true;
+                }
+                break;
             default:
                 break;
         }
-        PrintHandler.println(MSG_INVALID);
+        PrintHandler.println(MSG_INVALID_COMMAND);
         return false;
     }
-
+    /**
+     * La funzione richiede all'utente di confermare l'operazione
+     * che sta per essere eseguita.
+     * @return true se l'utente conferma, false altrimenti
+     */
+    private static boolean readConfirm() {
+        PrintHandler.println(MSG_CONFIRM);
+        String confirm = readCommand();
+        if (confirm.equalsIgnoreCase(CMD_CONFIRM)) {
+            return true;
+        } else if (confirm.equalsIgnoreCase(CMD_DENIAL)) {
+            PrintHandler.println(MSG_DENIAL);
+        } else {
+            PrintHandler.println(MSG_INVALID_ANSWER);
+        }
+        return false;
+    }
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene params parametri.
