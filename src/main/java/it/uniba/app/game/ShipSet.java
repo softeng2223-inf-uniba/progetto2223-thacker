@@ -6,6 +6,11 @@ public final class ShipSet {
     private static LinkedList<Ship> shipsList = new LinkedList<Ship>();
 
     public static LinkedList<Ship> getShipsSet() {
-        return;
+        Cacciatorpediniere p    = new Cacciatorpediniere();
+        Incrociatore s          = new Incrociatore();
+        Corazzata l             = new Corazzata();
+        Portaerei c             = new Portaerei();
+
+
     }
 }
