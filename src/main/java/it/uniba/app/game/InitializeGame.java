@@ -79,9 +79,9 @@ public class InitializeGame {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param coord
-     * @param ship
+     * Inserisce la nave con orientamento verticale nelle coordinate specificate.
+     * @param coord coordinate in cui cominciare ad inserire la nave in verticale.
+     * @param ship specifica quale nave dev'essere inserita nella mappa.
      */
     private void insertShipVertical(final Coordinate coord, final Ship ship) {
         for (int i = 0; i < ship.getShipSize(); i++) {
