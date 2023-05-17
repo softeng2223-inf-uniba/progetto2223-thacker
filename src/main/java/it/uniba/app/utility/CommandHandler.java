@@ -139,7 +139,7 @@ public final class CommandHandler {
         } else if (confirm.equalsIgnoreCase(CMD_DENIAL)) {
             PrintHandler.println(MSG_DENIAL);
         } else {
-            PrintHandler.println(MSG_INVALID);
+            PrintHandler.println(MSG_INVALID_ANSWER);
         }
         return false;
     }
