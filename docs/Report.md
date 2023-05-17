@@ -17,6 +17,7 @@ La _partita termina_ quando *tutte* le navi nemiche sono state affondate o quand
 
 _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. Inoltre, è possibile richiedere di rivelare la griglia del computer con le navi posizionate per avere una visione strategica della disposizione delle navi nemiche.
 
+**Siete pronti per la sfida? Immergetevi in questa battaglia navale epica e dimostrate la vostra abilità strategica per conquistare il mare!**
 ## (2) Modello di Dominio
 
 ### diagramma
