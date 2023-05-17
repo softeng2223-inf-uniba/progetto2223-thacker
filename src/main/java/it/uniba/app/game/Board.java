@@ -95,23 +95,6 @@ public class Board {
         return shipMap[coord.getRow()][coord.getCol()];
     }
 
-
-    /**
-     * Restituisce la mappa delle navi contenuta all'interno di {@code Board}.
-     * @return mappa delle navi.
-     */
-    public Ship[][] getshipMap() {
-        return shipMap;
-    }
-
-    /**
-     * Restituisce la mappa dei colpi contenuta all'interno di {@code Board}.
-     * @return mappa dei colpi.
-     */
-    public String[][] getPlayerMap() {
-        return playerMap;
-    }
-
     /**
      * Inserisce nella mappa dei colpi {@code playerMap} il valore {@code val} nella cella
      * definita dalle coordinate passate come parametro.
