@@ -20,6 +20,9 @@ public final class ShipSet {
         for (int i = 0; i < l.getNumberOfInstances(); i++) {
             shipsList.add(new Corazzata());
         }
+        for (int i = 0; i < c.getNumberOfInstances(); i++) {
+            shipsList.add(new Portaerei());
+        }
 
     }
 }
