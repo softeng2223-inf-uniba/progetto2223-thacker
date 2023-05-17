@@ -1,51 +1,6 @@
 # Report
 
 ## (1) Introduzione
-_Benvenuti_ nell'introduzione del progetto di **Battaglia Navale**.  
-La nostra **BattleShip** permette di giocare in solitaria contro un giocatore virtuale (il computer).  
-
-Ci sono varie modalità di gioco: facile, medio e difficile.
-In ogni modalità vi è un numero massimo di tentativi fallibili: 
-- Difficoltà `facile`: 50. 
-- Difficoltà `media`: 30. 
-- Difficoltà `difficile`: 10.
-
-La modalità sarà scelta prima di iniziare il gioco. <br/>
-Nel gioco sono presenti **due mappe**, entrambe di dimensione `10x10` (concordata con il _Product Owner_). <br/>
-Le celle della tabella sono identificate da coordinate che contengono i valori di riga e colonna: le colonne sono identificate da **lettere** e le righe da **numeri**. <br/>
-Le righe numerate da _1 a 10_ e le colonne messe in ordine dalla _A alla J_ (un esempio: `F-3`, e così via). <br/>
-Le navi saranno posizionate automaticamente tramite un algoritmo, tenendole nascoste al giocatore.
-
-Due o più navi _possono toccarsi_.<br/>
-Una nave occupa un certo numero di celle in modo verticale oppure orizzontale (non in obliquo). <br/> 
-Esistono **quattro** tipi di navi di diverse dimensioni:  
-- la nave `Cacciatorpediniere` ha dimensione `2` (occupa due celle); 
-- la nave `Incrociatore` di dimensione `3` (occupa tre celle); 
-- la nave `Corazzata` di dimensione `4` (occupa quattro celle); 
-- la nave `Portaerei` di dimensione `5` (occupa cinque celle);
-
-Il giocatore deve **distruggere**: 
-- `4` navi di tipo `Cacciatorpediniere`; 
-- `3` navi di tipo `Incrociatore`; 
-- `2` navi di tipo `Corazzata`; 
-- `1` navi di tipo `Portaerei`; 
-
-**Una volta posizionate le navi, inizierà il gioco.**
-
-Il giocatore/utente **spara un colpo** scegliendo una cella (per esempio `A-8`, ovvero prima colonna e ottava riga). <br/> 
-All'inizio la mappa dei colpi a disposizione dell'utente mostrerà in _tutte_ le sue celle un simbolo che indica che quella cella non è stata ancora colpita.  
-Dopo aver effettuato il colpo, la mappa si aggiornerà in base a cosa è stato colpito: <br/> 
-- se colpiremo un pezzo della nave, visualizzeremo la "X"; 
-- se colpiremo l'acqua, ovvero nessuna nave, allora visualizzeremo il seguente simbolo "~".
-
-La **partita finirà** se: 
-- abbiamo affondato tutte le navi posizionate sulla mappa; 
-- abbiamo esaurito il numero massimo di tentativi fallibili messi a disposizione dal gioco in base al livello. 
-
-Durante la partita: 
-- _si può uscire dal gioco_; 
-- _è possibile svelare la griglia con le navi posizionate sotto richiesta del giocatore_.
-
 
 ## (2) Modello di Dominio
 
