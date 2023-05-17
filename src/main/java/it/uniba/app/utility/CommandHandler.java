@@ -44,7 +44,7 @@ public final class CommandHandler {
         PrintHandler.println(SYMBOL_INPUT_PROMPT);
 
         try {
-            buffer = new BufferedReader(new InputStreamReader(System.in));
+            buffer = new BufferedReader(new InputStreamReader(System.in,ENCODER_USED));
             command = buffer.readLine();
         } catch (IOException e) {
             PrintHandler.println(e.getMessage());
