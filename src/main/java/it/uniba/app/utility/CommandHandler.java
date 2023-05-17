@@ -110,6 +110,7 @@ public final class CommandHandler {
                         return false;
                     } else {
                         InitializeGame.initGame();
+                        return true;
                     }
                 }
                 break;
