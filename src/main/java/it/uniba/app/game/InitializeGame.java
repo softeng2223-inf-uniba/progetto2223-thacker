@@ -1,6 +1,7 @@
 package it.uniba.app.game;
 
 import java.util.Random;
+import java.util.List;
 import it.uniba.app.utility.Coordinate;
 
 /**
@@ -20,11 +21,35 @@ public class InitializeGame {
     /**
      * JavaDoc momentaneo.
      */
-    private void randomlyFillMap() {
+    private void randomlyFillMap(List<Ship> ShipsType) {
         // deve chiamare un metodo per inserire ogni nave
         // singolarmente sulla mappa.
         // Per farlo serve un generatore di numeri casuali
         // per direzione nave e coordinate
+        for (Ship ship : ShipsType) {
+            randomlyInsertShip(ship);
+        }
+    }
+
+    private void randomlyInsertShip(Ship ship) {
+        int direction = getRandomDirection();
+
+        // deve essere fatto un controllo sulla mappa se
+        // la posizione determinata dalle coordinate è disponibile
+        // per il posizionamento di una nave.
+        Coordinate coord = getRandomCoordinates();
+
+        if (direction == 0) {
+            for (int i = 0; i <= ship.getShipSize(); i++) {
+                map.setElement(coord, ship);
+                coord.setCol(coord.getCol() + 1);
+            }
+        } else {
+            for (int i = 0; i <= ship.getShipSize(); i++) {
+                map.setElement(coord, ship);
+                coord.setRow(coord.getRow() + 1);
+            }
+        }
     }
 
     /**
