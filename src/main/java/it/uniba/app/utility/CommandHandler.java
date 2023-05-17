@@ -23,7 +23,7 @@ public final class CommandHandler {
     private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
 
     private static final String CMD_LEFT = "/esci";
-    private static final String CMD_CONFIRM = "/si";
+    private static final String CMD_CONFIRM = "si";
 
     private static final String CMD_DIFF_EASY = "/facile";
     private static final String CMD_DIFF_MED = "/medio";
