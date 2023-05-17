@@ -105,16 +105,8 @@ public class InitializeGame {
 
             if (direction == VERTICAL) {
                 return checkVerticalPosition(temp, ship);
-            } else {
-                if (isOutOfRange(coord.getRow(), ship)) {
-                    for (int i = 0; i < ship.getShipSize(); i++) {
-                        if (map.isCellOccupiedByShip(temp)) {
-                            return false;
-                        }
-                        temp.setRow(temp.getRow() + 1);
-                    }
-                }
             }
+            return checkHorizontalPosition(temp, ship);
         }
 
     private boolean checkVerticalPosition(Coordinate coord, Ship ship) {
@@ -126,6 +118,19 @@ public class InitializeGame {
                 return false; 
             }
             coord.setCol(coord.getCol() + 1);
+        }
+        return true;
+    }
+
+    private boolean checkHorizontalPosition(Coordinate coord, Ship ship) {
+        if (isOutOfRange(coord.getRow(), ship)) {
+            return false;
+        }
+        for (int i = 0; i < ship.getShipSize(); i++) {
+            if (map.isCellOccupiedByShip(coord)) {
+                return false; 
+            }
+            coord.setCol(coord.getRow() + 1);
         }
         return true;
     }
