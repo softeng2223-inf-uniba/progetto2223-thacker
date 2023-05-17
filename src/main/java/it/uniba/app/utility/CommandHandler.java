@@ -131,7 +131,7 @@ public final class CommandHandler {
         }
         return true;
     }
-    /* 
+    /*
         PREDISPOSIZIONE NEL CASO IN CUI CI SIA BISOGNO
     /**
      * La funzione controlla se il comando presente in tokens
