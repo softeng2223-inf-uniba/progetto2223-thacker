@@ -103,8 +103,10 @@ public class InitializeGame {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @return numero randomico.
+     * Genera un {@code int} compreso tra {@code 0} ed {@code 1} che corrisponde all'orientamento.
+     * della nave. 0 indica un orientamento verticale; 1 indica un orientamento
+     * orizzontale.
+     * @return un intero compreso tra {@code 0} ed {@code 1} generato randomicamente.
      */
     private int getRandomDirection() {
         Random rand = new Random();
