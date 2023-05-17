@@ -47,15 +47,9 @@ public class InitializeGame {
         } while (!isPositionAvailable(coord, direction, ship));
 
         if (direction == VERTICAL) {
-            for (int i = 0; i < ship.getShipSize(); i++) {
-                map.setElement(coord, ship);
-                coord.setCol(coord.getCol() + 1);
-            }
+            insertShipVertical(coord, ship);
         } else {
-            for (int i = 0; i <= ship.getShipSize(); i++) {
-                map.setElement(coord, ship);
-                coord.setRow(coord.getRow() + 1);
-            }
+            insertShipHorizontal(coord, ship);
         }
     }
 
