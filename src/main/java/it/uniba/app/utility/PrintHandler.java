@@ -26,6 +26,6 @@ public class PrintHandler {
      * Stampa il livello di difficoltà corrente.
      */
     public static void printLevelName() {
-        System.out.println("OK: " + DifficultyManager.getLevelName());
+        println("OK: " + DifficultyManager.getLevelName());
     }
 }
