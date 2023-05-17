@@ -214,6 +214,11 @@ public final class InitializeGame {
         return true;
     }
 
+    /**
+     * Restituisce una lista di navi contenente, per tipo di nave, il numero di istanze
+     * pari al numero di esemplari di quel tipo di nave che si possono inserire nella mappa.
+     * @return lista di navi.
+     */
     private static LinkedList<Ship> getShipsSet() {
         LinkedList<Ship>   shipsList = new LinkedList<Ship>();
         Cacciatorpediniere p = new Cacciatorpediniere();
