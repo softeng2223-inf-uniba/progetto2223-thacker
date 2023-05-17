@@ -38,14 +38,17 @@ public class InitializeGame {
     }
 
     /**
-     * Imposta le mappe di gioco e posiziona le navi da colpire in modo randomico.
+     * Imposta la mappa di gioco posizionando le navi da colpire in modo randomico.
      */
     public void initGame(final List<Ship> shipsType) {
         randomlyFillMap(shipsType);
     }
 
     /**
-     * JavaDoc momentaneo.
+     * Prende come paramento una {@code List} di oggetti di tipo {@code Ship} e
+     * itera sulle navi presenti nella lista per posizionarle in modo randomico
+     * sulla mappa.
+     * @param shipsType lista di navi da posizionare.
      */
     private void randomlyFillMap(final List<Ship> shipsType) {
         for (Ship ship : shipsType) {
@@ -54,8 +57,11 @@ public class InitializeGame {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param ship
+     * Posiziona una singola nave in modo randomico all'interno della mappa.
+     * Sia l'orientamento della nave che le coordinate vengono generate
+     * randomicamente, dopodiché la nave viene posizionata secondo l'orientamento
+     * e le coordinate generate.
+     * @param ship nave da inserire in posizione randomica.
      */
     private void randomlyInsertShip(final Ship ship) {
         int direction = getRandomDirection();
