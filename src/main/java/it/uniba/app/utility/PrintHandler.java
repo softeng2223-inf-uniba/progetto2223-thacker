@@ -19,7 +19,6 @@ public class PrintHandler {
     public static void println(final String msg) {
         System.out.println(msg);
     }
-
     /**
      * Stampa il livello di difficoltà corrente.
      */

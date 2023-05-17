@@ -131,7 +131,8 @@ public final class CommandHandler {
         }
         return true;
     }
-
+    /* 
+        PREDISPOSIZIONE NEL CASO IN CUI CI SIA BISOGNO
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene un numero di parametri compreso tra min e max.
@@ -140,7 +141,7 @@ public final class CommandHandler {
      * @param min numero minimo di parametri che il comando deve avere
      * @param max numero massimo di parametri che il comando deve avere
      * @return true se il comando ha un numero di parametri compreso tra min e max, false altrimenti
-     */
+     *
     private static boolean needParams(final String[] tokens, final int min, final int max) {
         int minNumOfTokens = min + 1; // +1 perchè tokens[0] è il comando
         int maxNumOfTokens = max + 1; // +1 perchè tokens[0] è il comando
@@ -152,4 +153,5 @@ public final class CommandHandler {
         }
         return false;
     }
+    */
 }
