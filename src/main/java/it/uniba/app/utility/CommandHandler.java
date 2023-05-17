@@ -112,8 +112,8 @@ public final class CommandHandler {
                         InitializeGame.initGame();
                     }
                 }
-                break; 
-                
+                break;
+
             case CMD_DIFF_SHOW:
                 if (needParams(tokens, 0)) {
                     PrintHandler.print("Il livello di difficoltà selezionato è: ");
