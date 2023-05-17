@@ -113,7 +113,14 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
-
+            case CMD_LEFT:
+                if (needParams(tokens, 0)) {
+                    if (readConfirm()) {
+                        System.exit(0);
+                    }
+                    return true;
+                }
+                break;
             default:
                 break;
         }
