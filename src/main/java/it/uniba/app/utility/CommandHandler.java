@@ -131,6 +131,11 @@ public final class CommandHandler {
         PrintHandler.println(MSG_INVALID_COMMAND);
         return false;
     }
+    /**
+     * La funzione richiede all'utente di confermare l'operazione
+     * che sta per essere eseguita.
+     * @return true se l'utente conferma, false altrimenti
+     */
     private static boolean readConfirm() {
         PrintHandler.println(MSG_CONFIRM);
         String confirm = readCommand();
