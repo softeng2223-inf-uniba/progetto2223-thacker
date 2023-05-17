@@ -14,4 +14,7 @@ public class PrintHandler {
     public void print(final String msg) {
         System.out.println(msg);
     }
+    public static void printLevelName() {
+        System.out.println("OK: " + DifficultyManager.getLevelName());
+    }
 }
