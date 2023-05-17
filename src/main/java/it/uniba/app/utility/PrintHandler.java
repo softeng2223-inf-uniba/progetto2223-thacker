@@ -15,6 +15,10 @@ public class PrintHandler {
         System.out.println(msg);
     }
 
+    public static void println(final String msg) {
+        System.out.println(msg);
+    }
+
     /**
      * Stampa il livello di difficoltà corrente.
      */
