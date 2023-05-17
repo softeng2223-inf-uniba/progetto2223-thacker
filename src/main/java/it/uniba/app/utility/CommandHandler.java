@@ -104,9 +104,11 @@ public final class CommandHandler {
                     return true;
                 }
             case CMD_DIFF_HARD:
-                DifficultyManager.setHardLevel();
-                System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM3
-                return true;
+                if (needParam(tokens, 0)) {
+                    DifficultyManager.setHardLevel();
+                    System.out.println("OK: " + DifficultyManager.getLevelName()); //TODO DM3
+                    return true;
+                }
 
             default:
                 break;
