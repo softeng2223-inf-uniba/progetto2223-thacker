@@ -8,9 +8,21 @@ import it.uniba.app.utility.Coordinate;
  * JavaDoc momentaneo.
  */
 public class InitializeGame {
+    /**
+     * Rappresenta la direzione verticale, utilizata per effettuare
+     * controlli per l'inserimento delle navi nella mappa.
+     */
     private static final int VERTICAL = 0;
+    /**
+     * Rappresenta l'intervallo da utilizzare per generare una direzione
+     * di posizionamento randomiche delle navi.
+     */
     private static final int POSSIBLE_DIRECTIONS = 2;
 
+    /**
+     * Rappresenta la mappa di gioco su cui verranno posizionate
+     * le navi del computer.
+     */
     private Board map;
 
     /**
