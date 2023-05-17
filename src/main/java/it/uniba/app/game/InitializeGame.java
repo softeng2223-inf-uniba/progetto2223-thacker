@@ -39,7 +39,7 @@ public class InitializeGame {
         Coordinate coord = getRandomCoordinates();
 
         if (direction == VERTICAL) {
-            for (int i = 0; i <= ship.getShipSize(); i++) {
+            for (int i = 0; i < ship.getShipSize(); i++) {
                 map.setElement(coord, ship);
                 coord.setCol(coord.getCol() + 1);
             }
