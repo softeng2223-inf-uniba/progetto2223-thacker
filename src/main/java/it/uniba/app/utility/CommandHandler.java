@@ -129,7 +129,7 @@ public final class CommandHandler {
         return false;
     }
     private static boolean readConfirm(){
-        PrintHandler.println(MSG_LEFT);
+        PrintHandler.println(MSG_CONFIRM);
         String confirm = readCommand();
         if (confirm.equalsIgnoreCase(CMD_CONFIRM)) {
             return true;
