@@ -134,9 +134,9 @@ public final class CommandHandler {
         String confirm = readCommand();
         if (confirm.equalsIgnoreCase(CMD_CONFIRM)) {
             return true;
-        }else if (confirm.equalsIgnoreCase(CMD_DENIAL)) {
+        } else if (confirm.equalsIgnoreCase(CMD_DENIAL)) {
             PrintHandler.println(MSG_DENIAL);
-        }else {
+        } else {
             PrintHandler.println(MSG_INVALID);
         }
         return false;
