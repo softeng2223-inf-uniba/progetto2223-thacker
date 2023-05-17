@@ -92,9 +92,11 @@ public final class CommandHandler {
             /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
              */
             case CMD_DIFF_EASY:
-                DifficultyManager.setEasyLevel();
-                System.out.println("OK: " + DifficultyManager.getLevelName());  // TODO DM1
-                return true;
+                if (needParam(tokens, 0)) {
+                    DifficultyManager.setEasyLevel();
+                    System.out.println("OK: " + DifficultyManager.getLevelName());  // TODO DM1
+                    return true;
+                }
             case CMD_DIFF_MED:
                 DifficultyManager.setMedLevel();
                 System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM2
