@@ -24,6 +24,7 @@ public final class CommandHandler {
 
     private static final String CMD_LEFT = "/esci";
     private static final String CMD_CONFIRM = "si";
+    private static final String CMD_DENIAL = "no";
 
     private static final String CMD_DIFF_EASY = "/facile";
     private static final String CMD_DIFF_MED = "/medio";
