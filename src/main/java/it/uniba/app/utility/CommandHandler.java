@@ -92,9 +92,10 @@ public final class CommandHandler {
                 break;
 
             case CMD_HELP:
-            if (needParams(tokens, 0)) {
-                Help.print();
-            }
+                if (needParams(tokens, 0)) {
+                    Help.print();
+                    return true;
+                }
             break;
 
             /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
