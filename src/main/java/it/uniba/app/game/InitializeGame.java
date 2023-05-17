@@ -113,9 +113,11 @@ public class InitializeGame {
         return rand.nextInt(POSSIBLE_DIRECTIONS);
     }
 
-    /**
-     * JavaDoc momentaneo.
-     * @return coordinate randomiche.
+     /**
+     * Restituisce un nuovo oggetto di tipo {@code Coordinates}
+     * con valori interi randomici compresi
+     * tra 0 e dimensione massima della mappa di gioco.
+     * @return {@code Coordinate} con valori randomici.
      */
     private Coordinate getRandomCoordinates() {
         Random rand  = new Random();
