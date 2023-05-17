@@ -34,8 +34,6 @@ public final class CommandHandler {
     private static final String CMD_DIFF_HARD = "/difficile";
     private static final String CMD_START     = "/gioca";
 
-    private static boolean isGameRunning = false;
-
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String ENCODER_USED = "UTF-8";
@@ -104,7 +102,7 @@ public final class CommandHandler {
 
             case CMD_START:
                 if (needParams(tokens, 0)) {
-                    if (isGameRunning) {
+                    if (InitializeGame.isGameRunning()) {
                         return false;
                     } else {
                         InitializeGame.initGame();
