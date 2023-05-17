@@ -131,7 +131,7 @@ public final class InitializeGame {
      * e indice è minore della dimensione della nave, {@code false} altrimenti.
      */
     private static boolean isOutOfRange(final int axis, final Ship ship) {
-        return Board.getSize() - axis < ship.getShipSize();
+        return (Board.getSize() - axis) < ship.getShipSize();
     }
 
     /**
@@ -173,14 +173,14 @@ public final class InitializeGame {
      * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
      */
     private static boolean checkVerticalPosition(final Coordinate coord, final Ship ship) {
-        if (isOutOfRange(coord.getCol(), ship)) {
+        if (isOutOfRange(coord.getRow(), ship)) {
             return false;
         }
         for (int i = 0; i < ship.getShipSize(); i++) {
             if (map.isCellOccupiedByShip(coord)) {
                 return false;
             }
-            coord.setCol(coord.getCol() + 1);
+            coord.setRow(coord.getRow() + 1);
         }
         return true;
     }
