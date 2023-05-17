@@ -26,8 +26,12 @@ public class InitializeGame {
     private Board map;
 
     /**
-     * JavaDoc momentaneo costruttore.
-     * @param gameMap mappa da inizializzare.
+     * Costruisce un oggetto di tipo {@code InitializeMap} che viene usato per
+     * inizializzare la mappa del computer con navi posizionate in modo
+     * randomico in posizioni diverse in modo tale che ognuna occupi un suo
+     * spazio e nessuna venga sovrapposta.
+     * @param gameMap oggetto mappa di gioco utilizzata
+     * per inizializzare l'attributo {@code map} della classe.
      */
     public InitializeGame(final Board gameMap) {
         map = gameMap;
