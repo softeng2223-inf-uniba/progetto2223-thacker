@@ -107,7 +107,7 @@ public class InitializeGame {
             // dalle coordinate generate randomicamente, c'è abbastanza spazio
             // per inserire la nave.
             if (direction == VERTICAL) {
-                if (isOutOfRange(direction, ship)) {
+                if (isOutOfRange(coord.getCol(), ship)) {
                     for (int i = 0; i < ship.getShipSize(); i++) {
                         if (map.isCellOccupiedByShip(temp)) {
                             return false;
@@ -116,7 +116,7 @@ public class InitializeGame {
                     }
                 }
             } else {
-                if (isOutOfRange(direction, ship)) {
+                if (isOutOfRange(coord.getRow(), ship)) {
                     for (int i = 0; i < ship.getShipSize(); i++) {
                         if (map.isCellOccupiedByShip(temp)) {
                             return false;
