@@ -11,8 +11,9 @@ import java.io.IOException;
 /**
  * Modella un gestore di comandi.
  *
- * Fornisce metodi utili a gestire le richieste presentate dell'utente ed esegure determinate operazioni.
-*/
+ * Fornisce metodi utili a gestire le richieste presentate dell'utente ed
+ * esegure determinate operazioni.
+ */
 public final class CommandHandler {
 
     /* === MESSAGGI === */
@@ -22,8 +23,9 @@ public final class CommandHandler {
     private static final String MSG_DENIAL = "Operazione annullata";
 
     /* === COMANDI === */
-    private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
-    private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
+    private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
+    private static final String CMD_PROVA2 = "/prova2"; // da rimuovere quando non più utile
+    private static final String CMD_DIFF_SHOW = "/mostralivello";
 
     private static final String CMD_LEFT = "/esci";
     private static final String CMD_CONFIRM = "si";
@@ -38,7 +40,8 @@ public final class CommandHandler {
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String ENCODER_USED = "UTF-8";
 
-    private CommandHandler() { }
+    private CommandHandler() {
+    }
 
     /**
      * Richiede all'utente di digitare un comando dal terminale,
@@ -63,7 +66,8 @@ public final class CommandHandler {
     }
 
     /**
-     * Invia un messaggio e poi richiede all'utente di digitare un comando dal terminale,
+     * Invia un messaggio e poi richiede all'utente di digitare un comando dal
+     * terminale,
      * Il quale verrà successivamente convertito in Stringa.
      *
      * @param inputMessage messaggio da inviare prima della richiesta di input
@@ -82,8 +86,8 @@ public final class CommandHandler {
      * @return true se il comando è stato eseguito correttamente, false altrimenti
      */
     public static boolean executeCommand(final String input) {
-        String[] tokens = input.split(" ");   // contiene il comando e i parametri
-        String command = tokens[0];                 // contiene il comando
+        String[] tokens = input.split(" "); // contiene il comando e i parametri
+        String command = tokens[0]; // contiene il comando
 
         switch (command) {
             case CMD_PROVA1:
@@ -107,6 +111,15 @@ public final class CommandHandler {
                     } else {
                         InitializeGame.initGame();
                     }
+                }
+                break; 
+                
+            case CMD_DIFF_SHOW:
+                if (needParams(tokens, 0)) {
+                    PrintHandler.print("Il livello di difficoltà selezionato è: ");
+                    PrintHandler.println(DifficultyManager.getLevelName());
+                    PrintHandler.print("Il numero massimo di tentativi fallibili è: ");
+                    PrintHandler.println(String.valueOf(DifficultyManager.getMaxFailedAttempts()));
                     return true;
                 }
                 break;
@@ -174,7 +187,7 @@ public final class CommandHandler {
      * @return true se il comando ha params parametri, false altrimenti
      */
     private static boolean needParams(final String[] tokens, final int params) {
-        if (tokens.length != params + 1) {  // +1 perchè tokens[0] è il comando
+        if (tokens.length != params + 1) { // +1 perchè tokens[0] è il comando
             return false;
         }
         return true;
