@@ -24,18 +24,12 @@ public final class App {
     public static void main(final String[] args) {
         System.out.println(new App().getGreeting());
 
-        Boolean exit = false;
+        String command = "";
 
         System.out.println("Digitare un comando");
-        while (!exit) {
-            String command = CommandHandler.readCommand();
-
-            if (command.compareTo("/q") != 0) {
-                CommandHandler.executeCommand(command);
-            } else {
-                exit = true;
-            }
-
+        while (true) {
+            command = CommandHandler.readCommand();
+            CommandHandler.executeCommand(command);
         }
     }
 }

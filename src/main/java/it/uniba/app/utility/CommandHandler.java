@@ -10,16 +10,25 @@ import it.uniba.app.utility.help.Help;
 /**
  * Modella un gestore di comandi.
  *
- * Fornisce metodi utili a gestire le richieste presentate dell'utente ed esegure determinate operazioni.
-*/
+ * Fornisce metodi utili a gestire le richieste presentate dell'utente ed
+ * esegure determinate operazioni.
+ */
 public final class CommandHandler {
 
     /* === MESSAGGI === */
-    private static final String MSG_INVALID = "Comando non valido";
+    private static final String MSG_INVALID_COMMAND = "Comando non valido";
+    private static final String MSG_INVALID_ANSWER = "Risposta non valida, comando annullato";
+    private static final String MSG_CONFIRM = "Sei sicuro di voler uscire? (si/no)";
+    private static final String MSG_DENIAL = "Operazione annullata";
 
     /* === COMANDI === */
-    private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
-    private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
+    private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
+    private static final String CMD_PROVA2 = "/prova2"; // da rimuovere quando non più utile
+    private static final String CMD_DIFF_SHOW = "/mostralivello";
+
+    private static final String CMD_LEFT = "/esci";
+    private static final String CMD_CONFIRM = "si";
+    private static final String CMD_DENIAL = "no";
 
     private static final String CMD_HELP = "/help";
 
@@ -29,8 +38,10 @@ public final class CommandHandler {
 
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
+    private static final String ENCODER_USED = "UTF-8";
 
-    private CommandHandler() { }
+    private CommandHandler() {
+    }
 
     /**
      * Richiede all'utente di digitare un comando dal terminale,
@@ -42,27 +53,28 @@ public final class CommandHandler {
         BufferedReader buffer = null;
         String command = "";
 
-        System.out.print(SYMBOL_INPUT_PROMPT);
+        PrintHandler.print(SYMBOL_INPUT_PROMPT);
 
         try {
-            buffer = new BufferedReader(new InputStreamReader(System.in));
+            buffer = new BufferedReader(new InputStreamReader(System.in, ENCODER_USED));
             command = buffer.readLine();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            PrintHandler.println(e.getMessage());
         }
 
         return command;
     }
 
     /**
-     * Invia un messaggio e poi richiede all'utente di digitare un comando dal terminale,
+     * Invia un messaggio e poi richiede all'utente di digitare un comando dal
+     * terminale,
      * Il quale verrà successivamente convertito in Stringa.
      *
      * @param inputMessage messaggio da inviare prima della richiesta di input
      * @return comando letto in input
      */
     public static String readCommand(final String inputMessage) {
-        System.out.println(inputMessage);
+        PrintHandler.println(inputMessage);
         return readCommand();
     }
 
@@ -74,8 +86,8 @@ public final class CommandHandler {
      * @return true se il comando è stato eseguito correttamente, false altrimenti
      */
     public static boolean executeCommand(final String input) {
-        String[] tokens = input.split(" ");   // contiene il comando e i parametri
-        String command = tokens[0];                 // contiene il comando
+        String[] tokens = input.split(" "); // contiene il comando e i parametri
+        String command = tokens[0]; // contiene il comando
 
         switch (command) {
             case CMD_PROVA1:
@@ -96,30 +108,70 @@ public final class CommandHandler {
                     Help.print();
                     return true;
                 }
-            break;
+                break;
 
-            /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
-             */
+            case CMD_DIFF_SHOW:
+                if (needParams(tokens, 0)) {
+                    PrintHandler.print("Il livello di difficoltà selezionato è: ");
+                    PrintHandler.println(DifficultyManager.getLevelName());
+                    PrintHandler.print("Il numero massimo di tentativi fallibili è: ");
+                    PrintHandler.println(String.valueOf(DifficultyManager.getMaxFailedAttempts()));
+                    return true;
+                }
+                break;
+
             case CMD_DIFF_EASY:
-                DifficultyManager.setEasyLevel();
-                System.out.println("OK: " + DifficultyManager.getLevelName());  // TODO DM1
-                return true;
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setEasyLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
             case CMD_DIFF_MED:
-                DifficultyManager.setMedLevel();
-                System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM2
-                return true;
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setMedLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
             case CMD_DIFF_HARD:
-                DifficultyManager.setHardLevel();
-                System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM3
-                return true;
-
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setHardLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
+            case CMD_LEFT:
+                if (needParams(tokens, 0)) {
+                    if (readConfirm()) {
+                        System.exit(0);
+                    }
+                    return true;
+                }
+                break;
             default:
                 break;
         }
-        System.out.println(MSG_INVALID);
+        PrintHandler.println(MSG_INVALID_COMMAND);
         return false;
     }
-
+    /**
+     * La funzione richiede all'utente di confermare l'operazione
+     * che sta per essere eseguita.
+     * @return true se l'utente conferma, false altrimenti
+     */
+    private static boolean readConfirm() {
+        PrintHandler.println(MSG_CONFIRM);
+        String confirm = readCommand();
+        if (confirm.equalsIgnoreCase(CMD_CONFIRM)) {
+            return true;
+        } else if (confirm.equalsIgnoreCase(CMD_DENIAL)) {
+            PrintHandler.println(MSG_DENIAL);
+        } else {
+            PrintHandler.println(MSG_INVALID_ANSWER);
+        }
+        return false;
+    }
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene params parametri.
@@ -129,12 +181,13 @@ public final class CommandHandler {
      * @return true se il comando ha params parametri, false altrimenti
      */
     private static boolean needParams(final String[] tokens, final int params) {
-        if (tokens.length != params + 1) {  // +1 perchè tokens[0] è il comando
+        if (tokens.length != params + 1) { // +1 perchè tokens[0] è il comando
             return false;
         }
         return true;
     }
-
+    /*
+        PREDISPOSIZIONE NEL CASO IN CUI CI SIA BISOGNO
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene un numero di parametri compreso tra min e max.
@@ -143,7 +196,7 @@ public final class CommandHandler {
      * @param min numero minimo di parametri che il comando deve avere
      * @param max numero massimo di parametri che il comando deve avere
      * @return true se il comando ha un numero di parametri compreso tra min e max, false altrimenti
-     */
+     *
     private static boolean needParams(final String[] tokens, final int min, final int max) {
         int minNumOfTokens = min + 1; // +1 perchè tokens[0] è il comando
         int maxNumOfTokens = max + 1; // +1 perchè tokens[0] è il comando
@@ -155,4 +208,5 @@ public final class CommandHandler {
         }
         return false;
     }
+    */
 }
