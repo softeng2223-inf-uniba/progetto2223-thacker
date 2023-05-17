@@ -40,13 +40,13 @@ public final class CommandHandler {
         BufferedReader buffer = null;
         String command = "";
 
-        PrintHandler.print(SYMBOL_INPUT_PROMPT);
+        PrintHandler.println(SYMBOL_INPUT_PROMPT);
 
         try {
             buffer = new BufferedReader(new InputStreamReader(System.in));
             command = buffer.readLine();
         } catch (IOException e) {
-            PrintHandler.print(e.getMessage());
+            PrintHandler.println(e.getMessage());
         }
 
         return command;
@@ -60,7 +60,7 @@ public final class CommandHandler {
      * @return comando letto in input
      */
     public static String readCommand(final String inputMessage) {
-        PrintHandler.print(inputMessage);
+        PrintHandler.println(inputMessage);
         return readCommand();
     }
 
@@ -113,7 +113,7 @@ public final class CommandHandler {
             default:
                 break;
         }
-        PrintHandler.print(MSG_INVALID);
+        PrintHandler.println(MSG_INVALID);
         return false;
     }
 
