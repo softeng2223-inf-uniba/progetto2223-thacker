@@ -127,10 +127,18 @@ public class InitializeGame {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param axis
-     * @param ship
-     * @return
+     * Controlla, sottraendo la dimensione massima della mappa con il valore di indice,
+     * se il valore ottenuto è minore dello spazio rimanente disponibile.
+     * Se lo spazio rimanente è maggiore o uguale alla dimensione della nave, restituisce valore
+     * {@code true}, altrimenti {@code false}.
+     * Viene preso in input un solo {@code int} come parametro che rappresenta il valore dell'indice delle
+     * righe o delle colonne di una coordinata.
+     * Dovrà essere passato il valore di indice di colonna nel caso di inserimento orizzontale,
+     * un indice di riga nel caso di inserimento verticale.
+     * @param axis indice su cui calcolare la disponibilità di celle libere.
+     * @param ship nave che dovrà essere inserita nella mappa, da cui si ricava la dimensione.
+     * @return restituisce {@code true} se il risultato della sottrazione tra dimensione mappa
+     * e indice è minore della dimensione della nave, {@code false} altrimenti.
      */
     private boolean isOutOfRange(final int axis, final Ship ship) {
         return Board.getSize() - axis < ship.getShipSize();
