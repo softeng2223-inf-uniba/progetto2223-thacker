@@ -25,14 +25,14 @@ public class InitializeGame {
      * JavaDoc momentaneo.
      * @param shipsType
      */
-    public void initGame(List<Ship> shipsType) {
+    public void initGame(final List<Ship> shipsType) {
         randomlyFillMap(shipsType);
     }
 
     /**
      * JavaDoc momentaneo.
      */
-    private void randomlyFillMap(List<Ship> shipsType) {
+    private void randomlyFillMap(final List<Ship> shipsType) {
         for (Ship ship : shipsType) {
             randomlyInsertShip(ship);
         }
@@ -53,14 +53,14 @@ public class InitializeGame {
         }
     }
 
-    private void insertShipVertical(Coordinate coord, Ship ship) {
+    private void insertShipVertical(final Coordinate coord, final Ship ship) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
             coord.setRow(coord.getRow() + 1);
         }
     }
 
-    private void insertShipHorizontal(Coordinate coord, Ship ship) {
+    private void insertShipHorizontal(final Coordinate coord, final Ship ship) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
             coord.setCol(coord.getCol() + 1);
@@ -114,7 +114,7 @@ public class InitializeGame {
             return checkHorizontalPosition(temp, ship);
         }
 
-    private boolean checkVerticalPosition(Coordinate coord, Ship ship) {
+    private boolean checkVerticalPosition(final Coordinate coord, final Ship ship) {
         if (isOutOfRange(coord.getCol(), ship)) {
             return false;
         }
@@ -127,7 +127,7 @@ public class InitializeGame {
         return true;
     }
 
-    private boolean checkHorizontalPosition(Coordinate coord, Ship ship) {
+    private boolean checkHorizontalPosition(final Coordinate coord, final Ship ship) {
         if (isOutOfRange(coord.getRow(), ship)) {
             return false;
         }
