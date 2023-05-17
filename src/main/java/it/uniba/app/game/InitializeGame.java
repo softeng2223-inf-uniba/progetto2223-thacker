@@ -30,6 +30,10 @@ public final class InitializeGame {
      * fisso per classe.
      */
     private static Random rand = new Random();
+    /**
+     * Se il gioco è in corso prende valore {@code true}, altrimenti {@code false}.
+     */
+    private static boolean gameRunning = false;
 
 
     private InitializeGame() { }
@@ -39,6 +43,7 @@ public final class InitializeGame {
      */
     public static void initGame() {
         randomlyFillMap();
+        gameRunning = true;
     }
 
     /**
@@ -216,6 +221,10 @@ public final class InitializeGame {
             coord.setCol(coord.getCol() + 1);
         }
         return true;
+    }
+
+    public static boolean isGameRunning() {
+        return gameRunning;
     }
 
     /**
