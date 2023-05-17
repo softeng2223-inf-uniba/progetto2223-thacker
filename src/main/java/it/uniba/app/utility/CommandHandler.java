@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import it.uniba.app.game.DifficultyManager;
+import it.uniba.app.game.InitializeGame;
 
 import java.io.IOException;
 
@@ -24,6 +25,9 @@ public final class CommandHandler {
     private static final String CMD_DIFF_EASY = "/facile";
     private static final String CMD_DIFF_MED = "/medio";
     private static final String CMD_DIFF_HARD = "/difficile";
+    private static final String CMD_START = "/gioca";
+
+    private static boolean isGameRunning = false;
 
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
@@ -82,11 +86,15 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
+
             case CMD_PROVA2:
                 if (needParams(tokens, 0)) {
                     // codice per eseguire comando "/prova2" con 0 parametri
                     return true;
                 }
+                break;
+
+            case CMD_START:
                 break;
 
             /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
