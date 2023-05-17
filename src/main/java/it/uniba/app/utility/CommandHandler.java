@@ -128,7 +128,7 @@ public final class CommandHandler {
             default:
                 break;
         }
-        PrintHandler.println(MSG_INVALID);
+        PrintHandler.println(MSG_INVALID_COMMAND);
         return false;
     }
     private static boolean readConfirm() {
