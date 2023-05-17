@@ -18,12 +18,18 @@ public final class InitializeGame {
      * di posizionamento randomiche delle navi.
      */
     private static final int POSSIBLE_DIRECTIONS = 2;
-
     /**
      * Rappresenta la mappa di gioco su cui verranno posizionate
      * le navi del computer.
      */
     private static Board map = new Board();
+    /**
+     * Utilizzato per creare valori randomici affidabili, in quanto se
+     * dovesse essere istanziato più volte un oggetto di tipo {@code Random}
+     * non produrrebbe valori affidabili, al contrario di avere uno
+     * fisso per classe.
+     */
+    private static Random rand = new Random();
 
 
     private InitializeGame() { }
@@ -54,15 +60,11 @@ public final class InitializeGame {
      * @param ship nave da inserire in posizione randomica.
      */
     private static void randomlyInsertShip(final Ship ship) {
-        Random rand   = new Random();
-        int direction = rand.nextInt(POSSIBLE_DIRECTIONS);
+        int direction = getRandomDirection();
 
-        Coordinate coord = new Coordinate();
+        Coordinate coord;
         do {
-            int col = rand.nextInt(Board.getSize());
-            int row = rand.nextInt(Board.getSize());
-            coord.setCol(col);
-            coord.setRow(row);
+            coord = getRandomCoordinates();
         } while (!isPositionAvailable(coord, direction, ship));
 
         if (direction == VERTICAL) {
@@ -94,6 +96,28 @@ public final class InitializeGame {
             map.setElement(coord, ship);
             coord.setCol(coord.getCol() + 1);
         }
+    }
+
+    /**
+     * Genera un {@code int} compreso tra {@code 0} ed {@code 1} che corrisponde all'orientamento.
+     * della nave. 0 indica un orientamento verticale; 1 indica un orientamento
+     * orizzontale.
+     * @return un intero compreso tra {@code 0} ed {@code 1} generato randomicamente.
+     */
+    private static int getRandomDirection() {
+        return rand.nextInt(POSSIBLE_DIRECTIONS);
+    }
+
+     /**
+     * Restituisce un nuovo oggetto di tipo {@code Coordinates}
+     * con valori interi randomici compresi
+     * tra 0 e dimensione massima della mappa di gioco.
+     * @return {@code Coordinate} con valori randomici.
+     */
+    private static Coordinate getRandomCoordinates() {
+        int    first = rand.nextInt(Board.getSize());
+        int    sec   = rand.nextInt(Board.getSize());
+        return new Coordinate(first, sec);
     }
 
     /**
