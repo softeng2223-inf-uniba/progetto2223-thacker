@@ -17,7 +17,9 @@ public final class ShipSet {
         for (int i = 0; i < s.getNumberOfInstances(); i++) {
             shipsList.add(new Incrociatore());
         }
-
+        for (int i = 0; i < l.getNumberOfInstances(); i++) {
+            shipsList.add(new Corazzata());
+        }
 
     }
 }
