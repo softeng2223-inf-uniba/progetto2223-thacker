@@ -62,6 +62,13 @@ public class InitializeGame {
     private void insertShipVertical(Coordinate coord, Ship ship) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
+            coord.setRow(coord.getRow() + 1);
+        }
+    }
+
+    private void insertShipHorizontal(Coordinate coord, Ship ship) {
+        for (int i = 0; i < ship.getShipSize(); i++) {
+            map.setElement(coord, ship);
             coord.setCol(coord.getCol() + 1);
         }
     }
