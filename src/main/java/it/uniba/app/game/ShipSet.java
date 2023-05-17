@@ -10,6 +10,11 @@ public final class ShipSet {
     private ShipSet() { }
     private static LinkedList<Ship> shipsList = new LinkedList<Ship>();
 
+    /**
+     * Metodo che restituisce una lista con il numero
+     * d'instanze corrette di ciascun tipo di nave.
+     * @return shipsList lista di navi da posizionare sulla griglia
+     */
     public static LinkedList<Ship> getShipsSet() {
         Cacciatorpediniere p    = new Cacciatorpediniere();
         Incrociatore s          = new Incrociatore();
