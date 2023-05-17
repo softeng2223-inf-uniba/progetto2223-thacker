@@ -40,13 +40,13 @@ public final class CommandHandler {
         BufferedReader buffer = null;
         String command = "";
 
-        System.out.print(SYMBOL_INPUT_PROMPT);
+        PrintHandler.println(SYMBOL_INPUT_PROMPT);
 
         try {
             buffer = new BufferedReader(new InputStreamReader(System.in));
             command = buffer.readLine();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            PrintHandler.println(e.getMessage());
         }
 
         return command;
@@ -60,7 +60,7 @@ public final class CommandHandler {
      * @return comando letto in input
      */
     public static String readCommand(final String inputMessage) {
-        System.out.println(inputMessage);
+        PrintHandler.println(inputMessage);
         return readCommand();
     }
 
@@ -88,26 +88,32 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
-
-            /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
-             */
             case CMD_DIFF_EASY:
-                DifficultyManager.setEasyLevel();
-                System.out.println("OK: " + DifficultyManager.getLevelName());  // TODO DM1
-                return true;
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setEasyLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
             case CMD_DIFF_MED:
-                DifficultyManager.setMedLevel();
-                System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM2
-                return true;
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setMedLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
             case CMD_DIFF_HARD:
-                DifficultyManager.setHardLevel();
-                System.out.println("OK: " + DifficultyManager.getLevelName());  //TODO DM3
-                return true;
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setHardLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
 
             default:
                 break;
         }
-        System.out.println(MSG_INVALID);
+        PrintHandler.println(MSG_INVALID);
         return false;
     }
 
@@ -125,7 +131,8 @@ public final class CommandHandler {
         }
         return true;
     }
-
+    /*
+        PREDISPOSIZIONE NEL CASO IN CUI CI SIA BISOGNO
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene un numero di parametri compreso tra min e max.
@@ -134,7 +141,7 @@ public final class CommandHandler {
      * @param min numero minimo di parametri che il comando deve avere
      * @param max numero massimo di parametri che il comando deve avere
      * @return true se il comando ha un numero di parametri compreso tra min e max, false altrimenti
-     */
+     *
     private static boolean needParams(final String[] tokens, final int min, final int max) {
         int minNumOfTokens = min + 1; // +1 perchè tokens[0] è il comando
         int maxNumOfTokens = max + 1; // +1 perchè tokens[0] è il comando
@@ -146,4 +153,5 @@ public final class CommandHandler {
         }
         return false;
     }
+    */
 }
