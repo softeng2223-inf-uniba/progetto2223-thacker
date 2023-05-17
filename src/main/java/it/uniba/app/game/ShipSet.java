@@ -1,6 +1,11 @@
 package it.uniba.app.game;
 import java.util.LinkedList;
-
+/**
+ * Classe utilizzata per posizionare in maniera
+ * randomica, sulla Griglia delle Navi, il numero
+ * corretto di istanze di navi di ciascun
+ * tipo di specializzazione.
+ */
 public final class ShipSet {
     private ShipSet() { }
     private static LinkedList<Ship> shipsList = new LinkedList<Ship>();
