@@ -38,8 +38,7 @@ public class InitializeGame {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param shipsType
+     * Imposta le mappe di gioco e posiziona le navi da colpire in modo randomico.
      */
     public void initGame(final List<Ship> shipsType) {
         randomlyFillMap(shipsType);
