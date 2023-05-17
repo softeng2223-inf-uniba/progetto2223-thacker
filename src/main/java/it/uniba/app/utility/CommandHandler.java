@@ -128,7 +128,7 @@ public final class CommandHandler {
         PrintHandler.println(MSG_INVALID);
         return false;
     }
-    private static boolean readConfirm(){
+    private static boolean readConfirm() {
         PrintHandler.println(MSG_CONFIRM);
         String confirm = readCommand();
         if (confirm.equalsIgnoreCase(CMD_CONFIRM)) {
