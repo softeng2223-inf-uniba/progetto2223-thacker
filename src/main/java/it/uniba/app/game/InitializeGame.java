@@ -202,14 +202,14 @@ public final class InitializeGame {
      * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
      */
     private static boolean checkHorizontalPosition(final Coordinate coord, final Ship ship) {
-        if (isOutOfRange(coord.getRow(), ship)) {
+        if (isOutOfRange(coord.getCol(), ship)) {
             return false;
         }
         for (int i = 0; i < ship.getShipSize(); i++) {
             if (map.isCellOccupiedByShip(coord)) {
                 return false;
             }
-            coord.setCol(coord.getRow() + 1);
+            coord.setCol(coord.getCol() + 1);
         }
         return true;
     }
