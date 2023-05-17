@@ -84,13 +84,21 @@ public class InitializeGame {
             // per inserire la nave.
             if (direction == VERTICAL) {
                 if (isOutOfRange(direction, ship)) {
-                    // cicla sugli elementi della mappaNavi in verticale
-                    // per vedere se ora quelle posizioni sono libere.
+                    for (int i = 0; i < ship.getShipSize(); i++) {
+                        if (map.isCellOccupiedByShip(temp)) {
+                            return false;
+                        }
+                        temp.setCol(temp.getCol() + 1);
+                    }
                 }
             } else {
                 if (isOutOfRange(direction, ship)) {
-                    // cicla sugli elementi della mappaNavi in orizzontale
-                    // per vedere se ora quelle posizioni sono libere.
+                    for (int i = 0; i < ship.getShipSize(); i++) {
+                        if (map.isCellOccupiedByShip(temp)) {
+                            return false;
+                        }
+                        temp.setRow(temp.getRow() + 1);
+                    }
                 }
                 }
             }
