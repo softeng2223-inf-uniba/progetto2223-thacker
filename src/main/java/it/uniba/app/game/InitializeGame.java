@@ -71,6 +71,10 @@ public class InitializeGame {
         return new Coordinate(first, sec);
     }
 
+    private boolean isOutOfRange(final int axis, final Ship ship) {
+        return Board.getSize() - axis < ship.getShipSize();
+    }
+
     private boolean isPositionAvailable(final Coordinate coord,
         final int direction, final Ship ship) {
             Coordinate temp = (Coordinate) coord.clone();
@@ -79,9 +83,16 @@ public class InitializeGame {
             // dalle coordinate generate randomicamente, c'è abbastanza spazio
             // per inserire la nave.
             if (direction == VERTICAL) {
-
+                if (isOutOfRange(direction, ship)) {
+                    // cicla sugli elementi della mappaNavi in verticale
+                    // per vedere se ora quelle posizioni sono libere.
+                }
             } else {
-
+                if (isOutOfRange(direction, ship)) {
+                    // cicla sugli elementi della mappaNavi in orizzontale
+                    // per vedere se ora quelle posizioni sono libere.
+                }
+                }
             }
         }
 }
