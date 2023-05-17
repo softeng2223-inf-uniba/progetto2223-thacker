@@ -16,15 +16,27 @@ import java.io.IOException;
 public final class CommandHandler {
 
     /* === MESSAGGI === */
-    private static final String MSG_INVALID = "Comando non valido";
+    private static final String MSG_INVALID_COMMAND = "Comando non valido";
+    private static final String MSG_INVALID_ANSWER = "Risposta non valida, comando annullato";
+    private static final String MSG_CONFIRM = "Sei sicuro di voler uscire? (si/no)";
+    private static final String MSG_DENIAL = "Operazione annullata";
 
     /* === COMANDI === */
     private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
     private static final String CMD_PROVA2 = "/prova2"; // da rimuovere quando non più utile
     private static final String CMD_DIFF_SHOW = "/mostralivello";
 
+    private static final String CMD_LEFT = "/esci";
+    private static final String CMD_CONFIRM = "si";
+    private static final String CMD_DENIAL = "no";
+
+    private static final String CMD_DIFF_EASY = "/facile";
+    private static final String CMD_DIFF_MED = "/medio";
+    private static final String CMD_DIFF_HARD = "/difficile";
+
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
+    private static final String ENCODER_USED = "UTF-8";
 
     private CommandHandler() {
     }
@@ -39,13 +51,13 @@ public final class CommandHandler {
         BufferedReader buffer = null;
         String command = "";
 
-        System.out.print(SYMBOL_INPUT_PROMPT);
+        PrintHandler.print(SYMBOL_INPUT_PROMPT);
 
         try {
-            buffer = new BufferedReader(new InputStreamReader(System.in));
+            buffer = new BufferedReader(new InputStreamReader(System.in, ENCODER_USED));
             command = buffer.readLine();
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            PrintHandler.println(e.getMessage());
         }
 
         return command;
@@ -60,7 +72,7 @@ public final class CommandHandler {
      * @return comando letto in input
      */
     public static String readCommand(final String inputMessage) {
-        System.out.println(inputMessage);
+        PrintHandler.println(inputMessage);
         return readCommand();
     }
 
@@ -99,13 +111,58 @@ public final class CommandHandler {
                 }
                 break;
 
+            case CMD_DIFF_EASY:
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setEasyLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
+            case CMD_DIFF_MED:
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setMedLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
+            case CMD_DIFF_HARD:
+                if (needParams(tokens, 0)) {
+                    DifficultyManager.setHardLevel();
+                    PrintHandler.printLevelName();
+                    return true;
+                }
+                break;
+            case CMD_LEFT:
+                if (needParams(tokens, 0)) {
+                    if (readConfirm()) {
+                        System.exit(0);
+                    }
+                    return true;
+                }
+                break;
             default:
                 break;
         }
-        System.out.println(MSG_INVALID);
+        PrintHandler.println(MSG_INVALID_COMMAND);
         return false;
     }
-
+    /**
+     * La funzione richiede all'utente di confermare l'operazione
+     * che sta per essere eseguita.
+     * @return true se l'utente conferma, false altrimenti
+     */
+    private static boolean readConfirm() {
+        PrintHandler.println(MSG_CONFIRM);
+        String confirm = readCommand();
+        if (confirm.equalsIgnoreCase(CMD_CONFIRM)) {
+            return true;
+        } else if (confirm.equalsIgnoreCase(CMD_DENIAL)) {
+            PrintHandler.println(MSG_DENIAL);
+        } else {
+            PrintHandler.println(MSG_INVALID_ANSWER);
+        }
+        return false;
+    }
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene params parametri.
@@ -120,17 +177,17 @@ public final class CommandHandler {
         }
         return true;
     }
-
+    /*
+        PREDISPOSIZIONE NEL CASO IN CUI CI SIA BISOGNO
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene un numero di parametri compreso tra min e max.
      *
      * @param tokens comando da eseguire con i parametri
-     * @param min    numero minimo di parametri che il comando deve avere
-     * @param max    numero massimo di parametri che il comando deve avere
-     * @return true se il comando ha un numero di parametri compreso tra min e max,
-     *         false altrimenti
-     */
+     * @param min numero minimo di parametri che il comando deve avere
+     * @param max numero massimo di parametri che il comando deve avere
+     * @return true se il comando ha un numero di parametri compreso tra min e max, false altrimenti
+     *
     private static boolean needParams(final String[] tokens, final int min, final int max) {
         int minNumOfTokens = min + 1; // +1 perchè tokens[0] è il comando
         int maxNumOfTokens = max + 1; // +1 perchè tokens[0] è il comando
@@ -142,4 +199,5 @@ public final class CommandHandler {
         }
         return false;
     }
+    */
 }

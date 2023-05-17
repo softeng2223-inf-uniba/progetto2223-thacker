@@ -38,13 +38,7 @@ public class Corazzata extends Ship {
     Corazzata() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
-    /**
-     * Restituisce il {@code name} della nave {@code Corazzata}.
-     * @return nome della nave.
-     */
-    String getName() {
-        return SHIP_NAME;
-    }
+
     /**
      * Restituisce la stringa che contiene il
      * colore del tipo di nave specifico.
