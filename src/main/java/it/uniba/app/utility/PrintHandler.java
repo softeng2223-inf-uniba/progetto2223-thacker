@@ -5,8 +5,6 @@ package it.uniba.app.utility;
  * per la gestione delle stampe a video.
  */
 public class PrintHandler {
-    private static final String PRINTEXAMPLE = "PROVA";
-
     /**
      * Stampa il messaggio fornito in input sulla console senza andare a capo.
      * @param msg messaggio da stampare
