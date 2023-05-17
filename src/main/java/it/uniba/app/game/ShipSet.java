@@ -23,6 +23,6 @@ public final class ShipSet {
         for (int i = 0; i < c.getNumberOfInstances(); i++) {
             shipsList.add(new Portaerei());
         }
-
+        return shipsList;
     }
 }
