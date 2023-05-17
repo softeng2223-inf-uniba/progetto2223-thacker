@@ -145,11 +145,16 @@ public class InitializeGame {
     }
 
     /**
-     * JavaDoc momentaneo.
-     * @param coord
-     * @param direction
-     * @param ship
-     * @return
+     * Controlla che, a partire dalla posizione indicata da {@code Coordinates} nella
+     * mappa navi, ci siano abbastanza posizioni disponibili per poter inserire la nave
+     * passata come parametro in base all'orientamento scelto.<p>
+     * Se la direzione di inserimento è verticale viene invocata la funzione {@code checkVerticalPosition},
+     * altrimenti viene invocata {@code checkHorizontalPosition}.
+     * @param coord coordinate da cui partire per effettuare il controllo.
+     * @param direction orientamento della nave.
+     * @param ship nave da inserire nella mappa.
+     * @return {@code true} se ci sono abbastanza posizioni disponibili nella mappa
+     * per ospitare la nave, {@code false} altrimenti.
      */
     private boolean isPositionAvailable(final Coordinate coord,
         final int direction, final Ship ship) {
