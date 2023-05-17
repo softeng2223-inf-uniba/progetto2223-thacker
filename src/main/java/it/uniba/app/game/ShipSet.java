@@ -14,6 +14,9 @@ public final class ShipSet {
         for (int i = 0; i < p.getNumberOfInstances(); i++) {
             shipsList.add(new Cacciatorpediniere());
         }
+        for (int i = 0; i < s.getNumberOfInstances(); i++) {
+            shipsList.add(new Incrociatore());
+        }
 
 
     }
