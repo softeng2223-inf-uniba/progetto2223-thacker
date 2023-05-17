@@ -127,7 +127,14 @@ public final class CommandHandler {
         PrintHandler.println(MSG_INVALID);
         return false;
     }
-
+    private static boolean readConfirm(){
+        PrintHandler.println(MSG_LEFT);
+        String confirm = readCommand();
+        if (confirm.equalsIgnoreCase(CMD_CONFIRM)) {
+            return true;
+        }
+        return false;
+    }
     /**
      * La funzione controlla se il comando presente in tokens
      * contiene params parametri.
