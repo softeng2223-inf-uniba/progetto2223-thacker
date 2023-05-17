@@ -36,7 +36,10 @@ public class InitializeGame {
         // deve essere fatto un controllo sulla mappa se
         // la posizione determinata dalle coordinate è disponibile
         // per il posizionamento di una nave.
-        Coordinate coord = getRandomCoordinates();
+        Coordinate coord;
+        do {
+            coord = getRandomCoordinates();
+        } while (!isPositionAvailable(coord, direction, ship));
 
         if (direction == VERTICAL) {
             for (int i = 0; i < ship.getShipSize(); i++) {
@@ -71,10 +74,23 @@ public class InitializeGame {
         return new Coordinate(first, sec);
     }
 
+    /**
+     * JavaDoc momentaneo.
+     * @param axis
+     * @param ship
+     * @return
+     */
     private boolean isOutOfRange(final int axis, final Ship ship) {
         return Board.getSize() - axis < ship.getShipSize();
     }
 
+    /**
+     * JavaDoc momentaneo.
+     * @param coord
+     * @param direction
+     * @param ship
+     * @return
+     */
     private boolean isPositionAvailable(final Coordinate coord,
         final int direction, final Ship ship) {
             Coordinate temp = (Coordinate) coord.clone();
@@ -99,7 +115,6 @@ public class InitializeGame {
                         }
                         temp.setRow(temp.getRow() + 1);
                     }
-                }
                 }
             }
         }
