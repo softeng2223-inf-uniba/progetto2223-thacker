@@ -1,7 +1,6 @@
 package it.uniba.app.utility.help;
 
 /**
- * <p>
  * Classe principale. Contiene le funzioni che stampa a video il file di testo
  * contenente le istruzioni per l'utilizzo del programma.
  */
@@ -38,13 +37,11 @@ public final class Help {
     + "il giocatore può invocare il comando /svelagriglia per scoprire  la griglia dell'avversario, "
     + "ovvero la griglia con le navi posizionate." + "\n\n"
     + "" + "\n";
-    /**
-     * <p>.
-    *
-    */
+
     private Help() { };
+
     /**
-     * <p>.
+     * Classe principale, stampa a video il file di testo contenente le istruzioni.
     *
     */
     public static void print() {
