@@ -27,6 +27,7 @@ public final class CommandHandler {
 
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
+    private static final String ENCODER_USED = "UTF-8";
 
     private CommandHandler() { }
 
@@ -43,7 +44,7 @@ public final class CommandHandler {
         PrintHandler.println(SYMBOL_INPUT_PROMPT);
 
         try {
-            buffer = new BufferedReader(new InputStreamReader(System.in));
+            buffer = new BufferedReader(new InputStreamReader(System.in, ENCODER_USED));
             command = buffer.readLine();
         } catch (IOException e) {
             PrintHandler.println(e.getMessage());
