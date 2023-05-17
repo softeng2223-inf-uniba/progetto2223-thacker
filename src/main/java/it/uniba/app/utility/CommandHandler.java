@@ -90,8 +90,8 @@ public final class CommandHandler {
                 break;
 
             case "/help":
-                Help.printHelp();
-            
+                Help.print();
+
             /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
              */
             case CMD_DIFF_EASY:
