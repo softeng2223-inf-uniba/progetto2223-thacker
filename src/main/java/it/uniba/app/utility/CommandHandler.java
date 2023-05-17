@@ -16,6 +16,7 @@ public final class CommandHandler {
 
     /* === MESSAGGI === */
     private static final String MSG_INVALID = "Comando non valido";
+    private static final String MSG_CONFIRM = "Sei sicuro di voler uscire? (si/no)";
 
     /* === COMANDI === */
     private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
