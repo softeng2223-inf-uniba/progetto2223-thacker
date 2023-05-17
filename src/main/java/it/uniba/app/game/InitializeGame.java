@@ -23,9 +23,17 @@ public class InitializeGame {
 
     /**
      * JavaDoc momentaneo.
+     * @param shipsType
      */
-    private void randomlyFillMap(List<Ship> ShipsType) {
-        for (Ship ship : ShipsType) {
+    public void initGame(List<Ship> shipsType) {
+        randomlyFillMap(shipsType);
+    }
+
+    /**
+     * JavaDoc momentaneo.
+     */
+    private void randomlyFillMap(List<Ship> shipsType) {
+        for (Ship ship : shipsType) {
             randomlyInsertShip(ship);
         }
     }
