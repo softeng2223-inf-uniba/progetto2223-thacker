@@ -88,27 +88,24 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
-
-            /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
-             */
             case CMD_DIFF_EASY:
                 if (needParam(tokens, 0)) {
                     DifficultyManager.setEasyLevel();
-                    System.out.println("OK: " + DifficultyManager.getLevelName()); // TODO DM1
+                    PrintHandler.printLevelName();
                     return true;
                 }
                 break;
             case CMD_DIFF_MED:
                 if (needParam(tokens, 0)) {
                     DifficultyManager.setMedLevel();
-                    System.out.println("OK: " + DifficultyManager.getLevelName()); //TODO DM2
+                    PrintHandler.printLevelName();
                     return true;
                 }
                 break;
             case CMD_DIFF_HARD:
                 if (needParam(tokens, 0)) {
                     DifficultyManager.setHardLevel();
-                    System.out.println("OK: " + DifficultyManager.getLevelName()); //TODO DM3
+                    PrintHandler.printLevelName();
                     return true;
                 }
                 break;
