@@ -11,6 +11,10 @@ public final class ShipSet {
         Corazzata l             = new Corazzata();
         Portaerei c             = new Portaerei();
 
+        for (int i = 0; i < p.getNumberOfInstances(); i++) {
+            shipsList.add(new Cacciatorpediniere());
+        }
+
 
     }
 }
