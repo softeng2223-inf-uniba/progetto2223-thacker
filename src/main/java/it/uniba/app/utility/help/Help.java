@@ -46,14 +46,18 @@ public final class Help {
      * <p>.
     *
     */
-    public static void printTitle() {
-        for (int i = 0; i < TITLE.length(); i++) {
-            System.out.print(TITLE.charAt(i));
-            try {
+    public static void print() {
+        try {
+            for (int i = 0; i < TITLE.length(); i++) {
+                System.out.print(TITLE.charAt(i));
                 Thread.sleep(SLEEP_TIME);
-            } catch (InterruptedException err) {
-                System.out.println("Errore: " + err);
             }
+            for (int i = 0; i < TEXT.length(); i++) {
+                System.out.print(TEXT.charAt(i));
+                Thread.sleep(SLEEP_TIME);
+            }
+        } catch (InterruptedException err) {
+            System.out.println("Errore: " + err);
         }
     }
 }
