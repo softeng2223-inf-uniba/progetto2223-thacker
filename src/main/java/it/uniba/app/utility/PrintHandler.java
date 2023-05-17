@@ -8,13 +8,16 @@ public class PrintHandler {
     private static final String PRINTEXAMPLE = "PROVA";
 
     /**
-     * Stampa il messaggio fornito in input sulla console.
+     * Stampa il messaggio fornito in input sulla console senza andare a capo.
      * @param msg messaggio da stampare
      */
     public static void print(final String msg) {
-        System.out.println(msg);
+        System.out.print(msg);
     }
-
+    /**
+     * Stampa il messaggio fornito in input sulla console andando a capo.
+     * @param msg messaggio da stampare
+     */
     public static void println(final String msg) {
         System.out.println(msg);
     }
