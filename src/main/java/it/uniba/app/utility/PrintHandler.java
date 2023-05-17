@@ -1,4 +1,5 @@
 package it.uniba.app.utility;
+import it.uniba.app.game.DifficultyManager;
 
 /**
  * La classe PrintHandler fornisce funzionalità
