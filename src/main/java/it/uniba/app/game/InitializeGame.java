@@ -54,12 +54,15 @@ public final class InitializeGame {
      * @param ship nave da inserire in posizione randomica.
      */
     private static void randomlyInsertShip(final Ship ship) {
-        Random rand = new Random();
+        Random rand   = new Random();
         int direction = rand.nextInt(POSSIBLE_DIRECTIONS);
 
-        Coordinate coord;
+        Coordinate coord = new Coordinate();
         do {
-            coord = getRandomCoordinates();
+            int col = rand.nextInt(Board.getSize());
+            int row = rand.nextInt(Board.getSize());
+            coord.setCol(col);
+            coord.setRow(row);
         } while (!isPositionAvailable(coord, direction, ship));
 
         if (direction == VERTICAL) {
@@ -91,19 +94,6 @@ public final class InitializeGame {
             map.setElement(coord, ship);
             coord.setCol(coord.getCol() + 1);
         }
-    }
-
-     /**
-     * Restituisce un nuovo oggetto di tipo {@code Coordinates}
-     * con valori interi randomici compresi
-     * tra 0 e dimensione massima della mappa di gioco.
-     * @return {@code Coordinate} con valori randomici.
-     */
-    private static Coordinate getRandomCoordinates() {
-        Random rand  = new Random();
-        int    first = rand.nextInt(Board.getSize());
-        int    sec   = rand.nextInt(Board.getSize());
-        return new Coordinate(first, sec);
     }
 
     /**
