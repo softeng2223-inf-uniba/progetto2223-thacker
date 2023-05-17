@@ -41,9 +41,6 @@ public class InitializeGame {
     private void randomlyInsertShip(final Ship ship) {
         int direction = getRandomDirection();
 
-        // deve essere fatto un controllo sulla mappa se
-        // la posizione determinata dalle coordinate è disponibile
-        // per il posizionamento di una nave.
         Coordinate coord;
         do {
             coord = getRandomCoordinates();
@@ -59,6 +56,13 @@ public class InitializeGame {
                 map.setElement(coord, ship);
                 coord.setRow(coord.getRow() + 1);
             }
+        }
+    }
+
+    private void insertShipVertical(Coordinate coord, Ship ship) {
+        for (int i = 0; i < ship.getShipSize(); i++) {
+            map.setElement(coord, ship);
+            coord.setCol(coord.getCol() + 1);
         }
     }
 
