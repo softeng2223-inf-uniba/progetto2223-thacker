@@ -21,6 +21,8 @@ public final class CommandHandler {
     private static final String CMD_PROVA1 = "/prova1"; //da rimuovere quando non più utile
     private static final String CMD_PROVA2 = "/prova2"; //da rimuovere quando non più utile
 
+    private static final String CMD_HELP = "/help";
+
     private static final String CMD_DIFF_EASY = "/facile";
     private static final String CMD_DIFF_MED = "/medio";
     private static final String CMD_DIFF_HARD = "/difficile";
@@ -89,7 +91,7 @@ public final class CommandHandler {
                 }
                 break;
 
-            case "/help":
+            case CMD_HELP:
                 Help.print();
 
             /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
