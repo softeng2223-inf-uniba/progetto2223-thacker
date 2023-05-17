@@ -38,6 +38,10 @@ public class InitializeGame {
         }
     }
 
+    /**
+     * JavaDoc momentaneo.
+     * @param ship
+     */
     private void randomlyInsertShip(final Ship ship) {
         int direction = getRandomDirection();
 
@@ -53,6 +57,11 @@ public class InitializeGame {
         }
     }
 
+    /**
+     * JavaDoc momentaneo.
+     * @param coord
+     * @param ship
+     */
     private void insertShipVertical(final Coordinate coord, final Ship ship) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
@@ -60,6 +69,11 @@ public class InitializeGame {
         }
     }
 
+    /**
+     * JavaDoc momentaneo.
+     * @param coord
+     * @param ship
+     */
     private void insertShipHorizontal(final Coordinate coord, final Ship ship) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
@@ -114,6 +128,12 @@ public class InitializeGame {
             return checkHorizontalPosition(temp, ship);
         }
 
+    /**
+     * JavaDoc momentaneo.
+     * @param coord
+     * @param ship
+     * @return
+     */
     private boolean checkVerticalPosition(final Coordinate coord, final Ship ship) {
         if (isOutOfRange(coord.getCol(), ship)) {
             return false;
@@ -127,6 +147,12 @@ public class InitializeGame {
         return true;
     }
 
+    /**
+     * JavaDoc momentaneo.
+     * @param coord
+     * @param ship
+     * @return
+     */
     private boolean checkHorizontalPosition(final Coordinate coord, final Ship ship) {
         if (isOutOfRange(coord.getRow(), ship)) {
             return false;
