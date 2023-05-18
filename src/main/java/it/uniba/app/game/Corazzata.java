@@ -35,7 +35,7 @@ public class Corazzata extends Ship {
      * della superclasse per inizializzare gli attributi
      * ereditati.
      */
-    Corazzata() {
+    public Corazzata() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
 
@@ -44,7 +44,7 @@ public class Corazzata extends Ship {
      * colore del tipo di nave specifico.
      * @return stringa che contiene il colore della nave.
      */
-    String getShipColoredSymbol() {
+    public String getShipColoredSymbol() {
         return CORAZZATA_COLOR;
     }
     /**

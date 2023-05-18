@@ -35,7 +35,7 @@ public class Portaerei extends Ship {
      * della superclasse per inizializzare gli attributi
      * ereditati.
      */
-    Portaerei() {
+    public Portaerei() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
 
@@ -44,7 +44,7 @@ public class Portaerei extends Ship {
      * colore del tipo di nave specifico.
      * @return stringa che contiene il colore della nave.
      */
-    String getShipColoredSymbol() {
+    public String getShipColoredSymbol() {
         return PORTAEREI_COLOR;
     }
     /**
