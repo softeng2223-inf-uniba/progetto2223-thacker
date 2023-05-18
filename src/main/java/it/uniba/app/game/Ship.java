@@ -72,7 +72,7 @@ public abstract class Ship {
      * sottoclassi.
      * @return stringa che contiene il colore della nave.
      */
-    abstract String getShipColoredSymbol();
+    public abstract String getShipColoredSymbol();
     /**
      * Restituisce il numero di tipi
      * di nave presenti.

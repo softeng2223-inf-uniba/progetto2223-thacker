@@ -43,6 +43,30 @@ public final class PrintShips {
         return space;
     }
 
-    
+    public static void showShips() {
 
+        LinkedList<Ship> list = new LinkedList<Ship>();
+        list.add(new Cacciatorpediniere());
+        list.add(new Incrociatore());
+        list.add(new Corazzata());
+        list.add(new Portaerei());
+
+        String numOfInstancesWhiteSpace = "       ";
+        String nameWhiteSpace = "";
+
+        for (Ship ship: list) {
+            nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
+            String str = ship.getName() + nameWhiteSpace;
+
+            for (int i = 0; i < ship.getShipSize(); i++) {
+                str += ship.getShipColoredSymbol() + ship.getShipSymbol()
+                    + ship.getShipWhiteSymbol();
+            }
+
+            str += numOfInstancesWhiteSpace + "Esemplari:" + ship.getNumberOfInstances();
+            decrementNumberOfExamplesWhiteSpace(numOfInstancesWhiteSpace);
+            numOfInstancesWhiteSpace = decrementNumberOfExamplesWhiteSpace(numOfInstancesWhiteSpace);
+            System.out.println(str);
+        }
+    }
 }
