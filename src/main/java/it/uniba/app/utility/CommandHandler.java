@@ -41,6 +41,8 @@ public final class CommandHandler {
     private static final String CMD_DIFF_HARD = "/difficile";
     private static final String CMD_START     = "/gioca";
 
+    private static final String CMD_SHOW_SHIPS = "/mostranavi";
+
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String ENCODER_USED = "UTF-8";
@@ -162,6 +164,7 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
+
             case CMD_DIFF_MED:
                 if (needParams(tokens, 0)) {
                     DifficultyManager.setMedLevel();
@@ -169,6 +172,7 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
+
             case CMD_DIFF_HARD:
                 if (needParams(tokens, 0)) {
                     DifficultyManager.setHardLevel();
@@ -176,6 +180,7 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
+
             case CMD_LEFT:
                 if (needParams(tokens, 0)) {
                     if (readConfirm()) {
@@ -184,6 +189,14 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
+
+            case CMD_SHOW_SHIPS:
+                if (needParams(tokens, 0)) {
+                    PrintShips.showShips();
+                    return true;
+                }
+                break;
+
             default:
                 break;
         }
