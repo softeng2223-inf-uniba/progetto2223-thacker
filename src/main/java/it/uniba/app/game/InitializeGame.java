@@ -43,7 +43,7 @@ public final class InitializeGame {
     /**
      * Imposta la mappa di gioco posizionando le navi da colpire in modo randomico.
      */
-    public static void initGame() {
+    public void initGame() {
         randomlyFillMap();
         gameRunning = true;
     }
@@ -51,7 +51,7 @@ public final class InitializeGame {
     /**
      * Inserisce nella mappa delle navi ad una ad una tutte le navi disponibili nel gioco.
      */
-    private static void randomlyFillMap() {
+    private void randomlyFillMap() {
         LinkedList<Ship> shipList = getShipsSet();
 
         for (Ship ship : shipList) {
@@ -66,7 +66,7 @@ public final class InitializeGame {
      * e le coordinate generate.
      * @param ship nave da inserire in posizione randomica.
      */
-    private static void randomlyInsertShip(final Ship ship) {
+    private void randomlyInsertShip(final Ship ship) {
         int direction = getRandomDirection();
 
         Coordinate coord;
@@ -86,7 +86,7 @@ public final class InitializeGame {
      * @param coord coordinate in cui cominciare ad inserire la nave in verticale.
      * @param ship specifica quale nave dev'essere inserita nella mappa.
      */
-    private static void insertShipVertical(final Coordinate coord, final Ship ship) {
+    private void insertShipVertical(final Coordinate coord, final Ship ship) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
             coord.setRow(coord.getRow() + 1);
@@ -98,7 +98,7 @@ public final class InitializeGame {
      * @param coord coordinate in cui cominciare ad inserire la nave in verticale.
      * @param ship specifica quale nave dev'essere inserita nella mappa.
      */
-    private static void insertShipHorizontal(final Coordinate coord, final Ship ship) {
+    private void insertShipHorizontal(final Coordinate coord, final Ship ship) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
             coord.setCol(coord.getCol() + 1);
@@ -111,7 +111,7 @@ public final class InitializeGame {
      * orizzontale.
      * @return un intero compreso tra {@code 0} ed {@code 1} generato randomicamente.
      */
-    private static int getRandomDirection() {
+    private int getRandomDirection() {
         return rand.nextInt(POSSIBLE_DIRECTIONS);
     }
 
@@ -121,7 +121,7 @@ public final class InitializeGame {
      * tra 0 e dimensione massima della mappa di gioco.
      * @return {@code Coordinate} con valori randomici.
      */
-    private static Coordinate getRandomCoordinates() {
+    private Coordinate getRandomCoordinates() {
         int    first = rand.nextInt(Board.getSize());
         int    sec   = rand.nextInt(Board.getSize());
         return new Coordinate(first, sec);
@@ -141,7 +141,7 @@ public final class InitializeGame {
      * @return restituisce {@code true} se il risultato della sottrazione tra dimensione mappa
      * e indice è minore della dimensione della nave, {@code false} altrimenti.
      */
-    private static boolean isOutOfRange(final int axis, final Ship ship) {
+    private boolean isOutOfRange(final int axis, final Ship ship) {
         return (Board.getSize() - axis) < ship.getShipSize();
     }
 
@@ -157,7 +157,7 @@ public final class InitializeGame {
      * @return {@code true} se ci sono abbastanza posizioni disponibili nella mappa
      * per ospitare la nave, {@code false} altrimenti.
      */
-    private static boolean isPositionAvailable(final Coordinate coord,
+    private boolean isPositionAvailable(final Coordinate coord,
         final int direction, final Ship ship) {
             Coordinate temp = (Coordinate) coord.clone();
 
@@ -183,7 +183,7 @@ public final class InitializeGame {
      * @return restituisce {@code true} se c'è abbastanza spazio nella mappa per ospitare
      * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
      */
-    private static boolean checkVerticalPosition(final Coordinate coord, final Ship ship) {
+    private boolean checkVerticalPosition(final Coordinate coord, final Ship ship) {
         if (isOutOfRange(coord.getRow(), ship)) {
             return false;
         }
@@ -212,7 +212,7 @@ public final class InitializeGame {
      * @return restituisce {@code true} se c'è abbastanza spazio nella mappa per ospitare
      * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
      */
-    private static boolean checkHorizontalPosition(final Coordinate coord, final Ship ship) {
+    private boolean checkHorizontalPosition(final Coordinate coord, final Ship ship) {
         if (isOutOfRange(coord.getCol(), ship)) {
             return false;
         }
@@ -234,7 +234,7 @@ public final class InitializeGame {
      * pari al numero di esemplari di quel tipo di nave che si possono inserire nella mappa.
      * @return lista di navi.
      */
-    private static LinkedList<Ship> getShipsSet() {
+    private LinkedList<Ship> getShipsSet() {
         LinkedList<Ship>   shipsList = new LinkedList<Ship>();
         Cacciatorpediniere p = new Cacciatorpediniere();
         Incrociatore       s = new Incrociatore();
