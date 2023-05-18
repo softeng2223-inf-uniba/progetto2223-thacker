@@ -5,7 +5,27 @@ package it.uniba.app.utility.help;
  * contenente le istruzioni per l'utilizzo del programma.
  */
 public final class Help {
-    public static final int SLEEP_TIME = 1;
+    /**
+     * {@code TITLE_ROWS} contiene il numero di
+     * elementi dell'array di Stringhe che contiene
+     * il titolo {@code BattleShip}.
+     */
+    private static final int TITLE_ROWS = 6;
+    /**
+     * {@code TITLE_DELAY} contiene la costante
+     * da passare come input al metodo {@code Thread.sleep()}
+     * per ottenere un effetto di stampa "retrò" in stile
+     * "cascata".
+     */
+    private static final int TITLE_DELAY = 100;
+    /**
+     * {@code TEXT_DELAY} contiene la costante
+     * da passare come input al metodo {@code Thread.sleep()}
+     * per ottenere un effetto di stampa "retrò" in stile
+     * "macchina da scrivere".
+     */
+    private static final int TEXT_DELAY = 12;
+
     /**
      * {@code TITLE} contiene il nome
      * del gioco in stile ASCII, da stampare
