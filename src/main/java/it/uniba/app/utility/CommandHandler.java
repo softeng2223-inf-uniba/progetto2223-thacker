@@ -82,17 +82,22 @@ public final class CommandHandler {
         PrintHandler.println(inputMessage);
         return readCommand();
     }
-    public static boolean executeFlags(String[] args){
+    /**
+     *  Verifica se nel parametro "args" è presente il flag corretto per richiamare l'help.
+     *  I flag validi sono FLAG_FULL_HELP e FLAG_SHORT_HELP. E' importante che entrambi i flag
+     *  siano posizionati come primi elementi in "args". Se "args" è vuoto non verrà stampato nulla.
+     *  Se "args" contiene un solo elemento diverso da FLAG_FULL_HELP e FLAG_SHORT_HELP, verrà 
+     *  stampato un messaggio di errore relativo ai parametri. 
+     */
+    public static void executeFlags(String[] args){
         if (args.length > 0) {
             String command = args[0];
             if (command.equals(FLAG_FULL_HELP) || command.equals(FLAG_SHORT_HELP)) {
                 Help.printHelp();
-                return true;
             } else {
                 PrintHandler.println(FLAG_INVALID);
             }
         }
-        return false;
     }
     /**
      * La funzione esegue il comando passato come parametro.
