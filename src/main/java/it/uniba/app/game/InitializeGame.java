@@ -29,37 +29,35 @@ public final class InitializeGame {
      * Se il gioco è in corso prende valore {@code true}, altrimenti {@code false}.
      */
     private static boolean gameRunning = false;
-    /**
-     * Rappresenta la mappa di gioco su cui verranno posizionate
-     * le navi del computer.
-     */
-    private Board map;
 
     /**
-     * Costruttore della classe {@code InitializeGame}. Prende un parametro di tipo {@code Board}
-     * che utilizza per inizializzare la mappa del computer con navi posizionate in maniera randomica.
-     * @param maps mappa di gioco.
+     * Cotruttore a zero parametri che inizializza un oggetto di tipo InitializeGame.
+     * Una volta costruito l'oggetto, il gioco è considerato in corso.
      */
-    public InitializeGame(final Board maps) {
-        map = maps;
+    public InitializeGame() {
+        setGameRunningToTrue();
     }
 
     /**
      * Imposta la mappa di gioco posizionando le navi da colpire in modo randomico.
      */
-    public void initGame() {
-        randomlyFillMap();
+    public void initGame(final Board map) {
+        randomlyFillMap(map);
+        setGameRunningToTrue();
+    }
+
+    private static void setGameRunningToTrue() {
         gameRunning = true;
     }
 
     /**
      * Inserisce nella mappa delle navi ad una ad una tutte le navi disponibili nel gioco.
      */
-    private void randomlyFillMap() {
+    private void randomlyFillMap(final Board map) {
         LinkedList<Ship> shipList = getShipsSet();
 
         for (Ship ship : shipList) {
-            randomlyInsertShip(ship);
+            randomlyInsertShip(ship, map);
         }
     }
 
@@ -70,18 +68,18 @@ public final class InitializeGame {
      * e le coordinate generate.
      * @param ship nave da inserire in posizione randomica.
      */
-    private void randomlyInsertShip(final Ship ship) {
+    private void randomlyInsertShip(final Ship ship, final Board map) {
         int direction = getRandomDirection();
 
         Coordinate coord;
         do {
             coord = getRandomCoordinates();
-        } while (!isPositionAvailable(coord, direction, ship));
+        } while (!isPositionAvailable(coord, direction, ship, map));
 
         if (direction == VERTICAL) {
-            insertShipVertical(coord, ship);
+            insertShipVertical(coord, ship, map);
         } else {
-            insertShipHorizontal(coord, ship);
+            insertShipHorizontal(coord, ship, map);
         }
     }
 
@@ -90,7 +88,7 @@ public final class InitializeGame {
      * @param coord coordinate in cui cominciare ad inserire la nave in verticale.
      * @param ship specifica quale nave dev'essere inserita nella mappa.
      */
-    private void insertShipVertical(final Coordinate coord, final Ship ship) {
+    private void insertShipVertical(final Coordinate coord, final Ship ship, final Board map) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
             coord.setRow(coord.getRow() + 1);
@@ -102,7 +100,7 @@ public final class InitializeGame {
      * @param coord coordinate in cui cominciare ad inserire la nave in verticale.
      * @param ship specifica quale nave dev'essere inserita nella mappa.
      */
-    private void insertShipHorizontal(final Coordinate coord, final Ship ship) {
+    private void insertShipHorizontal(final Coordinate coord, final Ship ship, final Board map) {
         for (int i = 0; i < ship.getShipSize(); i++) {
             map.setElement(coord, ship);
             coord.setCol(coord.getCol() + 1);
@@ -162,13 +160,13 @@ public final class InitializeGame {
      * per ospitare la nave, {@code false} altrimenti.
      */
     private boolean isPositionAvailable(final Coordinate coord,
-        final int direction, final Ship ship) {
+        final int direction, final Ship ship, final Board map) {
             Coordinate temp = (Coordinate) coord.clone();
 
             if (direction == VERTICAL) {
-                return checkVerticalPosition(temp, ship);
+                return checkVerticalPosition(temp, ship, map);
             }
-            return checkHorizontalPosition(temp, ship);
+            return checkHorizontalPosition(temp, ship, map);
         }
 
     /**
@@ -187,7 +185,7 @@ public final class InitializeGame {
      * @return restituisce {@code true} se c'è abbastanza spazio nella mappa per ospitare
      * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
      */
-    private boolean checkVerticalPosition(final Coordinate coord, final Ship ship) {
+    private boolean checkVerticalPosition(final Coordinate coord, final Ship ship, final Board map) {
         if (isOutOfRange(coord.getRow(), ship)) {
             return false;
         }
@@ -216,7 +214,7 @@ public final class InitializeGame {
      * @return restituisce {@code true} se c'è abbastanza spazio nella mappa per ospitare
      * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
      */
-    private boolean checkHorizontalPosition(final Coordinate coord, final Ship ship) {
+    private boolean checkHorizontalPosition(final Coordinate coord, final Ship ship, final Board map) {
         if (isOutOfRange(coord.getCol(), ship)) {
             return false;
         }
