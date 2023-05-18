@@ -97,7 +97,9 @@ public final class CommandHandler {
             } else {
                 PrintHandler.println(FLAG_INVALID);
             }
-        } else PrintHandler.println(FLAG_INVALID);
+        } else {
+            PrintHandler.println(FLAG_INVALID);
+        } 
     }
     /**
      * La funzione esegue il comando passato come parametro.
