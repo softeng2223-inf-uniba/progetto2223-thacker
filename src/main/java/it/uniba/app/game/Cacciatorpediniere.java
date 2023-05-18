@@ -44,7 +44,7 @@ public class Cacciatorpediniere extends Ship {
      * colore del tipo di nave specifico.
      * @return stringa che contiene il colore della nave.
      */
-    String getShipColoredSymbol() {
+    public String getShipColoredSymbol() {
         return CACCIATORPEDINIERE_COLOR;
     }
     /**
