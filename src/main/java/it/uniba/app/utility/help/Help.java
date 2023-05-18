@@ -77,7 +77,16 @@ public final class Help {
         }
         PrintHandler.println("\n");
     }
-
+    private static void printText() {
+        for (int i = 0; i < TEXT.length(); i++) {
+            PrintHandler.println(TEXT.charAt(i));
+                try {
+                    Thread.sleep(TEXT_DELAY);
+                } catch (InterruptedException err) {
+                    PrintHandler.println("InterruptedException: " + err);
+                }
+            }
+        }
     /**
      * Classe principale, stampa a video il file di testo contenente le istruzioni.
     *
