@@ -58,11 +58,10 @@ public final class PrintShips {
      * @param space contiene lo spazio da sottrarre.
      * @return stringa con meno spazio bianco.
      */
-    private static String decrementNumberOfExamplesWhiteSpace(String space) {
+    private static String decrementNumberOfExamplesWhiteSpace(final String space) {
         int strDim = space.length() - 1;
         String subStr = space.substring(0, strDim);
-        space = subStr;
-        return space;
+        return subStr;
     }
     /**
      * Stampa a video, per ogni tipo di nave,
