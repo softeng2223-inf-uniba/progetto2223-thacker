@@ -1,4 +1,6 @@
 package it.uniba.app.utility;
+import it.uniba.app.game.Ship;
+
 /**
  * Classe necessaria per eseguire il comando
  * {@code /mostranavi} e ottenere l'output desiderato.
@@ -15,4 +17,17 @@ public final class PrintShips {
      * l'istanziazione di oggetti di questa classe.
      */
     private PrintShips() { }
+
+    private static String incrementNameWhiteSpace(final String nameSpace, final Ship ship) {
+        if (ship.getName() == "Cacciatorpediniere") {
+            return nameSpace.concat("  ");
+        }
+        if (ship.getName() == "Incrociatore") {
+            return nameSpace.concat("      ");
+        }
+        if (ship.getName() == "Corazzata") {
+            return nameSpace.concat("   ");
+        }
+        return nameSpace;
+    }
 }
