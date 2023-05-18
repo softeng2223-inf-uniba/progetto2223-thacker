@@ -77,6 +77,11 @@ public final class Help {
         }
         PrintHandler.println("\n");
     }
+    /**
+     * Visualizza la stampa della breve descrizione
+     * che contiene i comandi di gioco in stile
+     * "macchina da scrivere".
+     */
     private static void printText() {
         for (int i = 0; i < TEXT.length(); i++) {
             PrintHandler.println(TEXT.charAt(i));
