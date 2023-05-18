@@ -19,11 +19,6 @@ public final class InitializeGame {
      */
     private static final int POSSIBLE_DIRECTIONS = 2;
     /**
-     * Rappresenta la mappa di gioco su cui verranno posizionate
-     * le navi del computer.
-     */
-    private static Board map = new Board();
-    /**
      * Utilizzato per creare valori randomici affidabili, in quanto se
      * dovesse essere istanziato più volte un oggetto di tipo {@code Random}
      * non produrrebbe valori affidabili, al contrario di avere uno
@@ -34,9 +29,16 @@ public final class InitializeGame {
      * Se il gioco è in corso prende valore {@code true}, altrimenti {@code false}.
      */
     private static boolean gameRunning = false;
+    /**
+     * Rappresenta la mappa di gioco su cui verranno posizionate
+     * le navi del computer.
+     */
+    private Board map;
 
 
-    private InitializeGame() { }
+    public InitializeGame(Board maps) {
+        map = maps;
+    }
 
     /**
      * Imposta la mappa di gioco posizionando le navi da colpire in modo randomico.
