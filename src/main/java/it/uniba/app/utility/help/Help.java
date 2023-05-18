@@ -1,5 +1,7 @@
 package it.uniba.app.utility.help;
 
+import it.uniba.app.utility.PrintHandler;
+
 /**
  * Classe principale. Contiene le funzioni che stampa a video il file di testo
  * contenente le istruzioni per l'utilizzo del programma.
@@ -59,6 +61,18 @@ public final class Help {
     + "/esci";
 
     private Help() { };
+
+    private static void printTitle() {
+        for (int i = 0; i < TITLE_ROWS; i++) {
+            PrintHandler.println(TITLE[i]);
+            try {
+                Thread.sleep(TITLE_DELAY);
+            } catch (InterruptedException err) {
+                PrintHandler.println("InterruptedException: " + err);
+            }
+        }
+        PrintHandler.println("\n");
+    }
 
     /**
      * Classe principale, stampa a video il file di testo contenente le istruzioni.
