@@ -58,7 +58,7 @@ public final class PrintShips {
      * @param space contiene lo spazio da sottrarre.
      * @return stringa con meno spazio bianco.
      */
-    private static String decrementNumberOfExamplesWhiteSpace(final String space) {
+    private static String decrementNumberOfInstancesWhiteSpace(final String space) {
         int strDim = space.length() - 1;
         String subStr = space.substring(0, strDim);
         return subStr;
@@ -89,7 +89,7 @@ public final class PrintShips {
             }
 
             str += numOfInstancesWhiteSpace + "Esemplari:" + ship.getNumberOfInstances();
-            numOfInstancesWhiteSpace = decrementNumberOfExamplesWhiteSpace(numOfInstancesWhiteSpace);
+            numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
             System.out.println(str);
         }
     }
