@@ -35,7 +35,7 @@ public class Portaerei extends Ship {
      * della superclasse per inizializzare gli attributi
      * ereditati.
      */
-    Portaerei() {
+    public Portaerei() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
 
