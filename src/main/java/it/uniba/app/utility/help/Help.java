@@ -68,7 +68,7 @@ public final class Help {
      */
     private static void printTitle() {
         for (int i = 0; i < TITLE_ROWS; i++) {
-            PrintHandler.println(TITLE[i]);
+            PrintHandler.print(TITLE[i]);
             try {
                 Thread.sleep(TITLE_DELAY);
             } catch (InterruptedException err) {
@@ -84,14 +84,15 @@ public final class Help {
      */
     private static void printText() {
         for (int i = 0; i < TEXT.length(); i++) {
-            PrintHandler.println(Character.toString(TEXT.charAt(i)));
-                try {
-                    Thread.sleep(TEXT_DELAY);
-                } catch (InterruptedException err) {
-                    PrintHandler.println("InterruptedException: " + err);
-                }
+            PrintHandler.print(Character.toString(TEXT.charAt(i)));
+            try {
+                Thread.sleep(TEXT_DELAY);
+            } catch (InterruptedException err) {
+                PrintHandler.println("InterruptedException: " + err);
             }
         }
+        PrintHandler.println("\n");
+    }
     /**
      * Visualizza la stampa del titolo e
      * della descrizione concisa dei comandi

@@ -90,14 +90,14 @@ public final class CommandHandler {
      *  stampato un messaggio di errore relativo ai parametri.
      */
     public static void executeFlags(final String[] args) {
-        if (args.length > 0) {
+        if (args.length == 1) {
             String command = args[0];
             if (command.equals(FLAG_FULL_HELP) || command.equals(FLAG_SHORT_HELP)) {
                 Help.print();
             } else {
                 PrintHandler.println(FLAG_INVALID);
             }
-        }
+        } else PrintHandler.println(FLAG_INVALID);
     }
     /**
      * La funzione esegue il comando passato come parametro.
