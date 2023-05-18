@@ -35,7 +35,7 @@ public class Incrociatore extends Ship {
      * della superclasse per inizializzare gli attributi
      * ereditati.
      */
-    Incrociatore() {
+    public Incrociatore() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
 
