@@ -24,9 +24,9 @@ public final class App {
     public static void main(final String[] args) {
         System.out.println(new App().getGreeting());
 
+        CommandHandler.executeFlags(args);
         String command = "";
-
-        System.out.println("Digitare un comando");
+        System.out.println("Digita un comando");
         while (true) {
             command = CommandHandler.readCommand();
             CommandHandler.executeCommand(command);

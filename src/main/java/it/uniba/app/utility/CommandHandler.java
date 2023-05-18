@@ -7,7 +7,7 @@ import it.uniba.app.game.DifficultyManager;
 import it.uniba.app.game.InitializeGame;
 
 import java.io.IOException;
-
+import it.uniba.app.utility.help.Help;
 /**
  * Modella un gestore di comandi.
  *
@@ -21,6 +21,7 @@ public final class CommandHandler {
     private static final String MSG_INVALID_ANSWER = "Risposta non valida, comando annullato";
     private static final String MSG_CONFIRM = "Sei sicuro di voler uscire? (si/no)";
     private static final String MSG_DENIAL = "Operazione annullata";
+    private static final String FLAG_INVALID = "Parametri di input non validi";
 
     /* === COMANDI === */
     private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
@@ -30,6 +31,10 @@ public final class CommandHandler {
     private static final String CMD_LEFT = "/esci";
     private static final String CMD_CONFIRM = "si";
     private static final String CMD_DENIAL = "no";
+
+    private static final String CMD_HELP = "/help";
+    private static final String FLAG_FULL_HELP = "--help";
+    private static final String FLAG_SHORT_HELP = "-h";
 
     private static final String CMD_DIFF_EASY = "/facile";
     private static final String CMD_DIFF_MED  = "/medio";
@@ -77,7 +82,25 @@ public final class CommandHandler {
         PrintHandler.println(inputMessage);
         return readCommand();
     }
-
+    /**
+     *  Verifica se nel parametro "args" è presente il flag corretto per richiamare l'help.
+     *  I flag validi sono FLAG_FULL_HELP e FLAG_SHORT_HELP. E' importante che entrambi i flag
+     *  siano posizionati come primi elementi in "args". Se "args" è vuoto non verrà stampato nulla.
+     *  Se "args" contiene un solo elemento diverso da FLAG_FULL_HELP e FLAG_SHORT_HELP, verrà
+     *  stampato un messaggio di errore relativo ai parametri.
+     */
+    public static void executeFlags(final String[] args) {
+        if (args.length == 1) {
+            String command = args[0];
+            if (command.equals(FLAG_FULL_HELP) || command.equals(FLAG_SHORT_HELP)) {
+                Help.print();
+            } else {
+                PrintHandler.println(FLAG_INVALID);
+            }
+        } else {
+            PrintHandler.println(FLAG_INVALID);
+        }
+    }
     /**
      * La funzione esegue il comando passato come parametro.
      * In base al comando esegue un'azione diversa.
@@ -104,6 +127,13 @@ public final class CommandHandler {
                 }
                 break;
 
+            case CMD_HELP:
+                if (needParams(tokens, 0)) {
+                    Help.print();
+                    return true;
+                }
+                break;
+
             case CMD_START:
                 if (needParams(tokens, 0)) {
                     if (InitializeGame.isGameRunning()) {
@@ -125,8 +155,6 @@ public final class CommandHandler {
                 }
                 break;
 
-            /* TODO raggruppare le istruzioni DM1, DM2, DM3, anche modificando il DifficultyManager.
-             */
             case CMD_DIFF_EASY:
                 if (needParams(tokens, 0)) {
                     DifficultyManager.setEasyLevel();
