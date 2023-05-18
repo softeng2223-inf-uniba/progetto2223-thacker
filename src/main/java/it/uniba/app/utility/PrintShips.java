@@ -22,7 +22,22 @@ public final class PrintShips {
      * l'istanziazione di oggetti di questa classe.
      */
     private PrintShips() { }
-
+    /**
+     * Restiituisce una stringa contenente il nome
+     * del tipo di nave specifico con l'aggiunta
+     * di uno spazio, che rende possibile la stampa
+     * allineata e pulita che viene visualizzata
+     * in seguito alla chiamata del comando
+     * {@code /mostranavi}.
+     *
+     * @param nameSpace contiene lo spazio già presente
+     * da concatenare con lo spazio necessario a stampare
+     * correttamente la nave specifica
+     * @param ship contiene il tipo di nave specifico da
+     * valutare.
+     * @return stringa contenente il nome della nave
+     * con l'aggiunta di uno spazio.
+     */
     private static String incrementNameWhiteSpace(final String nameSpace, final Ship ship) {
         if (ship.getName() == "Cacciatorpediniere") {
             return nameSpace.concat("  ");
@@ -35,14 +50,25 @@ public final class PrintShips {
         }
         return nameSpace;
     }
-
+    /**
+     * Restituisce lo spazio decrementato necessario
+     * per stampare in maniera allineata il numero di
+     * {@code esemplari} di ciascuna nave.
+     *
+     * @param space contiene lo spazio da sottrarre.
+     * @return stringa con meno spazio bianco.
+     */
     private static String decrementNumberOfExamplesWhiteSpace(String space) {
         int strDim = space.length() - 1;
         String subStr = space.substring(0, strDim);
         space = subStr;
         return space;
     }
-
+    /**
+     * Stampa a video, per ogni tipo di nave,
+     * il nome, la dimensione in quadrati
+     * e il numero di esemplari da affondare.
+     */
     public static void showShips() {
 
         LinkedList<Ship> list = new LinkedList<Ship>();
