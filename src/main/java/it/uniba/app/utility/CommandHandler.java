@@ -34,6 +34,7 @@ public final class CommandHandler {
 
     private static final String CMD_HELP = "/help";
     private static final String FLAG_FULL_HELP = "--help";
+    private static final String FLAG_SHORT_HELP = "-h";
 
     private static final String CMD_DIFF_EASY = "/facile";
     private static final String CMD_DIFF_MED  = "/medio";
