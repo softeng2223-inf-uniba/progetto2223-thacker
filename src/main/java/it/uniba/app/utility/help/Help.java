@@ -61,7 +61,11 @@ public final class Help {
     + "/esci";
 
     private Help() { };
-
+    /**
+     * Visualizza la stampa del titolo
+     * {@code BattleShip} in stile
+     * "macchina da scrivere".
+     */
     private static void printTitle() {
         for (int i = 0; i < TITLE_ROWS; i++) {
             PrintHandler.println(TITLE[i]);
