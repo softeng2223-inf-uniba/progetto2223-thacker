@@ -53,7 +53,7 @@ public final class Help {
     + "Per giocare, utilizzare i seguenti comandi:\n\n"
     + "/gioca \n"
     + "/facile \n"
-    + "/medio \n" 
+    + "/medio \n"
     + "/difficile \n"
     + "/mostralivello \n"
     + "/svelagriglia \n"
@@ -80,7 +80,7 @@ public final class Help {
     /**
      * Visualizza la stampa della breve descrizione
      * che contiene i comandi di gioco in stile
-     * "macchina da scrivere". 
+     * "macchina da scrivere".
      */
     private static void printText() {
         for (int i = 0; i < TEXT.length(); i++) {

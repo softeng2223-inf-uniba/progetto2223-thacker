@@ -86,8 +86,8 @@ public final class CommandHandler {
      *  Verifica se nel parametro "args" è presente il flag corretto per richiamare l'help.
      *  I flag validi sono FLAG_FULL_HELP e FLAG_SHORT_HELP. E' importante che entrambi i flag
      *  siano posizionati come primi elementi in "args". Se "args" è vuoto non verrà stampato nulla.
-     *  Se "args" contiene un solo elemento diverso da FLAG_FULL_HELP e FLAG_SHORT_HELP, verrà 
-     *  stampato un messaggio di errore relativo ai parametri. 
+     *  Se "args" contiene un solo elemento diverso da FLAG_FULL_HELP e FLAG_SHORT_HELP, verrà
+     *  stampato un messaggio di errore relativo ai parametri.
      */
     public static void executeFlags(String[] args){
         if (args.length > 0) {
