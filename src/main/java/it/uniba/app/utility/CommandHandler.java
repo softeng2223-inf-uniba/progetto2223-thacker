@@ -93,7 +93,7 @@ public final class CommandHandler {
         if (args.length > 0) {
             String command = args[0];
             if (command.equals(FLAG_FULL_HELP) || command.equals(FLAG_SHORT_HELP)) {
-                Help.printHelp();
+                Help.print();
             } else {
                 PrintHandler.println(FLAG_INVALID);
             }
