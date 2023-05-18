@@ -89,7 +89,6 @@ public final class PrintShips {
             }
 
             str += numOfInstancesWhiteSpace + "Esemplari:" + ship.getNumberOfInstances();
-            decrementNumberOfExamplesWhiteSpace(numOfInstancesWhiteSpace);
             numOfInstancesWhiteSpace = decrementNumberOfExamplesWhiteSpace(numOfInstancesWhiteSpace);
             System.out.println(str);
         }
