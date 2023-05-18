@@ -40,7 +40,7 @@ public final class InitializeGame {
      * che utilizza per inizializzare la mappa del computer con navi posizionate in maniera randomica.
      * @param maps mappa di gioco.
      */
-    public InitializeGame(Board maps) {
+    public InitializeGame(final Board maps) {
         map = maps;
     }
 
