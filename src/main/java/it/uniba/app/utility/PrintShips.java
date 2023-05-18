@@ -10,4 +10,9 @@ package it.uniba.app.utility;
  * specializzazione di nave.
 */
 public final class PrintShips {
+    /**
+     * Costruttore privato per impedire
+     * l'istanziazione di oggetti di questa classe.
+     */
+    private PrintShips() { }
 }
