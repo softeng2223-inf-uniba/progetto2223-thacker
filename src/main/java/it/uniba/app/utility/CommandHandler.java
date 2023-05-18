@@ -21,6 +21,7 @@ public final class CommandHandler {
     private static final String MSG_INVALID_ANSWER = "Risposta non valida, comando annullato";
     private static final String MSG_CONFIRM = "Sei sicuro di voler uscire? (si/no)";
     private static final String MSG_DENIAL = "Operazione annullata";
+    private static final String FLAG_INVALID = "Parametri di input non validi";
 
     /* === COMANDI === */
     private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
