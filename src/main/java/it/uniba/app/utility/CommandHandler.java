@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import it.uniba.app.game.DifficultyManager;
-import it.uniba.app.game.InitializeGame;
+//import it.uniba.app.game.InitializeGame;
 
 import java.io.IOException;
 import it.uniba.app.utility.help.Help;
@@ -136,12 +136,8 @@ public final class CommandHandler {
 
             case CMD_START:
                 if (needParams(tokens, 0)) {
-                    if (InitializeGame.isGameRunning()) {
-                        return false;
-                    } else {
-                        InitializeGame.initGame();
-                        return true;
-                    }
+                    // logica per inizializzare partita/mappa.
+                    return true;
                 }
                 break;
 
