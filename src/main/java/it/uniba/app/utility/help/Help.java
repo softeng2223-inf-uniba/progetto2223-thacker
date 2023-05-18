@@ -84,7 +84,7 @@ public final class Help {
      */
     private static void printText() {
         for (int i = 0; i < TEXT.length(); i++) {
-            PrintHandler.println(TEXT.charAt(i));
+            PrintHandler.println(Character.toString(TEXT.charAt(i)));
                 try {
                     Thread.sleep(TEXT_DELAY);
                 } catch (InterruptedException err) {
