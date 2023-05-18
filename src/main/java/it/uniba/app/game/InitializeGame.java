@@ -35,7 +35,11 @@ public final class InitializeGame {
      */
     private Board map;
 
-
+    /**
+     * Costruttore della classe {@code InitializeGame}. Prende un parametro di tipo {@code Board}
+     * che utilizza per inizializzare la mappa del computer con navi posizionate in maniera randomica.
+     * @param maps mappa di gioco.
+     */
     public InitializeGame(Board maps) {
         map = maps;
     }
