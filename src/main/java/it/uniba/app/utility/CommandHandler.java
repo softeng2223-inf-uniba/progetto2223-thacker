@@ -89,7 +89,7 @@ public final class CommandHandler {
      *  Se "args" contiene un solo elemento diverso da FLAG_FULL_HELP e FLAG_SHORT_HELP, verrà
      *  stampato un messaggio di errore relativo ai parametri.
      */
-    public static void executeFlags(String[] args){
+    public static void executeFlags(final String[] args) {
         if (args.length > 0) {
             String command = args[0];
             if (command.equals(FLAG_FULL_HELP) || command.equals(FLAG_SHORT_HELP)) {
