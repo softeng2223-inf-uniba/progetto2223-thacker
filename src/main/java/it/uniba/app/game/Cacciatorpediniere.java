@@ -35,7 +35,7 @@ public class Cacciatorpediniere extends Ship {
      * della superclasse per inizializzare gli attributi
      * ereditati.
      */
-    Cacciatorpediniere() {
+    public Cacciatorpediniere() {
         super(SHIP_SIZE, NUMBER_OF_INSTANCES, SHIP_NAME);
     }
 
