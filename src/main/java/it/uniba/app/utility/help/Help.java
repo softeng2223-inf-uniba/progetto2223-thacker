@@ -80,7 +80,7 @@ public final class Help {
     /**
      * Visualizza la stampa della breve descrizione
      * che contiene i comandi di gioco in stile
-     * "macchina da scrivere".
+     * "macchina da scrivere". 
      */
     private static void printText() {
         for (int i = 0; i < TEXT.length(); i++) {
@@ -93,21 +93,12 @@ public final class Help {
             }
         }
     /**
-     * Classe principale, stampa a video il file di testo contenente le istruzioni.
-    *
-    */
+     * Visualizza la stampa del titolo e
+     * della descrizione concisa dei comandi
+     * per giocare.
+     */
     public static void print() {
-        try {
-            for (int i = 0; i < TITLE.length(); i++) {
-                System.out.print(TITLE.charAt(i));
-                Thread.sleep(SLEEP_TIME);
-            }
-            for (int i = 0; i < TEXT.length(); i++) {
-                System.out.print(TEXT.charAt(i));
-                Thread.sleep(SLEEP_TIME);
-            }
-        } catch (InterruptedException err) {
-            System.out.println("Errore: " + err);
-        }
+        printTitle();
+        printText();
     }
 }
