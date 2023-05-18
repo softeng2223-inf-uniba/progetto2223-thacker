@@ -1,5 +1,10 @@
 package it.uniba.app.utility;
 import it.uniba.app.game.Ship;
+import it.uniba.app.game.Cacciatorpediniere;
+import it.uniba.app.game.Incrociatore;
+import it.uniba.app.game.Corazzata;
+import it.uniba.app.game.Portaerei;
+import java.util.LinkedList;
 
 /**
  * Classe necessaria per eseguire il comando
@@ -30,4 +35,14 @@ public final class PrintShips {
         }
         return nameSpace;
     }
+
+    private static String decrementNumberOfExamplesWhiteSpace(String space) {
+        int strDim = space.length() - 1;
+        String subStr = space.substring(0, strDim);
+        space = subStr;
+        return space;
+    }
+
+    
+
 }
