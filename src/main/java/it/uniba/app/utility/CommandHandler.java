@@ -82,7 +82,18 @@ public final class CommandHandler {
         PrintHandler.println(inputMessage);
         return readCommand();
     }
-
+    public static boolean executeFlags(String[] args){
+        if (args.length > 0) {
+            String command = args[0];
+            if (command.equals(FLAG_FULL_HELP) || command.equals(FLAG_SHORT_HELP)) {
+                Help.printHelp();
+                return true;
+            } else {
+                PrintHandler.println(FLAG_INVALID);
+            }
+        }
+        return false;
+    }
     /**
      * La funzione esegue il comando passato come parametro.
      * In base al comando esegue un'azione diversa.
