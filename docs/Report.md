@@ -232,6 +232,12 @@ Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cu
 ```
 Con questo comando sarà possibile iniziare una nuova partita. Una volta eseguito questo comando, verranno disposte, in maniera casuale, tutte le navi.
 
+#### (7.2.3) Posizionare le navi
+
+Le navi verranno posizionate in maniera **automatica** in una griglia di dimensione 10x10, senza il bisogno dell'intervento del giocatore. 
+
+Le righe della griglia saranno numerate da 1 a 10, mentre le sue colonne saranno contrassegnate dalle lettere dalla A alla J. 
+
 
 ## (9) Analisi Retrospettiva
 ### (9.1) Sprint 0
