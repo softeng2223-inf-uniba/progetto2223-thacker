@@ -5,11 +5,6 @@ import it.uniba.app.utility.commands.noargs.NoArgs;
  * Contiene il codice da eseguire con il comando /help.
  */
 public class Help implements NoArgs {
-    /*
-     *  Il comando help stampa un messaggio con una breve
-     *  descrizione del gioco e la lista dei comandi disponbili.
-     */
-
     private static final int TEXT_DELAY = 100;
     private static final String TEXT =
             "Benvenuto in BattleShip!\n\n"
