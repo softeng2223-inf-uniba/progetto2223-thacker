@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import it.uniba.app.game.DifficultyManager;
-//import it.uniba.app.game.InitializeGame;
+
+import it.uniba.app.game.InitializeGame;
+import it.uniba.app.utility.Coordinate;
+import it.uniba.app.game.Board;
 
 import java.io.IOException;
 import it.uniba.app.utility.help.Help;
