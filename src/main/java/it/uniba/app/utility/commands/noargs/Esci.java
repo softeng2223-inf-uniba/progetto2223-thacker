@@ -14,8 +14,6 @@ public class Esci implements NoArgs {
     private static final String CMD_CONFIRM_YES = "si";
     private static final String CMD_CONFIRM_NO = "no";
 
-    private static boolean requestedExit = false;
-
     /**
      *  Il metodo permette di uscire in modo
      *  sicuro dal gioco stampando un messaggio
