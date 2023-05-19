@@ -133,7 +133,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 ## (7) Manuale Utente
 
 ### **(7.1) Prerequisiti**
-Al fine di garantire una corretta esecuzione del programma su qualsiasi macchina, evitando dunque imcompatibilità varie, per l'esecuzione del programma è necessaria l'installazione preventiva della piattaforma Docker.
+Al fine di garantire una corretta esecuzione del programma su qualsiasi macchina, evitando dunque imcompatibilità varie, è necessaria l'installazione preventiva della piattaforma Docker.
 
 #### **(7.1.1) Installazione Docker**
 
@@ -201,7 +201,7 @@ Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cu
 #### (7.2.1) Elenco dei comandi 
 
 ```sh
-/help o --help
+/help o --help o -h
 ```
 
   Con il seguente comando verranno mostrati a schermo tutti i comandi utilizzabili di cui segue una breve descrizione di ognuno: 
@@ -239,7 +239,7 @@ Le navi verranno posizionate in maniera **automatica** in una griglia di dimensi
 Le righe della griglia saranno numerate da 1 a 10, mentre le sue colonne saranno contrassegnate dalle lettere dalla A alla J. 
 
 
-#### (7.2.4) Turni di gioco
+#### (7.2.4) Sistema dei colpi
 
 Una volta impostata la griglia delle navi, il giocatore si ritroverà ad affrontare un **avversario immaginario**, impersonato dalla macchina su cui sta eseguendo il programma. Anche le navi dell'avversario verranno sistemate casualmente nella griglia. 
 
