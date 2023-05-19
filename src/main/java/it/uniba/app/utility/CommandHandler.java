@@ -142,9 +142,14 @@ public final class CommandHandler {
 
             case CMD_START:
                 if (needParams(tokens, 0)) {
-                    InitializeGame init = new InitializeGame();
-                    init.initGame(board);
-                    return true;
+                    if (InitializeGame.isGameRunning()) {
+                        return false;
+                    } else {
+                        InitializeGame init = new InitializeGame();
+                        init.initGame(board);
+                        PrintHandler.printPlayerMap(board);
+                        return true;
+                    }
                 }
                 break;
 
