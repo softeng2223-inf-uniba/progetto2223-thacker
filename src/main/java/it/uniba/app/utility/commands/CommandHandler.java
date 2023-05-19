@@ -18,4 +18,17 @@ public class CommandHandler {
         commandsNoArgs.put("/help", new HelpCommand());
     }
     private static final Map<String, WithArgs> commandsWithArgs = new HashMap<>();
+
+    public static String read(){
+        BufferedReader buffer;
+        String command = "";
+        System.out.print(SYMBOL_INPUT_PROMPT);
+        try {
+            buffer = new BufferedReader(new InputStreamReader(System.in,ENCODER_USED));
+            command = buffer.readLine();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return command;
+    }
 }
