@@ -7,6 +7,7 @@ import it.uniba.app.utility.commands.noargs.NoArgs;
  * Contiene il codice da eseguire con il comando /gioca.
  */
 public class Gioca implements NoArgs {
+    private static final String MSG_START_GAME = "Partita avviata";
     /**
      *  Il metodo inizializza una nuova partita.
      *  Se una partita è già in corso non ne viene creata una nuova.
