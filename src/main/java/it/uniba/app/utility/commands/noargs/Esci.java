@@ -1,9 +1,12 @@
 package it.uniba.app.utility.commands.noargs;
+import it.uniba.app.utility.commands.CommandHandler;
 import it.uniba.app.utility.commands.noargs.NoArgs;
 
 public class Esci implements NoArgs {
     private static final String MSG_DENIAL = "Operazione annullata";
     private static final String MSG_CONFIRM = "Sicuro di voler proseguire? (si/no)";
+    private static final String MSG_COMMAND_NOT_RECOGNIZED = "Comando non riconosciuto, operazione annullata";
+
     private static final String CMD_CONFIRM_YES = "si";
     private static final String CMD_CONFIRM_NO = "no";
     /**
@@ -12,13 +15,13 @@ public class Esci implements NoArgs {
      *  di conferma.
      */
     public void execute(){
-        if(confirm(read())){
+        if(confirm()){
             System.exit(0);
         }
     }
-    private static boolean confirm(final String input){
+    private static boolean confirm(){
         System.out.println(MSG_CONFIRM);
-        String command = read();
+        String command = CommandHandler.read();
         if(command.equals(CMD_CONFIRM_YES)){
             return true;
         } else if(command.equals(CMD_CONFIRM_NO)){
