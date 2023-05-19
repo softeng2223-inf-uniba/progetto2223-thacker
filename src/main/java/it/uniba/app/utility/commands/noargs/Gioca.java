@@ -2,6 +2,7 @@ package it.uniba.app.utility.commands.noargs;
 import it.uniba.app.game.Board;
 import it.uniba.app.game.InitializeGame;
 import it.uniba.app.utility.commands.noargs.NoArgs;
+import it.uniba.app.utility.PrintHandler;
 /**
  * Classe del comando /gioca.
  * Contiene il codice da eseguire con il comando /gioca.
