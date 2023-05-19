@@ -13,6 +13,7 @@ public class CommandHandler {
     private static final String ENCODER_USED = "UTF-8";
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String MSG_COMMAND_NOT_RECOGNIZED = "Comando non riconosciuto";
+    private static final String MSG_CONFIRM = "Sicuro di voler proseguire? (si/no)";
     private static final Map<String, NoArgs> commandsNoArgs = new HashMap<>();
     static{
         commandsNoArgs.put("/help", new Help());
@@ -24,7 +25,6 @@ public class CommandHandler {
         commandsNoArgs.put("/mostranavi", new MostraNavi());
         commandsNoArgs.put("/mostralivello", new MostraLivello());
         commandsNoArgs.put("/svelagriglia", new SvelaGriglia());
-
     }
     private static final Map<String, WithArgs> commandsWithArgs = new HashMap<>();
     /**
@@ -90,6 +90,9 @@ public class CommandHandler {
         } else {
             System.out.println(MSG_COMMAND_NOT_RECOGNIZED);
         }
+    }
+    public static boolean confirm(final String input){
+        return input.equals("s");
     }
     private static String[] splitArgs(String input){
         return input.split(" ");
