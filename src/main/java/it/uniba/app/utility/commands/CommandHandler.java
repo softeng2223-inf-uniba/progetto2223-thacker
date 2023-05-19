@@ -16,6 +16,7 @@ public class CommandHandler {
     private static final Map<String, NoArgs> commandsNoArgs = new HashMap<>();
     static{
         commandsNoArgs.put("/help", new HelpCommand());
+        commandsNoArgs.put("/esci", new Esci());
     }
     private static final Map<String, WithArgs> commandsWithArgs = new HashMap<>();
     /**
