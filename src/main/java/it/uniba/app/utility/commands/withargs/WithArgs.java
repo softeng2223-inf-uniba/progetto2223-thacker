@@ -1,5 +1,7 @@
 package it.uniba.app.utility.commands.withargs;
-
+/**
+ * Interfaccia pubblica dei comandi con parametri.
+ */
 public interface WithArgs {
     /**
      *  Il metodo esegue il codice del comand
