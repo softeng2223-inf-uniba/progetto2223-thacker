@@ -1,6 +1,7 @@
 package it.uniba.app.utility.commands;
 
 import it.uniba.app.utility.commands.withargs.*;
+import it.uniba.app.utility.PrintHandler;
 import it.uniba.app.utility.commands.noargs.*;
 
 import java.io.BufferedReader;
@@ -37,12 +38,12 @@ public class CommandHandler {
     public static String read(){
         BufferedReader buffer;
         String command = "";
-        System.out.print(SYMBOL_INPUT_PROMPT);
+        PrintHandler.print(SYMBOL_INPUT_PROMPT);
         try {
             buffer = new BufferedReader(new InputStreamReader(System.in,ENCODER_USED));
             command = buffer.readLine();
         } catch (IOException e) {
-            System.err.println(e.getMessage());
+            PrintHandler.println(e.getMessage());
         }
         return command;
     }
