@@ -50,7 +50,7 @@ public final class CommandHandler {
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String ENCODER_USED = "UTF-8";
     private static final int NUM_ROW = 10;
-    static Board board = new Board();
+    private static Board board = new Board();
     private CommandHandler() {
     }
 
