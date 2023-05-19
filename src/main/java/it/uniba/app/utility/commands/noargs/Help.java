@@ -6,7 +6,7 @@ public class Help implements NoArgs {
      *  descrizione del gioco e la lista dei comandi disponbili.
      */
 
-    private static final int TITLE_DELAY = 100;
+    private static final int TEXT_DELAY = 100;
 
     public void execute(){
         System.out.println("help");
