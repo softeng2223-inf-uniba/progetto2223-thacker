@@ -29,8 +29,8 @@ public final class App {
         String command = "";
         System.out.println("Digita un comando");
         while (true) {
-            command = CommandHandler.readCommand();
-            CommandHandler.executeCommand(command);
+            command = CommandHandler.read();
+            CommandHandler.execute(command);
         }
     }
 }
