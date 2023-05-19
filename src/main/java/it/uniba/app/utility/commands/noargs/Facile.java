@@ -4,6 +4,10 @@ import it.uniba.app.utility.PrintHandler;
 import it.uniba.app.utility.commands.noargs.NoArgs;
 
 public class Facile implements NoArgs {
+    /*
+     *  Il metodo imposta il livello di difficoltà 
+     *  del gioco a facile e stampa il nome del livello.
+     */
     public void execute(){
         DifficultyManager.setEasyLevel();
         PrintHandler.printLevelName();
