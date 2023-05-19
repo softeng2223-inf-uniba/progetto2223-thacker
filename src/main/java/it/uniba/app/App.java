@@ -1,6 +1,5 @@
 package it.uniba.app;
 
-import it.uniba.app.utility.CommandHandler;
 import it.uniba.app.utility.commands.FlagHandler;
 
 /**
