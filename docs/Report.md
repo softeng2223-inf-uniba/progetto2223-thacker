@@ -247,6 +247,9 @@ Se il colpo lanciato colpisce una casella **vuota**, sulla griglia verrà mostra
 
 Quando non rimane più nessuna cella intatta della nave colpita, potrà essere dichiarata **affondata**. 
 
+### (7.2) Scopo del gioco
+
+L'obiettivo del giocatore è quello di affondare le navi nemiche prima di esaurire tutti i tentativi dettati dalla difficoltà impostata in fase di preparazione  della partita. 
 
 ## (9) Analisi Retrospettiva
 ### (9.1) Sprint 0
