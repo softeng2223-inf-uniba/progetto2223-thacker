@@ -8,7 +8,11 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ *  La classe commandHandler contiene tutto il codice 
+ *  necessario per gestire i comandi con parametri e senza
+ *  parametri inseriti dall'utente.
+ */
 public class CommandHandler {
     private static final String ENCODER_USED = "UTF-8";
     private static final String SYMBOL_INPUT_PROMPT = "> ";
