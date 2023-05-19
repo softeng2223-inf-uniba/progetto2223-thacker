@@ -14,4 +14,7 @@ public class CommandHandler {
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String MSG_COMMAND_NOT_RECOGNIZED = "Comando non riconosciuto";
     private static final Map<String, NoArgs> commandsNoArgs = new HashMap<>();
+    static{
+        commandsNoArgs.put("/help", new HelpCommand());
+    }
 }
