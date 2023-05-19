@@ -22,6 +22,7 @@ public class CommandHandler {
         commandsNoArgs.get("/medio", new Medio());
         commandsNoArgs.put("/facile", new Facile());
         commandsNoArgs.put("/mostranavi", new MostraNavi());
+        commandsNoArgs.put("/mostralivello", new MostraLivello());
         commandsNoArgs.put("/svelagriglia", new SvelaGriglia());
 
     }
