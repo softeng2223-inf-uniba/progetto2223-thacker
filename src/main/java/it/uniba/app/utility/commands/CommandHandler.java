@@ -18,7 +18,10 @@ public class CommandHandler {
         commandsNoArgs.put("/help", new HelpCommand());
     }
     private static final Map<String, WithArgs> commandsWithArgs = new HashMap<>();
-
+    /**
+     *  Metodo che legge da tastiera il comando inserito dall'utente.
+     *  @return Stringa contenente il comando inserito dall'utente.S
+     */
     public static String read(){
         BufferedReader buffer;
         String command = "";
