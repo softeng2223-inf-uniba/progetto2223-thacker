@@ -5,7 +5,7 @@ import it.uniba.app.utility.PrintHandler;
  * Contiene il codice da eseguire con il comando /help.
  */
 public class Help implements NoArgs {
-    private static final int TEXT_DELAY = 100;
+    private static final int TEXT_DELAY = 10;
     private static final String TEXT =
             "Benvenuto in BattleShip!\n\n"
                     + "Scopo del gioco: affondare tutte le navi prima"
