@@ -42,6 +42,7 @@ public final class CommandHandler {
     private static final String CMD_DIFF_MED  = "/medio";
     private static final String CMD_DIFF_HARD = "/difficile";
     private static final String CMD_START     = "/gioca";
+    private static final String CMD_SHOWGRID = "/svelagriglia";
 
     private static final String CMD_SHOW_SHIPS = "/mostranavi";
 
