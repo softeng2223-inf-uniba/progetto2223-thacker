@@ -23,14 +23,14 @@ public class Esci implements NoArgs {
         }
     }
     private static boolean confirm(){
-        System.out.println(MSG_CONFIRM);
+        PrintHandler.println(MSG_CONFIRM);
         String command = CommandHandler.read();
         if(command.equals(CMD_CONFIRM_YES)){
             return true;
         } else if(command.equals(CMD_CONFIRM_NO)){
-            System.out.println(MSG_DENIAL);
+            PrintHandler.println(MSG_DENIAL);
         } else {
-            System.out.println(MSG_COMMAND_NOT_RECOGNIZED);
+            PrintHandler.println(MSG_COMMAND_NOT_RECOGNIZED);
         }
         return false;
     }
