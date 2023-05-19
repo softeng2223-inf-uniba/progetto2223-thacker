@@ -7,7 +7,6 @@ import it.uniba.app.game.DifficultyManager;
 
 import it.uniba.app.game.InitializeGame;
 import it.uniba.app.game.Ship;
-import it.uniba.app.utility.Coordinate;
 import it.uniba.app.game.Board;
 
 import java.io.IOException;
