@@ -22,7 +22,7 @@ public class Help implements NoArgs {
 
     public void execute(){
         for(int i=0; i<TEXT.length(); i++){
-            System.out.println(TEXT.charAt(i));
+            System.out.print(TEXT.charAt(i));
             try{
                 Thread.sleep(TEXT_DELAY);
             }catch (InterruptedException err){
