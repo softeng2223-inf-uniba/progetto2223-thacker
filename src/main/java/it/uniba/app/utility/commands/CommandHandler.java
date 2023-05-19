@@ -47,6 +47,14 @@ public class CommandHandler {
             System.out.println(MSG_COMMAND_NOT_RECOGNIZED);
         }
     }
+    public static void executeWithParams(final String[] args){
+        WithArgs commandInput = commandsWithArgs.get(args[0]);
+        if(commandInput != null){
+            commandInput.execute(args);
+        } else {
+            System.out.println(MSG_COMMAND_NOT_RECOGNIZED);
+        }
+    }
     private static String[] splitArgs(String input){
         return input.split(" ");
     }
