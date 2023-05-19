@@ -1,5 +1,7 @@
 package it.uniba.app.utility;
 
+import it.uniba.app.game.Board;
+
 /**
  * La classe {@code Coordinate} incapsula il concetto di riga e colonna per la matrice di gioco.
  * Implementa l'interfaccia {@code Cloneable} per poter effettuare modifiche su una copia dell'oggetto
@@ -30,6 +32,7 @@ public class Coordinate implements Cloneable {
         row = 0;
         col = 0;
     }
+
     /**
      * Costruisce un oggetto {@code Coordinate} prendendo come parametri
      * due variabili di tipo {@code int} che rappresentano valore dell'indice
@@ -38,8 +41,18 @@ public class Coordinate implements Cloneable {
      * @param newCol indice della colonna.
      */
     public Coordinate(final int newRow, final int newCol) {
-        row = newRow;
-        col = newCol;
+        row = sanitizeValue(newRow);
+        col = sanitizeValue(newCol);
+    }
+
+    private int sanitizeValue(final int value) {
+        if (value < 0) {
+            return 0;
+        }
+        if (value > Board.getSize() - 1) {
+            return Board.getSize() - 1;
+        }
+        return value;
     }
 
     /**
@@ -65,7 +78,7 @@ public class Coordinate implements Cloneable {
      * @param val valore di riga da inserire nella coordinata.
      */
     public void setRow(final int val) {
-        row = val;
+        row = sanitizeValue(val);
     }
 
     /**
@@ -73,7 +86,7 @@ public class Coordinate implements Cloneable {
      * @param val valore di colonna da inserire nella coordinata.
      */
     public void setCol(final int val) {
-        col = val;
+        col = sanitizeValue(val);
     }
 
     /**
@@ -95,5 +108,12 @@ public class Coordinate implements Cloneable {
             System.out.println(err);
         }
         return obj;
+    }
+
+    /**
+     * tostring.
+     */
+    public String toString() {
+        return Integer.toString(row) + " " + Integer.toString(col);
     }
 }
