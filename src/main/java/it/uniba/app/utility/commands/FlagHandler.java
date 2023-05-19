@@ -8,5 +8,6 @@ public class FlagHandler {
     private static final Map<String, NoArgs> flags = new HashMap<>();
     static{
         flags.put("--help", new HelpCommand());
+        flags.put("-h", new HelpCommand());
     }
 }
