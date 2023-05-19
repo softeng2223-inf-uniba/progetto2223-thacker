@@ -39,6 +39,14 @@ public class CommandHandler {
             ;
         }
     }
+    public static void executeNoParams(final String command){
+        NoArgs commandInput = commandsNoArgs.get(command);
+        if(commandInput != null){
+            commandInput.execute();
+        } else{
+            System.out.println(MSG_COMMAND_NOT_RECOGNIZED);
+        }
+    }
     private static String[] splitArgs(String input){
         return input.split(" ");
     }
