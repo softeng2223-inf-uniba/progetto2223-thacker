@@ -20,6 +20,12 @@ public class Help implements NoArgs {
                     + "/mostranavi \n"
                     + "/esci";
 
+    /**
+     * Il metodo esegue il codice del comando /help.
+     * Stampa una breve descrizione
+     * che contiene i comandi di gioco in stile
+     * "macchina da scrivere".
+     */
     public void execute(){
         for(int i=0; i<TEXT.length(); i++){
             System.out.print(TEXT.charAt(i));
