@@ -13,7 +13,10 @@ public class CommandHandler {
     private static final String ENCODER_USED = "UTF-8";
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String MSG_COMMAND_NOT_RECOGNIZED = "Comando non riconosciuto";
+    private static final String MSG_DENIAL = "Operazione annullata";
     private static final String MSG_CONFIRM = "Sicuro di voler proseguire? (si/no)";
+    private static final String CMD_CONFIRM_YES = "si";
+    private static final String CMD_CONFIRM_NO = "no";
     private static final Map<String, NoArgs> commandsNoArgs = new HashMap<>();
     static{
         commandsNoArgs.put("/help", new Help());
@@ -92,7 +95,16 @@ public class CommandHandler {
         }
     }
     public static boolean confirm(final String input){
-        return input.equals("s");
+        System.out.println(MSG_CONFIRM);
+        String command = read();
+        if(command.equals(CMD_CONFIRM_YES)){
+            return true;
+        } else if(command.equals(CMD_CONFIRM_NO)){
+            System.out.println(MSG_DENIAL);
+        } else {
+            System.out.println(MSG_COMMAND_NOT_RECOGNIZED);
+        }
+        return false;
     }
     private static String[] splitArgs(String input){
         return input.split(" ");
