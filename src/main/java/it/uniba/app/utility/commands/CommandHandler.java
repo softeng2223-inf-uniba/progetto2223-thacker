@@ -34,9 +34,9 @@ public class CommandHandler {
     public static void execute(final String input){
         String[] tokens = splitArgs(input);
         if (tokens.length == 1){
-            ;
+            executeNoParams(tokens[0]);
         } else {
-            ;
+            executeWithParams(tokens);
         }
     }
     public static void executeNoParams(final String command){

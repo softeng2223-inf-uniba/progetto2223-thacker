@@ -1,6 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.utility.CommandHandler;
+import it.uniba.app.utility.commands.FlagHandler;
 
 /**
  * Main class of the application.
@@ -24,7 +25,7 @@ public final class App {
     public static void main(final String[] args) {
         System.out.println(new App().getGreeting());
 
-        CommandHandler.executeFlags(args);
+        FlagHandler.execute(args);
         String command = "";
         System.out.println("Digita un comando");
         while (true) {
