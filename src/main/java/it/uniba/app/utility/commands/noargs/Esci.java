@@ -12,7 +12,9 @@ public class Esci implements NoArgs {
      *  di conferma.
      */
     public void execute(){
-        System.out.println("Esci");
+        if(confirm(read())){
+            System.exit(0);
+        }
     }
     private static boolean confirm(final String input){
         System.out.println(MSG_CONFIRM);
