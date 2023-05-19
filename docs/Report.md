@@ -241,11 +241,9 @@ Le righe della griglia saranno numerate da 1 a 10, mentre le sue colonne saranno
 
 #### (7.2.4) Sistema dei colpi
 
-Una volta impostata la griglia delle navi, il giocatore si ritroverà ad affrontare un **avversario immaginario**, impersonato dalla macchina su cui sta eseguendo il programma. Anche le navi dell'avversario verranno sistemate casualmente nella griglia. 
+Se il colpo lanciato dall'utente colpisce una casella **vuota**, sulla griglia verrà mostrato il simbolo **"~"**. Se, invece, colpisce una nave, verrà mostrata una **"X"** nella casella colpita. 
 
-Se il colpo lanciato colpisce una casella **vuota**, sulla griglia verrà mostrato il simbolo **"~"**. Se, invece, colpisce una nave, verrà mostrata una **"X"** nella casella colpita. 
-
-Quando non rimane più nessuna cella intatta della nave colpita, potrà essere dichiarata **affondata**. 
+Quando non rimane più nessuna cella, della nave colpita,intatta,essa potrà essere dichiarata **affondata**. 
 
 ### (7.2) Scopo del gioco
 
