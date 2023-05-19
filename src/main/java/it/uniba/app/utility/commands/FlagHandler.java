@@ -9,7 +9,7 @@ public class FlagHandler {
     private static final Map<String, NoArgs> flags = new HashMap<>();
     static{
         flags.put("--help", new Help());
-        flags.put("-h", new HelpCommand());
+        flags.put("-h", new Help());
     }
     /**
      *  Esegue il comando corrispondente alla flag inserito.
