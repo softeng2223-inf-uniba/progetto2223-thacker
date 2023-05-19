@@ -172,7 +172,6 @@ public final class CommandHandler {
                     return true;
                 }
                 break;
-                
             case CMD_DIFF_MED:
                 if (needParams(tokens, 0)) {
                     DifficultyManager.setMedLevel();
