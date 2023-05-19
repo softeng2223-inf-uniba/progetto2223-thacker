@@ -66,6 +66,14 @@ public class CommandHandler {
             System.out.println(MSG_COMMAND_NOT_RECOGNIZED);
         }
     }
+    /**
+     *  Metodo che esegue il comando con parametri inserito dall'utente.
+     *  Se il comando inserito dall'utente è presente nella mappa dei comandi
+     *  con parametri viene richiamata la funzione che esegue il codice
+     *  relativo al comando con parametri. Altrimenti viene stampato un
+     *  messaggio di errore.
+     *  @param args Array di stringhe contenente il comando e i parametri inseriti dall'utente    
+     */
     public static void executeWithParams(final String[] args){
         WithArgs commandInput = commandsWithArgs.get(args[0]);
         if(commandInput != null){
