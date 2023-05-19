@@ -4,5 +4,5 @@ public interface NoArgs {
     /**
      *  Il metodo esegue il codice del comando selezionato.
      */
-    void execute();
+    public void execute();
 }
