@@ -194,11 +194,11 @@ Per fare questo, basterà eseguire i passaggi di sotto indicati in maniera seque
 
 Una effettuati questi passaggi, il programma sarà **pronto** per essere eseguito. 
 
-### (7.2) Incominciare il gioco
+#### (7.2) Incominciare il gioco
 
 Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cui potrà digitare **due comandi**. 
 
-### (7.2.1) Elenco dei comandi 
+#### (7.2.1) Elenco dei comandi 
 
 ```sh
 /help o --help
@@ -224,24 +224,22 @@ Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cu
 
   - ``/esci`` permette di terminare l'esecuzione del programma, dietro previa conferma
 
-### (7.2.2) Inizio di una partita
+#### (7.2.2) Inizio di una partita
 
 ```
 /gioca
 ```
 Con questo comando sarà possibile iniziare una nuova partita. Una volta eseguito questo comando, verranno disposte, in maniera casuale, tutte le navi.
 
-### (7.2.3) Posizionare le navi
+#### (7.2.3) Posizionare le navi
 
 Le navi verranno posizionate in maniera **automatica** in una griglia di dimensione 10x10, senza il bisogno dell'intervento del giocatore. 
 
 Le righe della griglia saranno numerate da 1 a 10, mentre le sue colonne saranno contrassegnate dalle lettere dalla A alla J. 
 
-### (7.2.4) Turni di gioco
+#### (7.2.4) Turni di gioco
 
 Una volta impostata la griglia delle navi, il giocatore si ritroverà ad affrontare un **avversario immaginario**, impersonato dalla macchina su cui sta eseguendo il programma. Anche le navi dell'avversario verranno sistemate casualmente nella griglia. 
-
-### (7.2.5) Risultato dei colpi
 
 Se il colpo lanciato colpisce una casella **vuota**, sulla griglia verrà mostrato il simbolo **"~"**. Se, invece, colpisce una nave, verrà mostrata una **"X"** nella casella colpita. 
 
