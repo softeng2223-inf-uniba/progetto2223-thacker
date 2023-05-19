@@ -1,5 +1,6 @@
 package it.uniba.app.utility.commands.noargs;
 import it.uniba.app.utility.commands.CommandHandler;
+import it.uniba.app.utility.ExitRequest;
 import it.uniba.app.utility.PrintHandler;
 /**
  * Classe del comando /esci.
@@ -22,17 +23,8 @@ public class Esci implements NoArgs {
      */
     public void execute() {
         if (confirm()) {
-            requestedExit = true;
+            ExitRequest.send();
         }
-    }
-
-    /**
-     * Controlla se il comando Esci è stato eseguito.
-     *
-     * @return <code>true</code> se è stato eseguito il comando di uscita, <code>false</code> altrimenti
-     */
-    public static boolean exitHasBeenRequested() {
-        return requestedExit;
     }
 
     private static boolean confirm() {
