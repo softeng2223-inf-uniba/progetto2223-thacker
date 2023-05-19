@@ -31,7 +31,14 @@ public class CommandHandler {
         }
         return command;
     }
-
+    public static void execute(final String input){
+        String[] tokens = splitArgs(input);
+        if (tokens.length == 1){
+            ;
+        } else {
+            ;
+        }
+    }
     private static String[] splitArgs(String input){
         return input.split(" ");
     }
