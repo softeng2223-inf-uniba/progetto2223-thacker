@@ -135,4 +135,5 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 ## (9) Analisi Retrospettiva
 All'interno di questa sezione si trovano le relazioni dei vari Sprint che verranno eseguiti durante lo sviluppo del progetto.
 ### (9.1) Sprint 0
+![RetrospettivaSprint0](img\RetrospettivaSprint0.png)
 
