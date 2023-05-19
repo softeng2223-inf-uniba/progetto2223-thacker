@@ -194,6 +194,10 @@ Per fare questo, basterà eseguire i passaggi di sotto indicati in maniera seque
 
 Una effettuati questi passaggi, il programma sarà **pronto** per essere eseguito. 
 
+#### (7.2) Incominciare il gioco
+
+Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cui potrà digitare **due comandi**. 
+
 
 ## (9) Analisi Retrospettiva
 ### (9.1) Sprint 0
