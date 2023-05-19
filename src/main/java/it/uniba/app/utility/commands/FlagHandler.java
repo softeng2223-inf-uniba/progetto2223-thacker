@@ -4,6 +4,11 @@ import com.sun.jdi.request.InvalidRequestStateException;
 import it.uniba.app.utility.commands.noargs.*;
 import java.util.HashMap;
 import java.util.Map;
+/**
+ *  La classe FlagHandler contiene il codice necessario per gestire
+ *  i flag inseriti dall'utente. Per esempio i flag --help e -h stampano
+ *  un messaggio con i comandi disponibili.
+ */
 public class FlagHandler {
     private static final String MSG_FLAG_NOT_RECOGNIZED = "Flag non riconosciuto";
     private static final Map<String, NoArgs> flags = new HashMap<>();
