@@ -15,7 +15,7 @@ public class CommandHandler {
     private static final String MSG_COMMAND_NOT_RECOGNIZED = "Comando non riconosciuto";
     private static final Map<String, NoArgs> commandsNoArgs = new HashMap<>();
     static{
-        commandsNoArgs.put("/help", new HelpCommand());
+        commandsNoArgs.put("/help", new Help());
         commandsNoArgs.put("/esci", new Esci());
         commandsNoArgs.put("/gioca", new Gioca());
         commandsNoArgs.put("/difficile", new Difficile());
