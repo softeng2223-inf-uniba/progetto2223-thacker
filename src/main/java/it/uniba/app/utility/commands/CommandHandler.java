@@ -4,4 +4,5 @@ import it.uniba.app.utility.commands.withargs.*;
 import it.uniba.app.utility.commands.noargs.*;
 public class CommandHandler {
     private static final String ENCODER_USED = "UTF-8";
+    private static final String SYMBOL_INPUT_PROMPT = "> ";
 }
