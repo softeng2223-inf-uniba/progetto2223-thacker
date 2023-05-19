@@ -167,6 +167,32 @@ Per visualizzare un elenco delle distro Linux supportate nella WSL basterà digi
 ```sh
 wsl --list --online 
 ```
+#### **(7.1.3) Esecuzione immagine Docker** 
+
+Una volta installato Docker (e il WSL, per gli utenti Windows) andrà eseguita l'immagine creata da Docker.  
+
+Per fare questo, basterà eseguire i passaggi di sotto indicati in maniera sequenziale: 
+
+- Avviare il programma Docker 
+- Autenticare Docker per Github Packages  
+  - creare un file di testo con al suo interno il _personal access token_ di Github ([Istruzioni per la loro creazione](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+  - digitare il seguente comando  
+    ```sh 
+    cat ./TOKEN.txt | docker login ghcr.io -u <USERNAME> --password-stdin 
+    ```
+    Sostituendo `./TOKEN.txt` con il percorso dove è stato salvato il file di testo e `<USERNAME>` con il proprio username di Github.
+- Copiare il package di Docker della repo di riferimento:
+  
+  - Recarsi nella sezione  principale della repo e cliccare sul nome dell'immagine Docker, sotto la sezione **Packages**
+  - Copiare il comando tramite l'apposito pulsante ed incollarlo nel terminale 
+  - Eseguire il comando per scaricare l'immagine 
+- Digitare il comando 
+  ```sh 
+  docker run --rm -it <nome_immagine>
+  ```
+  Sostituendo ``<nome_immagine>`` con il nome dell'immagine Docker di riferimento. 
+
+Una effettuati questi passaggi, il programma sarà **pronto** per essere eseguito. 
 
 
 ## (9) Analisi Retrospettiva
