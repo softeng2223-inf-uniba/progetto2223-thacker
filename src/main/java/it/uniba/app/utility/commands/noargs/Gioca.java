@@ -12,6 +12,7 @@ public class Gioca implements NoArgs {
      *  Se una partita è già in corso non ne viene creata una nuova.
      */
     public void execute() {
+        PrintHandler.println(MSG_START_GAME);
         InitializeGame init = new InitializeGame();
         init.initGame(new Board());
     }
