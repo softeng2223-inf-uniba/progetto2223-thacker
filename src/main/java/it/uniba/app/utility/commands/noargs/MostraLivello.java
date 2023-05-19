@@ -2,7 +2,10 @@ package it.uniba.app.utility.commands.noargs;
 import it.uniba.app.utility.commands.noargs.NoArgs;
 import it.uniba.app.game.DifficultyManager;
 import it.uniba.app.utility.PrintHandler;
-
+/**
+ * Classe del comando /mostralivello.
+ * Contiene il codice da eseguire con il comando /mostralivello.
+ */
 public class MostraLivello implements NoArgs {
     /**
      *  Il metodo stampa il livello di difficoltà corrente
