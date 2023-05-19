@@ -135,7 +135,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 ## (9) Analisi Retrospettiva
 All'interno di questa sezione si trovano le relazioni dei vari Sprint che verranno eseguiti durante lo sviluppo del progetto.
 ### (9.1) Sprint 0
-![RetrospettivaSprint0](img\RetrospettivaSprint0.png)
+![RetrospettivaSprint0](img\RetrospettivaSprint0.png "Lavagna retrospettiva Sprint 0")
 Relazione del meeting del gruppo Thacker riguardo ciò che è accaduto durante lo Sprint 0.
 Meeting avvenuto il giorno 14/04/2023
 **Partecipanti al meeting:**
