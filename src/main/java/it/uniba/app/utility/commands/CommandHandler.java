@@ -22,6 +22,7 @@ public class CommandHandler {
         commandsNoArgs.get("/medio", new Medio());
         commandsNoArgs.put("/facile", new Facile());
         commandsNoArgs.put("/mostranavi", new MostraNavi());
+        commandsNoArgs.put("/svelagriglia", new SvelaGriglia());
 
     }
     private static final Map<String, WithArgs> commandsWithArgs = new HashMap<>();
