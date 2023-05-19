@@ -166,6 +166,13 @@ public final class CommandHandler {
                 }
                 break;
 
+            case CMD_SHOWGRID:
+                if (needParams(tokens, 0)) {
+                    printGameMap();
+                    return true;
+                }
+                break;
+                
             case CMD_DIFF_MED:
                 if (needParams(tokens, 0)) {
                     DifficultyManager.setMedLevel();
