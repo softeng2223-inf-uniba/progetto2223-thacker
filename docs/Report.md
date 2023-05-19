@@ -152,6 +152,21 @@ La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seg
 Dopodiché, bisognerà eseguire il file appena scaricato (.exe per Windows, .dmg per Apple) e installare 
 Docker.
 
+#### **(7.1.2) Installazione WSL (Windows)**
+
+Se si sta cercando di eseguire il programma su una macchina con MacOS o Linux, si può saltare questo passaggio.
+
+Se,invece, si sta utilizzando Windows, Docker non funzionerà se prima non verrà installato il Windows Subsystem Linux. Sarà necessario solamente scrivere la seguente riga all'interno di un qualsiasi terminale: 
+
+```sh
+wsl --install + LINUX
+```
+Dove al posto di LINUX andrà la distribuzione di vostro gradimento. 
+
+Per visualizzare un elenco delle distro Linux supportate nella WSL basterà digitare sempre da terminale: 
+```sh
+wsl --list --online 
+```
 
 
 ## (9) Analisi Retrospettiva
