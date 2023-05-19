@@ -34,9 +34,7 @@ public final class InitializeGame {
      * Cotruttore a zero parametri che inizializza un oggetto di tipo InitializeGame.
      * Una volta costruito l'oggetto, il gioco è considerato in corso.
      */
-    public InitializeGame() {
-        setGameRunningToTrue();
-    }
+    public InitializeGame() { }
 
     /**
      * Imposta la mappa di gioco posizionando le navi da colpire in modo randomico.
