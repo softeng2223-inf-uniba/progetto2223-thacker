@@ -225,8 +225,9 @@ public final class CommandHandler {
                 Ship item = board.getElement(new Coordinate(i, j));
                 if (item == null) {
                     System.out.print("~    ");
-                } else
+                } else {
                     System.out.print(item + "    ");
+                }
             }
             System.out.print("\n\n");
         }
