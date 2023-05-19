@@ -30,8 +30,8 @@ public class FlagHandler {
             if(flagInput != null){
                 flagInput.execute();
             }else{
-                System.out.println(MSG_FLAG_NOT_RECOGNIZED);
+                PrintHandler.println(MSG_FLAG_NOT_RECOGNIZED);
             }
-        }else System.out.println(MSG_FLAG_NOT_RECOGNIZED);
+        }else PrintHandler.println(MSG_FLAG_NOT_RECOGNIZED);
     }
 }
