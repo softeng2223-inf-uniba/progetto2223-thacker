@@ -31,7 +31,7 @@ public class Esci implements NoArgs {
      *
      * @return <code>true</code> se è stato eseguito il comando di uscita, <code>false</code> altrimenti
      */
-    public boolean exitHasBeenRequested() {
+    public static boolean exitHasBeenRequested() {
         return requestedExit;
     }
 
