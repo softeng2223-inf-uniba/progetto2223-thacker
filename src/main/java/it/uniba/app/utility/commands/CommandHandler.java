@@ -19,7 +19,7 @@ public class CommandHandler {
         commandsNoArgs.put("/esci", new Esci());
         commandsNoArgs.put("/gioca", new Gioca());
         commandsNoArgs.put("/difficile", new Difficile());
-        commandsNoArgs.get("/medio", new Medio());
+        commandsNoArgs.put("/medio", new Medio());
         commandsNoArgs.put("/facile", new Facile());
         commandsNoArgs.put("/mostranavi", new MostraNavi());
         commandsNoArgs.put("/mostralivello", new MostraLivello());
