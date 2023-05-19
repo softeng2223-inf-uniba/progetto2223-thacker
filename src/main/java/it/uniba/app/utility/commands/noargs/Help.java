@@ -21,6 +21,14 @@ public class Help implements NoArgs {
                     + "/esci";
 
     public void execute(){
-        System.out.println("help");
+        for(int i=0; i<TEXT.length(); i++){
+            System.out.println(TEXT.charAt(i));
+            try{
+                Thread.sleep(TEXT_DELAY);
+            }catch (InterruptedException err){
+                System.out.println("InterruptedException: " + err);
+            }
+        }
+        System.out.println("\n");
     }
 }
