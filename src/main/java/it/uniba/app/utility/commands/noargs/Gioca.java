@@ -3,6 +3,10 @@ import it.uniba.app.game.Board;
 import it.uniba.app.game.InitializeGame;
 import it.uniba.app.utility.commands.noargs.NoArgs;
 public class Gioca implements NoArgs {
+    /**
+     *  Il metodo inizializza una nuova partita.
+     *  Se una partita è già in corso non ne viene creata una nuova.
+     */
     public void execute() {
         InitializeGame init = new InitializeGame();
         init.initGame(new Board());
