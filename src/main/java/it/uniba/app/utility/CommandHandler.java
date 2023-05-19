@@ -50,6 +50,7 @@ public final class CommandHandler {
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String ENCODER_USED = "UTF-8";
+    private static final int NUM_ROW = 10;
     static Board board = new Board();
     private CommandHandler() {
     }
@@ -219,9 +220,9 @@ public final class CommandHandler {
      */
     public static void printGameMap() {
         System.out.print("    A    B    C    D    E    F    G    H    I    L\n\n");
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < NUM_ROW; i++) {
             System.out.print(i + ":  ");
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < NUM_ROW; j++) {
                 Ship item = board.getElement(new Coordinate(i, j));
                 if (item == null) {
                     System.out.print("~    ");
