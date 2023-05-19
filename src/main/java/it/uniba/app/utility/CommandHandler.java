@@ -49,6 +49,7 @@ public final class CommandHandler {
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String ENCODER_USED = "UTF-8";
+    Board board = new Board();
     private CommandHandler() {
     }
 
