@@ -1,8 +1,8 @@
 package it.uniba.app;
 
+import it.uniba.app.utility.ExitRequest;
 import it.uniba.app.utility.commands.CommandHandler;
 import it.uniba.app.utility.commands.FlagHandler;
-import it.uniba.app.utility.commands.noargs.Esci;
 
 /**
  * Main class of the application.
@@ -29,7 +29,7 @@ public final class App {
         FlagHandler.execute(args);
         String command = "";
         System.out.println("Digita un comando");
-        while (!Esci.exitHasBeenRequested()) {
+        while (!ExitRequest.status()) {
             command = CommandHandler.read();
             CommandHandler.execute(command);
         }
