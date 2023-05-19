@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import it.uniba.app.game.DifficultyManager;
 
 import it.uniba.app.game.InitializeGame;
+import it.uniba.app.game.Ship;
 import it.uniba.app.utility.Coordinate;
 import it.uniba.app.game.Board;
 
@@ -202,6 +203,20 @@ public final class CommandHandler {
         }
         PrintHandler.println(MSG_INVALID_COMMAND);
         return false;
+    }
+    public static void printGameMap() {
+        System.out.print("    A    B    C    D    E    F    G    H    I    L\n\n");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(i + ":  ");
+            for (int j = 0; j < 10; j++) {
+                Ship item = board.getElement(new Coordinate(i, j));
+                if (item == null) 
+                    System.out.print("~    ");
+                else
+                    System.out.print(item + "    ");
+            }
+            System.out.print("\n\n");
+        }
     }
     /**
      * La funzione richiede all'utente di confermare l'operazione
