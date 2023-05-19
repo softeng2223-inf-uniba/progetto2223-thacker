@@ -26,7 +26,10 @@ public final class App {
     public static void main(final String[] args) {
         System.out.println(new App().getGreeting());
 
-        FlagHandler.execute(args);
+        if (args.length > 0) {
+            FlagHandler.execute(args);
+        }
+
         String command = "";
         System.out.println("Digita un comando");
         while (!ExitRequest.status()) {
