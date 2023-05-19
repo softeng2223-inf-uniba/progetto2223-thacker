@@ -135,6 +135,24 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 ### **(7.1) Prerequisiti**
 Al fine di garantire una corretta esecuzione del programma su qualsiasi macchina, evitando dunque imcompatibilità varie, per l'esecuzione del programma è necessaria l'installazione preventiva della piattaforma Docker.
 
+#### **(7.1.1) Installazione Docker**
+
+La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda della versione del sistema operativo che si sta usando : 
+
+<span style="text-align:center">
+
+[Linux](https://docs.docker.com/desktop/linux/install/)
+
+[Apple](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+
+[Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+
+</span>
+
+Dopodiché, bisognerà eseguire il file appena scaricato (.exe per Windows, .dmg per Apple) e installare 
+Docker.
+
+
 
 ## (9) Analisi Retrospettiva
 ### (9.1) Sprint 0
