@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 import it.uniba.app.game.DifficultyManager;
-//import it.uniba.app.game.InitializeGame;
+
+import it.uniba.app.game.InitializeGame;
+import it.uniba.app.game.Ship;
+import it.uniba.app.game.Board;
 
 import java.io.IOException;
 import it.uniba.app.utility.help.Help;
@@ -27,7 +30,6 @@ public final class CommandHandler {
     private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
     private static final String CMD_PROVA2 = "/prova2"; // da rimuovere quando non più utile
     private static final String CMD_DIFF_SHOW = "/mostralivello";
-
     private static final String CMD_LEFT = "/esci";
     private static final String CMD_CONFIRM = "si";
     private static final String CMD_DENIAL = "no";
@@ -40,13 +42,15 @@ public final class CommandHandler {
     private static final String CMD_DIFF_MED  = "/medio";
     private static final String CMD_DIFF_HARD = "/difficile";
     private static final String CMD_START     = "/gioca";
+    private static final String CMD_SHOWGRID = "/svelagriglia";
 
     private static final String CMD_SHOW_SHIPS = "/mostranavi";
 
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String ENCODER_USED = "UTF-8";
-
+    private static final int NUM_ROW = 10;
+    private static Board board = new Board();
     private CommandHandler() {
     }
 
@@ -138,7 +142,8 @@ public final class CommandHandler {
 
             case CMD_START:
                 if (needParams(tokens, 0)) {
-                    // logica per inizializzare partita/mappa.
+                    InitializeGame init = new InitializeGame();
+                    init.initGame(board);
                     return true;
                 }
                 break;
@@ -161,6 +166,12 @@ public final class CommandHandler {
                 }
                 break;
 
+            case CMD_SHOWGRID:
+                if (needParams(tokens, 0)) {
+                    printGameMap();
+                    return true;
+                }
+                break;
             case CMD_DIFF_MED:
                 if (needParams(tokens, 0)) {
                     DifficultyManager.setMedLevel();
@@ -198,6 +209,27 @@ public final class CommandHandler {
         }
         PrintHandler.println(MSG_INVALID_COMMAND);
         return false;
+    }
+
+    /**
+     *  La funzione stampa la mappa di gioco con le nave posizionati.
+     *  Nel caso in cui non sia posizionata nave in una determinata coordinata
+     *  viene stampato il simbolo "~".
+     */
+    public static void printGameMap() {
+        System.out.print("    A    B    C    D    E    F    G    H    I    L\n\n");
+        for (int i = 0; i < NUM_ROW; i++) {
+            System.out.print(i + ":  ");
+            for (int j = 0; j < NUM_ROW; j++) {
+                Ship item = board.getElement(new Coordinate(i, j));
+                if (item == null) {
+                    System.out.print("~    ");
+                } else {
+                    System.out.print(item + "    ");
+                }
+            }
+            System.out.print("\n\n");
+        }
     }
     /**
      * La funzione richiede all'utente di confermare l'operazione
