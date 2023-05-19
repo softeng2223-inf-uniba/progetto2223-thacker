@@ -132,6 +132,10 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (7) Manuale Utente
 
+### **(7.1) Prerequisiti**
+Al fine di garantire una corretta esecuzione del programma su qualsiasi macchina, evitando dunque imcompatibilità varie, per l'esecuzione del programma è necessaria l'installazione preventiva della piattaforma Docker.
+
+
 ## (9) Analisi Retrospettiva
 ### (9.1) Sprint 0
 
