@@ -210,9 +210,9 @@ public final class CommandHandler {
             System.out.print(i + ":  ");
             for (int j = 0; j < 10; j++) {
                 Ship item = board.getElement(new Coordinate(i, j));
-                if (item == null) 
+                if (item == null) {
                     System.out.print("~    ");
-                else
+                } else
                     System.out.print(item + "    ");
             }
             System.out.print("\n\n");
