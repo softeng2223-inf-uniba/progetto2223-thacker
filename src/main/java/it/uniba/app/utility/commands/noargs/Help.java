@@ -27,13 +27,13 @@ public class Help implements NoArgs {
      */
     public void execute(){
         for(int i=0; i<TEXT.length(); i++){
-            System.out.print(TEXT.charAt(i));
+            PrintHandler.print(TEXT.charAt(i));
             try{
                 Thread.sleep(TEXT_DELAY);
             }catch (InterruptedException err){
-                System.out.println("InterruptedException: " + err);
+                PrintHandler.println("InterruptedException: " + err);
             }
         }
-        System.out.println("\n");
+        PrintHandler.println("\n");
     }
 }
