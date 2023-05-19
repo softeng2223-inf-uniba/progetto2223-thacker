@@ -225,6 +225,13 @@ Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cu
   - ``/esci`` permette di terminare l'esecuzione del programma, dietro previa conferma
 
 
+#### (7.2.2) Inizio di una partita
+
+```
+/gioca
+```
+Con questo comando sarà possibile iniziare una nuova partita. Una volta eseguito questo comando, verranno disposte, in maniera casuale, tutte le navi.
+
 
 ## (9) Analisi Retrospettiva
 ### (9.1) Sprint 0
