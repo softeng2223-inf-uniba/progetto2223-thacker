@@ -136,4 +136,18 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 All'interno di questa sezione si trovano le relazioni dei vari Sprint che verranno eseguiti durante lo sviluppo del progetto.
 ### (9.1) Sprint 0
 ![RetrospettivaSprint0](img\RetrospettivaSprint0.png)
+Relazione del meeting del gruppo Thacker riguardo ciò che è accaduto durante lo Sprint 0.
+Meeting avvenuto il giorno 14/04/2023
+**Partecipanti al meeting:**
+- Federico Armagno
+- Annarita Bruno
+- Vito Stefano Birardi
+- Alessandro Carli
+- Giovanni Cirigliano
+- Antonio Dambra
+- Giuseppe D'Urso
+  
+**Relazione:**
+Con lo Sprint 0 il gruppo Thacker ha avuto il primo approccio con le varie dinamiche della piattaforma GitHub ottenendo diversi riscontri.
 
+In questo meeting abbiamo affrontato diversi punti chiave riguardanti la pianificazione, la gestione delle emozioni, le modifiche dell'ultimo minuto e le esperienze individuali all'interno del gruppo. Di seguito, riassumo i principali argomenti discussi.
