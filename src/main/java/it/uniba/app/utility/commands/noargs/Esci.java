@@ -1,6 +1,5 @@
 package it.uniba.app.utility.commands.noargs;
 import it.uniba.app.utility.commands.CommandHandler;
-import it.uniba.app.utility.commands.noargs.NoArgs;
 import it.uniba.app.utility.PrintHandler;
 /**
  * Classe del comando /esci.
