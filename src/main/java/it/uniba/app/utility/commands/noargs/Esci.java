@@ -1,7 +1,10 @@
 package it.uniba.app.utility.commands.noargs;
 import it.uniba.app.utility.commands.CommandHandler;
 import it.uniba.app.utility.commands.noargs.NoArgs;
-
+/**
+ * Classe del comando /esci.
+ * Contiene il codice da eseguire con il comando /esci.
+ */
 public class Esci implements NoArgs {
     private static final String MSG_DENIAL = "Operazione annullata";
     private static final String MSG_CONFIRM = "Sicuro di voler proseguire? (si/no)";
