@@ -13,4 +13,5 @@ public class CommandHandler {
     private static final String ENCODER_USED = "UTF-8";
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String MSG_COMMAND_NOT_RECOGNIZED = "Comando non riconosciuto";
+    private static final Map<String, NoArgs> commandsNoArgs = new HashMap<>();
 }
