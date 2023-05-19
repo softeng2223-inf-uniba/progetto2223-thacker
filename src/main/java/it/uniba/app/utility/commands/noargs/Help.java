@@ -1,5 +1,9 @@
 package it.uniba.app.utility.commands.noargs;
 import it.uniba.app.utility.commands.noargs.NoArgs;
+/**
+ * Classe del comando /help.
+ * Contiene il codice da eseguire con il comando /help.
+ */
 public class Help implements NoArgs {
     /*
      *  Il comando help stampa un messaggio con una breve
