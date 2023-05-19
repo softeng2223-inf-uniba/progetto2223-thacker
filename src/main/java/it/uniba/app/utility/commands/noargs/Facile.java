@@ -1,17 +1,17 @@
 package it.uniba.app.utility.commands.noargs;
 import it.uniba.app.game.DifficultyManager;
 import it.uniba.app.utility.PrintHandler;
-import it.uniba.app.utility.commands.noargs.NoArgs;
+
 /**
  * Classe del comando /facile.
  * Contiene il codice da eseguire con il comando /facile.
  */
 public class Facile implements NoArgs {
-    /*
-     *  Il metodo imposta il livello di difficoltà 
+    /**
+     *  Il metodo imposta il livello di difficoltà
      *  del gioco a facile e stampa il nome del livello.
      */
-    public void execute(){
+    public void execute() {
         DifficultyManager.setEasyLevel();
         PrintHandler.printLevelName();
     }
