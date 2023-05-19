@@ -76,7 +76,7 @@ public class CommandHandler {
         if(commandInput != null){
             commandInput.execute();
         } else{
-            System.out.println(MSG_COMMAND_NOT_RECOGNIZED);
+            PrintHandler.println(MSG_COMMAND_NOT_RECOGNIZED);
         }
     }
     /**
