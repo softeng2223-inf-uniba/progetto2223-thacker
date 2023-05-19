@@ -28,7 +28,7 @@ public class Help implements NoArgs {
      */
     public void execute(){
         for(int i=0; i<TEXT.length(); i++){
-            PrintHandler.print(TEXT.charAt(i));
+            PrintHandler.print(String.valueOf(TEXT.charAt(i)));
             try{
                 Thread.sleep(TEXT_DELAY);
             }catch (InterruptedException err){
