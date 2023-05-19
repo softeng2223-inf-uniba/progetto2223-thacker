@@ -31,4 +31,8 @@ public class CommandHandler {
         }
         return command;
     }
+
+    private static String[] splitArgs(String input){
+        return input.split(" ");
+    }
 }
