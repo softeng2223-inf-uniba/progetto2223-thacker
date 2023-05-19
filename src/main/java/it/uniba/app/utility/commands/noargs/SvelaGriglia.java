@@ -1,6 +1,4 @@
 package it.uniba.app.utility.commands.noargs;
-import it.uniba.app.utility.commands.noargs.NoArgs;
-import it.uniba.app.utility.PrintHandler;
 /**
  * Classe del comando /svelagriglia.
  * Contiene il codice da eseguire con il comando /svelagriglia.
@@ -12,7 +10,7 @@ public class SvelaGriglia implements NoArgs {
      *  Nel caso in cui una nave risulta già
      *  colpita verrà mostrato lo stato.
      */
-    public void execute(){
+    public void execute() {
         System.out.println("svelagrliglia");
     }
 }

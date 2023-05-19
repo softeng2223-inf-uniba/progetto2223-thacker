@@ -22,7 +22,7 @@ public class Esci implements NoArgs {
             System.exit(0);
         }
     }
-    private static boolean confirm(){
+    private static boolean confirm() {
         PrintHandler.println(MSG_CONFIRM);
         String command = CommandHandler.read();
         if (command.equals(CMD_CONFIRM_YES)) {
