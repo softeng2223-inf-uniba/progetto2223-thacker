@@ -132,6 +132,123 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (7) Manuale Utente
 
+### **(7.1) Prerequisiti**
+Al fine di garantire una corretta esecuzione del programma su qualsiasi macchina, evitando dunque imcompatibilità varie, è necessaria l'installazione preventiva della piattaforma Docker.
+
+#### **(7.1.1) Installazione Docker**
+
+La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda della versione del sistema operativo che si sta usando : 
+
+<span style="text-align:center">
+
+[Linux](https://docs.docker.com/desktop/linux/install/)
+
+[Apple](https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+
+[Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
+
+</span>
+
+Dopodiché, bisognerà eseguire il file appena scaricato (.exe per Windows, .dmg per Apple) e installare 
+Docker.
+
+#### **(7.1.2) Installazione WSL (Windows)**
+
+Se si sta cercando di eseguire il programma su una macchina con MacOS o Linux, si può saltare questo passaggio.
+
+Se,invece, si sta utilizzando Windows, Docker non funzionerà se prima non verrà installato il Windows Subsystem Linux. Sarà necessario solamente scrivere la seguente riga all'interno di un qualsiasi terminale: 
+
+```sh
+wsl --install + LINUX
+```
+Dove al posto di LINUX andrà la distribuzione di vostro gradimento. 
+
+Per visualizzare un elenco delle distro Linux supportate nella WSL basterà digitare sempre da terminale: 
+```sh
+wsl --list --online 
+```
+#### **(7.1.3) Esecuzione immagine Docker** 
+
+Una volta installato Docker (e il WSL, per gli utenti Windows) andrà eseguita l'immagine creata da Docker.  
+
+Per fare questo, basterà eseguire i passaggi di sotto indicati in maniera sequenziale: 
+
+- Avviare il programma Docker 
+- Autenticare Docker per Github Packages  
+  - creare un file di testo con al suo interno il _personal access token_ di Github ([Istruzioni per la loro creazione](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+  - digitare il seguente comando  
+    ```sh 
+    cat ./TOKEN.txt | docker login ghcr.io -u <USERNAME> --password-stdin 
+    ```
+    Sostituendo `./TOKEN.txt` con il percorso dove è stato salvato il file di testo e `<USERNAME>` con il proprio username di Github.
+- Copiare il package di Docker della repo di riferimento:
+  
+  - Recarsi nella sezione  principale della repo e cliccare sul nome dell'immagine Docker, sotto la sezione **Packages**
+  - Copiare il comando tramite l'apposito pulsante ed incollarlo nel terminale 
+  - Eseguire il comando per scaricare l'immagine 
+- Digitare il comando 
+  ```sh 
+  docker run --rm -it <nome_immagine>
+  ```
+  Sostituendo ``<nome_immagine>`` con il nome dell'immagine Docker di riferimento. 
+
+Una effettuati questi passaggi, il programma sarà **pronto** per essere eseguito. 
+
+#### (7.2) Incominciare il gioco
+
+Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cui potrà digitare **due comandi**. 
+
+#### (7.2.1) Elenco dei comandi 
+
+```sh
+/help o --help o -h
+```
+
+  Con il seguente comando verranno mostrati a schermo tutti i comandi utilizzabili di cui segue una breve descrizione di ognuno: 
+
+
+  - ``/gioca`` permette di iniziare una nuova partita;
+  - ``/facile`` imposta il livello di difficoltà su facile, quindi si avranno a disposizione massimo 50 tentativi a vuoto   
+  - ``/medio`` imposta il livello di difficoltà su medio, quindi si avranno a disposizione massimo 30 tentativi a vuoto   
+  - ``/difficile`` imposta il livello di difficoltà su difficile, quindi si avranno a disposizione massimo 10 tentativi a vuoto   
+  - ``/mostralivello`` permette di mostrare, durante una partita, il livello di difficoltà 
+  - ``/svelagriglia`` permette di mostrare la griglia dell'avversario 
+  - ``/mostranavi`` mostra il nome delle navi, la loro rappresentazione nel gioco e la loro rispettiva quantità disponibile, come riportato nella seguente tabella: 
+
+      |Nome|Numero esemplari|
+      |-|-|
+      | Cacciatorpediniere   | 4 |
+      | Incrociatore  | 3 |
+      | Corazzata  | 2 |
+      | Portaerei  | 1 |   
+
+  - ``/esci`` permette di terminare l'esecuzione del programma, dietro previa conferma
+
+
+#### (7.2.2) Inizio di una partita
+
+```
+/gioca
+```
+Con questo comando sarà possibile iniziare una nuova partita. Una volta eseguito questo comando, verranno disposte, in maniera casuale, tutte le navi.
+
+#### (7.2.3) Posizionare le navi
+
+Le navi verranno posizionate in maniera **automatica** in una griglia di dimensione 10x10, senza il bisogno dell'intervento del giocatore. 
+
+Le righe della griglia saranno numerate da 1 a 10, mentre le sue colonne saranno contrassegnate dalle lettere dalla A alla J. 
+
+
+#### (7.2.4) Sistema dei colpi
+
+Se il colpo lanciato dall'utente colpisce una casella **vuota**, sulla griglia verrà mostrato il simbolo **"~"**. Se, invece, colpisce una nave, verrà mostrata una **"X"** nella casella colpita. 
+
+Quando non rimane più nessuna cella, della nave colpita,intatta,essa potrà essere dichiarata **affondata**. 
+
+### (7.2) Scopo del gioco
+
+L'obiettivo del giocatore è quello di affondare le navi nemiche prima di esaurire tutti i tentativi dettati dalla difficoltà impostata in fase di preparazione  della partita. 
+
 ## (9) Analisi Retrospettiva
 ### (9.1) Sprint 0
 

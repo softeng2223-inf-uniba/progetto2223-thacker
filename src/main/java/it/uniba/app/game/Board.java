@@ -101,7 +101,7 @@ public class Board {
      * @param coord coordinate della cella in cui inserire il valore.
      * @param val valore da inserire nella cella.
      */
-    private void set(final Coordinate coord, final String val) {
+    public void setInPlayerMap(final Coordinate coord, final String val) {
         playerMap[coord.getRow()][coord.getCol()] = val;
     }
 
@@ -110,7 +110,7 @@ public class Board {
      * @param coord coordinate della cella in cui inserire il valore.
      * @return valore della cella individuata dalle coordinate.
      */
-    private String get(final Coordinate coord) {
+    public String getFromPlayerMap(final Coordinate coord) {
         return playerMap[coord.getRow()][coord.getCol()];
     }
 
@@ -123,9 +123,9 @@ public class Board {
     public void updateMap(final Coordinate coord) {
         boolean occupied = isCellOccupiedByShip(coord);
         if (occupied) {
-            set(coord, "X");
+            setInPlayerMap(coord, "X");
         } else {
-            set(coord, "~");
+            setInPlayerMap(coord, "~");
         }
     }
 
@@ -135,7 +135,7 @@ public class Board {
      * @return {@code true} se la cella è già stata colpita, {@code false} altrimenti.
      */
     public boolean isAlreadyMarked(final Coordinate coord) {
-        if (get(coord) == "X" || get(coord) == "~") {
+        if (getFromPlayerMap(coord) == "X" || getFromPlayerMap(coord) == "~") {
             return false;
         }
         return true;
