@@ -133,5 +133,23 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 ## (7) Manuale Utente
 
 ## (9) Analisi Retrospettiva
+Relazione del meeting del gruppo Thacker riguardo ciò che è accaduto durante lo Sprint 0.
+Meeting avvenuto il giorno 14/04/2023
+**Partecipanti al meeting:**
+- Federico Armagno
+- Annarita Bruno
+- Vito Stefano Birardi
+- Alessandro Carli
+- Giovanni Cirigliano
+- Antonio D'Ambra
+- Giuseppe D'Urso
+**Relazione:**
+Con lo Sprint 0 il gruppo Thacker ha avuto il primo approccio con le varie dinamiche della piattaforma GitHub ottenendo diversi riscontri.
+Questo primo sprint è servito ai membri del gruppo a conoscersi meglio ed entrare in sintonia.
+
+Durante questo primo Sprint 0 "di familiarizzazione" con GitHub il membro Alessandro Carli non è stato abbastanza soddisfatto del meccanismo di creazione dei "branch" riscontrando qualche iniziale disagio mentre dimostra di essere contento della collaborazione col collega Giuseppe D'Urso per quella che è stata la redazione del documento "ISPIRATORE.md" ottenendo una perfetta suddivisione del lavoro.
+Il membro Federico Armagno ammette che spesso ha avuto dimenticanze per quanto riguarda lo spostamento delle varie issue negli stati (In progress, Ready ecc..).
+Il collega Giovanni Cirigliano sostiene che per i futuri sprint sia necessario dedicare più tempo 
 ### (9.1) Sprint 0
+...
 
