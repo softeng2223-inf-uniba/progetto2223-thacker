@@ -12,7 +12,7 @@ public final class Help {
      * elementi dell'array di Stringhe che contiene
      * il titolo {@code BattleShip}.
      */
-    private static final int TITLE_ROWS = 6;
+    private static final int TITLE_ROWS = 1;
     /**
      * {@code TITLE_DELAY} contiene la costante
      * da passare come input al metodo {@code Thread.sleep()}
@@ -35,12 +35,7 @@ public final class Help {
      * dell'applicazione.
      */
     private static final String[] TITLE = new String[] {
-        "██████╗  █████╗ ████████╗████████╗██╗     ███████╗███████╗██╗  ██╗██╗██████╗",
-        "██╔══██╗██╔══██╗╚══██╔══╝╚══██╔══╝██║     ██╔════╝██╔════╝██║  ██║██║██╔══██╗",
-        "██████╔╝███████║   ██║      ██║   ██║     █████╗  ███████╗███████║██║██████╔╝",
-        "██╔══██╗██╔══██║   ██║      ██║   ██║     ██╔══╝  ╚════██║██╔══██║██║██╔═══╝",
-        "██████╔╝██║  ██║   ██║      ██║   ███████╗███████╗███████║██║  ██║██║██║",
-        "╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝"
+        "2"
     };
 
     /**
