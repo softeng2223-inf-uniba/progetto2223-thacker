@@ -14,20 +14,20 @@ public class Esci implements NoArgs {
     private static final String CMD_CONFIRM_NO = "no";
     /**
      *  Il metodo permette di uscire in modo
-     *  sicuro dal gioco stampando un messaggio 
+     *  sicuro dal gioco stampando un messaggio
      *  di conferma.
      */
-    public void execute(){
-        if(confirm()){
+    public void execute() {
+        if (confirm()) {
             System.exit(0);
         }
     }
     private static boolean confirm(){
         PrintHandler.println(MSG_CONFIRM);
         String command = CommandHandler.read();
-        if(command.equals(CMD_CONFIRM_YES)){
+        if (command.equals(CMD_CONFIRM_YES)) {
             return true;
-        } else if(command.equals(CMD_CONFIRM_NO)){
+        } else if (command.equals(CMD_CONFIRM_NO)) {
             PrintHandler.println(MSG_DENIAL);
         } else {
             PrintHandler.println(MSG_COMMAND_NOT_RECOGNIZED);
