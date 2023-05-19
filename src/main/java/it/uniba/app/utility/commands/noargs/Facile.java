@@ -5,7 +5,7 @@ import it.uniba.app.utility.commands.noargs.NoArgs;
 
 public class Facile implements NoArgs {
     public void execute(){
-        DifficultyManager.setMedLevel();
+        DifficultyManager.setEasyLevel();
         PrintHandler.printLevelName();
     }
 }
