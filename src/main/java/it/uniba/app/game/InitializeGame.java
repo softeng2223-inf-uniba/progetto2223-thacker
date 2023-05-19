@@ -32,12 +32,12 @@ public final class InitializeGame {
 
     /**
      * Cotruttore a zero parametri che inizializza un oggetto di tipo InitializeGame.
-     * Una volta costruito l'oggetto, il gioco è considerato in corso.
      */
     public InitializeGame() { }
 
     /**
      * Imposta la mappa di gioco posizionando le navi da colpire in modo randomico.
+     * Una volta chiamato il metodo, la partita è considerata in corso.
      */
     public void initGame(final Board map) {
         randomlyFillMap(map);
