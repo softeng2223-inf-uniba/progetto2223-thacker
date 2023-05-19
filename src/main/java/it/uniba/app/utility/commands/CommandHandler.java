@@ -34,6 +34,14 @@ public class CommandHandler {
         }
         return command;
     }
+    /**
+     *  Metodo che esegue il comando inserito dall'utente.
+     *  Nel caso in cui il comando è senza parametri viene richiamata la 
+     *  funzione che esegue il codice relativo al comando senza parametri.
+     *  altrimenti viene richiamata la funzione che esegue il codice
+     *  relativo al comando senza parametri.
+     *  @param input Stringa contenente il comando inserito dall'utente.
+     */
     public static void execute(final String input){
         String[] tokens = splitArgs(input);
         if (tokens.length == 1){
