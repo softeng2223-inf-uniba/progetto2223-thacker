@@ -38,7 +38,7 @@ public class CommandHandler {
      *  Metodo che esegue il comando inserito dall'utente.
      *  Nel caso in cui il comando è senza parametri viene richiamata la 
      *  funzione che esegue il codice relativo al comando senza parametri.
-     *  altrimenti viene richiamata la funzione che esegue il codice
+     *  Altrimenti viene richiamata la funzione che esegue il codice
      *  relativo al comando senza parametri.
      *  @param input Stringa contenente il comando inserito dall'utente.
      */
@@ -50,6 +50,14 @@ public class CommandHandler {
             executeWithParams(tokens);
         }
     }
+    /**
+     *  Metodo che esegue il comando senza parametri inserito dall'utente.
+     *  Se il comando inserito dall'utente è presente nella mappa dei comandi
+     *  senza parametri viene richiamata la funzione che esegue il codice
+     *  relativo al comando senza parametri. Altrimenti viene stampato un
+     *  messaggio di errore.
+     *  @param command Stringa contenente il comando inserito dall'utente.
+     */
     public static void executeNoParams(final String command){
         NoArgs commandInput = commandsNoArgs.get(command);
         if(commandInput != null){
