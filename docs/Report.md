@@ -198,6 +198,33 @@ Una effettuati questi passaggi, il programma sarà **pronto** per essere eseguit
 
 Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cui potrà digitare **due comandi**. 
 
+#### (7.2.1) Elenco dei comandi 
+
+```sh
+/help o --help
+```
+
+  Con il seguente comando verranno mostrati a schermo tutti i comandi utilizzabili di cui segue una breve descrizione di ognuno: 
+
+
+  - ``/gioca`` permette di iniziare una nuova partita;
+  - ``/facile`` imposta il livello di difficoltà su facile, quindi si avranno a disposizione massimo 50 tentativi a vuoto   
+  - ``/medio`` imposta il livello di difficoltà su medio, quindi si avranno a disposizione massimo 30 tentativi a vuoto   
+  - ``/difficile`` imposta il livello di difficoltà su difficile, quindi si avranno a disposizione massimo 10 tentativi a vuoto   
+  - ``/mostralivello`` permette di mostrare, durante una partita, il livello di difficoltà 
+  - ``/svelagriglia`` permette di mostrare la griglia dell'avversario 
+  - ``/mostranavi`` mostra il nome delle navi, la loro rappresentazione nel gioco e la loro rispettiva quantità disponibile, come riportato nella seguente tabella: 
+
+      |Nome|Numero esemplari|
+      |-|-|
+      | Cacciatorpediniere   | 4 |
+      | Incrociatore  | 3 |
+      | Corazzata  | 2 |
+      | Portaerei  | 1 |   
+
+  - ``/esci`` permette di terminare l'esecuzione del programma, dietro previa conferma
+
+
 
 ## (9) Analisi Retrospettiva
 ### (9.1) Sprint 0
