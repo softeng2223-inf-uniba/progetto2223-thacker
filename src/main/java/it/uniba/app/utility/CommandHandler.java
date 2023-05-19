@@ -211,6 +211,12 @@ public final class CommandHandler {
         PrintHandler.println(MSG_INVALID_COMMAND);
         return false;
     }
+
+    /**
+     *  La funzione stampa la mappa di gioco con le nave posizionati.
+     *  Nel caso in cui non sia posizionata nave in una determinata coordinata
+     *  viene stampato il simbolo "~".
+     */
     public static void printGameMap() {
         System.out.print("    A    B    C    D    E    F    G    H    I    L\n\n");
         for (int i = 0; i < 10; i++) {
