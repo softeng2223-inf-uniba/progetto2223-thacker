@@ -27,7 +27,6 @@ public final class CommandHandler {
     private static final String CMD_PROVA1 = "/prova1"; // da rimuovere quando non più utile
     private static final String CMD_PROVA2 = "/prova2"; // da rimuovere quando non più utile
     private static final String CMD_DIFF_SHOW = "/mostralivello";
-
     private static final String CMD_LEFT = "/esci";
     private static final String CMD_CONFIRM = "si";
     private static final String CMD_DENIAL = "no";
@@ -46,7 +45,6 @@ public final class CommandHandler {
     /* === SIMBOLI === */
     private static final String SYMBOL_INPUT_PROMPT = "> ";
     private static final String ENCODER_USED = "UTF-8";
-
     private CommandHandler() {
     }
 
@@ -138,7 +136,8 @@ public final class CommandHandler {
 
             case CMD_START:
                 if (needParams(tokens, 0)) {
-                    // logica per inizializzare partita/mappa.
+                    InitializeGame init = new InitializeGame();
+                    init.initGame(board);
                     return true;
                 }
                 break;
