@@ -1,4 +1,5 @@
 package it.uniba.app.battleship.ship;
+
 /**
  * La classe {@code Ship} contiene gli attributi e i
  * metodi necessari per istanziare gli esemplari
@@ -104,6 +105,7 @@ public final class Ship implements Cloneable {
     public static String getSymbol() {
         return SYMBOL;
     }
+
     /**
      * Restituisce la stringa che contiene
      * il colore neutro da assegnare alla nave
@@ -182,16 +184,19 @@ public final class Ship implements Cloneable {
         hitsTaken++;
     }
 
-    /** TODO improve.
-     * Nave affondata?
-     * @return true se affondata, false altrimenti
+    /**
+     * Restituisce il risultato del confronto tra
+     * i colpi subiti da una nave e la sua lunghezza.
+     * Serve per verificare se la nave è stata
+     * affondata oppure no.
+     * @return {@code true} se affondata, {@code false} altrimenti
      */
     public boolean isSunk() {
         return hitsTaken >= types[typeId].size;
     }
 
     /**
-     * TODO javadoc.
+     * Restituisce un clone dell'oggetto nave.
      */
     public Ship clone() {
         Ship clone = null;
@@ -206,7 +211,11 @@ public final class Ship implements Cloneable {
         return clone;
     }
 
-    /** TODO javadoc. */
+    /*
+     * Restituisce il simbolo della nave colorato
+     * del colore assegnato al tipo di nave specifico
+     * istanziato.
+    */
     @Override
     public String toString() {
         return getColor() + getSymbol() + DEFAULT_COLOR;
