@@ -139,5 +139,29 @@ public final class Ship implements Cloneable {
         return types[typeId].colorCode;
     }
 
+    /**
+     * Restituisce il numero di colpi
+     * che ha subito la singola nave.
+     * @return numero di colpi subiti da un oggetto nave.
+    */
+    public int getHitsTaken() {
+        return hitsTaken;
+    }
+
+    /**
+     * Incrementa il valore dell'attributo {@code hitsTaken}
+     * di 1 ogni volta che la nave viene colpita.
+    */
+    public void hit() {
+        hitsTaken++;
+    }
+
+    /** TODO improve.
+     * Nave affondata?
+     * @return true se affondata, false altrimenti
+     */
+    public boolean isSunk() {
+        return hitsTaken >= types[typeId].size;
+    }
 }
 
