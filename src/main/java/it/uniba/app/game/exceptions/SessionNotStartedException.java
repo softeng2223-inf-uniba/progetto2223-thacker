@@ -1,6 +1,8 @@
 package it.uniba.app.game.exceptions;
 
-/** TODO replace. */
+/**
+ * Eccezione che segnala il fatto che una sessione di gioco non è ancora iniziata.
+*/
 public class SessionNotStartedException extends GameException {
 
     /**
