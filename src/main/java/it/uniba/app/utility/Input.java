@@ -15,7 +15,8 @@ public final class Input {
     private Input() { }
 
     /**
-     * Javadoc momenntaneo.
+     * Permette di ottenere una stringa in input da parte dell'utente.
+     * @return stringa presa in input da tastiera.
      */
     public static String get() throws IOException {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in, CHARSET_NAME));
