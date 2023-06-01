@@ -7,7 +7,6 @@ public class Input {
     
     public static String get() throws IOException { 
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in, CHARSET_NAME)); 
-        String text = buffer.readLine();
-        return text;
+        return buffer.readLine(); 
     } 
 }
