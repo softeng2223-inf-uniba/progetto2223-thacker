@@ -27,5 +27,23 @@ public final class Ship implements Cloneable {
 
     private int typeId;
     private int hitsTaken;
+
+    /**
+     * TODO javadoc.
+     */
+    private static class Properties {
+        private String name;
+        private int size;
+        private String colorCode;
+        private int maxInstances;
+
+        Properties(final String nm, final int sz,
+            final String clr, final int max) {
+                    this.name = nm;
+                    this.size = sz;
+                    this.colorCode = clr;
+                    this.maxInstances = max;
+        }
+    }
 }
 
