@@ -45,5 +45,13 @@ public final class Ship implements Cloneable {
                     this.maxInstances = max;
         }
     }
+
+    private static Properties[] types = {
+        new Properties(CACCIATORPEDINIERE_STR, CACCIATORPEDINIERE_SIZE,
+                       CACCIATORPEDINIERE_COLOR, CACCIATORPEDINIERE_INSTANCES),
+        new Properties(INCROCIATORE_STR, INCROCIATORE_SIZE, INCROCIATORE_COLOR, INCROCIATORE_INSTANCES),
+        new Properties(CORAZZATA_STR, CORAZZATA_SIZE, CORAZZATA_COLOR, CORAZZATA_INSTANCES),
+        new Properties(PORTAEREI_STR, PORTAEREI_SIZE, PORTAEREI_COLOR, PORTAEREI_INSTANCES)
+    };
 }
 
