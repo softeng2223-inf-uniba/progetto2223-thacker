@@ -147,10 +147,20 @@ public final class Ship implements Cloneable {
         return types[typeId].name;
     }
 
+    /**
+     * Restituisce la dimensione della nave
+     * istanziata associata al {@code typeId}.
+     * @return dimensione della nave specifica.
+     */
     public int getSize() {
         return types[typeId].size;
     }
 
+    /**
+     * Restituisce il colore assegnato al tipo
+     * di nave associato al {@code typeId}.
+     * @return colore assegnato al tipo di nave.
+     */
     public String getColor() {
         return types[typeId].colorCode;
     }
