@@ -103,5 +103,29 @@ public final class Ship implements Cloneable {
         return DEFAULT_COLOR;
     }
 
+    /* === INSTANCE METHODS === */
+
+    /**
+     * Istanzia un tipo di nave attraverso il suo id.
+     * Elenco degli id disponibili e tipo associato:
+     * <ul>
+     * <li>0 Cacciatorpediniere</li>
+     * <li>1 Incrociatore</li>
+     * <li>2 Corazzata</li>
+     * <li>3 Portaerei</li>
+     * </ul>
+     * <hr>
+     * @param id identificativo del tipo di nave
+     */
+    public Ship(final int id) throws IndexOutOfBoundsException {
+        hitsTaken = 0;
+
+        if (id < 0 || id > types.length) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            typeId = id;
+        }
+    }
+
 }
 
