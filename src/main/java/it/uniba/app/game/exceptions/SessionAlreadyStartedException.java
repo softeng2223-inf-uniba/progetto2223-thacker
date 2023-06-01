@@ -1,12 +1,12 @@
 package it.uniba.app.game.exceptions;
 
 /**
- * TODO javadoc.
+ *Eccezione che segnala il fatto che una sessione di gioco è già in corso.
  */
 public class SessionAlreadyStartedException extends GameException {
 
     /**
-    * TODO javadoc.
+    * Invoca il costruttore della superclasse con un messaggio di errore.
     */
     public SessionAlreadyStartedException() {
         super("Una sessione di gioco è già in corso");
