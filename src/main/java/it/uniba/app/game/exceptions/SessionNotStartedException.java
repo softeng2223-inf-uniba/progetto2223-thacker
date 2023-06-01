@@ -6,7 +6,7 @@ package it.uniba.app.game.exceptions;
 public class SessionNotStartedException extends GameException {
 
     /**
-    * TODO javadoc.
+    * Invoca il costruttore della superclasse con un messaggio di errore.
     */
     public SessionNotStartedException() {
         super("La sessione non è ancora iniziata.");
