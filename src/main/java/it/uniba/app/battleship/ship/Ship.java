@@ -179,5 +179,11 @@ public final class Ship implements Cloneable {
 
         return clone;
     }
+
+    /** TODO javadoc. */
+    @Override
+    public String toString() {
+        return getColor() + getSymbol() + DEFAULT_COLOR;
+    }
 }
 
