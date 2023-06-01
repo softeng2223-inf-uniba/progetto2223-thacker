@@ -1,5 +1,11 @@
 package it.uniba.app.battleship.ship;
-
+/**
+ * La classe {@code Ship} contiene gli attributi e i
+ * metodi necessari per istanziare gli esemplari
+ * per tipo di nave. Permette anche di
+ * controllare se una nave in particolare è stata
+ * affondata oppure no.
+ */
 public final class Ship implements Cloneable {
 
     private static final String SYMBOL        = "\u22A0";
