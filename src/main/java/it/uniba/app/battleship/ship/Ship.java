@@ -85,5 +85,23 @@ public final class Ship implements Cloneable {
         return lst;
     }
 
+    /**
+     * Restituisce il simbolo quadrato condiviso da
+     * tutti i tipi di nave.
+     * @return Stringa che contiene il simbolo della nave scelto.
+     */
+    public static String getSymbol() {
+        return SYMBOL;
+    }
+    /**
+     * Restituisce la stringa che contiene
+     * il colore neutro da assegnare alla nave
+     * dopo la stampa.
+     * @return stringa con colore neutro.
+     */
+    public static String resetColor() {
+        return DEFAULT_COLOR;
+    }
+
 }
 
