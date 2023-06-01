@@ -14,5 +14,10 @@ public final class Ship implements Cloneable {
     private static final int CRUISER_INSTANCES    = 3;
     private static final int BATTLESHIP_INSTANCES = 2;
     private static final int FLATTOP_INSTANCES    = 1;
+
+    private static final int DESTROYER_SIZE  = 2;
+    private static final int CRUISER_SIZE    = 3;
+    private static final int BATTLESHIP_SIZE = 4;
+    private static final int FLATTOP_SIZE    = 5;
 }
 
