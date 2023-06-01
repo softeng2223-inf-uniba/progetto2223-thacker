@@ -163,5 +163,21 @@ public final class Ship implements Cloneable {
     public boolean isSunk() {
         return hitsTaken >= types[typeId].size;
     }
+
+    /**
+     * TODO javadoc.
+     */
+    public Ship clone() {
+        Ship clone = null;
+
+        try {
+            clone = (Ship) super.clone();
+            System.out.println("Ship Cloned!"); // TODO remove. debug purposes
+        } catch (CloneNotSupportedException e) {
+            // TODO something
+        }
+
+        return clone;
+    }
 }
 
