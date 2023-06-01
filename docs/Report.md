@@ -28,7 +28,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
             
         Giocatore "1" -- "0..*" Tentativo : Effettua
         Giocatore "1" -- "0..*" Partita : Svolge
-        Giocatore -- Difficolta : Imposta
+        Giocatore "0..*" -- "1" Difficolta : Imposta
 
         Difficolta "1" -- "0..*" Partita : Influenza
         Difficolta <|-- Facile
