@@ -127,5 +127,17 @@ public final class Ship implements Cloneable {
         }
     }
 
+    public String getName() {
+        return types[typeId].name;
+    }
+
+    public int getSize() {
+        return types[typeId].size;
+    }
+
+    public String getColor() {
+        return types[typeId].colorCode;
+    }
+
 }
 
