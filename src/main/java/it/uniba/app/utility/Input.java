@@ -1,7 +1,8 @@
 package it.uniba.app.utility;
 
 import java.io.IOException;
-import java.io.InputStreamReader; 
+import java.io.InputStreamReader;
+import java.io.BufferedReader; 
 
 public class Input {
     public static final String CHARSET_NAME = "UTF-8";
