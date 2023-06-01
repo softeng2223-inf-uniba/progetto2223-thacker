@@ -34,9 +34,6 @@ public final class Ship implements Cloneable {
     private int typeId;
     private int hitsTaken;
 
-    /**
-     * TODO javadoc.
-     */
     private static class Properties {
         private String name;
         private int size;
@@ -61,19 +58,25 @@ public final class Ship implements Cloneable {
     };
 
     /**
-     * TODO javadoc.
-     * @return
+     * Restituisce la lunghezza dell'array {@code Properties},
+     * che indica il numero di tipi di nave presenti nel
+     * gioco: quattro.
+     * @return la lunghezza dell'array Properties.
      */
     public static int getNumberOfTypes() {
         return types.length;
     }
 
     /**
-     * TODO javadoc.
-     * @param id
-     * @return
+     * Restituisce il numero massimo di esemplari
+     * istanziabili per tipo di nave in una partita.
+     * @param id contiene l'indice in cui è
+     * posizionata la nave di cui si vuole sapere il
+     * numero massimo di esemplari istanziabili.
+     * @return numero massimo di esemplari istanziabili
+     * del tipo di nave specificato con l'id.
      */
-    public static int getMaxIstances(final int id) {
+    public static int getMaxInstances(final int id) {
         return types[id].maxInstances;
     }
 
