@@ -24,5 +24,8 @@ public final class Ship implements Cloneable {
     private static final String INCROCIATORE_COLOR    = "\u001B[34m";
     private static final String CORAZZATA_COLOR = "\u001B[32m";
     private static final String PORTAEREI_COLOR    = "\u001B[33m";
+
+    private int typeId;
+    private int hitsTaken;
 }
 
