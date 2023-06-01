@@ -53,5 +53,37 @@ public final class Ship implements Cloneable {
         new Properties(CORAZZATA_STR, CORAZZATA_SIZE, CORAZZATA_COLOR, CORAZZATA_INSTANCES),
         new Properties(PORTAEREI_STR, PORTAEREI_SIZE, PORTAEREI_COLOR, PORTAEREI_INSTANCES)
     };
+
+    /**
+     * TODO javadoc.
+     * @return
+     */
+    public static int getNumberOfTypes() {
+        return types.length;
+    }
+
+    /**
+     * TODO javadoc.
+     * @param id
+     * @return
+     */
+    public static int getMaxIstances(final int id) {
+        return types[id].maxInstances;
+    }
+
+    /**
+     * TODO javadoc.
+     * @return
+     */
+    public static String[] getTypes() {
+        String[] lst = new String[types.length];
+
+        for (int i = 0; i < types.length; i++) {
+            lst[i] = types[i].name;
+        }
+
+        return lst;
+    }
+
 }
 
