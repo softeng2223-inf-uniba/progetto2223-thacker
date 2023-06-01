@@ -5,7 +5,9 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
 /**
- * Javadoc momenntaneo.
+ * La classe gestisce l'input da parte dell'utente.
+ * Permette di usare il metodo {@code get()} per ottenre una stringa.
+ * Gestisce in maniera automatica l'uso del charset.
  */
 public final class Input {
     public static final String CHARSET_NAME = "UTF-8";
