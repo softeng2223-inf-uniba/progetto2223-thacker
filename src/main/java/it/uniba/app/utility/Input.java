@@ -35,13 +35,22 @@ public final class Input {
      */
     public static Properties getShipProperties(final String shipName) {
         Properties properties = new Properties();
+        FileInputStream file = null;
         try {
-            FileInputStream file = new FileInputStream("src/main/java/it/uniba/app"
+            file = new FileInputStream("src/main/java/it/uniba/app"
                 + "/battleship/ship/" + shipName + ".properties");
             properties.load(file);
             file.close();
         } catch (IOException err) {
             System.out.println(err.getMessage());
+        } finally {
+            try {
+                if (file != null) {
+                    file.close();
+                }
+            } catch (IOException err) {
+                System.out.println(err.getMessage());
+            }
         }
         return properties;
     }
