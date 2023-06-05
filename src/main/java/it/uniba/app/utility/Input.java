@@ -44,10 +44,14 @@ public final class Input {
     }
 
     /**
-     * TODO javadoc.
-     * @param properties
-     * @return
-     */
+     * Restituisce il nome di una nave, dopo aver effettuato il
+     * parsing del file di proprietà della nave.
+     * La funzione restituisce la stringa {@code "error"} se il parsing del nome
+     * non è andato a buon fine.
+     * @param properties file di proprietà della nave.
+     * @return {@code nome} della nave se il parsing avviene con successo,
+     * {@code error} altrimenti.
+    */
     public static String parseShipName(final Properties properties) {
         String nameString = properties.getProperty("name");
         return nameString != null && !nameString.isEmpty() ? nameString : "error";
