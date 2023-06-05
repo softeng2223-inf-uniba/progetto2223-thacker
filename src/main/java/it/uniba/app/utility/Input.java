@@ -13,6 +13,7 @@ import java.io.FileInputStream;
  */
 public final class Input {
     public static final String CHARSET_NAME = "UTF-8";
+    private static final String SYMBOL_INPUT_PROMPT = "> ";
 
     private Input() { }
 
@@ -21,6 +22,7 @@ public final class Input {
      * @return stringa presa in input da tastiera.
      */
     public static String get() throws IOException {
+        System.out.print(SYMBOL_INPUT_PROMPT);
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in, CHARSET_NAME));
         return buffer.readLine();
     }
