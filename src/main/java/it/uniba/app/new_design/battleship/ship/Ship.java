@@ -196,7 +196,7 @@ public final class Ship implements Cloneable {
     */
     @Override
     public String toString() {
-        return getColor() + getSymbol() + DEFAULT_COLOR;
+        return getColor() + SYMBOL + Color.getReset();
     }
 }
 
