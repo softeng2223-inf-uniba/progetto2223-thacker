@@ -88,9 +88,11 @@ public final class Input {
     /**
      * Restituisce il numero di istanze di una nave, dopo aver effettuato il
      * parsing del file di proprietà della nave.
+     * Il valore restituito è {@code 0} quando avviene un errore nel parsing
+     * e se il valore di istanze trovato nel file properties è negativo.
      * @param properties file di proprietà della nave.
      * @return numero di istanze della nave.
-     */
+    */
     public static int parseShipInstances(final Properties properties) {
         String str = properties.getProperty("instances");
         if (str != null && !str.isEmpty()) {
