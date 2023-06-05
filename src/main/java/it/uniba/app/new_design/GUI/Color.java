@@ -11,6 +11,14 @@ class Color{
     public static String getReset(){
         return COLOR.get("reset");
     }
+    /**
+     * Restituisce il valore corrispondente al nome del colore specificato.
+     * Se il nome del colore è presente nella mappa COLOR, restituisce il valore associato.
+     * Altrimenti, restituisce il valore di reset.
+     *
+     * @param colorName il nome del colore da cercare
+     * @return il valore corrispondente al nome del colore, o il valore di reset se non presente
+     */
     public static String get(final String colorName){
         String str = COLOR.get(colorName);
         if(str != null){
