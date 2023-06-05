@@ -46,4 +46,8 @@ public class Color{
     public static void print(final String colorName, final String text){
         System.out.print(get(colorName)+text+getReset());
     }
+    public static void println(final String colorName, final String text){
+        print(colorName, text);
+        System.out.println();
+    }
 }
