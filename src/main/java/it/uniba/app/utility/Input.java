@@ -26,15 +26,16 @@ public final class Input {
     }
 
     /**
-     * TODO javadoc.
-     * @param path
-     * @return
+     * Il metodo richiede in input il nome della nave di cui si vuole leggere il file di proprietà.
+     * Il metodo restituisce un oggetto {@code Properties} che contiene le proprietà della nave.
+     * @param shipName nome della nave di cui si vuole leggere il file di proprietà.
+     * @return {@code Properties} che contiene le proprietà della nave.
      */
-    public static Properties getShipProperties(final String path) {
+    public static Properties getShipProperties(final String shipName) {
         Properties properties = new Properties();
         try {
             FileInputStream file = new FileInputStream("src/main/java/it/uniba/app"
-                + "/battleship/ship/" + path + ".properties");
+                + "/battleship/ship/" + shipName + ".properties");
             properties.load(file);
             file.close();
         } catch (IOException err) {
