@@ -9,13 +9,13 @@ import java.util.Map;
 public class Color{
     private static final Map<String, String> COLOR = new HashMap<>(){
         {
-            put("reset",  "\u001B[0m");
-            put("red", "\u001B[31m");
-            put("green", "\u001B[32m");
-            put("yellow", "\u001B[33m");
-            put("blue", "\u001B[34m");
-            put("white", "\u001B[37m");
-            put("purple", "\u001B[35m");
+            put("reset",    "\u001B[0m");
+            put("red",      "\u001B[31m");
+            put("green",    "\u001B[32m");
+            put("yellow",   "\u001B[33m");
+            put("blue",     "\u001B[34m");
+            put("white",    "\u001B[37m");
+            put("purple",   "\u001B[35m");
         }
     };
     private Color(){}
