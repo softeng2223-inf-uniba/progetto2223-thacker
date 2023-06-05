@@ -1,5 +1,6 @@
-package it.uniba.app.battleship.ship;
+package it.uniba.app.new_design.battleship.ship;
 
+import it.uniba.app.utility.Color;
 /**
  * La classe {@code Ship} contiene gli attributi e i
  * metodi necessari per istanziare gli esemplari
