@@ -8,7 +8,7 @@ class Color{
         }
     };
     private Color(){}
-    public static String getResetColor(){
+    public static String getReset(){
         return COLOR.get("reset");
     }
     public static String get(final String colorName){
@@ -16,7 +16,7 @@ class Color{
         if(str != null){
             return str;
         } else {
-            return getResetColor();
+            return getReset();
         }
     }
 }
