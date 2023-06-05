@@ -33,9 +33,9 @@ public final class Input {
     public static Properties getShipProperties(final String path) {
         Properties properties = new Properties();
         try {
-            FileInputStream fileInputStream = new FileInputStream("src/main/java/it/uniba/app"
+            FileInputStream file = new FileInputStream("src/main/java/it/uniba/app"
                 + "/battleship/ship/" + path + ".properties");
-            properties.load(fileInputStream);
+            properties.load(file);
         } catch (IOException err) {
         }
         return properties;
