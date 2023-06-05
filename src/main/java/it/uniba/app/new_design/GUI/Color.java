@@ -9,7 +9,8 @@ import java.util.Map;
 public class Color{
     private static final Map<String, String> COLOR = new HashMap<>(){
         {
-            put("reset", "\u001B[0m");
+            put("reset",  "\u001B[0m");
+            put("red", "\u001B[31m");
             put("purple", "\u001B[35m");
         }
     };
