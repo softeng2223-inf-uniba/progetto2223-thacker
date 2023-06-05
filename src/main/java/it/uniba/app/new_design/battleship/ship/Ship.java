@@ -35,6 +35,28 @@ public final class Ship implements Cloneable {
     private int typeId;
     private int hitsTaken;
 
+    /**
+     * Istanzia un tipo di nave attraverso il suo id.
+     * Elenco degli id disponibili e tipo associato:
+     * <ul>
+     * <li>0 Cacciatorpediniere</li>
+     * <li>1 Incrociatore</li>
+     * <li>2 Corazzata</li>
+     * <li>3 Portaerei</li>
+     * </ul>
+     * <hr>
+     * @param id identificativo del tipo di nave
+     */
+    public Ship(final int id) throws IndexOutOfBoundsException {
+        hitsTaken = 0;
+
+        if (id < 0 || id > types.length) {
+            throw new IndexOutOfBoundsException();
+        } else {
+            typeId = id;
+        }
+    }
+
     private static class Properties {
         private String name;
         private int size;
@@ -97,49 +119,7 @@ public final class Ship implements Cloneable {
         return lst;
     }
 
-    /**
-     * Restituisce il simbolo quadrato condiviso da
-     * tutti i tipi di nave.
-     * @return Stringa che contiene il simbolo della nave scelto.
-     */
-    public static String getSymbol() {
-        return SYMBOL;
-    }
-
-    /**
-     * Restituisce la stringa che contiene
-     * il colore neutro da assegnare alla nave
-     * dopo la stampa.
-     * @return stringa con colore neutro.
-     */
-    public static String resetColor() {
-        return DEFAULT_COLOR;
-    }
-
-
     /* === INSTANCE METHODS === */
-
-    /**
-     * Istanzia un tipo di nave attraverso il suo id.
-     * Elenco degli id disponibili e tipo associato:
-     * <ul>
-     * <li>0 Cacciatorpediniere</li>
-     * <li>1 Incrociatore</li>
-     * <li>2 Corazzata</li>
-     * <li>3 Portaerei</li>
-     * </ul>
-     * <hr>
-     * @param id identificativo del tipo di nave
-     */
-    public Ship(final int id) throws IndexOutOfBoundsException {
-        hitsTaken = 0;
-
-        if (id < 0 || id > types.length) {
-            throw new IndexOutOfBoundsException();
-        } else {
-            typeId = id;
-        }
-    }
 
     /**
      * Restituisce il nome del tipo di nave
