@@ -52,4 +52,14 @@ public final class Input {
         String nameString = properties.getProperty("name");
         return nameString != null && !nameString.isEmpty() ? nameString : "error";
     }
+
+    /**
+     * TODO javadoc.
+     * @param properties
+     * @return
+     */
+    public static String parseColor(final Properties properties) {
+        String nameString = properties.getProperty("color");
+        return nameString != null && !nameString.isEmpty() ? nameString : "error";
+    }
 }
