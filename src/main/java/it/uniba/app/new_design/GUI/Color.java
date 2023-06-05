@@ -18,7 +18,7 @@ public final class Color {
             put("purple",   "\u001B[35m");
         }
     };
-    private Color() {}
+    private Color() { }
     /**
      * Restituisce il valore di reset del colore.
      *
