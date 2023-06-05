@@ -53,11 +53,12 @@ public final class Input {
         return nameString != null && !nameString.isEmpty() ? nameString : "error";
     }
 
-    /**
-     * TODO javadoc.
-     * @param properties
-     * @return
-     */
+   /**
+     * Restituisce il colore di una nave, dopo aver effettuato il
+     * parsing del file di proprietà della nave.
+     * @param properties file di proprietà della nave.
+     * @return colore della nave.
+    */
     public static String parseShipColor(final Properties properties) {
         String nameString = properties.getProperty("color");
         return nameString != null && !nameString.isEmpty() ? nameString : "error";
