@@ -37,7 +37,7 @@ public final class Color{
      */
     public static String get(final String colorName) {
         String str = COLOR.get(colorName);
-        if(str != null) {
+        if (str != null) {
             return str;
         } else {
             return getReset();
