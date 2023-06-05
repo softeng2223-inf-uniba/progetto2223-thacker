@@ -27,7 +27,7 @@ public final class PrintHandler {
      * @param text il testo da stampare
      */
     public static void print(final String colorName, final String text) {
-        System.out.print(get(colorName) + text + getReset());
+        System.out.print(Color.get(colorName) + text + Color.getReset());
     }
     /**
      * Stampa il messaggio fornito in input sulla console andando a capo.
