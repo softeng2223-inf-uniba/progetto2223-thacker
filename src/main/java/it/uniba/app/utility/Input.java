@@ -72,12 +72,13 @@ public final class Input {
     }
 
    /**
-     * Restituisce la dimensione di una nave, dopo aver effettuato il
-     * parsing del file di proprietà della nave.
-     * Il valore restituito è {@code 0} quando avviene un errore nel parsing
-     * e se il valore della dimensione trovato nel file properties è negativo.
-     * @param properties file di proprietà della nave.
-     * @return dimensione della nave.
+    * Restituisce la dimensione di una nave, dopo aver effettuato il
+    * parsing del file di proprietà della nave.
+    * Il valore restituito è {@code 0} quando avviene un errore nel parsing
+    * e se il valore della dimensione trovato nel file properties è negativo.
+    * @param properties file di proprietà della nave.
+    * @return {@code size} se il parsing avviene con successo e il valore trovato
+    * è maggiore o uguale a 0, {@code 0} altrimenti.
     */
     public static int parseShipSize(final Properties properties) {
         String str = properties.getProperty("size");
