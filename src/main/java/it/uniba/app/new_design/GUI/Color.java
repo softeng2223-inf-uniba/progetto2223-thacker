@@ -6,7 +6,7 @@ import java.util.Map;
  * Fornisce metodi statici per ottenere i valori dei colori e il valore di reset.
  * Utilizza i codici di escape ANSI per applicare colori al testo visualizzato nel terminale.
  */
-public final class Color{
+public final class Color {
     private static final Map<String, String> COLOR = new HashMap<>() {
         {
             put("reset",    "\u001B[0m");
