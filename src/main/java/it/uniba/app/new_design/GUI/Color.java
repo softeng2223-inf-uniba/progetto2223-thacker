@@ -11,4 +11,12 @@ class Color{
     public static String getResetColor(){
         return COLOR.get("reset");
     }
+    public static String get(final String colorName){
+        String str = COLOR.get(colorName);
+        if(str != null){
+            return str;
+        } else {
+            return getResetColor();
+        }
+    }
 }
