@@ -11,7 +11,6 @@ import it.uniba.app.utility.Color;
 public final class Ship implements Cloneable {
 
     private static final String SYMBOL        = "\u22A0";
-    private static final String DEFAULT_COLOR = "\u001B[0m";
 
     private static final String CACCIATORPEDINIERE_STR = "Cacciatorpediniere";
     private static final String INCROCIATORE_STR       = "Incrociatore";
@@ -28,10 +27,10 @@ public final class Ship implements Cloneable {
     private static final int CORAZZATA_SIZE          = 4;
     private static final int PORTAEREI_SIZE          = 5;
 
-    private static final String CACCIATORPEDINIERE_COLOR = "\u001B[31m";
-    private static final String INCROCIATORE_COLOR       = "\u001B[34m";
-    private static final String CORAZZATA_COLOR          = "\u001B[32m";
-    private static final String PORTAEREI_COLOR          = "\u001B[33m";
+    private static final String CACCIATORPEDINIERE_COLOR = "red";
+    private static final String INCROCIATORE_COLOR       = "blue";
+    private static final String CORAZZATA_COLOR          = "green";
+    private static final String PORTAEREI_COLOR          = "yellow";
 
     private int typeId;
     private int hitsTaken;
