@@ -18,9 +18,21 @@ public final class PrintHandler {
         System.out.print(msg);
     }
     /**
+     * Stampa il testo fornito utilizzando il colore specificato.
+     * Il testo viene visualizzato nel terminale con il colore corrispondente al nome del colore fornito.
+     * Dopo la stampa, viene ripristinato il colore di default nel terminale.
+     *
+     * @param colorName il nome del colore da utilizzare per stampare il testo
+     * @param text il testo da stampare
+     */
+    public static void print(final String colorName, final String text) {
+        System.out.print(get(colorName) + text + getReset());
+    }
+    /**
      * Stampa il messaggio fornito in input sulla console andando a capo.
      * @param msg messaggio da stampare
      */
+
     public static void println(final String msg) {
         System.out.println(msg);
     }
