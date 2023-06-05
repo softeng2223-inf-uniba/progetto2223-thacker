@@ -72,7 +72,9 @@ public final class Input {
         String str = properties.getProperty("size");
         if (str != null && !str.isEmpty()) {
             int val = Integer.parseInt(str);
-            return val;
+            if (val >= 0) {
+                return val;
+            }
         }
         return 0;
     }
