@@ -8,4 +8,7 @@ class Color{
         }
     };
     private Color(){}
+    public static String getResetColor(){
+        return COLOR.get("reset");
+    }
 }
