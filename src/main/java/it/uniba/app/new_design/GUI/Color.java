@@ -13,6 +13,7 @@ public class Color{
             put("red", "\u001B[31m");
             put("green", "\u001B[32m");
             put("yellow", "\u001B[33m");
+            put("blue", "\u001B[34m");
             put("purple", "\u001B[35m");
         }
     };
