@@ -36,7 +36,19 @@ public final class PrintHandler {
     public static void println(final String msg) {
         System.out.println(msg);
     }
-
+    /**
+     * Stampa il testo fornito utilizzando il colore specificato, seguito da un carattere di nuova riga.
+     * Il testo viene visualizzato nel terminale con il colore corrispondente al nome del colore fornito.
+     * Dopo la stampa, viene ripristinato il colore di default nel terminale.
+     * Alla fine della riga viene aggiunto un carattere di nuova riga.
+     *
+     * @param colorName il nome del colore da utilizzare per stampare il testo
+     * @param text il testo da stampare
+     */
+    public static void println(final String colorName, final String text) {
+        print(colorName, text);
+        System.out.println();
+    }
     /**
      * Stampa la mappa dei colpi che usa il giocatore.
      * @param board board contenente le mappe colpi e navi.
