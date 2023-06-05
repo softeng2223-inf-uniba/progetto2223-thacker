@@ -7,7 +7,7 @@ import java.util.Map;
  * Utilizza i codici di escape ANSI per applicare colori al testo visualizzato nel terminale.
  */
 public final class Color{
-    private static final Map<String, String> COLOR = new HashMap<>(){
+    private static final Map<String, String> COLOR = new HashMap<>() {
         {
             put("reset",    "\u001B[0m");
             put("red",      "\u001B[31m");
@@ -18,13 +18,13 @@ public final class Color{
             put("purple",   "\u001B[35m");
         }
     };
-    private Color(){}
+    private Color() {}
     /**
      * Restituisce il valore di reset del colore.
      *
      * @return il valore di reset del colore
      */
-    public static String getReset(){
+    public static String getReset() {
         return COLOR.get("reset");
     }
     /**
@@ -35,9 +35,9 @@ public final class Color{
      * @param colorName il nome del colore da cercare
      * @return il valore corrispondente al nome del colore, o il valore di reset se non presente
      */
-    public static String get(final String colorName){
+    public static String get(final String colorName) {
         String str = COLOR.get(colorName);
-        if(str != null){
+        if(str != null) {
             return str;
         } else {
             return getReset();
@@ -51,7 +51,7 @@ public final class Color{
      * @param colorName il nome del colore da utilizzare per stampare il testo
      * @param text il testo da stampare
      */
-    public static void print(final String colorName, final String text){
+    public static void print(final String colorName, final String text) {
         System.out.print(get(colorName)+text+getReset());
     }
     /**
@@ -63,7 +63,7 @@ public final class Color{
      * @param colorName il nome del colore da utilizzare per stampare il testo
      * @param text il testo da stampare
      */
-    public static void println(final String colorName, final String text){
+    public static void println(final String colorName, final String text) {
         print(colorName, text);
         System.out.println();
     }
