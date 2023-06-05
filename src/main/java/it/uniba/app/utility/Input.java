@@ -54,10 +54,12 @@ public final class Input {
     }
 
    /**
-     * Restituisce il colore di una nave, dopo aver effettuato il
-     * parsing del file di proprietà della nave.
-     * @param properties file di proprietà della nave.
-     * @return colore della nave.
+   * Restituisce il colore di una nave, dopo aver effettuato il
+   * parsing del file di proprietà della nave.
+   * La funzione restituisce la stringa {@code "error"} se il parsing del colore
+    * non è andato a buon fine.
+   * @param properties file di proprietà della nave.
+   * @return colore della nave.
     */
     public static String parseShipColor(final Properties properties) {
         String nameString = properties.getProperty("color");
