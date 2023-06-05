@@ -62,4 +62,18 @@ public final class Input {
         String nameString = properties.getProperty("color");
         return nameString != null && !nameString.isEmpty() ? nameString : "error";
     }
+
+    /**
+     * TODO javadoc.
+     * @param properties
+     * @return
+     */
+    public static int parseShipSize(final Properties properties) {
+        String str = properties.getProperty("size");
+        if (str != null && !str.isEmpty()) {
+            int val = Integer.parseInt(str);
+            return val;
+        }
+        return 0;
+    }
 }
