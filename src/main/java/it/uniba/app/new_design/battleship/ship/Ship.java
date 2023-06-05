@@ -140,15 +140,6 @@ public final class Ship implements Cloneable {
     }
 
     /**
-     * Restituisce il colore assegnato al tipo
-     * di nave associato al {@code typeId}.
-     * @return colore assegnato al tipo di nave.
-     */
-    public String getColor() {
-        return types[typeId].colorCode;
-    }
-
-    /**
      * Restituisce il numero di colpi
      * che ha subito la singola nave.
      * @return numero di colpi subiti da un oggetto nave.
@@ -196,7 +187,8 @@ public final class Ship implements Cloneable {
     */
     @Override
     public String toString() {
-        return getColor() + SYMBOL + Color.getReset();
+        return Color.get(types[typeId].colorCode)
+            + SYMBOL + Color.getReset();
     }
 }
 
