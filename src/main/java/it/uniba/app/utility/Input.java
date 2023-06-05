@@ -58,7 +58,7 @@ public final class Input {
      * @param properties
      * @return
      */
-    public static String parseColor(final Properties properties) {
+    public static String parseShipColor(final Properties properties) {
         String nameString = properties.getProperty("color");
         return nameString != null && !nameString.isEmpty() ? nameString : "error";
     }
