@@ -42,4 +42,14 @@ public final class Input {
         }
         return properties;
     }
+
+    /**
+     * TODO javadoc.
+     * @param properties
+     * @return
+     */
+    public static String parseShipName(final Properties properties) {
+        String nameString = properties.getProperty("name");
+        return nameString != null && !nameString.isEmpty() ? nameString : "error";
+    }
 }
