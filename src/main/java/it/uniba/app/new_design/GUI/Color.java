@@ -1,6 +1,11 @@
 package it.uniba.app.new_design.GUI;
 import java.util.HashMap;
 import java.util.Map;
+/**
+ * Questa classe rappresenta un'utility per gestire i colori nel terminale.
+ * Fornisce metodi statici per ottenere i valori dei colori e il valore di reset.
+ * Utilizza i codici di escape ANSI per applicare colori al testo visualizzato nel terminale.
+ */
 class Color{
     private static final Map<String, String> COLOR = new HashMap<>(){
         {
