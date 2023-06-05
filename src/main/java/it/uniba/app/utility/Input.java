@@ -78,4 +78,20 @@ public final class Input {
         }
         return 0;
     }
+
+    /**
+     * TODO javadoc.
+     * @param properties
+     * @return
+     */
+    public static int parseShipInstances(final Properties properties) {
+        String str = properties.getProperty("instances");
+        if (str != null && !str.isEmpty()) {
+            int val = Integer.parseInt(str);
+            if (val >= 0) {
+                return val;
+            }
+        }
+        return 0;
+    }
 }
