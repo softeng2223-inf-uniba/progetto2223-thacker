@@ -8,6 +8,11 @@ class Color{
         }
     };
     private Color(){}
+    /**
+     * Restituisce il valore di reset del colore.
+     *
+     * @return il valore di reset del colore
+     */
     public static String getReset(){
         return COLOR.get("reset");
     }
