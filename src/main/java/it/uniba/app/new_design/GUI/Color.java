@@ -43,4 +43,7 @@ public class Color{
             return getReset();
         }
     }
+    public static void print(final String colorName, final String text){
+        System.out.print(get(colorName)+text+getReset());
+    }
 }
