@@ -5,4 +5,5 @@ class Color{
     private static final Map<String, String> COLOR = new HashMap<>(){
 
     }
+    private Color(){}
 }
