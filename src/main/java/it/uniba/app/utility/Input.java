@@ -38,6 +38,7 @@ public final class Input {
             properties.load(file);
             file.close();
         } catch (IOException err) {
+            System.out.println(err.getMessage());
         }
         return properties;
     }
