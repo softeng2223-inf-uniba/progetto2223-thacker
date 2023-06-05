@@ -54,24 +54,26 @@ public final class Input {
     }
 
    /**
-   * Restituisce il colore di una nave, dopo aver effettuato il
-   * parsing del file di proprietà della nave.
-   * La funzione restituisce la stringa {@code "error"} se il parsing del colore
-    * non è andato a buon fine.
-   * @param properties file di proprietà della nave.
-   * @return colore della nave.
+     * Restituisce il colore di una nave, dopo aver effettuato il
+     * parsing del file di proprietà della nave.
+     * La funzione restituisce la stringa {@code "error"} se il parsing del colore
+     * non è andato a buon fine.
+     * @param properties file di proprietà della nave.
+     * @return colore della nave.
     */
     public static String parseShipColor(final Properties properties) {
         String nameString = properties.getProperty("color");
         return nameString != null && !nameString.isEmpty() ? nameString : "error";
     }
 
-    /**
+   /**
      * Restituisce la dimensione di una nave, dopo aver effettuato il
      * parsing del file di proprietà della nave.
+     * Il valore restituito è {@code 0} quando avviene un errore nel parsing
+     * e se il valore della dimensione trovato nel file properties è negativo.
      * @param properties file di proprietà della nave.
      * @return dimensione della nave.
-     */
+    */
     public static int parseShipSize(final Properties properties) {
         String str = properties.getProperty("size");
         if (str != null && !str.isEmpty()) {
