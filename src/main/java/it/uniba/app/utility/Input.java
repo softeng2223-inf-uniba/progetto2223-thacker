@@ -36,6 +36,7 @@ public final class Input {
             FileInputStream file = new FileInputStream("src/main/java/it/uniba/app"
                 + "/battleship/ship/" + path + ".properties");
             properties.load(file);
+            file.close();
         } catch (IOException err) {
         }
         return properties;
