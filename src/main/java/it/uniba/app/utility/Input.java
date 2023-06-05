@@ -80,9 +80,10 @@ public final class Input {
     }
 
     /**
-     * TODO javadoc.
-     * @param properties
-     * @return
+     * Restituisce il numero di istanze di una nave, dopo aver effettuato il
+     * parsing del file di proprietà della nave.
+     * @param properties file di proprietà della nave.
+     * @return numero di istanze della nave.
      */
     public static int parseShipInstances(final Properties properties) {
         String str = properties.getProperty("instances");
