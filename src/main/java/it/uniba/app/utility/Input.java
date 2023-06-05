@@ -24,4 +24,20 @@ public final class Input {
         BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in, CHARSET_NAME));
         return buffer.readLine();
     }
+
+    /**
+     * TODO javadoc.
+     * @param path
+     * @return
+     */
+    public static Properties getShipProperties(final String path) {
+        Properties properties = new Properties();
+        try {
+            FileInputStream fileInputStream = new FileInputStream("src/main/java/it/uniba/app"
+                + "/battleship/ship/" + path + ".properties");
+            properties.load(fileInputStream);
+        } catch (IOException err) {
+        }
+        return properties;
+    }
 }
