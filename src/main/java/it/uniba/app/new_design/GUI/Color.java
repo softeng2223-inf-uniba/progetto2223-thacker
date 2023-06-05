@@ -52,7 +52,7 @@ public final class Color{
      * @param text il testo da stampare
      */
     public static void print(final String colorName, final String text) {
-        System.out.print(get(colorName)+text+getReset());
+        System.out.print(get(colorName) + text+getReset());
     }
     /**
      * Stampa il testo fornito utilizzando il colore specificato, seguito da un carattere di nuova riga.
