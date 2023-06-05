@@ -64,9 +64,10 @@ public final class Input {
     }
 
     /**
-     * TODO javadoc.
-     * @param properties
-     * @return
+     * Restituisce la dimensione di una nave, dopo aver effettuato il
+     * parsing del file di proprietà della nave.
+     * @param properties file di proprietà della nave.
+     * @return dimensione della nave.
      */
     public static int parseShipSize(final Properties properties) {
         String str = properties.getProperty("size");
