@@ -36,9 +36,11 @@ public class GridController {
     }
 
     /**
-     * Javadoc momentaneo.
-     * @param grid
-     * @return
+     * Restituisce una oggetto di tipi {@code String} che
+     * contiene la mappa delle navi che viene mostrata col
+     * comando {@code /svelagriglia}.
+     * @param grid oggetto che contiene la mappa delle navi.
+     * @return stringa contenente tutta la mappa delle navi.
      */
     public String genShipMap(final Grid grid) {
         String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
