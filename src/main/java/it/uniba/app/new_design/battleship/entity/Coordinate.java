@@ -19,11 +19,23 @@ package it.uniba.app.new_design.battleship.entity;
  * </pre> </blockquote> </p>
  */
 public class Coordinate implements Cloneable {
-
+    /**
+     * col rappresenta il valore della coordinata che si
+     * vuole assegnare come colonna.
+     */
     private int col;
-
+    /**
+     * row rappresenta il valore della coordinate che si
+     * vuole assegnare come riga.
+     */
     private int row;
-
+    /**
+     * Costruisce un oggetto {@code Coordinate} prendendo come parametri
+     * due variabili di tipo {@code int} che rappresentano valore dell'indice
+     * delle righe e delle colonne.
+     * @param r indice della riga
+     * @param c indice della colonna
+     */
     public Coordinate(final int r, final int c) {
         row = r;
         col = c;
