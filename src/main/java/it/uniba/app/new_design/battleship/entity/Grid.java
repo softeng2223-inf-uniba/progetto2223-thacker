@@ -56,7 +56,7 @@ public class Grid {
 
    /**
       * Inserisce nella mappa delle navi, nella posizione individuata 
-      * dalle coordinate passate come parametro la nave definita dal 
+      * dalla {@code Coordinate} passata come parametro la nave definita dal 
       * tipo {@code ship}.
       * @param coord coordinate della cella in cui inserire la nave.
       * @param ship nave da inserire nella cella.
@@ -66,9 +66,13 @@ public class Grid {
     }
 
     /**
-     * Javadoc momentaneo.
-     * @param coord
-     * @return
+     * Restituisce l'elemento che si trova nella mappa delle navi,
+     * nella posizione individuata dalla {@code Coordinate} passata
+     * come parametro.
+     * @param coord coordinate della cella in cui si trova l'elemento
+     * da restituire.
+     * @return elemento nella posizione definita da {@code Coordinate}
+     * nella mappa delle navi.
      */
     public Ship get(final Coordinate coord) {
         return map[coord.getRow()][coord.getCol()];
