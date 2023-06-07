@@ -45,4 +45,13 @@ public class Grid {
     public void set(final Coordinate coord, final Ship ship) {
         map[coord.getRow()][coord.getCol()] = ship;
     }
+
+    /**
+     * Javadoc momentaneo.
+     * @param coord
+     * @return
+     */
+    public Ship get(final Coordinate coord) {
+        return map[coord.getRow()][coord.getCol()];
+    }
 }
