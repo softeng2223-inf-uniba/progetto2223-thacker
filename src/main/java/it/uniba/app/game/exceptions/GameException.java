@@ -6,7 +6,7 @@ package it.uniba.app.game.exceptions;
 public class GameException extends Exception {
 
     /**
-     * TODO javadoc.
+     * Costruttore della classe GameException.
      */
     public GameException(final String message) {
         super(message);
