@@ -7,7 +7,7 @@ import java.util.Arrays;
  * La classe {@code Grid} rappresenta la mappa delle navi
  * e tiene traccia delle coordinate già colpite. 
  * Ha un solo costruttore che non prende parametri e si dichiara
- * in questo modo: 
+ * in questo modo:
  * <p><quoteblock><pre>
  * Grid gameGrid = new Grid();
  * </pre><quoteblock></p>
