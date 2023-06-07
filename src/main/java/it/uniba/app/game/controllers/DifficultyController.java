@@ -9,4 +9,8 @@ public class DifficultyController {
     private static final int MEDIUM_MAX_FAILED_ATTEMPTS = 30;
     private static final int HARD_MAX_FAILED_ATTEMPTS = 10;
     private DifficultyController() { }
+    public static void setEasy(final Difficulty difficulty) {
+        difficulty.setLevel(EASY_NAME);
+        difficulty.setMaxFailedAttempts(EASY_MAX_FAILED_ATTEMPTS);
+    }
 }
