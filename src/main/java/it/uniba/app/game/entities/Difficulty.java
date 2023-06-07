@@ -22,6 +22,11 @@ public class Difficulty implements Cloneable{
     public void setLevel(String level) {
         name = level;
     }
+    /**
+     * Imposta il numero massimo di tentativi falliti consentiti.
+     *
+     * @param mfa il numero massimo di tentativi falliti
+     */
     public void setMaxFailedAttempts(final int mfa) {
         maxFailedAttempts = mfa;
     }
