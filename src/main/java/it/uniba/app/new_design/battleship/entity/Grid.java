@@ -2,7 +2,6 @@ package it.uniba.app.new_design.battleship.entity;
 
 import java.util.LinkedList;
 import java.util.Arrays;
-import it.uniba.app.new_design.battleship.entity.Coordinate;
 
 /**
  * Javadoc momentaneo.
@@ -55,11 +54,13 @@ public class Grid {
         return STR_HIT;
     }
 
-    /**
-     * Javadoc momentaneo.
-     * @param coord
-     * @param ship
-     */
+   /**
+      * Inserisce nella mappa delle navi, nella posizione individuata 
+      * dalle coordinate passate come parametro la nave definita dal 
+      * tipo {@code ship}.
+      * @param coord coordinate della cella in cui inserire la nave.
+      * @param ship nave da inserire nella cella.
+      */
     public void set(final Coordinate coord, final Ship ship) {
         map[coord.getRow()][coord.getCol()] = ship;
     }
