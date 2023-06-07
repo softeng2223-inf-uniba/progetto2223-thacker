@@ -10,6 +10,8 @@ import it.uniba.app.utility.Coordinate;
 public class Grid {
     private static final int SIZE = 10;
     private static final String STR_DOT = "\u00B7";
+    private static final String STR_WATER   = "~";
+    private static final String STR_HIT     = "X";
 
     private Ship[][] map;
     private LinkedList<Coordinate> hits;
