@@ -32,6 +32,12 @@ public class DifficultyController {
         difficulty.setLevel(MEDIUM_NAME);
         difficulty.setMaxFailedAttempts(MEDIUM_MAX_FAILED_ATTEMPTS);
     }
+    /**
+     * Imposta la difficoltà dell'oggetto Difficulty come "Difficile" e
+     * il numero massimo di tentativi falliti come HARD_MAX_FAILED_ATTEMPTS.
+     *
+     * @param difficulty l'oggetto Difficulty da modificare.
+     */
     public static void setHard(final Difficulty difficulty) {
         difficulty.setLevel(HARD_NAME);
         difficulty.setMaxFailedAttempts(HARD_MAX_FAILED_ATTEMPTS);
