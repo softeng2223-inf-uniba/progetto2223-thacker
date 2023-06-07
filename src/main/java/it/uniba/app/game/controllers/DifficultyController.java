@@ -17,4 +17,8 @@ public class DifficultyController {
         difficulty.setLevel(MEDIUM_NAME);
         difficulty.setMaxFailedAttempts(MEDIUM_MAX_FAILED_ATTEMPTS);
     }
+    public static void setHard(final Difficulty difficulty) {
+        difficulty.setLevel(HARD_NAME);
+        difficulty.setMaxFailedAttempts(HARD_MAX_FAILED_ATTEMPTS);
+    }
 }
