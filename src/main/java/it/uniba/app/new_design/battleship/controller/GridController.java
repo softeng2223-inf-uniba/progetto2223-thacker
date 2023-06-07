@@ -13,9 +13,12 @@ public class GridController {
     private GridController() { }
 
     /**
-     * Javadoc momentaneo.
-     * @param grid
-     * @return
+     * Restituisce una oggetto di tipi {@code String} che
+     * contiene la mappa dei colpi che viene mostrata col
+     * quando comincia il gioco. Rappresenta la mappa del
+     * giocatore dove vengono segnati i colpi.
+     * @param grid oggetto che contiene la mappa delle navi.
+     * @return stringa contenente tutta la mappa delle navi.
      */
     public static String genHitsMap(final Grid grid) {
         String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
