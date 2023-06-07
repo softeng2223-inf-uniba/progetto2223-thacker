@@ -5,4 +5,11 @@ public class Coordinate implements Cloneable {
     private int col;
 
     private int row;
+
+    public Coordinate(final int r, final int c) {
+        row = r;
+        col = c;
+    }
 }
+
+
