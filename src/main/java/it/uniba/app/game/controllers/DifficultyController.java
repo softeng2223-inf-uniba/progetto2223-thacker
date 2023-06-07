@@ -1,6 +1,9 @@
 package it.uniba.app.game.controllers;
 import it.uniba.app.game.entities.Difficulty;
-
+/**
+ * La classe DifficultyController gestisce le operazioni
+ * relative alle difficoltà di gioco.
+ */
 public class DifficultyController {
     private static final String EASY_NAME = "Facile";
     private static final String MEDIUM_NAME = "Medio";
