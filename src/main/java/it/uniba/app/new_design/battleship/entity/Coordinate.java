@@ -89,6 +89,14 @@ public class Coordinate implements Cloneable {
         return obj;
     }
 
+    /**
+     * Effettua un controllo su due oggetti di tipo {@code Coordinate}.
+     * Se entrambi gli oggetti hanno lo stesso stato, restituisce {@code true},
+     * altrimenti {@code false}.
+     * @param other {@code Coordinate} da confrontare
+     * @return {@code true} se i due oggetti hanno stesso stato, {@code false} altrimenti
+     */
+    @Override
     public boolean equals(final Object other) {
         if (other == null) {
             return false;
@@ -102,6 +110,10 @@ public class Coordinate implements Cloneable {
             && this.col == ((Coordinate) other).col;
     }
 
+    /**
+     * @return restituisce le coordinate in formato stringa.
+     */
+    @Override
     public String toString() {
         return "Coordinate: [" + col + " " + row + "]";
     }
