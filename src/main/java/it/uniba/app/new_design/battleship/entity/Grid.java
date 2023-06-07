@@ -90,9 +90,11 @@ public class Grid {
     }
 
     /**
-     * Javadoc momentaneo.
-     * @param coord
-     * @return
+     * Effettua un controllo sulle coordinate che sono già state colpite.
+     * Se la {@code Coordinate} si rivela essere una coordinata già colpita, 
+     * allora il controllo darà esito positivo, altrimenti sarà negativo.
+     * @param coord coordinate su cui effettuare il controllo
+     * @return {@code true} se è una posizione già colpita, {@code false} altrimenti
      */
     public boolean isCellHit(final Coordinate coord){
         return hits.contains(coord);
