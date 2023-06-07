@@ -21,7 +21,12 @@ public class GridController {
             str += row + ":  ";
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coords = new Coordinate(row, col);
-
+                if (grid.isCellHit(coords)) {
+                    // concatena stringa, ci vuole un altro 
+                    // controllo per vedere se è acqua o nave
+                } else {
+                    str += Grid.getDotString();
+                }
             }
         }
         return str;
