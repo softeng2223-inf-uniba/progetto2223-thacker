@@ -4,8 +4,14 @@ import java.util.LinkedList;
 import java.util.Arrays;
 
 /**
- * Javadoc momentaneo.
- */
+ * La classe {@code Grid} rappresenta la mappa delle navi
+ * e tiene traccia delle coordinate già colpite. 
+ * Ha un solo costruttore che non prende parametri e si dichiara 
+ * in questo modo: 
+ * <p><quoteblock><pre>
+ * Grid gameGrid = new Grid();
+ * </pre><quoteblock></p>
+*/
 public class Grid {
     private static final int SIZE = 10;
     private static final String STR_DOT = "\u00B7";
