@@ -1,6 +1,6 @@
 package it.uniba.app.new_design.battleship.entity;
 
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.Arrays;
 
 /**
@@ -19,7 +19,7 @@ public class Grid {
     private static final String STR_HIT     = "X";
 
     private Ship[][] map;
-    private LinkedList<Coordinate> hits;
+    private HashSet<Coordinate> hits;
 
     /**
      * Javadoc momentaneo.
@@ -29,7 +29,7 @@ public class Grid {
         for (int i = 0; i < SIZE; i++) {
             Arrays.fill(map[i], null);
         }
-        hits = new LinkedList<Coordinate>();
+        hits = new HashSet<Coordinate>();
     }
 
     /**
