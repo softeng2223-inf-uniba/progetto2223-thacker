@@ -69,6 +69,18 @@ public class Coordinate implements Cloneable {
         row = r;
     }
 
+    /**
+     * Restituisce un clone dell'oggetto {@code Coordinate} su cui viene invocato
+     * il metodo. Bisogna sempre effettuare il cast a {@code Coordinate} quando
+     * il metodo {@code clone} viene invocato.
+     * <p><blockquote><pre>
+     * Coordinate coord = new Coordinate(2, 5);
+     * Coordinate cloneCoord = (Coordinate) coord.clone();
+     * </pre></blockquote></p>
+     * Così facendo eventuali cambiamenti su {@code cloneCoord} non si ripercuoteranno su {@code coord}
+     * @return restituisce un clone dell'oggetto Coordinate.
+     */
+    @Override
     public Object clone() {
         Object obj = null;
         try {
