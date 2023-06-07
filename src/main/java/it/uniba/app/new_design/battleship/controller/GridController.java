@@ -57,10 +57,11 @@ public class GridController {
                         str += Color.get("blue") + Grid.getWaterSymbol()
                             + Color.getReset() + "    ";
                     } else {
-                        str += Color.get("red") + "    "
+                        str += Color.get("red") + Grid.getHitSymbol()
+                         + Color.getReset() + "    ";
                     }
                 } else {
-                    str += Grid.getDotSymbol(); + Grid.getHitSymbol()
+                    str += Grid.getDotSymbol() + Grid.getHitSymbol()
                         + Color.getReset() + "    ";
                 }
             }
