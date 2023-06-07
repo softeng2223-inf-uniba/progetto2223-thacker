@@ -12,4 +12,12 @@ public class Grid {
 
     private Ship[][] map;
     private LinkedList<Coordinate> hits;
+
+    public Grid() {
+        map = new Ship[SIZE][SIZE];
+        for (int i = 0; i < SIZE; i++) {
+            Arrays.fill(map[i], null);
+        }
+        hits = new LinkedList<Coordinate>()
+    }
 }
