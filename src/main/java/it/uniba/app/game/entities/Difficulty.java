@@ -23,7 +23,7 @@ public class Difficulty implements Cloneable {
      *
      * @param level il livello di difficoltà da impostare
      */
-    public void setLevel(String level) {
+    public void setLevel(final String level) {
         name = level;
     }
     /**
