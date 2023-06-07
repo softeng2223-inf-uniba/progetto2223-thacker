@@ -1,4 +1,4 @@
-package it.uniba.app.new_design.battleship.ship;
+package it.uniba.app.new_design.battleship.entity;
 
 import it.uniba.app.utility.Color;
 /**
