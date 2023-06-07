@@ -13,4 +13,7 @@ public class Difficulty implements Cloneable{
     public void setMaxFailedAttempts(final int mfa) {
         maxFailedAttempts = mfa;
     }
+    public Difficulty clone() throws CloneNotSupportedException {
+        return (Difficulty) super.clone();
+    }
 }
