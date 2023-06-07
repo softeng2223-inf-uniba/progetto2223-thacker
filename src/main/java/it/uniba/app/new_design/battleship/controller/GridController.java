@@ -6,7 +6,8 @@ import it.uniba.app.utility.Color;
 import it.uniba.app.new_design.battleship.entity.Ship;
 
 /**
- * Javadoc momentaneo.
+ * Classe che contiene i metodi utili alla visualizzazione della
+ * mappa delle navi e della mappa dei colpi.
  */
 public class GridController {
 
