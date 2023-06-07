@@ -68,7 +68,7 @@ public class Grid {
     }
 
    /**
-      * Inserisce nella mappa delle navi, nella posizione individuata 
+      * Inserisce nella mappa delle navi, nella posizione individuata
       * dalla {@code Coordinate} passata come parametro la nave definita dal 
       * tipo {@code ship}.
       * @param coord coordinate della cella in cui inserire la nave.
