@@ -26,29 +26,36 @@ public class Grid {
         hits = new LinkedList<Coordinate>();
     }
 
+    /**
+     * Restituisce la grandezza della mappa.
+     * @return dimensione mappa
+     */
     public static int getSize(){
         return SIZE;
     }
 
     /**
-     * Javadoc momentaneo.
-     * @return
+     * Restituisce il puntino che viene usato come simbolo
+     * per definire una cella che non è ancora stata colpita
+     * @return simbolo cella non colpita
      */
     public static String getDotSymbol(){
         return STR_DOT;
     }
 
     /**
-     * Javadoc momentaneo.
-     * @return
+     * Restituisce il simbolo che viene utilizzato per
+     * mostrare l'acqua all'interno della mappa.
+     * @return simbolo acqua.
      */
     public static String getWaterSymbol() {
         return STR_WATER;
     }
 
     /**
-     * Javadoc momentaneo.
-     * @return
+     * Restituisce il simbolo che viene utilizzato per mostrare
+     * una nave colpita all'interno della mappa.
+     * @return simbolo nave colpita.
      */
     public static String getHitSymbol() {
         return STR_HIT;
