@@ -26,6 +26,13 @@ public class Difficulty implements Cloneable {
     public void setLevel(final String level) {
         name = level;
     }
+   /**
+    * Restituisce il valore massimo di tentativi falliti.
+    * @return il valore massimo di tentativi falliti
+    */
+    public int getMaxFailedAttempts() {
+        return maxFailedAttempts;
+    }
     /**
      * Imposta il numero massimo di tentativi falliti consentiti.
      *
