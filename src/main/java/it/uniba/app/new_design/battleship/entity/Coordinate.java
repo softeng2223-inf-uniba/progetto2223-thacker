@@ -26,6 +26,14 @@ public class Coordinate implements Cloneable {
     public void setRow(final int r) {
         row = r;
     }
+
+    public Object clone() {
+        Object obj = null;
+        try {
+            obj = super.clone();
+        } catch (CloneNotSupportedException err) { }
+        return obj;
+    }
 }
 
 
