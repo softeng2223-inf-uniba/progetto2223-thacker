@@ -41,18 +41,30 @@ public class Coordinate implements Cloneable {
         col = c;
     }
 
+    /**
+     * @return indice di colonna della coordianta
+     */
     public int getCol() {
         return col;
     }
 
+    /**
+     * @return indice di riga della coordinata
+     */
     public int getRow() {
         return row;
     }
 
+    /**
+     * @param c indica l'indice di colonna da inserire nella coordinata
+     */
     public void setCol(final int c) {
         col = c;
     }
 
+    /**
+     * @param r indica l'indice di riga da inserire nella coordinata
+     */
     public void setRow(final int r) {
         row = r;
     }
