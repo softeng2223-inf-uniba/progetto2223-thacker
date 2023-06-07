@@ -39,6 +39,10 @@ public class Grid {
         return STR_DOT;
     }
 
+    public static String getWaterSymbol() {
+        return STR_WATER;
+    }
+
     /**
      * Javadoc momentaneo.
      * @param coord
