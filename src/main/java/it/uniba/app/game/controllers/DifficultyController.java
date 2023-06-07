@@ -13,4 +13,8 @@ public class DifficultyController {
         difficulty.setLevel(EASY_NAME);
         difficulty.setMaxFailedAttempts(EASY_MAX_FAILED_ATTEMPTS);
     }
+    public static void setMedium(final Difficulty difficulty) {
+        difficulty.setLevel(MEDIUM_NAME);
+        difficulty.setMaxFailedAttempts(MEDIUM_MAX_FAILED_ATTEMPTS);
+    }
 }
