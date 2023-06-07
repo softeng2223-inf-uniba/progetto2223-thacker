@@ -5,6 +5,10 @@ package it.uniba.app.game.entities;
 public class Difficulty implements Cloneable {
     private String name;
     private int maxFailedAttempts;
+  /**
+   * Costruttore predefinito per la classe Difficulty.
+   * Questo costruttore crea un'istanza di Difficulty con valori predefiniti.
+   */
     public Difficulty() { }
     /**
      * Restituisce il livello di difficoltà dell'oggetto.
