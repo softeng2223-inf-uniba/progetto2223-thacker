@@ -25,7 +25,7 @@ public class GridController {
                     // concatena stringa, ci vuole un altro 
                     // controllo per vedere se è acqua o nave
                 } else {
-                    str += Grid.getDotString();
+                    str += Grid.getDotSymbol();
                 }
             }
         }

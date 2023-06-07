@@ -33,7 +33,7 @@ public class Grid {
      * Javadoc momentaneo.
      * @return
      */
-    public static String getDotString(){
+    public static String getDotSymbol(){
         return STR_DOT;
     }
 
