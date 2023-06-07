@@ -30,6 +30,12 @@ public class Difficulty implements Cloneable{
     public void setMaxFailedAttempts(final int mfa) {
         maxFailedAttempts = mfa;
     }
+    /**
+     * Crea e restituisce una copia dell'oggetto Difficulty.
+     *
+     * @return una copia dell'oggetto Difficulty
+     * @throws CloneNotSupportedException se la clonazione non è supportata
+     */
     public Difficulty clone() throws CloneNotSupportedException {
         return (Difficulty) super.clone();
     }
