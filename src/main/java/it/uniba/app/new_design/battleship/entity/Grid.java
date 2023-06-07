@@ -28,4 +28,12 @@ public class Grid {
     public static int getSize(){
         return SIZE;
     }
+
+    /**
+     * Javadoc momentaneo.
+     * @return
+     */
+    public static String getDotString(){
+        return STR_DOT;
+    }
 }
