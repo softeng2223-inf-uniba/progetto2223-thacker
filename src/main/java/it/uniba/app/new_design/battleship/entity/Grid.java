@@ -36,4 +36,13 @@ public class Grid {
     public static String getDotString(){
         return STR_DOT;
     }
+
+    /**
+     * Javadoc momentaneo.
+     * @param coord
+     * @param ship
+     */
+    public void set(final Coordinate coord, final Ship ship) {
+        map[coord.getRow()][coord.getCol()] = ship;
+    }
 }
