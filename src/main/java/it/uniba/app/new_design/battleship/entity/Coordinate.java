@@ -116,7 +116,7 @@ public class Coordinate implements Cloneable {
      */
     @Override
     public int hashCode() {
-        return Integer.toString(col + row).hashCode();
+        return (Integer.toString(row) + Integer.toString(col)).hashCode();
     }
 
     /**
