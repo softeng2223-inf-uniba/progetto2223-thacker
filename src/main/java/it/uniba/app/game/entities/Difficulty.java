@@ -1,5 +1,7 @@
 package it.uniba.app.game.entities;
-
+/**
+ * La classe Difficulty rappresenta una singola difficoltà di gioco.
+ */
 public class Difficulty implements Cloneable{
     private String name;
     private int maxFailedAttempts;
