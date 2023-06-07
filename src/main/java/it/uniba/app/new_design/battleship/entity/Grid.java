@@ -1,6 +1,7 @@
 package it.uniba.app.new_design.battleship.entity;
 
 import java.util.LinkedList;
+import java.util.Arrays;
 import it.uniba.app.utility.Coordinate;
 
 /**
@@ -13,11 +14,14 @@ public class Grid {
     private Ship[][] map;
     private LinkedList<Coordinate> hits;
 
+    /**
+     * Javadoc momentaneo.
+     */
     public Grid() {
         map = new Ship[SIZE][SIZE];
         for (int i = 0; i < SIZE; i++) {
             Arrays.fill(map[i], null);
         }
-        hits = new LinkedList<Coordinate>()
+        hits = new LinkedList<Coordinate>();
     }
 }
