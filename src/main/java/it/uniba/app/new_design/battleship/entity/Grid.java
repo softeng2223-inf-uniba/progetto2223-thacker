@@ -24,4 +24,8 @@ public class Grid {
         }
         hits = new LinkedList<Coordinate>();
     }
+
+    public static int getSize(){
+        return SIZE;
+    }
 }
