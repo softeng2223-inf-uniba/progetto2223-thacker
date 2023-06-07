@@ -1,7 +1,7 @@
 package it.uniba.app.new_design.battleship.controller;
 
 import it.uniba.app.new_design.battleship.entity.Grid;
-import it.uniba.app.utility.Coordinate;
+import it.uniba.app.new_design.battleship.entity.Coordinate;
 import it.uniba.app.utility.Color;
 import it.uniba.app.new_design.battleship.entity.Ship;
 

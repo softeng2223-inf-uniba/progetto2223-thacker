@@ -2,7 +2,7 @@ package it.uniba.app.new_design.battleship.entity;
 
 import java.util.LinkedList;
 import java.util.Arrays;
-import it.uniba.app.utility.Coordinate;
+import it.uniba.app.new_design.battleship.entity.Coordinate;
 
 /**
  * Javadoc momentaneo.
