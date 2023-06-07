@@ -10,6 +10,14 @@ public class Coordinate implements Cloneable {
         row = r;
         col = c;
     }
+
+    public int getCol() {
+        return col;
+    }
+
+    public int getRow() {
+        return row;
+    }
 }
 
 
