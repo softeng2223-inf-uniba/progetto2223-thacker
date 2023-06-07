@@ -46,7 +46,7 @@ public class GridController {
      * @param grid oggetto che contiene la mappa delle navi.
      * @return stringa contenente tutta la mappa delle navi.
      */
-    public String genHitspMap(final Grid grid) {
+    public static String genHitsMap(final Grid grid) {
         String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
         for (int row = 0; row < Grid.getSize(); row++){
             str += row + ":    ";
