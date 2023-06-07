@@ -79,9 +79,11 @@ public class Grid {
     }
 
     /**
-     * javadoc momentaneo.
-     * @param coord
-     * @return
+     * Effettua un controllo sulla mappa delle navi nella cella
+     * in posizione definita da {@code Coordinate} per controllare
+     * se la cella è vuota o se è presente una nave.
+     * @param coord coordinate della cella su cui effettuare il controllo
+     * @return {@code true} se la cella è vuota, {@code false} se è presente una nave
      */
     public boolean isCellEmpty(final Coordinate coord) {
         return map[coord.getRow()][coord.getCol()] == null;
