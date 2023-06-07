@@ -54,4 +54,13 @@ public class Grid {
     public Ship get(final Coordinate coord) {
         return map[coord.getRow()][coord.getCol()];
     }
+
+    /**
+     * javadoc momentaneo.
+     * @param coord
+     * @return
+     */
+    public boolean isCEllEmpty(final Coordinate coord) {
+        return map[coord.getRow()][coord.getRow()] == null;
+    }
 }
