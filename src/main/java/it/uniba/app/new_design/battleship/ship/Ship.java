@@ -104,24 +104,6 @@ public final class Ship implements Cloneable {
     }
 
     /**
-     * Restituisce un array di Stringhe contenente
-     * i nomi di tutti i tipi di nave presenti nel
-     * gioco.
-     * @return array di Stringhe con i nomi delle navi.
-     */
-    public static String[] getTypes() {
-        String[] lst = new String[types.length];
-
-        for (int i = 0; i < types.length; i++) {
-            lst[i] = types[i].name;
-        }
-
-        return lst;
-    }
-
-    /* === INSTANCE METHODS === */
-
-    /**
      * Restituisce il nome del tipo di nave
      * istanziato associato al {@code typeId}.
      * @return nome del tipo di nave specifico.
@@ -170,6 +152,7 @@ public final class Ship implements Cloneable {
     /**
      * Restituisce un clone dell'oggetto nave.
      */
+    @Override
     public Ship clone() {
         Ship clone = null;
 
