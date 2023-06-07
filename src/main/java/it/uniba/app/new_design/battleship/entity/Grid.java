@@ -36,16 +36,16 @@ public class Grid {
      * Restituisce la grandezza della mappa.
      * @return dimensione mappa
      */
-    public static int getSize(){
+    public static int getSize() {
         return SIZE;
     }
 
     /**
      * Restituisce il puntino che viene usato come simbolo
-     * per definire una cella che non è ancora stata colpita
+     * per definire una cella che non è ancora stata colpita.
      * @return simbolo cella non colpita
      */
-    public static String getDotSymbol(){
+    public static String getDotSymbol() {
         return STR_DOT;
     }
 
@@ -109,7 +109,7 @@ public class Grid {
      * @param coord coordinate su cui effettuare il controllo
      * @return {@code true} se è una posizione già colpita, {@code false} altrimenti
      */
-    public boolean isCellHit(final Coordinate coord){
+    public boolean isCellHit(final Coordinate coord) {
         return hits.contains(coord);
     }
 }
