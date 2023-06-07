@@ -63,4 +63,13 @@ public class Grid {
     public boolean isCEllEmpty(final Coordinate coord) {
         return map[coord.getRow()][coord.getRow()] == null;
     }
+
+    /**
+     * Javadoc momentaneo.
+     * @param coord
+     * @return
+     */
+    public boolean isCellHit(final Coordinate coord){
+        return hits.contains(coord);
+    }
 }
