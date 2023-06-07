@@ -9,7 +9,7 @@ import it.uniba.app.utility.Color;
  * Classe che contiene i metodi utili alla visualizzazione della
  * mappa delle navi e della mappa dei colpi.
  */
-public class GridController {
+public final class GridController {
 
     private GridController() { }
 
