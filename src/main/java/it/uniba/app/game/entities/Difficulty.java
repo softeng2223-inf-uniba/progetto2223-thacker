@@ -10,4 +10,7 @@ public class Difficulty implements Cloneable{
     public void setLevel(String level) {
         name = level;
     }
+    public void setMaxFailedAttempts(final int mfa) {
+        maxFailedAttempts = mfa;
+    }
 }
