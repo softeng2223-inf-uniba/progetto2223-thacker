@@ -24,7 +24,8 @@ public class GridController {
                 Coordinate coords = new Coordinate(row, col);
                 if (grid.isCellHit(coords)) {
                     if (grid.isCellEmpty(coords)){
-
+                        str += Color.get("blue") + Grid.getWaterSymbol()
+                            + Color.getReset() + "    ";
                     }
                 } else {
                     str += Grid.getDotSymbol();
