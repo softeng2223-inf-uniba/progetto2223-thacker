@@ -60,8 +60,8 @@ public class Grid {
      * @param coord
      * @return
      */
-    public boolean isCEllEmpty(final Coordinate coord) {
-        return map[coord.getRow()][coord.getRow()] == null;
+    public boolean isCellEmpty(final Coordinate coord) {
+        return map[coord.getRow()][coord.getCol()] == null;
     }
 
     /**
