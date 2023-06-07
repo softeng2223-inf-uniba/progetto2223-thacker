@@ -111,6 +111,15 @@ public class Coordinate implements Cloneable {
     }
 
     /**
+     * Restituisce {@code l'hashcode} calcolato sull'oggetto
+     * {@code Coordinate}.
+     */
+    @Override
+    public int hashCode() {
+        return Integer.toString(col + row).hashCode();
+    }
+
+    /**
      * @return restituisce le coordinate in formato stringa.
      */
     @Override
