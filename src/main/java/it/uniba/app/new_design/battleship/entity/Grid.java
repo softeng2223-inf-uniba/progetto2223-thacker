@@ -39,8 +39,20 @@ public class Grid {
         return STR_DOT;
     }
 
+    /**
+     * Javadoc momentaneo.
+     * @return
+     */
     public static String getWaterSymbol() {
         return STR_WATER;
+    }
+
+    /**
+     * Javadoc momentaneo.
+     * @return
+     */
+    public static String getHitSymbol() {
+        return STR_HIT;
     }
 
     /**
