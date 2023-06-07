@@ -18,6 +18,14 @@ public class Coordinate implements Cloneable {
     public int getRow() {
         return row;
     }
+
+    public void setCol(final int c) {
+        col = c;
+    }
+
+    public void setRow(final int r) {
+        row = r;
+    }
 }
 
 
