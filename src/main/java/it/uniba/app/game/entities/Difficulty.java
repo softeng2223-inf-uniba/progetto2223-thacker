@@ -4,5 +4,7 @@ public class Difficulty implements Cloneable{
     private String name;
     private int maxFailedAttempts;
     public Difficulty() { }
-    
+    public String getLevel() {
+        return name;
+    }
 }
