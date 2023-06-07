@@ -7,4 +7,7 @@ public class Difficulty implements Cloneable{
     public String getLevel() {
         return name;
     }
+    public void setLevel(String level) {
+        name = level;
+    }
 }
