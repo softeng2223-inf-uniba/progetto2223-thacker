@@ -6,6 +6,11 @@ public class Difficulty implements Cloneable{
     private String name;
     private int maxFailedAttempts;
     public Difficulty() { }
+    /**
+     * Restituisce il livello di difficoltà dell'oggetto.
+     *
+     * @return il livello di difficoltà.
+     */
     public String getLevel() {
         return name;
     }
