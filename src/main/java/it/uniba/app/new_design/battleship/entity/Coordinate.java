@@ -34,6 +34,23 @@ public class Coordinate implements Cloneable {
         } catch (CloneNotSupportedException err) { }
         return obj;
     }
+
+    public boolean equals(final Object other) {
+        if (other == null) {
+            return false;
+        }
+
+        if (!(other instanceof Coordinate)) {
+            return false;
+        }
+
+        return this.row == ((Coordinate) other).row
+            && this.col == ((Coordinate) other).col;
+    }
+
+    public String toString() {
+        return "Coordinate: [" + col + " " + row + "]";
+    }
 }
 
 
