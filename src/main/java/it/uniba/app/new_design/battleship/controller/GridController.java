@@ -19,7 +19,7 @@ public class GridController {
     public String genShipMap(final Grid grid) {
         String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
         for (int row = 0; row < Grid.getSize(); row++){
-            str += row + ":  ";
+            str += row + ":   ";
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coords = new Coordinate(row, col);
                 if (grid.isCellHit(coords)) {
