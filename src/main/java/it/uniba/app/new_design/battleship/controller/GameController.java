@@ -1,10 +1,14 @@
 package it.uniba.app.new_design.battleship.controller;
 
+import it.uniba.app.game.controllers.DifficultyController;
+import it.uniba.app.game.entities.Difficulty;
 import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 import it.uniba.app.game.exceptions.SessionNotStartedException;
 
 public class GameController {
     private static boolean isSessionStarted = false;
+
+    private static Difficulty difficulty = new Difficulty();
 
     private GameController() { }
 
@@ -12,6 +16,8 @@ public class GameController {
         if (isSessionStarted) {
             throw new SessionAlreadyStartedException();
         }
+
+        DifficultyController.setEasy(difficulty);
 
         isSessionStarted = true;
     }
