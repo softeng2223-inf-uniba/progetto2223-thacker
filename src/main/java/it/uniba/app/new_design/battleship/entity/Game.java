@@ -1,6 +1,7 @@
 package it.uniba.app.new_design.battleship.entity;
 
 import java.util.LinkedList;
+import java.util.function.BiPredicate;
 
 import it.uniba.app.game.entities.Difficulty;
 import it.uniba.app.new_design.battleship.controller.GameFiller;
@@ -13,7 +14,7 @@ import it.uniba.app.new_design.battleship.controller.GameFiller;
 public final class Game {
     private static final LinkedList<Ship> SHIPS = getShipSet();
 
-    private boolean sessionStarted = false;
+    private boolean sessionStarted;
 
     private Difficulty difficulty;
     private Grid grid;
@@ -25,6 +26,7 @@ public final class Game {
     /** Istanzia un oggetto della classe Game. */
     public Game() {
         difficulty = new Difficulty();
+        sessionStarted = false;
     }
 
     public boolean isSessionStarted() {
@@ -41,6 +43,7 @@ public final class Game {
 
             totAttempts = 0;
             failedAttempts = 0;
+
         }
 
 
