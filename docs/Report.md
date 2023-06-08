@@ -113,13 +113,13 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
   - (RF4.1) Se la difficoltà è _FACILE_ il numero di default massimo di tentativi fallibili è 50.
   - (RF4.2) Se la difficoltà è _MEDIO_ il numero di default massimo di tentativi fallibili è 30.
   - (RF4.3) Se la difficoltà è _DIFFICILE_ il numero di default massimo di tentativi fallibili è 10.
+- (RF5) Il sistema deve peremttere di impostare il numero massimo di tentativi falliti per ogni difficoltà. 
+   - (RF5.1) Al comando `/facile numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti per FACILE.
+   - (RF5.2) Al comando `/medio numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti PER MEDIO.
+   - (RF5.3) Al comando `/difficile numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti per DIFFICILE. 
 - (RF6) Il sistema deve permettere di mostrare il livello di difficoltà impostato.
 - (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
 - (RFx1) Il ssitema deve permettere di visualizzare una griglia con le righe numerate a partire da 1 e le colonne numerate a partire da A, con le navi affondate e le sole parti giàcolpite delle navi non affondate.
-- (RFx2) Il sistema deve peremttere di impostare il numero massimo di tentativi falliti per livello di gioco. In particolare:
-   - (RFx2.1) Al comando `/facile numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti.
-   - (RFx2.2) Al comando `/medio numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti.
-   - (RFx2.3) Al comando `/difficile numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti. 
 - (RFx3) Il sistema deve permettere di impostare direttamente il numero massimo di tentativi che si possono fallire. In particolare:
    - (RFx3.1) Al comando `/tentativi numero` l'appliczione risponde con OK e imposta a numero il numero massimo di tentativi falliti.
 - (RFx4) Il ssitema deve permettere di impostare la taglia della griglia. In particolare:
