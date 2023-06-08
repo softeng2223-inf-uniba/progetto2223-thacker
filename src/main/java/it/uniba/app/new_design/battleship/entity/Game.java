@@ -46,6 +46,9 @@ public final class Game {
         sessionStarted = true;
     }
 
+    public void endSession() {
+        sessionStarted = false;
+    }
 
     /**
      * Imposta una difficoltà.
