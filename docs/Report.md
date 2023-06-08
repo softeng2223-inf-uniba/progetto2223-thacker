@@ -129,6 +129,8 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RF9.1) Al comando `/mostranavi` l'applicazione risponde visualizzando, per ogni tipo di nave, la dimensione e il numero di esemplari da affondare.
 - (RF10) Il sistema deve peremttere di svelare la griglia con le navi posizionate.
    - (RF10.1) Al comando `/svelagriglia` l'applicazione risponde visualizzando la griglia, con le righe numerate in numeri e le colonne in lettere, e tutte le navi posizionate.
+- (RF11) Il sistema deve permettere di mostare la griglia con le navi colpite e affondate.
+   - (RF11.1) Al comando `/mostragriglia` l'applicazione risponde visualizzando, una griglia con le righe numerate a partire da 1 e le colonen numerate a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate.
 - (RFx5) Il sistema deve permettere di impostare il tempo di gioco. In particolare:
    - (RFx5.1) Al comando `/tempo numero` l'applicazione rsiponde con "OK" e imposta a numero il numero di minuti a disposizione per giocare.
 - (RFx6) Il sistema al comando `/mostratempo` deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
@@ -137,8 +139,6 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RFx7.2) Qualunque sia l'esito del tentativo, l'applicazione deve mostrare la griglia con le navi colpite partizlamente o affondata, il numero di tentativi già effettuati e il tempo trascorso.
    - (RFx7.3) La partita termina con successo se il tentativo ha affondato l'ultima nave.
    - (RFx7.4) La parita termina con insuccesso se è stato raggiunto il numero massimo di tentativi falliti o se è scaduto il tempo di gioco.
-- (RFx8) Il sistema deve permettere di mostare la griglia con le navi colpite e affondate.
-   - (RFx8.1) Al comando `/mostragriglia` l'applicazione risponde visualizzando, una griglia con le righe numerate a partire da 1 e le colonen numerate a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate.
 - (RFx9) Il sistema deve permetter di mostrare il numero di tentativi già effettuati e il numero di tentativi falliti.
    - (RFx9.1) Al comando `/mostratentativi` l'applicazione risponde visualizzando il numero di tentativi già effettuati, il numero di tentativi falliti e il numero massimo di tentativi falliti.
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
