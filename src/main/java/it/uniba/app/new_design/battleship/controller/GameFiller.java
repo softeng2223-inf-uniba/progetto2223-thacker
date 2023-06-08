@@ -81,4 +81,18 @@ public final class GameFiller {
             }
             return checkHorizontalPosition(temp, ship, grid);
         }
+
+        private static boolean checkVerticalPosition(final Coordinate coord, final Ship ship, final Grid grid) {
+            if (isOutOfRange(coord.getRow(), ship)) {
+                return false;
+            }
+
+            for (int i = 0; i < ship.getSize(); i++) {
+                if (!grid.isCellEmpty(coord)) {
+                    return false;
+                }
+                coord.setRow(coord.getRow() + 1);
+            }
+            return true;
+        }
 }
