@@ -16,7 +16,6 @@ import it.uniba.app.game.exceptions.SessionNotStartedException;
  * TODO espandi.
  */
 public final class GameController {
-    private static Game game = new Game();
 
     private static boolean isSessionStarted = false;
     private static boolean isDifficultySet = false;
@@ -32,7 +31,7 @@ public final class GameController {
      * @throws DifficultyNotSetException
      *      Non è possibile avviare una sessione se la difficoltà non è stata impostata.
      */
-    public static void startSession()
+    public static void startSession(Game game)
         throws SessionAlreadyStartedException, DifficultyNotSetException {
             if (isSessionStarted) {
                 throw new SessionAlreadyStartedException();
@@ -51,7 +50,7 @@ public final class GameController {
      *
      * @throws SessionNotStartedException Non è possibile terminare una sessione se non è in corso.
      */
-    public static void endSession() throws SessionNotStartedException {
+    public static void endSession(Game game) throws SessionNotStartedException {
         if (!isSessionStarted) {
             throw new SessionNotStartedException();
         }
@@ -61,7 +60,7 @@ public final class GameController {
     /**
      * Imposta la difficoltà ad Easy.
      */
-    public static void setEasyDifficulty() throws SessionAlreadyStartedException {
+    public static void setEasyDifficulty(Game game) throws SessionAlreadyStartedException {
         if (isSessionStarted) {
             throw new SessionAlreadyStartedException();
         }
@@ -78,7 +77,7 @@ public final class GameController {
     /**
      * Imposta la difficoltà a Medium.
      */
-    public static void setMediumDifficulty() throws SessionAlreadyStartedException {
+    public static void setMediumDifficulty(Game game) throws SessionAlreadyStartedException {
         if (isSessionStarted) {
             throw new SessionAlreadyStartedException();
         }
@@ -95,7 +94,7 @@ public final class GameController {
     /**
      * Imposta la difficoltà a Hard.
      */
-    public static void setHardDifficulty() throws SessionAlreadyStartedException {
+    public static void setHardDifficulty(Game game) throws SessionAlreadyStartedException {
         if (isSessionStarted) {
             throw new SessionAlreadyStartedException();
         }
@@ -115,7 +114,7 @@ public final class GameController {
      * @return difficoltà selezionata
      * @throws CloneNotSupportedException
      */
-    static Difficulty getDifficulty() throws CloneNotSupportedException {
+    static Difficulty getDifficulty(Game game) throws CloneNotSupportedException {
         return game.getDifficulty();
     }
 
@@ -129,7 +128,7 @@ public final class GameController {
      * @return griglia della sessione corrente nell'istante corrente
      * @throws SessionNotStartedException
      */
-    static Grid getSessionGrid() throws SessionNotStartedException {
+    static Grid getSessionGrid(Game game) throws SessionNotStartedException {
         if (!isSessionStarted) {
             throw new SessionNotStartedException();
         }
