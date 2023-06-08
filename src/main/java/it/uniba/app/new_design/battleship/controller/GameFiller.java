@@ -1,5 +1,7 @@
 package it.uniba.app.new_design.battleship.controller;
 
+
+
 /**
  * Javadoc momentaneo.
  */
@@ -14,6 +16,10 @@ public final class GameFiller {
         for (Ship ship : ships) {
             randomlyInsertShip(ship, grid);
         }
+    }
+
+    private static int getRandomDirection() {
+        return RAND.nextInt(POSSIBLE_DIRECTIONS);
     }
 
 }
