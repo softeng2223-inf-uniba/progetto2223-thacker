@@ -121,14 +121,10 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RF6.1) Al comando `/tentativi numero` l'appliczione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti.
 - (RF7) Il sistema deve permettere di mostrare il livello di difficoltà in uso e il numero massimo di tentativi falliti.
    - (RF7.1) Al comando `/mostralivello` l'applicazione risponde visualizzando il livello di difficoltà in uso e il numero massimo di tentativi falliti.
-- (RFx) Il sistema deve permettere di mostrare il livello di difficoltà impostato.
-- (RFy) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
-- (RFx1) Il ssitema deve permettere di visualizzare una griglia con le righe numerate a partire da 1 e le colonne numerate a partire da A, con le navi affondate e le sole parti giàcolpite delle navi non affondate.
-
-- (RFx4) Il ssitema deve permettere di impostare la taglia della griglia. In particolare:
-   - (RFx4.1) Al comando `/standard` l'applicazione risponde con "OK" e imposta 10x10 la dimensione della griglia. Nel caso in cui il giocatore decide di avviare l'applicazione senza impostre la griglia, per default verrà scelto il caso standard.
-   - (RFx4.2) Al comando `/large` l'applicazione risponde con "OK" e imposta a 18x18 la dimensione della griglia.
-   - (RFx4.3) Al comando `/extralarge` l'applicazione risponde con "OK" e imposta a 26x25 la dimensione della griglia.
+- (RF8) Il sitema deve permettere di impostare la taglia della griglia. In particolare:
+   - (RF8.1) Al comando `/standard` l'applicazione risponde con "OK" e imposta 10x10 la dimensione della griglia. Nel caso in cui il giocatore decide di avviare la partita senza impostre la griglia, per default verrà scelto il caso standard (10x10).
+   - (RF8.2) Al comando `/large` l'applicazione risponde con "OK" e imposta a 18x18 la dimensione della griglia.
+   - (RF8.3) Al comando `/extralarge` l'applicazione risponde con "OK" e imposta a 26x25 la dimensione della griglia.
 - (RFx5) Il sistema deve permettere di impostare il tempo di gioco. In particolare:
    - (RFx5.1) Al comando `/tempo numero` l'applicazione rsiponde con "OK" e imposta a numero il numero di minuti a disposizione per giocare.
 - (RFx6) Il sistema al comando `/mostratempo` deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
