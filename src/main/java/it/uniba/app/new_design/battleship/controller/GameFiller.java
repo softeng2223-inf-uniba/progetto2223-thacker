@@ -39,6 +39,10 @@ public final class GameFiller {
         return new Coordinate(first, sec);
     }
 
+    private static boolean isOutOfRange(final int axis, final Ship ship) {
+        return (Grid.getSize() - axis) < ship.getSize();
+    }
+
     private static void randomlyInsertShip(final Ship ship, final Grid grid) {
         int direction = getRandomDirection();
 
