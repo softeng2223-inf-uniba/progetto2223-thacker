@@ -64,6 +64,7 @@ public final class Game {
     public void setDifficulty(final Difficulty choice)
         throws CloneNotSupportedException {
             difficulty = choice.clone();
+            diffSet = true;
         }
 
     /**
