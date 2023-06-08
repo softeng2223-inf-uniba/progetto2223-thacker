@@ -38,13 +38,13 @@ public final class Game {
      * Esegue tutte le inizializzazioni necessarie per giocare.
      */
     public void startSession() {
-            grid = new Grid();
-            GameFiller.randomlyFill(SHIPS, grid);   //TODO cercare di rimuovere questa dipendenza
+        grid = new Grid();
+        GameFiller.randomlyFill(SHIPS, grid);   //TODO cercare di rimuovere questa dipendenza
 
-            totAttempts = 0;
-            failedAttempts = 0;
-
-        }
+        totAttempts = 0;
+        failedAttempts = 0;
+        sessionStarted = true;
+    }
 
 
     /**
