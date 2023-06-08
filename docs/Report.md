@@ -153,9 +153,9 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
   - (RF16.5) `/facile`: imposta la difficoltà di gioco a _FACILE_.
   - (RF16.6) `/medio`: imposta la difficoltà di gioco a _MEDIO_.
   - (RF16.7) `/difficile`: imposta la difficoltà di gioco a _DIFFICILE_.
-  - (RF16.8) `/facile numero` : imposta a numero il numero massimo di tentativi fabbili per FACILE.
-  - (RF16.9) `/medio numero` : imposta a numero il numero massimo di tentativi fabbili per MEDIO.
-  - (RF16.10) `/difficile numero` : imposta a numero il numero massimo di tentativi fabbili per DIFFICILE.
+  - (RF16.8) `/facile numero` : imposta a numero il numero massimo di tentativi fallibili per _FACILE_.
+  - (RF16.9) `/medio numero` : imposta a numero il numero massimo di tentativi fallibili per _MEDIO_.
+  - (RF16.10) `/difficile numero` : imposta a numero il numero massimo di tentativi fallibili per _DIFFICILE_.
   - (RF16.11) `/tentativi numero` : imposta a numero il numero di tentativi fallibili.
   - (RF16.12) `/mostratentativi` : visualizza il numero di tentativi già effettuati, quelli falliti e il numero massimo di quelli fallibili.
   - (RF16.13) `/mostralivello` : visualizza il livello di difficoltà selezionato e il numero massimo di tentativili falliti.
