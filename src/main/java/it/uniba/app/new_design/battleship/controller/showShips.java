@@ -33,6 +33,7 @@ public final class showShips {
         for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
             StringBuilder b = new StringBuilder();
             Ship ship = new Ship(i);
+            nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
             b.append(ship.getName() + nameWhiteSpace);
 
             for (int j = 0; j < ship.getSize(); j++) {
@@ -40,6 +41,9 @@ public final class showShips {
             }
 
             b.append(numOfInstancesWhiteSpace + "Esemplari:" + Ship.getMaxInstances(i));
+            numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
+            str = b.toString();
+            System.out.println(str);
         }
     }
 }
