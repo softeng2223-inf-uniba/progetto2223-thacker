@@ -30,6 +30,17 @@ public class GameController {
     }
 
     /**
+     * Imposta la difficoltà ad Easy.
+     */
+    public static void setEasyDifficulty() throws SessionAlreadyStartedException {
+        if (isSessionStarted) {
+            throw new SessionAlreadyStartedException();
+        }
+
+        DifficultyController.setEasy(difficulty);
+    }
+
+    /**
      * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
      *
      * @return difficoltà selezionata
@@ -38,4 +49,6 @@ public class GameController {
     static Difficulty getDifficulty() throws CloneNotSupportedException {
         return difficulty.clone();
     }
+
+
 }
