@@ -53,4 +53,11 @@ public final class GameFiller {
             insertShipHorizontal(coord, ship, grid);
         }
     }
+
+    private static void insertShipVertical(final Coordinate coord, final Ship ship, final Grid grid) {
+        for (int i = 0; i < ship.getSize(); i++) {
+            grid.set(coord, ship);
+            coord.setRow(coord.getRow() + 1);
+        }
+    }
 }
