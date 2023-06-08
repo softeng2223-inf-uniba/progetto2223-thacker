@@ -31,7 +31,7 @@ public final class Game {
     }
 
     /**
-     * Fornisce lo stato della partita.
+     * Informa se una sessione di gioco è iniziata e quindi in corso o meno.
      *
      * @return true se la sessione è in corso, false altrimenti.
      */
