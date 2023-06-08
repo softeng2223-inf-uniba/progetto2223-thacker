@@ -133,6 +133,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 - (RFx9) Il sistema deve permetter di mostrare il numero di tentativi già effettuati e il numero di tentativi falliti.
    - (RFx9.1) Al comando `/mostratentativi` l'applicazione risponde visualizzando il numero di tentativi già effettuati, il numero di tentativi falliti e il numero massimo di tentativi falliti.
 - (RFx10) Il sistema deve permettere al giocatore di abbandonare una partita in corso.
+   - (RFx10.1) Al comando `/abbandona` l'applicazione chiede la conferma e se è positiva, l'applicazione risponde visualizzando sulla griglia la posizione di tutte le navi e si predispone a ricevere nuovi comando, altrimenti se la conferma è negativa l'applicazione si predispone a ricevere nuovi tentativi o comandi.
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
