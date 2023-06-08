@@ -9,6 +9,13 @@ import it.uniba.app.new_design.battleship.entity.Ship;
 import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 import it.uniba.app.game.exceptions.SessionNotStartedException;
 
+/**
+ * Control class <hr>
+ * 
+ * Fornisce servizi per gestire una sessione di gioco (o partita) di <i>Battleship solitaire</i>.
+ * 
+ * TODO espandi.
+ */
 public class GameController {
     private static final LinkedList<Ship> SHIPS = getShipSet();
 
