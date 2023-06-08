@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Grid gameGrid = new Grid();
  * </pre><quoteblock></p>
 */
-public class Grid {
+public class Grid implements Cloneable {
     private static final int SIZE = 10;
     private static final String STR_DOT = "\u00B7";
     private static final String STR_WATER   = "~";
@@ -112,4 +112,28 @@ public class Grid {
     public boolean isCellHit(final Coordinate coord) {
         return hits.contains(coord);
     }
+
+    @Override
+    public final Grid clone() {
+        Grid clone = null;
+        try {
+            clone = (Grid) super.clone();
+            clone.map = Arrays.copyOf(map, map.length);
+            for (int i = 0; i < SIZE; i++) {
+                clone.map[i] = Arrays.copyOf(map[i], map[i].length);
+            }
+            for (int row = 0; row < SIZE; row++) {
+                for (int col = 0; col < SIZE; col++) {
+                    Coordinate coords = new Coordinate(row, col);
+
+                    if (!this.isCellEmpty(coords)) {
+                        Ship ship = this.get(coords).clone();
+                        clone.set(coords, ship);
+                    }
+                }
+            }
+        } catch (CloneNotSupportedException e) { }
+        return clone;
+    }
+
 }
