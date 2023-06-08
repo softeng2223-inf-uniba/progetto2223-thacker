@@ -101,7 +101,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 ### (3.1) Requisiti funzionali
 - (RF1) Il sistema deve permette di iniziare una nuova partita con il comando `/gioca`.
   - (RF1.1) Al comando `/gioca` se nessuna partita è in corso l'applicazione imposta casualmente le navi, mostra la griglia vuota e si predispone a ricevere il primo tentativo o altri comandi.
-- (RF2) Il sistema deve permettere di chiudere l'applicazione.
+- (RF2) Il sistema deve permettere di chiudere il gioco con il comando `/esci`.
 - (RF3) Il sistema deve permettere di impostare la difficoltà di gioco tra _FACILE_, _MEDIO_ e _DIFFICILE_. 
 - (RF4) Il sistema, in base alla difficoltà impostata deve impostare il numero massimo di tentativi fallibili.
 - (RF5) Il sistema imposta i tentativi fallibili nel seguente modo:
