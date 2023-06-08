@@ -15,4 +15,15 @@ public final class HelpController{
                     + "/mostranavi \n"
                     + "/esci";
     private HelpController(){}
+    public static void showHelp() {
+        for (int i = 0; i < TEXT.length(); i++) {
+            System.out.print(String.valueOf(TEXT.charAt(i)));
+            try {
+                Thread.sleep(DELAY);
+            } catch (InterruptedException err) {
+                System.out.println("InterruptedException: " + err);
+            }
+        }
+        System.out.println("\n");
+    }
 }
