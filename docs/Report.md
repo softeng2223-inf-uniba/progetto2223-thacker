@@ -138,7 +138,10 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 - (RF14) Il sistema deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
   - (RF14.1) Al comando `/mostratempo` l'applicazione risponde visualizzando il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
 - (RF15) Il sistema deve permettere di effettuare un tentativi per colpire una nave.
-   - (RF15.1) Digitando una coppia id caratteri separati da un trattino, corrispondenti rispettivamente al numero di riga e alla lettera della colonna (es: B-4), l'applicazione risponde con "acqua" se sulla cella non è posiziona nessuna nave, risponde con "colpito" se sulla cella è posizionata una nave e risponde "colpito e affondato" se sulla cella è posiziona una nave ed è l'ultima cella non colpita della nave.
+   - (RF15.1) Digitando una coppia di caratteri separati da un trattino, corrispondenti rispettivamente  alla _lettera della colonna_ e al _numero di riga_ (es: `B-4`), l'applicazione risponde con
+       - "**acqua**" se sulla cella non è posizionata nessuna nave.
+       - "**colpito**" se sulla cella è posizionata una nave non affondata.
+       - "**colpito e affondato**" se sulla cella è posizionata una nave ed è l'ultima cella non colpita occupata da essa.
    - (RF15.2) Qualunque sia l'esito del tentativo, l'applicazione deve mostrare la griglia con le navi colpite partizlamente o affondata, il numero di tentativi già effettuati e il tempo trascorso.
    - (RF15.3) La partita termina con successo se il tentativo ha affondato l'ultima nave.
    - (RF15.4) La parita termina con insuccesso se è stato raggiunto il numero massimo di tentativi falliti o se è scaduto il tempo di gioco.
