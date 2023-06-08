@@ -39,6 +39,11 @@ public final class Game {
         return sessionStarted;
     }
 
+    /**
+     * Informa se la difficoltà è stata impostata o meno.
+     *
+     * @return <code>true</code> se la difficoltà è stata impostata, <code>false</code> altrimenti.
+     */
     public boolean isDifficultySet() {
         return diffSet;
     }
