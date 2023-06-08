@@ -23,6 +23,9 @@ public final class Game {
     private Difficulty difficulty;
     private Grid grid;
 
+    private int totAttempts;
+    
+
     /** Istanzia un oggetto della classe Game. */
     public Game() {
         difficulty = new Difficulty();
@@ -51,6 +54,8 @@ public final class Game {
 
             grid = new Grid();
             GameFiller.randomlyFill(SHIPS, grid);   //TODO cercare di rimuovere questa dipendenza
+
+            totAttempts = 0;
 
             isSessionStarted = true;
         }
@@ -109,6 +114,33 @@ public final class Game {
         return grid.clone();
     }
 
+
+    /**
+     * Fornisce il numero di tentativi effettuati fino ad un dato istante
+     * durante una sessione di gioco.
+     * 
+     * @return tentativi totali nell'istante corrente
+     * @throws SessionNotStartedException
+     */
+    public int getAttempts() throws SessionNotStartedException {
+        if(!isSessionStarted) {
+            throw new SessionNotStartedException();
+        }
+        return totAttempts;
+    }
+
+    /**
+     * Incrementa numero di tentativi corrente durante una sessione di gioco.
+     * 
+     * @throws SessionNotStartedException
+     */
+    // TODO decidere visibilità
+    void increaseAttempts() throws SessionNotStartedException {
+        if(!isSessionStarted) {
+            throw new SessionNotStartedException();
+        }
+        totAttempts += 1;
+    }
 
     /* === PRIVATE METHODS === */
 
