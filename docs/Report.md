@@ -119,18 +119,20 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RF5.3) Al comando `/difficile numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti per DIFFICILE. 
 - (RF6) Il sistema deve permettere di impostare direttamente il numero massimo di tentativi bypassando le difficoltà disponibili.
    - (RF6.1) Al comando `/tentativi numero` l'appliczione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti.
-- (RF7) Il sistema deve permettere di mostrare il livello di difficoltà in uso e il numero massimo di tentativi falliti.
-   - (RF7.1) Al comando `/mostralivello` l'applicazione risponde visualizzando il livello di difficoltà in uso e il numero massimo di tentativi falliti.
-- (RF8) Il sitema deve permettere di impostare la taglia della griglia. In particolare:
-   - (RF8.1) Al comando `/standard` l'applicazione risponde con "OK" e imposta 10x10 la dimensione della griglia. Nel caso in cui il giocatore decide di avviare la partita senza impostre la griglia, per default verrà scelto il caso standard (10x10).
-   - (RF8.2) Al comando `/large` l'applicazione risponde con "OK" e imposta a 18x18 la dimensione della griglia.
-   - (RF8.3) Al comando `/extralarge` l'applicazione risponde con "OK" e imposta a 26x25 la dimensione della griglia.
-- (RF9) Il sistema deve permettere di mostrare i tipi di nave e il numero.
-   - (RF9.1) Al comando `/mostranavi` l'applicazione risponde visualizzando, per ogni tipo di nave, la dimensione e il numero di esemplari da affondare.
-- (RF10) Il sistema deve peremttere di svelare la griglia con le navi posizionate.
-   - (RF10.1) Al comando `/svelagriglia` l'applicazione risponde visualizzando la griglia, con le righe numerate in numeri e le colonne in lettere, e tutte le navi posizionate.
-- (RF11) Il sistema deve permettere di mostare la griglia con le navi colpite e affondate.
-   - (RF11.1) Al comando `/mostragriglia` l'applicazione risponde visualizzando, una griglia con le righe numerate a partire da 1 e le colonen numerate a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate.
+- (RF7) Il sistema deve permetter di mostrare il numero di tentativi già effettuati e il numero di tentativi falliti.
+   - (RF7) Al comando `/mostratentativi` l'applicazione risponde visualizzando il numero di tentativi già effettuati, il numero di tentativi falliti e il numero massimo di tentativi falliti.
+- (RF8) Il sistema deve permettere di mostrare il livello di difficoltà in uso e il numero massimo di tentativi falliti.
+   - (RF8.1) Al comando `/mostralivello` l'applicazione risponde visualizzando il livello di difficoltà in uso e il numero massimo di tentativi falliti.
+- (RF9) Il sitema deve permettere di impostare la taglia della griglia. In particolare:
+   - (RF9.1) Al comando `/standard` l'applicazione risponde con "OK" e imposta 10x10 la dimensione della griglia. Nel caso in cui il giocatore decide di avviare la partita senza impostre la griglia, per default verrà scelto il caso standard (10x10).
+   - (RF9.2) Al comando `/large` l'applicazione risponde con "OK" e imposta a 18x18 la dimensione della griglia.
+   - (RF9.3) Al comando `/extralarge` l'applicazione risponde con "OK" e imposta a 26x25 la dimensione della griglia.
+- (RF10) Il sistema deve permettere di mostrare i tipi di nave e il numero.
+   - (RF10.1) Al comando `/mostranavi` l'applicazione risponde visualizzando, per ogni tipo di nave, la dimensione e il numero di esemplari da affondare.
+- (RF11) Il sistema deve peremttere di svelare la griglia con le navi posizionate.
+   - (RF11.1) Al comando `/svelagriglia` l'applicazione risponde visualizzando la griglia, con le righe numerate in numeri e le colonne in lettere, e tutte le navi posizionate.
+- (RF12) Il sistema deve permettere di mostare la griglia con le navi colpite e affondate.
+   - (RF12.1) Al comando `/mostragriglia` l'applicazione risponde visualizzando, una griglia con le righe numerate a partire da 1 e le colonen numerate a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate.
 - (RFx5) Il sistema deve permettere di impostare il tempo di gioco. In particolare:
    - (RFx5.1) Al comando `/tempo numero` l'applicazione rsiponde con "OK" e imposta a numero il numero di minuti a disposizione per giocare.
 - (RFx6) Il sistema al comando `/mostratempo` deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
@@ -139,8 +141,6 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RFx7.2) Qualunque sia l'esito del tentativo, l'applicazione deve mostrare la griglia con le navi colpite partizlamente o affondata, il numero di tentativi già effettuati e il tempo trascorso.
    - (RFx7.3) La partita termina con successo se il tentativo ha affondato l'ultima nave.
    - (RFx7.4) La parita termina con insuccesso se è stato raggiunto il numero massimo di tentativi falliti o se è scaduto il tempo di gioco.
-- (RFx9) Il sistema deve permetter di mostrare il numero di tentativi già effettuati e il numero di tentativi falliti.
-   - (RFx9.1) Al comando `/mostratentativi` l'applicazione risponde visualizzando il numero di tentativi già effettuati, il numero di tentativi falliti e il numero massimo di tentativi falliti.
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
