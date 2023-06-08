@@ -29,6 +29,12 @@ public class GameController {
         isSessionStarted = false;
     }
 
+    /**
+     * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
+     *
+     * @return difficoltà selezionata
+     * @throws CloneNotSupportedException
+     */
     public static Difficulty getDifficulty() throws CloneNotSupportedException {
         return difficulty.clone();
     }
