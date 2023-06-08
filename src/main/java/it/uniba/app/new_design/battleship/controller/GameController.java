@@ -35,21 +35,24 @@ public final class GameController {
      *
      * @throws SessionAlreadyStartedException
      *      Non è possibile avviare un altra sessione se un'altra è in corso.
+     * @throws DifficultyNotSetException
+     *      Non è possibile avviare una sessione se la difficoltà non è stata impostata.
      */
-    public static void startSession() throws SessionAlreadyStartedException, DifficultyNotSetException {
-        if (isSessionStarted) {
-            throw new SessionAlreadyStartedException();
+    public static void startSession()
+        throws SessionAlreadyStartedException, DifficultyNotSetException {
+            if (isSessionStarted) {
+                throw new SessionAlreadyStartedException();
+            }
+
+            if (!isDifficultySet) {
+                throw new DifficultyNotSetException();
+            }
+
+            grid = new Grid();
+            GameFiller.randomlyFill(SHIPS, grid);
+
+            isSessionStarted = true;
         }
-
-        if (!isDifficultySet) {
-            throw new DifficultyNotSetException();
-        }
-
-        grid = new Grid();
-        GameFiller.randomlyFill(SHIPS, grid);
-
-        isSessionStarted = true;
-    }
 
     /**
      * Termina una sessione di gioco in corso.
