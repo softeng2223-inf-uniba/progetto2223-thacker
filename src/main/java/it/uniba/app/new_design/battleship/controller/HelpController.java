@@ -3,7 +3,7 @@ package it.uniba.app.new_design.battleship.controller;
  * Classe del comando /help.
  * Contiene il codice da eseguire con il comando /help.
  */
-public final class HelpController{
+public final class HelpController {
     private static final int DELAY = 10;
     private static final String TEXT =
             "Benvenuto in BattleShip!\n\n"
@@ -18,7 +18,7 @@ public final class HelpController{
                     + "/svelagriglia \n"
                     + "/mostranavi \n"
                     + "/esci";
-    private HelpController(){}
+    private HelpController() { }
     /**
      * Il metodo esegue il codice del comando /help.
      * Stampa una breve descrizione
