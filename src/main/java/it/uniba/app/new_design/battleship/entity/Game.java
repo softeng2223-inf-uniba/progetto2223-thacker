@@ -24,6 +24,7 @@ public final class Game {
     private Grid grid;
 
     private int totAttempts;
+    private int failedAttempts;
     
 
     /** Istanzia un oggetto della classe Game. */
@@ -140,6 +141,20 @@ public final class Game {
             throw new SessionNotStartedException();
         }
         totAttempts += 1;
+    }
+
+
+    /**
+     * Fornisce il numero di tentativi falliti fino ad un certo istante di una sessione di gioco.
+     * 
+     * @return tentativi falliti all'istante corrente
+     * @throws SessionNotStartedException
+     */
+    public int getFailedAttempts() throws SessionNotStartedException {
+        if(!isSessionStarted) {
+            throw new SessionNotStartedException();
+        }
+        return failedAttempts;
     }
 
     /* === PRIVATE METHODS === */
