@@ -10,4 +10,10 @@ public final class GameFiller {
 
     private GameFiller() { }
 
+    public static void randomlyFill(final LinkedList<Ship> ships, final Grid grid) {
+        for (Ship ship : ships) {
+            randomlyInsertShip(ship, grid);
+        }
+    }
+
 }
