@@ -1,14 +1,20 @@
 package it.uniba.app.new_design.battleship.controller;
 
+import java.util.LinkedList;
+
 import it.uniba.app.game.controllers.DifficultyController;
 import it.uniba.app.game.entities.Difficulty;
+import it.uniba.app.new_design.battleship.entity.Ship;
 import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 import it.uniba.app.game.exceptions.SessionNotStartedException;
 
 public class GameController {
+    private static final LinkedList<Ship> SHIPS = getShipSet();
+
     private static boolean isSessionStarted = false;
 
     private static Difficulty difficulty = new Difficulty();
+
 
     private GameController() { }
 
@@ -72,5 +78,24 @@ public class GameController {
         return difficulty.clone();
     }
 
+    /* === PRIVATE METHODS === */
+
+      /**
+     * Restituisce una lista di navi contenente, per ogni tipo di nave, tante istanze
+     * quanti sono numero di esemplari previsti per tale tipo.
+     *
+     * @return lista di navi
+     */
+    //TODO improve
+    private static LinkedList<Ship> getShipSet() {
+        LinkedList<Ship> shipsList = new LinkedList<Ship>();
+
+        for (int tId = 0; tId < Ship.getNumberOfTypes(); tId++) {
+            for (int i = 0; i < Ship.getMaxInstances(tId); i++) {
+                shipsList.add(new Ship(tId));
+            }
+        }
+        return shipsList;
+    }
 
 }
