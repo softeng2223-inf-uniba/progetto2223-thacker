@@ -41,6 +41,18 @@ public class GameController {
     }
 
     /**
+     * Imposta la difficoltà a Medium.
+     */
+    public static void setMediumDifficulty() throws SessionAlreadyStartedException {
+        if (isSessionStarted) {
+            throw new SessionAlreadyStartedException();
+        }
+
+        DifficultyController.setMedium(difficulty);
+    }
+
+
+    /**
      * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
      *
      * @return difficoltà selezionata
