@@ -35,7 +35,7 @@ public class GameController {
      * @return difficoltà selezionata
      * @throws CloneNotSupportedException
      */
-    public static Difficulty getDifficulty() throws CloneNotSupportedException {
+    static Difficulty getDifficulty() throws CloneNotSupportedException {
         return difficulty.clone();
     }
 }
