@@ -51,6 +51,16 @@ public class GameController {
         DifficultyController.setMedium(difficulty);
     }
 
+    /**
+     * Imposta la difficoltà a Hard.
+     */
+    public static void setHardDifficulty() throws SessionAlreadyStartedException {
+        if (isSessionStarted) {
+            throw new SessionAlreadyStartedException();
+        }
+
+        DifficultyController.setHard(difficulty);
+    }
 
     /**
      * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
