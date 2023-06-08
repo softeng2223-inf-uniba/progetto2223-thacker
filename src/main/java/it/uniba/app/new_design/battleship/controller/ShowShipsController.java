@@ -11,9 +11,9 @@ import it.uniba.app.new_design.battleship.entity.Ship;
  * implementati in ciascuna sottoclasse di {@code Ship}
  * relativi alla stampa delle informazioni di ciascuna nave.
 */
-public final class ShowShips {
+public final class ShowShipsController {
 
-    private ShowShips() { }
+    private ShowShipsController() { }
 
     /**
      * Restiituisce una stringa contenente il nome
@@ -43,7 +43,6 @@ public final class ShowShips {
         }
         return nameSpace;
     }
-
     /**
      * Restituisce lo spazio decrementato necessario
      * per stampare in maniera allineata il numero di
@@ -57,13 +56,12 @@ public final class ShowShips {
         String subStr = space.substring(0, strDim);
         return subStr;
     }
-
     /**
      * Stampa a video, per ogni tipo di nave,
      * il nome, la dimensione in quadrati
      * e il numero di esemplari da affondare.
      */
-    public static void show() {
+    public static void showShips() {
         String numOfInstancesWhiteSpace = "       ";
         String nameWhiteSpace = "";
 
@@ -84,4 +82,5 @@ public final class ShowShips {
             System.out.println(str);
         }
     }
+
 }
