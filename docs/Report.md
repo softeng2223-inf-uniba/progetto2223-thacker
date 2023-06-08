@@ -159,9 +159,9 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
   - (RF16.11) `/tentativi numero` : imposta a numero il numero di tentativi fallibili.
   - (RF16.12) `/mostratentativi` : visualizza il numero di tentativi già effettuati, quelli falliti e il numero massimo di quelli fallibili.
   - (RF16.13) `/mostralivello` : visualizza il livello di difficoltà selezionato e il numero massimo di tentativili falliti.
-  - (RF16.14) `/standard` : imposta la griglia a 10x10.
-  - (RF16.15) `/large` : imposta la griglia a 18x18.
-  - (RF16.16) `/extralarge` : imposta la griglia a 26x26.
+  - (RF16.14) `/standard` : imposta la griglia a **10x10**.
+  - (RF16.15) `/large` : imposta la griglia a **18x18**.
+  - (RF16.16) `/extralarge` : imposta la griglia a **26x26**.
   - (RF16.17) `/mostranavi`: visualizza per ogni tipo di nave il nome, la dimensione in quadratini e il numero di esemplari da affondare.
   - (RF16.18) `/svelagriglia`: svela la posizione delle navi nella griglia della partita in corso.
   - (RF16.19) `/mostragriglia` : mostra una griglia con le sole navi affondate o in parte colpite.
