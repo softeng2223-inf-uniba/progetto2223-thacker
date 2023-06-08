@@ -25,6 +25,11 @@ public final class showShips {
         return subStr;
     }
 
+    /**
+     * Stampa a video, per ogni tipo di nave,
+     * il nome, la dimensione in quadrati
+     * e il numero di esemplari da affondare.
+     */
     public static void show() {
         String numOfInstancesWhiteSpace = "       ";
         String nameWhiteSpace = "";
