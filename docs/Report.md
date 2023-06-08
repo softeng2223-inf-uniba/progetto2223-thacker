@@ -167,7 +167,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
   - (RF16.19) `/mostragriglia` : mostra una griglia con le sole navi affondate o in parte colpite.
   - (RF16.20) `/tempo numero`: imposta a numero il numero di minuti a disposizione per giocare.
   - (RF16.21) `/mostratempo` : visualizza il numero di minuti trascorso dall'avvio della partita e il numero di minuti ancora disponibili.
-  - (RF16.22) `ROW-COL` : lancia un colpo in posizione riga ROW e colonna COL.
+  - (RF16.22) `COL-ROW` : lancia un colpo in posizione riga `ROW` e colonna `COL`.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 e UTF-16.
   - (RNF1.1) Per linux e macos si consiglia di utilizzare il terminale di default.
