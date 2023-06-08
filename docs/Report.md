@@ -126,6 +126,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 - (RFx7) Il sistema deve permettere di effettuare un tentativi per colpire una nave.
    - (RFx7.1) Digitando una coppia id caratteri separati da un trattino, corrispondenti rispettivamente al numero di riga e alla lettera della colonna (es: B-4), l'applicazione risponde con "acqua" se sulla cella non è posiziona nessuna nave, risponde con "colpito" se sulla cella è posizionata una nave e risponde "colpito e affondato" se sulla cella è posiziona una nave ed è l'ultima cella non colpita della nave.
    - (RFx7.2) Qualunque sia l'esito del tentativo, l'applicazione deve mostrare la griglia con le navi colpite partizlamente o affondata, il numero di tentativi già effettuati e il tempo trascorso.
+   - (RFx7.3) La partita termina con successo se il tentativo ha affondato l'ultima nave.
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
