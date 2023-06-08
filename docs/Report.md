@@ -129,6 +129,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RFx7.3) La partita termina con successo se il tentativo ha affondato l'ultima nave.
    - (RFx7.4) La parita termina con insuccesso se è stato raggiunto il numero massimo di tentativi falliti o se è scaduto il tempo di gioco.
 - (RFx8) Il sistema deve permettere di mostare la griglia con le navi colpite e affondate.
+   - (RFx8.1) Al comando `/mostragriglia` l'applicazione risponde visualizzando, una griglia con le righe numerate a partire da 1 e le colonen numerate a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate.
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
