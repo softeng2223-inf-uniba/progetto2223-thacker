@@ -1,5 +1,11 @@
 package it.uniba.app.new_design.battleship.controller;
 
+import java.util.LinkedList;
+import java.util.Random;
+
+import it.uniba.app.new_design.battleship.entity.Coordinate;
+import it.uniba.app.new_design.battleship.entity.Grid;
+import it.uniba.app.new_design.battleship.entity.Ship;
 
 
 /**
