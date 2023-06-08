@@ -18,6 +18,11 @@ public final class GameFiller {
 
     private GameFiller() { }
 
+    /**
+     * Javadoc momentaneo.
+     * @param ships
+     * @param grid
+     */
     public static void randomlyFill(final LinkedList<Ship> ships, final Grid grid) {
         for (Ship ship : ships) {
             randomlyInsertShip(ship, grid);
@@ -32,5 +37,20 @@ public final class GameFiller {
         int first = RAND.nextInt(Grid.getSize());
         int sec   = RAND.nextInt(Grid.getSize());
         return new Coordinate(first, sec);
+    }
+
+    private static void randomlyInsertShip(final Ship ship, final Grid grid) {
+        int direction = getRandomDirection();
+
+        Coordinate coord;
+        do {
+            coord = getRandomCoordinates();
+        } while (!isPositionAvailable(coord, direction, ship, grid));
+
+        if (direction == VERTICAL) {
+            insertShipVertical(coord, ship, grid);
+        } else {
+            insertShipHorizontal(coord, ship, grid);
+        }
     }
 }
