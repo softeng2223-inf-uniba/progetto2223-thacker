@@ -6,6 +6,7 @@ import it.uniba.app.game.controllers.DifficultyController;
 import it.uniba.app.game.entities.Difficulty;
 import it.uniba.app.new_design.battleship.entity.Grid;
 import it.uniba.app.new_design.battleship.entity.Ship;
+import it.uniba.app.game.exceptions.DifficultyNotSetException;
 import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 import it.uniba.app.game.exceptions.SessionNotStartedException;
 
@@ -20,6 +21,7 @@ public final class GameController {
     private static final LinkedList<Ship> SHIPS = getShipSet();
 
     private static boolean isSessionStarted = false;
+    private static boolean isDifficultySet = false;
 
     private static Difficulty difficulty = new Difficulty();
     private static Grid grid;
@@ -34,12 +36,14 @@ public final class GameController {
      * @throws SessionAlreadyStartedException
      *      Non è possibile avviare un altra sessione se un'altra è in corso.
      */
-    public static void startSession() throws SessionAlreadyStartedException {
+    public static void startSession() throws SessionAlreadyStartedException, DifficultyNotSetException {
         if (isSessionStarted) {
             throw new SessionAlreadyStartedException();
         }
 
-        DifficultyController.setEasy(difficulty);
+        if (!isDifficultySet) {
+            throw new DifficultyNotSetException();
+        }
 
         grid = new Grid();
         GameFiller.randomlyFill(SHIPS, grid);
@@ -68,6 +72,7 @@ public final class GameController {
         }
 
         DifficultyController.setEasy(difficulty);
+        isDifficultySet = true;
     }
 
     /**
@@ -79,6 +84,7 @@ public final class GameController {
         }
 
         DifficultyController.setMedium(difficulty);
+        isDifficultySet = true;
     }
 
     /**
@@ -90,6 +96,7 @@ public final class GameController {
         }
 
         DifficultyController.setHard(difficulty);
+        isDifficultySet = true;
     }
 
     /**
