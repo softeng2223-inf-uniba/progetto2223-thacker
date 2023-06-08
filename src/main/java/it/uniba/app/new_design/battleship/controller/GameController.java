@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import it.uniba.app.game.controllers.DifficultyController;
 import it.uniba.app.game.entities.Difficulty;
+import it.uniba.app.new_design.battleship.entity.Grid;
 import it.uniba.app.new_design.battleship.entity.Ship;
 import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 import it.uniba.app.game.exceptions.SessionNotStartedException;
@@ -14,6 +15,7 @@ public class GameController {
     private static boolean isSessionStarted = false;
 
     private static Difficulty difficulty = new Difficulty();
+    private static Grid grid;
 
 
     private GameController() { }
@@ -24,6 +26,9 @@ public class GameController {
         }
 
         DifficultyController.setEasy(difficulty);
+        
+        grid = new Grid();
+        GameFiller.randomlyFill(SHIPS, grid);
 
         isSessionStarted = true;
     }
