@@ -9,7 +9,8 @@ import it.uniba.app.new_design.battleship.entity.Ship;
 
 
 /**
- * Javadoc momentaneo.
+ * La classe GameFiller permette di utilizzare il singolo metodo {@code randomlyFill}
+ * per posizionare le navi in maniera randomica all'interno della mappa di gioco.
  */
 public final class GameFiller {
     private static final Random RAND = new Random();
