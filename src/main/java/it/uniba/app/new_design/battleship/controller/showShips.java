@@ -6,6 +6,22 @@ public final class showShips {
 
     private showShips() { }
 
+    /**
+     * Restiituisce una stringa contenente il nome
+     * del tipo di nave specifico con l'aggiunta
+     * di uno spazio, che rende possibile la stampa
+     * allineata e pulita che viene visualizzata
+     * in seguito alla chiamata del comando
+     * {@code /mostranavi}.
+     *
+     * @param nameSpace contiene lo spazio già presente
+     * da concatenare con lo spazio necessario a stampare
+     * correttamente la nave specifica
+     * @param ship contiene il tipo di nave specifico da
+     * valutare.
+     * @return stringa contenente il nome della nave
+     * con l'aggiunta di uno spazio.
+     */
     private static String incrementNameWhiteSpace(final String nameSpace, final Ship ship) {
         if (ship.getName().equals("Cacciatorpediniere")) {
             return nameSpace.concat("  ");
