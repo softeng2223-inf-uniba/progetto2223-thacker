@@ -142,7 +142,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
        - "**acqua**" se sulla cella non è posizionata nessuna nave.
        - "**colpito**" se sulla cella è posizionata una nave non affondata.
        - "**colpito e affondato**" se sulla cella è posizionata una nave ed è l'ultima cella non colpita occupata da essa.
-   - (RF15.2) Qualunque sia l'esito del tentativo, l'applicazione deve mostrare la griglia con le navi colpite partizlamente o affondata, il numero di tentativi già effettuati e il tempo trascorso.
+   - (RF15.2) Qualunque sia l'esito del tentativo, l'applicazione deve mostrare la griglia con le navi colpite parzialmente o affondate, il numero di tentativi già effettuati e il tempo trascorso dall'inizio della partita.
    - (RF15.3) La partita termina con successo se il tentativo ha affondato l'ultima nave.
    - (RF15.4) La parita termina con insuccesso se è stato raggiunto il numero massimo di tentativi falliti o se è scaduto il tempo di gioco.
 - (RF16) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
