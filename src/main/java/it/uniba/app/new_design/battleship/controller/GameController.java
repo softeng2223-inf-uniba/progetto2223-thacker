@@ -11,9 +11,9 @@ import it.uniba.app.game.exceptions.SessionNotStartedException;
 
 /**
  * Control class <hr>
- * 
+ *
  * Fornisce servizi per gestire una sessione di gioco (o partita) di <i>Battleship solitaire</i>.
- * 
+ *
  * TODO espandi.
  */
 public final class GameController {
@@ -33,7 +33,7 @@ public final class GameController {
         }
 
         DifficultyController.setEasy(difficulty);
-        
+
         grid = new Grid();
         GameFiller.randomlyFill(SHIPS, grid);
 
@@ -90,10 +90,10 @@ public final class GameController {
         return difficulty.clone();
     }
 
-    /** 
+    /**
      * Fornisce una copia della griglia di gioco in un determinato istante della sessione in corso.
      * Non è possibile ottenere una griglia prima che una sessione di gioco sia iniziata.
-     * 
+     *
      * Attenzione: Da usare solo per scopi di presentazione,
      * operare sulla copia non influenza il corso della sessione.
      *
