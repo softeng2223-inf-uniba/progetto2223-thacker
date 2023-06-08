@@ -20,9 +20,9 @@ public final class GameFiller {
     private GameFiller() { }
 
     /**
-     * Javadoc momentaneo.
-     * @param ships
-     * @param grid
+     * Inserisce nella mappa delle navi ad una ad una tutte le navi disponibili nel gioco.
+     * @param ships lista di navi da inserire nella mappa.
+     * @param grid mappa su cui inserire le navi.
      */
     public static void randomlyFill(final LinkedList<Ship> ships, final Grid grid) {
         for (Ship ship : ships) {
