@@ -57,6 +57,7 @@ public final class Game {
             GameFiller.randomlyFill(SHIPS, grid);   //TODO cercare di rimuovere questa dipendenza
 
             totAttempts = 0;
+            failedAttempts = 0;
 
             isSessionStarted = true;
         }
