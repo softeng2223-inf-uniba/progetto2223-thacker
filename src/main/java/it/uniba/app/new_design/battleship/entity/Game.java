@@ -13,6 +13,8 @@ import it.uniba.app.new_design.battleship.controller.GameFiller;
 public final class Game {
     private static final LinkedList<Ship> SHIPS = getShipSet();
 
+    private boolean sessionStarted = false;
+
     private Difficulty difficulty;
     private Grid grid;
 
