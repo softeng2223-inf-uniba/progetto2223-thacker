@@ -95,4 +95,18 @@ public final class GameFiller {
             }
             return true;
         }
+
+        private static boolean checkHorizontalPosition(final Coordinate coord, final Ship ship, final Grid grid) {
+            if (isOutOfRange(coord.getCol(), ship)) {
+                return false;
+            }
+
+            for (int i = 0; i < ship.getSize(); i++) {
+                if (!grid.isCellEmpty(coord)) {
+                    return false;
+                }
+                coord.setCol(coord.getCol() + 1);
+            }
+            return true;
+        }
 }
