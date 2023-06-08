@@ -31,9 +31,15 @@ public final class showShips {
 
         String str = "";
         for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
+            StringBuilder b = new StringBuilder();
             Ship ship = new Ship(i);
+            b.append(ship.getName() + nameWhiteSpace);
+
             for (int j = 0; j < ship.getSize(); j++) {
+                b.append(ship);
             }
+
+            b.append(numOfInstancesWhiteSpace + "Esemplari:" + Ship.getMaxInstances(i));
         }
     }
 }
