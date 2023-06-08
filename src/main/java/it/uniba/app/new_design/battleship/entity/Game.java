@@ -3,7 +3,7 @@ package it.uniba.app.new_design.battleship.entity;
 import java.util.LinkedList;
 
 import it.uniba.app.game.entities.Difficulty;
-import it.uniba.app.new_design.battleship.controller.GameFiller;
+import it.uniba.app.new_design.battleship.controller.GridController;
 
 /**
  * Entity class <hr>
@@ -54,7 +54,7 @@ public final class Game {
      */
     public void startSession() {
         grid = new Grid();
-        GameFiller.randomlyFill(SHIPS, grid);   //TODO cercare di rimuovere questa dipendenza
+        GridController.randomlyFill(SHIPS, grid);
 
         totAttempts = 0;
         failedAttempts = 0;
