@@ -12,7 +12,7 @@ import java.util.Arrays;
  * Grid gameGrid = new Grid();
  * </pre><quoteblock></p>
 */
-public class Grid {
+public class Grid implements Cloneable {
     private static final int SIZE = 10;
     private static final String STR_DOT = "\u00B7";
     private static final String STR_WATER   = "~";
