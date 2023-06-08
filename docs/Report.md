@@ -113,6 +113,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 - (RFx2) Il sistema deve peremttere di impostare il numero massimo di tentativi falliti per livello di gioco. In particolare:
    - (RFx2.1) Al comando `/facile numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti.
    - (RFx2.2) Al comando `/medio numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti.
+   - (RFx2.3) Al comando `/difficile numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti. 
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
