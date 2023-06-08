@@ -27,6 +27,10 @@ public final class Game {
         difficulty = new Difficulty();
     }
 
+    public boolean isSessionStarted() {
+        return sessionStarted;
+    }
+
     /**
      * Avvia una nuova sessione di gioco.<hr>
      * Esegue tutte le inizializzazioni necessarie per giocare.
