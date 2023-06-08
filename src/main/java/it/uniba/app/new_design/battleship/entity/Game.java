@@ -30,6 +30,11 @@ public final class Game {
         difficulty = new Difficulty();
     }
 
+    /**
+     * Fornisce lo stato della partita.
+     *
+     * @return true se la sessione è in corso, false altrimenti.
+     */
     public boolean isSessionStarted() {
         return sessionStarted;
     }
