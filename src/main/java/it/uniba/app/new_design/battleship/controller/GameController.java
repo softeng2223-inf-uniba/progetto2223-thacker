@@ -47,6 +47,11 @@ public final class GameController {
         isSessionStarted = true;
     }
 
+    /**
+     * Termina una sessione di gioco in corso.
+     *
+     * @throws SessionNotStartedException Non è possibile terminare una sessione se non è in corso.
+     */
     public static void endSession() throws SessionNotStartedException {
         if (!isSessionStarted) {
             throw new SessionNotStartedException();
