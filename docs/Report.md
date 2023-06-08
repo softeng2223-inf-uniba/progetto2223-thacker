@@ -109,6 +109,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
   - (RF5.3) Se la difficoltà è _DIFFICILE_ il numero di default massimo di tentativi fallibili è 10.
 - (RF6) Il sistema deve permettere di mostrare il livello di difficoltà impostato.
 - (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
+- (RFx1) Il ssitema deve permettere di visualizzare una griglia con le righe numerate a partire da 1 e le colonne numerate a partire da A, con le navi affondate e le sole parti giàcolpite delle navi non affondate.
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
