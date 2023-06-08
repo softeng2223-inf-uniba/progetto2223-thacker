@@ -21,7 +21,7 @@ public final class Game {
 
     private int totAttempts;
     private int failedAttempts;
-    
+
 
     /** Istanzia un oggetto della classe Game. */
     public Game() {
@@ -104,7 +104,7 @@ public final class Game {
     /**
      * Fornisce il numero di tentativi effettuati fino ad un dato istante
      * durante una sessione di gioco.
-     * 
+     *
      * @return tentativi totali nell'istante corrente
      */
     public int getAttempts() {
@@ -113,7 +113,7 @@ public final class Game {
 
     /**
      * Fornisce il numero di tentativi falliti fino ad un certo istante di una sessione di gioco.
-     * 
+     *
      * @return tentativi falliti all'istante corrente
      */
     public int getFailedAttempts() {
