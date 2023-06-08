@@ -1,7 +1,6 @@
 package it.uniba.app.new_design.battleship.entity;
 
 import java.util.LinkedList;
-import java.util.function.BiPredicate;
 
 import it.uniba.app.game.entities.Difficulty;
 import it.uniba.app.new_design.battleship.controller.GameFiller;
