@@ -125,8 +125,10 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RF8.1) Al comando `/standard` l'applicazione risponde con "OK" e imposta 10x10 la dimensione della griglia. Nel caso in cui il giocatore decide di avviare la partita senza impostre la griglia, per default verrà scelto il caso standard (10x10).
    - (RF8.2) Al comando `/large` l'applicazione risponde con "OK" e imposta a 18x18 la dimensione della griglia.
    - (RF8.3) Al comando `/extralarge` l'applicazione risponde con "OK" e imposta a 26x25 la dimensione della griglia.
-- (RF9) il sistema deve permettere di mostrare i tipi di nave e il numero.
+- (RF9) Il sistema deve permettere di mostrare i tipi di nave e il numero.
    - (RF9.1) Al comando `/mostranavi` l'applicazione risponde visualizzando, per ogni tipo di nave, la dimensione e il numero di esemplari da affondare.
+- (RF10) Il sistema deve peremttere di svelare la griglia con le navi posizionate.
+   - (RF10.1) Al comando `/svelagriglia` l'applicazione risponde visualizzando la griglia, con le righe numerate in numeri e le colonne in lettere, e tutte le navi posizionate.
 - (RFx5) Il sistema deve permettere di impostare il tempo di gioco. In particolare:
    - (RFx5.1) Al comando `/tempo numero` l'applicazione rsiponde con "OK" e imposta a numero il numero di minuti a disposizione per giocare.
 - (RFx6) Il sistema al comando `/mostratempo` deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
