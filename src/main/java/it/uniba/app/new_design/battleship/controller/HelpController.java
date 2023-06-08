@@ -15,6 +15,12 @@ public final class HelpController{
                     + "/mostranavi \n"
                     + "/esci";
     private HelpController(){}
+    /**
+     * Il metodo esegue il codice del comando /help.
+     * Stampa una breve descrizione
+     * che contiene i comandi di gioco in stile
+     * "macchina da scrivere".
+     */
     public static void showHelp() {
         for (int i = 0; i < TEXT.length(); i++) {
             System.out.print(String.valueOf(TEXT.charAt(i)));
