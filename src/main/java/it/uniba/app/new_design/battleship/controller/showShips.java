@@ -19,6 +19,14 @@ public final class showShips {
         return nameSpace;
     }
 
+    /**
+     * Restituisce lo spazio decrementato necessario
+     * per stampare in maniera allineata il numero di
+     * {@code esemplari} di ciascuna nave.
+     *
+     * @param space contiene lo spazio da sottrarre.
+     * @return stringa con meno spazio bianco.
+     */
     private static String decrementNumberOfInstancesWhiteSpace(final String space) {
         int strDim = space.length() - 1;
         String subStr = space.substring(0, strDim);
