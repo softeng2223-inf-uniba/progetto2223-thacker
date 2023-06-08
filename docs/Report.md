@@ -99,7 +99,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (3) Requisiti Specifici
 ### (3.1) Requisiti funzionali
-- (RF1) Il sistema deve permette di iniziare una nuova partita.
+- (RF1) Il sistema deve permettere di iniziare una nuova partita.
   - (RF1.1) Al comando `/gioca` se nessuna partita è in corso l'applicazione imposta casualmente le navi, mostra la griglia vuota e si predispone a ricevere il primo tentativo o altri comandi.
 - (RF2) Il sistema deve permettere di chiudere il gioco.
   - (RF1.2) Al comando `/esci` l'applicazione chiede conferma. Se la conferma è positiva, l'applicazione si chiude resitutendo il controllo al sistema operativo altrimenti si predispone a ricevere nuovi tentativi o comandi.
