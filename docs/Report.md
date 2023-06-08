@@ -120,6 +120,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RFx4.1) Al comando `/standard` l'applicazione risponde con "OK" e imposta 10x10 la dimensione della griglia. Nel caso in cui il giocatore decide di avviare l'applicazione senza impostre la griglia, per default verrà scelto il caso standard.
    - (RFx4.2) Al comando `/large` l'applicazione risponde con "OK" e imposta a 18x18 la dimensione della griglia.
    - (RFx4.3) Al comando `/extralarge` l'applicazione risponde con "OK" e imposta a 26x25 la dimensione della griglia.
+- (RFx5) Il sistema deve permettere di impostare il tempo di gioco. In particolare:
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
