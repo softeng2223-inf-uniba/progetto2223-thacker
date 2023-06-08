@@ -44,6 +44,13 @@ public final class GameFiller {
         return (Grid.getSize() - axis) < ship.getSize();
     }
 
+    /**
+     * Posiziona una singola nave in modo randomico all'interno della mappa.
+     * Sia l'orientamento della nave che le coordinate vengono generate
+     * randomicamente, dopodiché la nave viene posizionata secondo l'orientamento
+     * e le coordinate generate.
+     * @param ship nave da inserire in posizione randomica.
+    */
     private static void randomlyInsertShip(final Ship ship, final Grid grid) {
         int direction = getRandomDirection();
 
