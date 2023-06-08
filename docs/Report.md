@@ -99,18 +99,17 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (3) Requisiti Specifici
 ### (3.1) Requisiti funzionali
-- (RF1) Il sistema deve permette di iniziare una nuova partita con il comando `/gioca`.
+- (RF1) Il sistema deve permette di iniziare una nuova partita.
   - (RF1.1) Al comando `/gioca` se nessuna partita è in corso l'applicazione imposta casualmente le navi, mostra la griglia vuota e si predispone a ricevere il primo tentativo o altri comandi.
-- (RF2) Il sistema deve permettere di chiudere il gioco con il comando `/esci`.
+- (RF2) Il sistema deve permettere di chiudere il gioco.
   - (RF1.2) Al comando `/esci` l'applicazione chiede conferma. Se la conferma è positiva, l'applicazione si chiude resitutendo il controllo al sistema operativo altrimenti si predispone a ricevere nuovi tentativi o comandi.
 - (RF3) Il sistema deve permettere al giocatore di abbandonare una partita in corso.
    - (RF3.1) Al comando `/abbandona` l'applicazione chiede conferma. Se la conferma e è positiva, l'applicazione risponde visualizzando sulla griglia la posizione di tutte le navi e si predispone a ricevere nuovi comando, altrimenti si predispone a ricevere nuovi tentativi o comandi.
 - (RF3) Il sistema deve permettere di impostare la difficoltà di gioco tra _FACILE_, _MEDIO_ e _DIFFICILE_. 
 - (RF4) Il sistema, in base alla difficoltà impostata deve impostare il numero massimo di tentativi fallibili.
-- (RF5) Il sistema imposta i tentativi fallibili nel seguente modo:
-  - (RF5.1) Se la difficoltà è _FACILE_ il numero di default massimo di tentativi fallibili è 50.
-  - (RF5.2) Se la difficoltà è _MEDIO_ il numero di default massimo di tentativi fallibili è 30.
-  - (RF5.3) Se la difficoltà è _DIFFICILE_ il numero di default massimo di tentativi fallibili è 10.
+  - (RF4.1) Se la difficoltà è _FACILE_ il numero di default massimo di tentativi fallibili è 50.
+  - (RF4.2) Se la difficoltà è _MEDIO_ il numero di default massimo di tentativi fallibili è 30.
+  - (RF4.3) Se la difficoltà è _DIFFICILE_ il numero di default massimo di tentativi fallibili è 10.
 - (RF6) Il sistema deve permettere di mostrare il livello di difficoltà impostato.
 - (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
 - (RFx1) Il ssitema deve permettere di visualizzare una griglia con le righe numerate a partire da 1 e le colonne numerate a partire da A, con le navi affondate e le sole parti giàcolpite delle navi non affondate.
