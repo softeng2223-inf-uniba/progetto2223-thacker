@@ -28,4 +28,9 @@ public final class GameFiller {
         return RAND.nextInt(POSSIBLE_DIRECTIONS);
     }
 
+    private static Coordinate getRandomCoordinates() {
+        int first = RAND.nextInt(Grid.getSize());
+        int sec   = RAND.nextInt(Grid.getSize());
+        return new Coordinate(first, sec);
+    }
 }
