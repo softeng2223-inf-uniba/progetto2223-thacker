@@ -119,8 +119,10 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RF5.3) Al comando `/difficile numero` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti per DIFFICILE. 
 - (RF6) Il sistema deve permettere di impostare direttamente il numero massimo di tentativi bypassando le difficoltà disponibili.
    - (RF6.1) Al comando `/tentativi numero` l'appliczione risponde con "OK" e imposta a numero il numero massimo di tentativi falliti.
+- (RF7) Il sistema deve permettere di mostrare il livello di difficoltà in uso e il numero massimo di tentativi falliti.
+   - (RF7.1) Al comando `/mostralivello` l'applicazione risponde visualizzando il livello di difficoltà in uso e il numero massimo di tentativi falliti.
 - (RFx) Il sistema deve permettere di mostrare il livello di difficoltà impostato.
-- (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
+- (RFy) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
 - (RFx1) Il ssitema deve permettere di visualizzare una griglia con le righe numerate a partire da 1 e le colonne numerate a partire da A, con le navi affondate e le sole parti giàcolpite delle navi non affondate.
 
 - (RFx4) Il ssitema deve permettere di impostare la taglia della griglia. In particolare:
