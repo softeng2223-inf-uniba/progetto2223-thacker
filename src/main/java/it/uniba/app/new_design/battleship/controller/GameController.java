@@ -6,6 +6,8 @@ import it.uniba.app.game.exceptions.SessionNotStartedException;
 public class GameController {
     private static boolean isSessionStarted = false;
 
+    private GameController() { }
+
     public static void startSession() throws SessionAlreadyStartedException {
         if (isSessionStarted) {
             throw new SessionAlreadyStartedException();
