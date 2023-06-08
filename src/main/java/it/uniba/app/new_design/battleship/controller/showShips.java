@@ -24,4 +24,16 @@ public final class showShips {
         String subStr = space.substring(0, strDim);
         return subStr;
     }
+
+    public static void show() {
+        String numOfInstancesWhiteSpace = "       ";
+        String nameWhiteSpace = "";
+
+        String str = "";
+        for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
+            Ship ship = new Ship(i);
+            for (int j = 0; j < ship.getSize(); j++) {
+            }
+        }
+    }
 }
