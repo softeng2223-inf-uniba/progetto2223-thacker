@@ -18,4 +18,10 @@ public final class showShips {
         }
         return nameSpace;
     }
+
+    private static String decrementNumberOfInstancesWhiteSpace(final String space) {
+        int strDim = space.length() - 1;
+        String subStr = space.substring(0, strDim);
+        return subStr;
+    }
 }
