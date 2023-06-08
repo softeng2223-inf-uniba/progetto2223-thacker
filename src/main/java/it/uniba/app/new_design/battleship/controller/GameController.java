@@ -16,7 +16,7 @@ import it.uniba.app.game.exceptions.SessionNotStartedException;
  * 
  * TODO espandi.
  */
-public class GameController {
+public final class GameController {
     private static final LinkedList<Ship> SHIPS = getShipSet();
 
     private static boolean isSessionStarted = false;
