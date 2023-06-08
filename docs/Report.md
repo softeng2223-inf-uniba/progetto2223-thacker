@@ -103,6 +103,8 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
   - (RF1.1) Al comando `/gioca` se nessuna partita è in corso l'applicazione imposta casualmente le navi, mostra la griglia vuota e si predispone a ricevere il primo tentativo o altri comandi.
 - (RF2) Il sistema deve permettere di chiudere il gioco con il comando `/esci`.
   - (RF1.2) Al comando `/esci` l'applicazione chiede conferma. Se la conferma è positiva, l'applicazione si chiude resitutendo il controllo al sistema operativo altrimenti si predispone a ricevere nuovi tentativi o comandi.
+- (RF3) Il sistema deve permettere al giocatore di abbandonare una partita in corso.
+   - (RF3.1) Al comando `/abbandona` l'applicazione chiede conferma. Se la conferma e è positiva, l'applicazione risponde visualizzando sulla griglia la posizione di tutte le navi e si predispone a ricevere nuovi comando, altrimenti si predispone a ricevere nuovi tentativi o comandi.
 - (RF3) Il sistema deve permettere di impostare la difficoltà di gioco tra _FACILE_, _MEDIO_ e _DIFFICILE_. 
 - (RF4) Il sistema, in base alla difficoltà impostata deve impostare il numero massimo di tentativi fallibili.
 - (RF5) Il sistema imposta i tentativi fallibili nel seguente modo:
@@ -134,8 +136,6 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RFx8.1) Al comando `/mostragriglia` l'applicazione risponde visualizzando, una griglia con le righe numerate a partire da 1 e le colonen numerate a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate.
 - (RFx9) Il sistema deve permetter di mostrare il numero di tentativi già effettuati e il numero di tentativi falliti.
    - (RFx9.1) Al comando `/mostratentativi` l'applicazione risponde visualizzando il numero di tentativi già effettuati, il numero di tentativi falliti e il numero massimo di tentativi falliti.
-- (RFx10) Il sistema deve permettere al giocatore di abbandonare una partita in corso.
-   - (RFx10.1) Al comando `/abbandona` l'applicazione chiede la conferma e se è positiva, l'applicazione risponde visualizzando sulla griglia la posizione di tutte le navi e si predispone a ricevere nuovi comando, altrimenti se la conferma è negativa l'applicazione si predispone a ricevere nuovi tentativi o comandi.
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
