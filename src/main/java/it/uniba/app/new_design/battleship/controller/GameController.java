@@ -28,4 +28,8 @@ public class GameController {
         }
         isSessionStarted = false;
     }
+
+    public static Difficulty getDifficulty() throws CloneNotSupportedException {
+        return difficulty.clone();
+    }
 }
