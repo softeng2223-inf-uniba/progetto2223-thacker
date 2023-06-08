@@ -123,6 +123,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 - (RFx5) Il sistema deve permettere di impostare il tempo di gioco. In particolare:
    - (RFx5.1) Al comando `/tempo numero` l'applicazione rsiponde con "OK" e imposta a numero il numero di minuti a disposizione per giocare.
 - (RFx6) Il sistema al comando `/mostratempo` deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
+- (RFx7) Il sistema deve permettere di effettuare un tentativi per colpire una nave.
 - (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
 - (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
   - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
