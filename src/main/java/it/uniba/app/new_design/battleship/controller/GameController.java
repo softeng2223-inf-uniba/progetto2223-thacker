@@ -17,9 +17,6 @@ import it.uniba.app.game.exceptions.SessionNotStartedException;
  */
 public final class GameController {
 
-    private static boolean isSessionStarted = false;
-    private static boolean isDifficultySet = false;
-
     private GameController() { }
 
     /**
@@ -33,16 +30,15 @@ public final class GameController {
      */
     public static void startSession(Game game)
         throws SessionAlreadyStartedException, DifficultyNotSetException {
-            if (isSessionStarted) {
+            if (game.isSessionStarted()) {
                 throw new SessionAlreadyStartedException();
             }
 
-            if (!isDifficultySet) {
+            if (!game.isDifficultySet()) {
                 throw new DifficultyNotSetException();
             }
 
             game.startSession();
-            isSessionStarted = true;
         }
 
     /**
@@ -51,17 +47,17 @@ public final class GameController {
      * @throws SessionNotStartedException Non è possibile terminare una sessione se non è in corso.
      */
     public static void endSession(Game game) throws SessionNotStartedException {
-        if (!isSessionStarted) {
+        if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
-        isSessionStarted = false;
+        game.endSession();
     }
 
     /**
      * Imposta la difficoltà ad Easy.
      */
     public static void setEasyDifficulty(Game game) throws SessionAlreadyStartedException {
-        if (isSessionStarted) {
+        if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
@@ -70,15 +66,13 @@ public final class GameController {
         try {
             game.setDifficulty(diff);
         } catch (CloneNotSupportedException e) { }
-
-        isDifficultySet = true;
     }
 
     /**
      * Imposta la difficoltà a Medium.
      */
     public static void setMediumDifficulty(Game game) throws SessionAlreadyStartedException {
-        if (isSessionStarted) {
+        if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
@@ -87,15 +81,13 @@ public final class GameController {
         try {
             game.setDifficulty(diff);
         } catch (CloneNotSupportedException e) { }
-
-        isDifficultySet = true;
     }
 
     /**
      * Imposta la difficoltà a Hard.
      */
     public static void setHardDifficulty(Game game) throws SessionAlreadyStartedException {
-        if (isSessionStarted) {
+        if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
@@ -104,8 +96,6 @@ public final class GameController {
         try {
             game.setDifficulty(diff);
         } catch (CloneNotSupportedException e) { }
-
-        isDifficultySet = true;
     }
 
     /**
@@ -129,7 +119,7 @@ public final class GameController {
      * @throws SessionNotStartedException
      */
     static Grid getSessionGrid(Game game) throws SessionNotStartedException {
-        if (!isSessionStarted) {
+        if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
         return game.getSessionGrid();
