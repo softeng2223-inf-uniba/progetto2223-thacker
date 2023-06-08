@@ -168,6 +168,22 @@ public final class GameFiller {
             return true;
         }
 
+    /**
+     * Controlla se una nave può essere inserita in orizzontale.
+     * Chiama il metodo privato {@code isOutOfRange} per controllare
+     * se c'è prima di tutto un numero sufficiente di celle disponibili,
+     * se non ci sono, il metodo termina immediatamente l'esecuzione restituendo
+     * {@code false}, altrimenti controlla che ogni singola cella all'interno della
+     * mappa a partire dalla coordinata specificata non contenga già una nave al suo
+     * interno ed aumentando di 1 il valore della colonna della coordinata fino a che
+     * non si raggiunge la dimensione della nave. Se durante il ciclo sulle celle
+     * viene trovata una cella già occupato da una nave, restituisce {@code false}.
+     * @param coord coordinata da cui iniziare a controllare la disponibilità di spazio nella mappa
+     * per l'inserimento della nave.
+     * @param ship nave da inserire in orizzontale nella mappa.
+     * @return restituisce {@code true} se c'è abbastanza spazio nella mappa per ospitare
+     * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
+     */
         private static boolean checkHorizontalPosition(final Coordinate coord, final Ship ship, final Grid grid) {
             if (isOutOfRange(coord.getCol(), ship)) {
                 return false;
