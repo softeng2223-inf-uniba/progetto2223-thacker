@@ -30,6 +30,12 @@ public final class GameFiller {
         }
     }
 
+    /**
+     * Genera un {@code int} compreso tra {@code 0} ed {@code 1} che corrisponde all'orientamento.
+     * della nave. 0 indica un orientamento verticale; 1 indica un orientamento
+     * orizzontale.
+     * @return un intero compreso tra {@code 0} ed {@code 1} generato randomicamente.
+     */
     private static int getRandomDirection() {
         return RAND.nextInt(POSSIBLE_DIRECTIONS);
     }
