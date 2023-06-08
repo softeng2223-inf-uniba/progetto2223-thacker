@@ -99,7 +99,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (3) Requisiti Specifici
 ### (3.1) Requisiti funzionali
-- (RF1) Il sistema deve permettere di creare una nuova partita.
+- (RF1) Il sistema deve permette di iniziare una nuova partita con il comando `/gioca`.
 - (RF2) Il sistema deve permettere di chiudere l'applicazione.
 - (RF3) Il sistema deve permettere di impostare la difficoltà di gioco tra _FACILE_, _MEDIO_ e _DIFFICILE_. 
 - (RF4) Il sistema, in base alla difficoltà impostata deve impostare il numero massimo di tentativi fallibili.
