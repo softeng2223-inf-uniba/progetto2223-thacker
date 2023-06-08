@@ -11,9 +11,9 @@ import it.uniba.app.new_design.battleship.entity.Ship;
  * implementati in ciascuna sottoclasse di {@code Ship}
  * relativi alla stampa delle informazioni di ciascuna nave.
 */
-public final class showShips {
+public final class ShowShips {
 
-    private showShips() { }
+    private ShowShips() { }
 
     /**
      * Restiituisce una stringa contenente il nome
