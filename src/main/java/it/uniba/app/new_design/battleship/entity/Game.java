@@ -51,6 +51,7 @@ public final class Game {
         sessionStarted = true;
     }
 
+    /** Termina una sessione di gioca. */
     public void endSession() {
         sessionStarted = false;
     }
