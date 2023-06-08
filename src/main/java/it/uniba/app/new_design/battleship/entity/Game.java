@@ -15,6 +15,7 @@ public final class Game {
     private static final LinkedList<Ship> SHIPS = getShipSet();
 
     private boolean sessionStarted;
+    private boolean diffSet;
 
     private Difficulty difficulty;
     private Grid grid;
@@ -25,12 +26,17 @@ public final class Game {
 
     /** Istanzia un oggetto della classe Game. */
     public Game() {
-        difficulty = new Difficulty();
         sessionStarted = false;
+        diffSet = false;
+        difficulty = new Difficulty();
     }
 
     public boolean isSessionStarted() {
         return sessionStarted;
+    }
+
+    public boolean isDifficultySet() {
+        return diffSet;
     }
 
     /**
