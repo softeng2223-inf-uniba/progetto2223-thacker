@@ -99,27 +99,75 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (3) Requisiti Specifici
 ### (3.1) Requisiti funzionali
-- (RF1) Il sistema deve permettere di creare una nuova partita.
-- (RF2) Il sistema deve permettere di chiudere l'applicazione.
-- (RF3) Il sistema deve permettere di impostare la difficoltà di gioco tra _FACILE_, _MEDIO_ e _DIFFICILE_. 
+- (RF1) Il sistema deve permettere di iniziare una nuova partita.
+  - (RF1.1) Al comando `/gioca` se nessuna partita è in corso l'applicazione imposta casualmente le navi, mostra la griglia vuota e si predispone a ricevere il primo tentativo o altri comandi.
+- (RF2) Il sistema deve permettere di chiudere il gioco.
+  - (RF1.2) Al comando `/esci` l'applicazione chiede conferma. Se la conferma è positiva, l'applicazione si chiude resitutendo il controllo al sistema operativo altrimenti si predispone a ricevere nuovi tentativi o comandi.
+- (RF3) Il sistema deve permettere al giocatore di abbandonare una partita in corso.
+   - (RF3.1) Al comando `/abbandona` l'applicazione chiede conferma. Se la conferma e è positiva, l'applicazione risponde visualizzando sulla griglia la posizione di tutte le navi e si predispone a ricevere nuovi comandi, altrimenti si predispone a ricevere nuovi tentativi o comandi.
+- (RF3) Il sistema deve permettere di impostare, prima dell'avvio della partita, la difficoltà di gioco tra _FACILE_, _MEDIO_ e _DIFFICILE_. 
+  - (RF3.1) Al comando `/facile` l'applicazione risponde con "OK" e imposta la difficoltà a FACILE.
+  - (RF3.2) Al comando `/medio` l'applicazione risponde con "OK" e imposta la difficoltà a MEDIO.
+  - (RF3.3) Al comando `/difficile` l'applicazione risponde con "OK" e imposta la difficoltà a DIFFICILE.
 - (RF4) Il sistema, in base alla difficoltà impostata deve impostare il numero massimo di tentativi fallibili.
-- (RF5) Il sistema imposta i tentativi fallibili nel seguente modo:
-  - (RF5.1) Se la difficoltà è _FACILE_ il numero massimo di tentativi fallibili è 50.
-  - (RF5.2) Se la difficoltà è _MEDIO_ il numero massimo di tentativi fallibili è 30.
-  - (RF5.3) Se la difficoltà è _DIFFICILE_ il numero massimo di tentativi fallibili è 10.
-- (RF6) Il sistema deve permettere di mostrare il livello di difficoltà impostato.
-- (RF7) Il sistema deve permettere di svelare le posizioni delle navi nella griglia della partita in corso
-- (RF8) Il sistema deve permettere di mostrare i tipi di navi presenti nel gioco, specificandone il numero di esemplari possibili.
-- (RF9) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
-  - (RF9.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
-  - (RF9.2) `/gioca`: avvia una nuova partita.
-  - (RF9.3) `/esci`: chiude l'applicazione.
-  - (RF9.4) `/facile`: imposta la difficoltà di gioco a _FACILE_.
-  - (RF9.5) `/medio`: imposta la difficoltà di gioco a _MEDIO_.
-  - (RF9.6) `/difficile`: imposta la difficoltà di gioco a _DIFFICILE_.
-  - (RF9.7) `/mostranavi`: visualizza per ogni tipo di nave il nome, la dimensione in quadratini e il numero di esemplari da affondare.
-  - (RF9.8) `/mostralivello`: visualizza il livello di difficoltà impostato e il numero massimo di tentativi fallibili.
-  - (RF9.9) `/svelagriglia`: svela la posizione delle navi nella griglia della partita in corso.
+  - (RF4.1) Se la difficoltà è _FACILE_ il numero di default massimo di tentativi fallibili è 50.
+  - (RF4.2) Se la difficoltà è _MEDIO_ il numero di default massimo di tentativi fallibili è 30.
+  - (RF4.3) Se la difficoltà è _DIFFICILE_ il numero di default massimo di tentativi fallibili è 10.
+- (RF5) Il sistema deve peremttere di impostare, prima dell'avvio della partita, il numero massimo di tentativi falliti per ogni difficoltà. 
+   - (RF5.1) Al comando `/facile <numero>` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi fallibili per FACILE.
+   - (RF5.2) Al comando `/medio <numero>` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi fallibili per MEDIO.
+   - (RF5.3) Al comando `/difficile <numero>` l'applicazione risponde con "OK" e imposta a numero il numero massimo di tentativi fallibili per DIFFICILE. 
+- (RF6) Il sistema deve permettere, prima dell'avvio della partita, di impostare direttamente il numero massimo di tentativi bypassando le difficoltà disponibili.
+   - (RF6.1) Al comando `/tentativi <numero>` l'appliczione risponde con "OK" e imposta a numero il numero massimo di tentativi fallibili.
+- (RF7) Il sistema deve permetter di mostrare il numero di tentativi già effettuati e il numero di tentativi falliti.
+   - (RF7) Al comando `/mostratentativi` l'applicazione risponde visualizzando il numero di tentativi già effettuati, il numero di tentativi falliti e il numero massimo di tentativi falliti.
+- (RF8) Il sistema deve permettere di mostrare il livello di difficoltà in uso e il numero massimo di tentativi falliti.
+   - (RF8.1) Al comando `/mostralivello` l'applicazione risponde visualizzando il livello di difficoltà in uso e il numero massimo di tentativi falliti.
+- (RF9) Il sistema deve permettere di impostare, prima dell'avvio del gioco, la taglia della griglia. In particolare:
+   - (RF9.1) Al comando `/standard` l'applicazione risponde con "OK" e imposta 10x10 la dimensione della griglia. Nel caso in cui il giocatore decide di avviare la partita senza impostre la griglia, per default verrà scelto il caso standard (10x10).
+   - (RF9.2) Al comando `/large` l'applicazione risponde con "OK" e imposta a 18x18 la dimensione della griglia.
+   - (RF9.3) Al comando `/extralarge` l'applicazione risponde con "OK" e imposta a 26x26 la dimensione della griglia.
+- (RF10) Il sistema deve permettere di mostrare i tipi di nave e il numero.
+   - (RF10.1) Al comando `/mostranavi` l'applicazione risponde visualizzando, per ogni tipo di nave, la dimensione e il numero di esemplari da affondare.
+- (RF11) Il sistema deve peremttere di svelare la griglia con le navi posizionate.
+   - (RF11.1) Al comando `/svelagriglia` l'applicazione risponde visualizzando la griglia, con le righe numerate in numeri e le colonne in lettere, e tutte le navi posizionate.
+- (RF12) Il sistema deve permettere di mostare la griglia con le navi colpite e affondate.
+   - (RF12.1) Al comando `/mostragriglia` l'applicazione risponde visualizzando, una griglia con le righe numerate a partire da 1 e le colonen numerate a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate.
+- (RF13) Il sistema deve permettere di impostare, prima dell'avvio della partita, il tempo di gioco. In particolare:
+   - (RF13.1) Al comando `/tempo numero` l'applicazione risponde con "OK" e imposta a numero il numero di minuti a disposizione per giocare.
+- (RF14) Il sistema deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
+  - (RF14.1) Al comando `/mostratempo` l'applicazione risponde visualizzando il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
+- (RF15) Il sistema deve permettere di effettuare un tentativi per colpire una nave.
+   - (RF15.1) Digitando una coppia di caratteri separati da un trattino, corrispondenti rispettivamente  alla _lettera della colonna_ e al _numero di riga_ (es: `B-4`), l'applicazione risponde con
+       - "**acqua**" se sulla cella non è posizionata nessuna nave.
+       - "**colpito**" se sulla cella è posizionata una nave non affondata.
+       - "**colpito e affondato**" se sulla cella è posizionata una nave ed è l'ultima cella non colpita occupata da essa.
+   - (RF15.2) Qualunque sia l'esito del tentativo, l'applicazione deve mostrare la griglia con le navi colpite parzialmente o affondate, il numero di tentativi già effettuati e il tempo trascorso dall'inizio della partita.
+   - (RF15.3) La partita termina con successo se il tentativo ha affondato l'ultima nave.
+   - (RF15.4) La parita termina con insuccesso se è stato raggiunto il numero massimo di tentativi falliti o se è scaduto il tempo di gioco.
+- (RF16) Il sistema deve permettere di elencare i comandi leciti per interagire con esso. I comandi del gioco sono:
+  - (RF16.1) `/help`: mostra l'elenco dei comandi leciti. Il sistema deve mostrare l'elenco dei comandi leciti.
+  - (RF16.2) `/gioca`: avvia una nuova partita.
+  - (RF16.3) `/esci`: chiude l'applicazione.
+  - (RF16.4) `/abbandona` : esce dala partita in corso.
+  - (RF16.5) `/facile`: imposta la difficoltà di gioco a _FACILE_.
+  - (RF16.6) `/medio`: imposta la difficoltà di gioco a _MEDIO_.
+  - (RF16.7) `/difficile`: imposta la difficoltà di gioco a _DIFFICILE_.
+  - (RF16.8) `/facile numero` : imposta a numero il numero massimo di tentativi fallibili per _FACILE_.
+  - (RF16.9) `/medio numero` : imposta a numero il numero massimo di tentativi fallibili per _MEDIO_.
+  - (RF16.10) `/difficile numero` : imposta a numero il numero massimo di tentativi fallibili per _DIFFICILE_.
+  - (RF16.11) `/tentativi numero` : imposta a numero il numero di tentativi fallibili.
+  - (RF16.12) `/mostratentativi` : visualizza il numero di tentativi già effettuati, quelli falliti e il numero massimo di quelli fallibili.
+  - (RF16.13) `/mostralivello` : visualizza il livello di difficoltà selezionato e il numero massimo di tentativili falliti.
+  - (RF16.14) `/standard` : imposta la griglia a **10x10**.
+  - (RF16.15) `/large` : imposta la griglia a **18x18**.
+  - (RF16.16) `/extralarge` : imposta la griglia a **26x26**.
+  - (RF16.17) `/mostranavi`: visualizza per ogni tipo di nave il nome, la dimensione in quadratini e il numero di esemplari da affondare.
+  - (RF16.18) `/svelagriglia`: svela la posizione delle navi nella griglia della partita in corso.
+  - (RF16.19) `/mostragriglia` : mostra una griglia con le sole navi affondate o in parte colpite.
+  - (RF16.20) `/tempo numero`: imposta a numero il numero di minuti a disposizione per giocare.
+  - (RF16.21) `/mostratempo` : visualizza il numero di minuti trascorso dall'avvio della partita e il numero di minuti ancora disponibili.
+  - (RF16.22) `COL-ROW` : lancia un colpo in posizione riga `ROW` e colonna `COL`.
 ### (3.2) Requisiti non funzionali
 - (RNF1) Il container docker dell'app deve essere eseguito da terminali che supportano Unicode con encoding UTF-8 e UTF-16.
   - (RNF1.1) Per linux e macos si consiglia di utilizzare il terminale di default.
