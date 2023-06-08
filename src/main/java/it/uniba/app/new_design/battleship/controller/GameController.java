@@ -27,6 +27,13 @@ public final class GameController {
 
     private GameController() { }
 
+    /**
+     * Avvia una nuova sessione di gioco.<hr>
+     * Esegue tutte le inizializzazioni necessarie per giocare.
+     *
+     * @throws SessionAlreadyStartedException
+     *      Non è possibile avviare un altra sessione se un'altra è in corso.
+     */
     public static void startSession() throws SessionAlreadyStartedException {
         if (isSessionStarted) {
             throw new SessionAlreadyStartedException();
