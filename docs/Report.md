@@ -135,7 +135,8 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
    - (RF12.1) Al comando `/mostragriglia` l'applicazione risponde visualizzando, una griglia con le righe numerate a partire da 1 e le colonen numerate a partire da A, con le navi affondate e le sole parti già colpite delle navi non affondate.
 - (RF13) Il sistema deve permettere di impostare il tempo di gioco. In particolare:
    - (RF13.1) Al comando `/tempo numero` l'applicazione rsiponde con "OK" e imposta a numero il numero di minuti a disposizione per giocare.
-- (RFx6) Il sistema al comando `/mostratempo` deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
+- (RF14) Il sistema deve permettere di mostrare il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
+  - (RF14.1) Al comando `/mostratempo` l'applicazione risponde visualizzando il numero di minuti trascorsi nel gioco e il numero di minuti ancora disponibili.
 - (RFx7) Il sistema deve permettere di effettuare un tentativi per colpire una nave.
    - (RFx7.1) Digitando una coppia id caratteri separati da un trattino, corrispondenti rispettivamente al numero di riga e alla lettera della colonna (es: B-4), l'applicazione risponde con "acqua" se sulla cella non è posiziona nessuna nave, risponde con "colpito" se sulla cella è posizionata una nave e risponde "colpito e affondato" se sulla cella è posiziona una nave ed è l'ultima cella non colpita della nave.
    - (RFx7.2) Qualunque sia l'esito del tentativo, l'applicazione deve mostrare la griglia con le navi colpite partizlamente o affondata, il numero di tentativi già effettuati e il tempo trascorso.
