@@ -67,4 +67,14 @@ public final class GameFiller {
             coord.setCol(coord.getCol() + 1);
         }
     }
+
+    private static boolean isPositionAvailable(final Coordinate coord,
+        final int direction, final Ship ship, final Grid grid) {
+            Coordinate temp = (Coordinate) coord.clone();
+
+            if (direction == VERTICAL) {
+                return checkVerticalPosition(temp, ship, grid);
+            }
+            return checkHorizontalPosition(temp, ship, grid);
+        }
 }
