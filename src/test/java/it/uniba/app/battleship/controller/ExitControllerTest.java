@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 /**
  *  Test suite per la classe ExitController
  */
-public class ExitControllerTest {
+class ExitControllerTest {
     /**
      *   Verifica il corretto funzionamento del
      *   metodo requestExit() della classe ExitController.
@@ -13,6 +13,6 @@ public class ExitControllerTest {
     @Test
     void testRequestExit() {
         ExitController.requestExit();
-        assertTrue(ExitController.isExitRequested());
+        assertTrue(ExitController.isExitRequested(), "ExitController.requestExit() non funziona correttamente");
     }
 }
