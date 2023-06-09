@@ -11,7 +11,7 @@ public final class CommandHandler {
 
     private CommandHandler() { }
 
-    public void execute(Game game) {
+    public void execute(final Game game) {
         try {
             String command = Input.get().toLowerCase();
             switch (command) {
