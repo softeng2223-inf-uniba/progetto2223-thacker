@@ -10,7 +10,6 @@ import it.uniba.app.game.exceptions.SessionNotStartedException;
 import it.uniba.app.new_design.battleship.entity.Game;
 import it.uniba.app.new_design.battleship.entity.Grid;
 import it.uniba.app.utility.Input;
-import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 
 public final class CommandHandler {
 
