@@ -5,7 +5,7 @@ import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
-import it.uniba.app.new_design.battleship.entity.Grid;
+import it.uniba.app.battleship.entity.Grid;
 
 /**
  * Control class <hr>
