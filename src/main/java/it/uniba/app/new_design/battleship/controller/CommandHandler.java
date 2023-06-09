@@ -47,7 +47,7 @@ public final class CommandHandler {
         try {
             GameController.setEasyDifficulty(game);
             GameController.startSession(game);
-        } catch (DifficultyNotSetException e ) {
+        } catch (DifficultyNotSetException e) {
             System.out.println(e.getMessage());
         } catch (SessionAlreadyStartedException e) {
             System.out.println(e.getMessage());
@@ -62,7 +62,7 @@ public final class CommandHandler {
                 + "Nome " + diff.getLevel()
                 + "Tentativi fallibili: " + diff.getMaxFailedAttempts()
                 );
-        } catch(CloneNotSupportedException e) {
+        } catch (CloneNotSupportedException e) {
             System.out.println("Impossibile recuperare l'informazione richiesta");
         }
     }
@@ -94,7 +94,7 @@ public final class CommandHandler {
     }
 
     private void handleShowGameGrid(Game game) {
-        try{ 
+        try { 
             Grid grid = GameController.getSessionGrid(game);
             String message = GridController.genShipMap(grid); 
             System.out.println(message);
