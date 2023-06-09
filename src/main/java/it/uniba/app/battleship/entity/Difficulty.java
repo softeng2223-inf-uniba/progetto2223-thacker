@@ -1,4 +1,4 @@
-package it.uniba.app.game.entities;
+package it.uniba.app.battleship.entity;
 /**
  * La classe Difficulty rappresenta una singola difficoltà di gioco.
  */
