@@ -2,13 +2,15 @@ package it.uniba.app.new_design.battleship.controller;
 
 
 import java.io.IOException;
+
+import it.uniba.app.new_design.battleship.entity.Game;
 import it.uniba.app.utility.Input;
 
 public final class CommandHandler {
 
     private CommandHandler() { }
 
-    public void execute() {
+    public void execute(Game game) {
         try {
             String command = Input.get().toLowerCase();
             switch (command) {
