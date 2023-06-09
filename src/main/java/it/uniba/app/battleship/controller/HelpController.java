@@ -1,4 +1,4 @@
-package it.uniba.app.new_design.battleship.controller;
+package it.uniba.app.battleship.controller;
 /**
  * Classe del comando /help.
  * Contiene il codice da eseguire con il comando /help.
