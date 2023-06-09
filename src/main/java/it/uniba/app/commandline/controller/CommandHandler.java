@@ -6,6 +6,7 @@ import java.io.IOException;
 import it.uniba.app.battleship.exception.DifficultyNotSetException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
+import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
 import it.uniba.app.battleship.controller.HelpController;
