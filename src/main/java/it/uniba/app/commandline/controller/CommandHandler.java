@@ -80,6 +80,11 @@ public final class CommandHandler {
     }
 
     private static void handleShowDifficulty(final Game game) {
+        if (!game.isDifficultySet()) {
+            System.out.println("Non è stato ancora impostato alcun livello di difficoltà.");
+            return;
+        }
+
         try {
             Difficulty diff = GameController.getDifficulty(game);
             System.out.println(
@@ -91,6 +96,7 @@ public final class CommandHandler {
             System.out.println("Impossibile recuperare l'informazione richiesta");
         }
     }
+
     private static void handleEasyDifficulty(final Game game) {
         try {
             GameController.setEasyDifficulty(game);
