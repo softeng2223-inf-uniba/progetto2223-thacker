@@ -69,6 +69,9 @@ public final class CommandHandler {
     }
 
     private static void handlePlay(final Game game) {
+        if (!game.isDifficultySet()) {
+            setDefaultDifficulty(game);
+        }
         try {
             GameController.startSession(game);
         } catch (DifficultyNotSetException e) {
@@ -80,8 +83,7 @@ public final class CommandHandler {
 
     private static void handleShowDifficulty(final Game game) {
         if (!game.isDifficultySet()) {
-            System.out.println("Non è stato ancora impostato alcun livello di difficoltà.");
-            return;
+            setDefaultDifficulty(game);
         }
 
         try {
@@ -149,6 +151,12 @@ public final class CommandHandler {
                     break;
             }
         } catch (IOException err) { }
+    }
+
+    private static void setDefaultDifficulty(final Game game) {
+        try {
+            GameController.setEasyDifficulty(game);     //difficoltà predefinita: Facile
+        } catch (SessionAlreadyStartedException e) { }
     }
 
 }
