@@ -2,9 +2,7 @@ package it.uniba.app.battleship.entity;
 
 import java.util.LinkedList;
 
-import it.uniba.app.game.entities.Difficulty;
-import it.uniba.app.new_design.battleship.controller.GridController;
-import it.uniba.app.new_design.battleship.entity.Grid;
+import it.uniba.app.battleship.controller.GridController;
 
 /**
  * Entity class <hr>
