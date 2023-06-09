@@ -18,7 +18,7 @@ public final class CommandHandler {
                 case "/help"            -> handleHelp();
                 case "/mostranavi"      -> handleShowShip();
                 case "/facile"          -> handleEasyDifficulty(game);
-                case "/medio"           -> handleMediumDifficulty();
+                case "/medio"           -> handleMediumDifficulty(game);
                 case "/difficile"       -> handleHardDifficulty();
                 default                 -> System.err.println("[CH] Comando inesistente.");
             }
@@ -43,4 +43,14 @@ public final class CommandHandler {
             System.out.println("[CH] Non puoi modificare la difficoltà durante una partita.");
          }
     }
+
+    private void handleMediumDifficulty(final Game game) {
+        try {
+            GameController.setMediumDifficulty(game);
+            System.out.println("OK, livello di difficoltà impostato a medio.");
+        } catch (SessionAlreadyStartedException err) {
+            System.out.println("[CH] Non puoi modificare la difficoltà durante una partita.");
+         }
+    }
+
 }
