@@ -1,4 +1,4 @@
-package it.uniba.app.new_design.battleship.entity;
+package it.uniba.app.battleship.entity;
 
 /**
  * La classe {@code Coordinate} incapsula il concetto di riga e colonna per la matrice di gioco.
