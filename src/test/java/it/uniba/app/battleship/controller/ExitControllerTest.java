@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 /**
- *  Test suite per la classe ExitController
+ *  Test suite per la classe ExitController.
  */
 class ExitControllerTest {
     /**
