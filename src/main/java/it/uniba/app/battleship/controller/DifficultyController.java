@@ -1,5 +1,5 @@
-package it.uniba.app.game.controllers;
-import it.uniba.app.game.entities.Difficulty;
+package it.uniba.app.battleship.controller;
+import it.uniba.app.battleship.entity.Difficulty;
 /**
  * La classe DifficultyController gestisce le operazioni
  * relative alle difficoltà di gioco.
