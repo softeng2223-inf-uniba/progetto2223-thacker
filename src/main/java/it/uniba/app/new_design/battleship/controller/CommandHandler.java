@@ -90,4 +90,22 @@ public final class CommandHandler {
          }
     }
 
+    private void handleExit() {
+        try {
+            System.out.println("Conferma l'uscita dal gioco (si/no)");
+            String confirm = Input.get().toLowerCase();
+            switch (confirm) {
+                case "si":
+                    ExitController.requestExit();
+                    break;
+                case "no":
+                    System.out.println("Operazione annullata");
+                    break;
+                default:
+                    System.out.println("Comando non riconosciuto, operazione annullata");
+                    break;
+            }
+        } catch (IOException err) { }
+    }
+
 }
