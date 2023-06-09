@@ -1,4 +1,4 @@
-package it.uniba.app.new_design.battleship.controller;
+package it.uniba.app.commandline.controller;
 
 
 import java.io.IOException;
@@ -7,6 +7,10 @@ import it.uniba.app.battleship.exception.DifficultyNotSetException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.entity.Difficulty;
+import it.uniba.app.new_design.battleship.controller.GameController;
+import it.uniba.app.new_design.battleship.controller.GridController;
+import it.uniba.app.new_design.battleship.controller.HelpController;
+import it.uniba.app.new_design.battleship.controller.ShowShipsController;
 import it.uniba.app.new_design.battleship.entity.Game;
 import it.uniba.app.new_design.battleship.entity.Grid;
 import it.uniba.app.utility.Input;
