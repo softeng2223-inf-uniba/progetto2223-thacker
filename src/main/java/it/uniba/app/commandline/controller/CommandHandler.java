@@ -70,7 +70,6 @@ public final class CommandHandler {
 
     private static void handlePlay(final Game game) {
         try {
-            GameController.setEasyDifficulty(game);
             GameController.startSession(game);
         } catch (DifficultyNotSetException e) {
             System.out.println(e.getMessage());
