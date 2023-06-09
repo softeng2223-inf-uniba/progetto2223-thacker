@@ -11,7 +11,7 @@ public final class ExitController {
     /**
      * Registra una richiesta di uscita dall'applicazione.
      */
-    public static void send() {
+    public static void requestExit() {
         requestedExit = true;
     }
 
