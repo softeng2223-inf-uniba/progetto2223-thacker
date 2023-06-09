@@ -4,7 +4,7 @@ import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.commandline.controller.CommandHandler;
 import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.utility.commands.FlagHandler;
-import it.uniba.app.battleship.Game;
+import it.uniba.app.battleship.entity.Game;
 
 /**
  * Main class of the application.
