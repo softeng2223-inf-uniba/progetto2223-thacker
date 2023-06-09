@@ -26,6 +26,12 @@ public final class CommandHandler {
      * <li><{@code /help} : mostra l'elenco dei comandi disponibili</li>
      * <li><{@code /mostranavi} : mostra l'elenco delle navi disponibili</li>
      * <li><{@code /gioca} : avvia una nuova partita</li>
+     * <li><{@code /mostralivello} : mostra il livello di difficoltà impostato</li>
+     * <li><{@code /facile} : imposta il livello di difficoltà a 'facile'</li>
+     * <li><{@code /medio} : imposta il livello di difficoltà a 'medio'</li>
+     * <li><{@code /difficile} : imposta il livello di difficoltà a 'difficile'</li>
+     * <li><{@code /svelagriglia} : mostra la griglia di gioco con le navi posizionate</li>
+     * <li><{@code /esci} : permette di uscire dal gioco restituendo il controllo al SO</li>
      * </ul>
      * @param game
      */
