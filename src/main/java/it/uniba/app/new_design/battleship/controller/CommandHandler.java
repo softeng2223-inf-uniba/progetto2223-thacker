@@ -16,6 +16,9 @@ public final class CommandHandler {
             switch (command) {
                 case "/help"            -> handleHelp();
                 case "/mostranavi"      -> handleShowShip();
+                case "/facile"          -> handleEasyDifficulty();
+                case "/medio"           -> handleMediumDifficulty();
+                case "/difficile"       -> handleHardDifficulty();
                 default                 -> System.err.println("[CH] Comando inesistente.");
             }
         } catch (IOException e) {
