@@ -1,4 +1,4 @@
-package it.uniba.app.game.exceptions;
+package it.uniba.app.battleship.exception;
 
 /**
  * Modella un eccezione di gioco dovuta alla non impostazione della Difficoltà.<br>
