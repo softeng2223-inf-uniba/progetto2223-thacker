@@ -3,6 +3,7 @@ package it.uniba.app.new_design.battleship.controller;
 
 import java.io.IOException;
 
+import it.uniba.app.game.entities.Difficulty;
 import it.uniba.app.game.exceptions.DifficultyNotSetException;
 import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 import it.uniba.app.new_design.battleship.entity.Game;
@@ -45,4 +46,16 @@ public final class CommandHandler {
         }
     }
 
+    private void handleShowDifficulty(Game game) {
+        try {
+            Difficulty diff = GameController.getDifficulty(game);
+            System.out.println(
+                "livello impostato:\n"
+                + "Nome " + diff.getLevel()
+                + "Tentativi fallibili: " + diff.getMaxFailedAttempts()
+                );
+        } catch(CloneNotSupportedException e) {
+            System.out.println("Impossibile recuperare l'informazione richiesta");
+        }
+    }
 }
