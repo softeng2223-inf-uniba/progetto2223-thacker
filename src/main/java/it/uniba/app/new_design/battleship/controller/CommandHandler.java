@@ -24,4 +24,8 @@ public final class CommandHandler {
     private void handleShowShip() {
         ShowShipsController.showShips();
     }
+
+    private void handleHelp() {
+        HelpController.showHelp();
+    }
 }
