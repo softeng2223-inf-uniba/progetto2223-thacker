@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import it.uniba.app.new_design.battleship.entity.Game;
 import it.uniba.app.utility.Input;
+import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 
 public final class CommandHandler {
 
