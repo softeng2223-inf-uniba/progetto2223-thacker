@@ -20,7 +20,7 @@ public final class ExitController {
      *
      * @return <code>true</code> se è stata effettuata una richiesta, <code>false</code> altrimenti.
      */
-    public static boolean status() {
+    public static boolean isExitRequested() {
         return requestedExit;
     }
 }
