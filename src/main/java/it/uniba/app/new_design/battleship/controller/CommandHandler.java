@@ -18,6 +18,7 @@ public final class CommandHandler {
             switch (command) {
                 case "/help"            -> handleHelp();
                 case "/mostranavi"      -> handleShowShip();
+                case "/gioca"           -> handlePlay(game);
                 default                 -> System.err.println("[CH] Comando inesistente.");
             }
         } catch (IOException e) {
