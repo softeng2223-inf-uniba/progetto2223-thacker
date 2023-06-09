@@ -83,9 +83,9 @@ public final class CommandHandler {
         try {
             Difficulty diff = GameController.getDifficulty(game);
             System.out.println(
-                "livello impostato:\n"
-                + "Nome " + diff.getLevel()
-                + "Tentativi fallibili: " + diff.getMaxFailedAttempts()
+                "Livello impostato:\n"
+                + "Nome : " + diff.getLevel() + "\n"
+                + "Numero massimo di tentativi fallibili : " + diff.getMaxFailedAttempts()
                 );
         } catch (CloneNotSupportedException e) {
             System.out.println("Impossibile recuperare l'informazione richiesta");
