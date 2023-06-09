@@ -20,6 +20,7 @@ public final class CommandHandler {
                 case "/help"            -> handleHelp();
                 case "/mostranavi"      -> handleShowShip();
                 case "/gioca"           -> handlePlay(game);
+                case "/mostralivello"   -> handleShowDifficulty(game);
                 default                 -> System.err.println("[CH] Comando inesistente.");
             }
         } catch (IOException e) {
