@@ -25,6 +25,7 @@ public final class CommandHandler {
                 case "/facile"          -> handleEasyDifficulty(game);
                 case "/medio"           -> handleMediumDifficulty(game);
                 case "/difficile"       -> handleHardDifficulty(game);
+                case "/esci"            -> handleExit();
                 default                 -> System.err.println("[CH] Comando inesistente.");
             }
         } catch (IOException e) {
