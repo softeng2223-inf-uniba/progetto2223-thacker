@@ -1,6 +1,6 @@
 package it.uniba.app.new_design.battleship.controller;
 
-import it.uniba.app.new_design.battleship.entity.Ship;
+import it.uniba.app.battleship.entity.Ship;
 
 /**
  * Classe necessaria per eseguire il comando
