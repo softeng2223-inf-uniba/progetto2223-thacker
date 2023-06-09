@@ -15,6 +15,15 @@ public final class CommandHandler {
 
     private CommandHandler() { }
 
+    /** Esegue un comando letto dal terminale.
+     * Alcuni dei comandi attualmente interpretati sono:
+     * <ul>
+     * <li><{@code /help} : mostra l'elenco dei comandi disponibili</li>
+     * <li><{@code /mostranavi} : mostra l'elenco delle navi disponibili</li>
+     * <li><{@code /gioca} : avvia una nuova partita</li>
+     * </ul>
+     * @param game
+     */
     public void execute(final Game game) {
         try {
             String command = Input.get().toLowerCase();
