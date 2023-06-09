@@ -39,7 +39,7 @@ public final class CommandHandler {
      * </ul>
      * @param game
      */
-    public void execute(final Game game) {
+    public static void execute(final Game game) {
         try {
             String command = Input.get().toLowerCase();
             switch (command) {
@@ -59,15 +59,15 @@ public final class CommandHandler {
         }
     }
 
-    private void handleShowShip() {
+    private static void handleShowShip() {
         ShowShipsController.showShips();
     }
 
-    private void handleHelp() {
+    private static void handleHelp() {
         HelpController.showHelp();
     }
 
-    private void handlePlay(final Game game) {
+    private static void handlePlay(final Game game) {
         try {
             GameController.setEasyDifficulty(game);
             GameController.startSession(game);
@@ -78,7 +78,7 @@ public final class CommandHandler {
         }
     }
 
-    private void handleShowDifficulty(final Game game) {
+    private static void handleShowDifficulty(final Game game) {
         try {
             Difficulty diff = GameController.getDifficulty(game);
             System.out.println(
@@ -90,7 +90,7 @@ public final class CommandHandler {
             System.out.println("Impossibile recuperare l'informazione richiesta");
         }
     }
-    private void handleEasyDifficulty(final Game game) {
+    private static void handleEasyDifficulty(final Game game) {
         try {
             GameController.setEasyDifficulty(game);
             System.out.println("OK, livello di difficoltà impostato a facile.");
@@ -99,7 +99,7 @@ public final class CommandHandler {
          }
     }
 
-    private void handleMediumDifficulty(final Game game) {
+    private static void handleMediumDifficulty(final Game game) {
         try {
             GameController.setMediumDifficulty(game);
             System.out.println("OK, livello di difficoltà impostato a medio.");
@@ -108,7 +108,7 @@ public final class CommandHandler {
          }
     }
 
-    private void handleHardDifficulty(final Game game) {
+    private static void handleHardDifficulty(final Game game) {
         try {
             GameController.setHardDifficulty(game);
             System.out.println("OK, livello di difficoltà impostato a difficile.");
@@ -117,7 +117,7 @@ public final class CommandHandler {
          }
     }
 
-    private void handleShowGameGrid(final Game game) {
+    private static void handleShowGameGrid(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
             String message = GridController.genShipMap(grid);
@@ -127,7 +127,7 @@ public final class CommandHandler {
         }
     }
 
-    private void handleExit() {
+    private static void handleExit() {
         try {
             System.out.println("Conferma l'uscita dal gioco (si/no)");
             String confirm = Input.get().toLowerCase();
