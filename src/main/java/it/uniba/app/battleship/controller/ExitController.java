@@ -1,4 +1,4 @@
-package it.uniba.app.new_design.battleship.controller;
+package it.uniba.app.battleship.controller;
 
 /**
  * Gestisce la richiesta di uscita dall'applicazione.
