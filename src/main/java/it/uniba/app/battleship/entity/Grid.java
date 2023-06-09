@@ -1,9 +1,6 @@
-package it.uniba.app.new_design.battleship.entity;
+package it.uniba.app.battleship.entity;
 
 import java.util.HashSet;
-
-import it.uniba.app.battleship.entity.Coordinate;
-import it.uniba.app.battleship.entity.Ship;
 
 import java.util.Arrays;
 
