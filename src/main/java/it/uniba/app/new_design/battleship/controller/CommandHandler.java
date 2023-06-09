@@ -94,9 +94,9 @@ public final class CommandHandler {
     }
 
     private void handleShowGameGrid(Game game) {
-        try { 
+        try {
             Grid grid = GameController.getSessionGrid(game);
-            String message = GridController.genShipMap(grid); 
+            String message = GridController.genShipMap(grid);
             System.out.println(message);
         } catch (SessionNotStartedException e) {
             System.out.println(e.getMessage());
