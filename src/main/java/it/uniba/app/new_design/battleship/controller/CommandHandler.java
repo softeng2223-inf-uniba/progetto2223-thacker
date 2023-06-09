@@ -20,4 +20,8 @@ public final class CommandHandler {
             System.out.println("Si è verificato un errore durante la lettura del comando: " + e.getMessage());
         }
     }
+
+    private void handleShowShip() {
+        ShowShipsController.showShips();
+    }
 }
