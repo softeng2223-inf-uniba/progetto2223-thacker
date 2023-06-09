@@ -1,12 +1,12 @@
 package it.uniba.app.new_design.battleship.controller;
 
-import it.uniba.app.game.controllers.DifficultyController;
+import it.uniba.app.battleship.controller.DifficultyController;
+import it.uniba.app.battleship.exception.DifficultyNotSetException;
+import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
+import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.game.entities.Difficulty;
 import it.uniba.app.new_design.battleship.entity.Game;
 import it.uniba.app.new_design.battleship.entity.Grid;
-import it.uniba.app.game.exceptions.DifficultyNotSetException;
-import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
-import it.uniba.app.game.exceptions.SessionNotStartedException;
 
 /**
  * Control class <hr>
