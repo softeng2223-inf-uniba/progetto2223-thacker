@@ -1,4 +1,4 @@
-package it.uniba.app.game.exceptions;
+package it.uniba.app.battleship.exception;
 
 /**
  * Modella una categoria di eccezioni legate al gioco (battleship).
