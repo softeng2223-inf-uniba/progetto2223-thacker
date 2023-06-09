@@ -117,7 +117,7 @@ public final class GameController {
      * @return griglia della sessione corrente nell'istante corrente
      * @throws SessionNotStartedException
      */
-    static Grid getSessionGrid(final Game game) throws SessionNotStartedException {
+    public static Grid getSessionGrid(final Game game) throws SessionNotStartedException {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
