@@ -1,4 +1,4 @@
-package it.uniba.app.game.exceptions;
+package it.uniba.app.battleship.exception;
 
 /**
 * Eccezione che segnala il fatto che una cella è già stata segnata come bersaglio di un colpo.
