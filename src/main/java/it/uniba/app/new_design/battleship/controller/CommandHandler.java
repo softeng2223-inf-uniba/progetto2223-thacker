@@ -43,7 +43,7 @@ public final class CommandHandler {
         HelpController.showHelp();
     }
 
-    private void handlePlay(Game game) {
+    private void handlePlay(final Game game) {
         try {
             GameController.setEasyDifficulty(game);
             GameController.startSession(game);
@@ -54,7 +54,7 @@ public final class CommandHandler {
         }
     }
 
-    private void handleShowDifficulty(Game game) {
+    private void handleShowDifficulty(final Game game) {
         try {
             Difficulty diff = GameController.getDifficulty(game);
             System.out.println(
@@ -93,7 +93,7 @@ public final class CommandHandler {
          }
     }
 
-    private void handleShowGameGrid(Game game) {
+    private void handleShowGameGrid(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
             String message = GridController.genShipMap(grid);
