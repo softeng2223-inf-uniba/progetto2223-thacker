@@ -11,6 +11,11 @@ import it.uniba.app.new_design.battleship.entity.Game;
 import it.uniba.app.new_design.battleship.entity.Grid;
 import it.uniba.app.utility.Input;
 
+/**
+ * {@code CommandHandler} è una classe che
+ * gestisce i comandi con cui l'utente interagisce
+ * con il gioco.
+ */
 public final class CommandHandler {
 
     private CommandHandler() { }
