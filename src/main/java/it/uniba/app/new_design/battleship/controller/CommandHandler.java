@@ -6,7 +6,9 @@ import java.io.IOException;
 import it.uniba.app.game.entities.Difficulty;
 import it.uniba.app.game.exceptions.DifficultyNotSetException;
 import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
+import it.uniba.app.game.exceptions.SessionNotStartedException;
 import it.uniba.app.new_design.battleship.entity.Game;
+import it.uniba.app.new_design.battleship.entity.Grid;
 import it.uniba.app.utility.Input;
 import it.uniba.app.game.exceptions.SessionAlreadyStartedException;
 
@@ -25,6 +27,7 @@ public final class CommandHandler {
                 case "/facile"          -> handleEasyDifficulty(game);
                 case "/medio"           -> handleMediumDifficulty(game);
                 case "/difficile"       -> handleHardDifficulty(game);
+                case "/svelagriglia"    -> handleShowGameGrid(game);
                 case "/esci"            -> handleExit();
                 default                 -> System.err.println("[CH] Comando inesistente.");
             }
@@ -89,6 +92,16 @@ public final class CommandHandler {
         } catch (SessionAlreadyStartedException err) {
             System.out.println("[CH] Non puoi modificare la difficoltà durante una partita.");
          }
+    }
+
+    private void handleShowGameGrid(Game game) {
+        try{ 
+            Grid grid = GameController.getSessionGrid(game);
+            String message = GridController.genShipMap(grid); 
+            System.out.println(message);
+        } catch (SessionNotStartedException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void handleExit() {
