@@ -18,7 +18,12 @@ public final class GameController {
     private static GameController instance;
 
     private GameController() { }
-    
+    /**
+     * Restituisce l'unica istanza della classe (@code GameController).
+     * Se l'oggetto è già stato istanziato, il metodo restituisce
+     * la sua istanza, altrimenti ne crea una nuova e la restituisce.
+     * @return Oggetto della classe (@code GameController).
+     */
     public static GameController getInstance() {
         if (instance == null) {
             instance = new GameController();
