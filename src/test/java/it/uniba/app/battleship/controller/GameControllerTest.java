@@ -8,7 +8,12 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  *  Test suite per la classe GameController.
@@ -28,7 +33,7 @@ class GameControllerTest {
      */
     @Test
     void testStartSessionEasy() {
-        try{
+        try {
             GameController.setEasyDifficulty(game);
             GameController.startSession(game);
             assertTrue(game.isSessionStarted());
@@ -36,7 +41,6 @@ class GameControllerTest {
             fail("errore [GC:1]: " + e.getMessage());
         }
     }
-
     /**
      * 2) Test: Verifica che il metodo startSession() avvii
      * correttamente una sessione di gioco con difficoltà impostata
@@ -46,7 +50,7 @@ class GameControllerTest {
      */
     @Test
     void testStartSessionMedium() {
-        try{
+        try {
             GameController.setMediumDifficulty(game);
             GameController.startSession(game);
             assertTrue(game.isSessionStarted());
@@ -54,7 +58,6 @@ class GameControllerTest {
             fail("errore [GC:2]: " + e.getMessage());
         }
     }
-
     /**
      * 3) Test: Verifica che il metodo startSession() avvii
      * correttamente una sessione di gioco con difficoltà impostata
@@ -64,7 +67,7 @@ class GameControllerTest {
      */
     @Test
     void testStartSessionHard() {
-        try{
+        try {
             GameController.setHardDifficulty(game);
             GameController.startSession(game);
             assertTrue(game.isSessionStarted());
@@ -72,7 +75,6 @@ class GameControllerTest {
             fail("errore [GC:3]: " + e.getMessage());
         }
     }
-
     /**
      * 4) Test: Verifica che il metodo startSession() avvii
      * correttamente una sessione di gioco senza difficoltà impostata.
@@ -88,7 +90,6 @@ class GameControllerTest {
             fail("errore [GC:4]: " + e.getMessage());
         }
     }
-
     /**
      * 5) Test: Verifica che il metodo startSession() imposti
      * correttamente la difficoltà di gioco come "Facile" nel caso
@@ -98,7 +99,7 @@ class GameControllerTest {
      */
     @Test
     void testStartSessionDefaultIsEasy() {
-        try{
+        try {
             GameController.startSession(game);
             Difficulty diff = game.getDifficulty();
             diff.setLevel("Facile");
@@ -109,7 +110,6 @@ class GameControllerTest {
             fail("errore [GC:5.2]: " + e.getMessage());
         }
     }
-
     /**
      * 6) Test: Verifica che il metodo startSession() generi
      * correttamente un'eccezione di tipo SessionAlreadyStartedException
@@ -130,7 +130,7 @@ class GameControllerTest {
      */
     @Test
     void testEndSessionAlreadyStarted() {
-        try{
+        try {
             GameController.startSession(game);
             GameController.endSession(game);
             assertFalse(game.isSessionStarted());
@@ -160,7 +160,7 @@ class GameControllerTest {
      */
     @Test
     void testSetEasyDifficultyNotStarted() {
-        try{
+        try {
             GameController.setEasyDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Facile");
         } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
@@ -176,7 +176,7 @@ class GameControllerTest {
      */
     @Test
     void testSetEasyDifficultyStarted() {
-        try{
+        try {
             GameController.startSession(game);
             assertThrows(SessionAlreadyStartedException.class, () -> GameController.setEasyDifficulty(game));
         } catch (SessionAlreadyStartedException e) {
@@ -192,7 +192,7 @@ class GameControllerTest {
      */
     @Test
     void testSetEasyDifficultyAlreadySet() {
-        try{
+        try {
             GameController.setMediumDifficulty(game);
             GameController.setEasyDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Facile");
@@ -209,7 +209,7 @@ class GameControllerTest {
      */
     @Test
     void testSetMediumDifficultyNotStarted() {
-        try{
+        try {
             GameController.setMediumDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Medio");
         } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
@@ -225,7 +225,7 @@ class GameControllerTest {
      */
     @Test
     void testSetMediumDifficultyStarted() {
-        try{
+        try {
             GameController.startSession(game);
             assertThrows(SessionAlreadyStartedException.class, () -> GameController.setMediumDifficulty(game));
         } catch (SessionAlreadyStartedException e) {
@@ -241,7 +241,7 @@ class GameControllerTest {
      */
     @Test
     void testSetMediumDifficultyAlreadySet() {
-        try{
+        try {
             GameController.setEasyDifficulty(game);
             GameController.setMediumDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Medio");
@@ -259,7 +259,7 @@ class GameControllerTest {
      */
     @Test
     void testSetHardDifficultyNotStarted() {
-        try{
+        try {
             GameController.setHardDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Difficile");
         } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
@@ -275,7 +275,7 @@ class GameControllerTest {
      */
     @Test
     void testSetHardDifficultyStarted() {
-        try{
+        try {
             GameController.startSession(game);
             assertThrows(SessionAlreadyStartedException.class, () -> GameController.setHardDifficulty(game));
         } catch (SessionAlreadyStartedException e) {
@@ -291,7 +291,7 @@ class GameControllerTest {
      */
     @Test
     void testSetHardDifficultyAlreadySet() {
-        try{
+        try {
             GameController.setEasyDifficulty(game);
             GameController.setHardDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Difficile");
@@ -308,7 +308,7 @@ class GameControllerTest {
      */
     @Test
     void testGetDifficultyEasy() {
-        try{
+        try {
             GameController.setEasyDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Facile");
         } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
@@ -324,7 +324,7 @@ class GameControllerTest {
      */
     @Test
     void testGetDifficultyMedium() {
-        try{
+        try {
             GameController.setMediumDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Medio");
         } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
@@ -340,7 +340,7 @@ class GameControllerTest {
      */
     @Test
     void testGetDifficultyHard() {
-        try{
+        try {
             GameController.setHardDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Difficile",
                     "errore [GC:20]: setHardDifficulty() non ha impostato la difficolta' di gioco come Difficile");
@@ -369,7 +369,7 @@ class GameControllerTest {
      */
     @Test
     void testGetDifficultyStarted() {
-        try{
+        try {
             GameController.setHardDifficulty(game);
             GameController.startSession(game);
             assertEquals(game.getDifficulty().getLevel(), "Difficile");
@@ -385,7 +385,7 @@ class GameControllerTest {
      */
     @Test
     void testGetSessionGridStarted() {
-        try{
+        try {
             GameController.startSession(game);
             assertNotNull(GameController.getSessionGrid(game));
         } catch (SessionAlreadyStartedException | SessionNotStartedException e) {
