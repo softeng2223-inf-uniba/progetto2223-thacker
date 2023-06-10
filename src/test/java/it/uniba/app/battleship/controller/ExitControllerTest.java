@@ -58,7 +58,7 @@ class ExitControllerTest {
         instance.requestExit();
         instance.requestExit();
         assertTrue(instance.isExitRequested(),
-                "Il metodo requestExit() chiamato due volte consecutivamente non imposta correttamente il flag isExitRequested a true");
+                "Il metodo requestExit() chiamato due volte consecutivamente non imposta isExitRequested a true");
     }
     /**
      *  Verifica che chiamare il metodo isExitRequested() senza
