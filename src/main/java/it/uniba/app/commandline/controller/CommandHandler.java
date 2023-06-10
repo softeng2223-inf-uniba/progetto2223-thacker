@@ -112,7 +112,7 @@ public final class CommandHandler {
 
     private static void handleHardDifficulty(final Game game) {
         try {
-            GameController.setHardDifficulty(game);
+            GameController.getInstance().setHardDifficulty(game);
             System.out.println("OK, livello di difficoltà impostato a difficile.");
         } catch (SessionAlreadyStartedException err) {
             System.out.println("[CH] Non puoi modificare la difficoltà durante una partita.");
