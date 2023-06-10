@@ -134,7 +134,7 @@ public final class CommandHandler {
             String confirm = Input.get().toLowerCase();
             switch (confirm) {
                 case "si":
-                    ExitController.requestExit();
+                    ExitController.getInstance().requestExit();
                     break;
                 case "no":
                     System.out.println("Operazione annullata");
