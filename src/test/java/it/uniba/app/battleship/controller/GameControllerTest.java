@@ -282,5 +282,127 @@ class GameControllerTest {
             fail("errore [GC:16]: " + e.getMessage());
         }
     }
+    /**
+     * 17) Test: Verifica che il metodo setHardDifficulty() imposti
+     * correttamente la difficoltà di gioco come "Difficile" anche quando
+     * una difficoltà è stata già impostata dall'utente.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testSetHardDifficultyAlreadySet() {
+        try{
+            GameController.setEasyDifficulty(game);
+            GameController.setHardDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Difficile");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:17]: " + e.getMessage());
+        }
+    }
+    /**
+     * 18) Test: Verifica che il metodo getDifficulty() restituisca
+     * correttamente la difficoltà di gioco impostata dall'utente (Facile)
+     * quando una partita non è stata ancora avviata.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testGetDifficultyEasy() {
+        try{
+            GameController.setEasyDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Facile");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:18]: " + e.getMessage());
+        }
+    }
+    /**
+     * 19) Test: Verifica che il metodo getDifficulty() restituisca
+     * correttamente la difficoltà di gioco impostata dall'utente (Medio)
+     * quando una partita non è stata ancora avviata.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testGetDifficultyMedium() {
+        try{
+            GameController.setMediumDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Medio");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:19]: " + e.getMessage());
+        }
+    }
+    /**
+     * 20) Test: Verifica che il metodo getDifficulty() restituisca
+     * correttamente la difficoltà di gioco impostata dall'utente (Difficile)
+     * quando una partita non è stata ancora avviata.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testGetDifficultyHard() {
+        try{
+            GameController.setHardDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Difficile",
+                    "errore [GC:20]: setHardDifficulty() non ha impostato la difficolta' di gioco come Difficile");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:20]: " + e.getMessage());
+        }
+    }
+    /**
+     * 21) Test: Verifica che il metodo getDifficulty() generi
+     * correttamente un'eccezione di tipo DifficultyNotSetException
+     * nel caso in cui una difficoltà di gioco non sia stata ancora impostata.
+     * <p>
+     * Atteso: DifficultyNotSetException
+     */
+    @Test
+    void testGetDifficultyNotSet() {
+        assertThrows(DifficultyNotSetException.class, () -> GameController.getDifficulty(game),
+                "errore [GC:21]: getDifficulty() non ha generato l'eccezione DifficultyNotSetException");
+    }
+    /**
+     * 22) Test: Verifica che il metodo getDifficulty() restituisce
+     * correttamente la difficoltà di gioca impostata dall'utente (Difficile)
+     * durante una sessione di gioco avviata.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testGetDifficultyStarted() {
+        try{
+            GameController.setHardDifficulty(game);
+            GameController.startSession(game);
+            assertEquals(game.getDifficulty().getLevel(), "Difficile");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:22]: " + e.getMessage());
+        }
+    }
+    /**
+     * 23) Test: Verifica che il metodo getSession() restituisca
+     * correttamente la griglia di gioco quando una partita è avviata.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testGetSessionGridStarted() {
+        try{
+            GameController.startSession(game);
+            assertNotNull(GameController.getSessionGrid(game));
+        } catch (SessionAlreadyStartedException | SessionNotStartedException e) {
+            fail("errore [GC:23]: " + e.getMessage());
+        }
+    }
+    /**
+     * 24) Test: Verifica che il metodo getSession() generi
+     * correttamente un'eccezione di tipo SessionNotStartedException
+     * nel caso in cui una partita non sia stata ancora avviata.
+     * <p>
+     * Atteso: SessionNotStartedException
+     */
+    @Test
+    void testGetSessionGridNotStarted() {
+        assertThrows(SessionNotStartedException.class, () -> GameController.getSessionGrid(game),
+                "errore [GC:24]: getSessionGrid() non ha generato l'eccezione SessionNotStartedException");
+    }
 }
 
