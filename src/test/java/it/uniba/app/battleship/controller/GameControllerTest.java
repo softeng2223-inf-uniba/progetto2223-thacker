@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  *  Test suite per la classe GameController.
  */
 class GameControllerTest {
-    Game game;
+    private Game game;
     @BeforeEach
     void setUp() {
         game = new Game();
