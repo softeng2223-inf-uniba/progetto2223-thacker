@@ -34,7 +34,7 @@ public final class App {
 
         Game game = new Game();
         System.out.println("Digita un comando");
-        while (!ExitController.isExitRequested()) {
+        while (!ExitController.getInstance().isExitRequested()) {
             CommandHandler.execute(game);
         }
     }
