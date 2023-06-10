@@ -6,14 +6,28 @@ package it.uniba.app.battleship.controller;
  * <b>Control class</b>
  */
 public final class ExitController {
-    private static boolean requestedExit = false;
+    private boolean requestedExit = false;
+    private static ExitController instance;
 
     private ExitController() { };
 
     /**
+     * Restituisce l'unica istanza della classe (@code ExitController).
+     * Se l'oggetto è già stato istanziato, il metodo restituisce
+     * la sua istanza, altrimenti ne crea una nuova e la restituisce.
+     * @return Oggetto della classe (@code ExitController).
+     */
+    public static ExitController getInstance() {
+        if (instance == null) {
+            instance = new ExitController();
+        }
+        return instance;
+    }
+
+    /**
      * Registra una richiesta di uscita dall'applicazione.
      */
-    public static void requestExit() {
+    public void requestExit() {
         requestedExit = true;
     }
 
@@ -22,7 +36,7 @@ public final class ExitController {
      *
      * @return <code>true</code> se è stata effettuata una richiesta, <code>false</code> altrimenti.
      */
-    public static boolean isExitRequested() {
+    public boolean isExitRequested() {
         return requestedExit;
     }
 }
