@@ -11,6 +11,12 @@ public final class ExitController {
 
     private ExitController() { };
 
+    /**
+     * Restituisce l'unica istanza della classe (@code ExitController).
+     * Se l'oggetto è già stato istanziato, il metodo restituisce
+     * la sua istanza, altrimenti ne crea una nuova e la restituisce.
+     * @return Oggetto della classe (@code ExitController).
+     */
     public static ExitController getInstance() {
         if (instance == null) {
             instance = new ExitController();
