@@ -7,6 +7,7 @@ package it.uniba.app.battleship.controller;
  */
 public final class ExitController {
     private boolean requestedExit = false;
+    private static ExitController instance;
 
     private ExitController() { };
 
