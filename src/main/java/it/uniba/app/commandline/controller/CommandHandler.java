@@ -69,13 +69,8 @@ public final class CommandHandler {
     }
 
     private static void handlePlay(final Game game) {
-        if (!game.isDifficultySet()) {
-            setDefaultDifficulty(game);
-        }
         try {
             GameController.startSession(game);
-        } catch (DifficultyNotSetException e) {
-            System.out.println(e.getMessage());
         } catch (SessionAlreadyStartedException e) {
             System.out.println(e.getMessage());
         }
