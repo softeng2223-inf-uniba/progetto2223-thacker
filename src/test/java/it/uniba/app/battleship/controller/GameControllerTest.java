@@ -147,5 +147,140 @@ class GameControllerTest {
      * <p>
      * Atteso: SessionNotStartedException
      */
+    @Test
+    void testEndSessionNotStarted() {
+        assertThrows(SessionNotStartedException.class, () -> GameController.endSession(game));
+    }
+    /**
+     * 9) Test: Verifica che il metodo setEasyDifficulty() imposti
+     * correttamente la difficoltà di gioco come "Facile" quando
+     * una partita non è stata ancora avviata.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testSetEasyDifficultyNotStarted() {
+        try{
+            GameController.setEasyDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Facile");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:9]: " + e.getMessage());
+        }
+    }
+    /**
+     * 10) Test: Verifica che il metodo setEasyDifficulty() generi
+     * correttamente un'eccezione di tipo SessionAlreadyStartedException
+     * nel caso in cui una sessione di gioco sia già stata avviata.
+     * <p>
+     * Atteso: SessionAlreadyStartedException
+     */
+    @Test
+    void testSetEasyDifficultyStarted() {
+        try{
+            GameController.startSession(game);
+            assertThrows(SessionAlreadyStartedException.class, () -> GameController.setEasyDifficulty(game));
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:10]: " + e.getMessage());
+        }
+    }
+    /**
+     * 11) Test: Verifica che il metodo setEasyDifficulty() imposti
+     * correttamente la difficoltà di gioco come "Facile" anche quando
+     * una difficoltà è stata già impostata dall'utente.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testSetEasyDifficultyAlreadySet() {
+        try{
+            GameController.setMediumDifficulty(game);
+            GameController.setEasyDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Facile");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:11]: " + e.getMessage());
+        }
+    }
+    /**
+     * 12) Test: Verifica che il metodo setMediumDifficulty() imposti
+     * correttamente la difficoltà di gioco come "Medio" quando
+     * una partita non è stata ancora avviata.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testSetMediumDifficultyNotStarted() {
+        try{
+            GameController.setMediumDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Medio");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:12]: " + e.getMessage());
+        }
+    }
+    /**
+     * 13) Test: Verifica che il metodo setMediumDifficulty() generi
+     * correttamente un'eccezione di tipo SessionAlreadyStartedException
+     * nel caso in cui una sessione di gioco sia già stata avviata.
+     * <p>
+     * Atteso: SessionAlreadyStartedException
+     */
+    @Test
+    void testSetMediumDifficultyStarted() {
+        try{
+            GameController.startSession(game);
+            assertThrows(SessionAlreadyStartedException.class, () -> GameController.setMediumDifficulty(game));
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:13]: " + e.getMessage());
+        }
+    }
+    /**
+     * 14) Test: Verifica che il metodo setMediumDifficulty() imposti
+     * correttamente la difficoltà di gioco come "Medio" anche quando
+     * una difficoltà è stata già impostata dall'utente.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testSetMediumDifficultyAlreadySet() {
+        try{
+            GameController.setEasyDifficulty(game);
+            GameController.setMediumDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Medio");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:14]: " + e.getMessage());
+        }
+    }
+
+    /**
+     * 15) Test: Verifica che il metodo setHardDifficulty() imposti
+     * correttamente la difficoltà di gioco come "Medio" quando
+     * una partita non è stata ancora avviata.
+     * <p>
+     * Atteso: true
+     */
+    @Test
+    void testSetHardDifficultyNotStarted() {
+        try{
+            GameController.setHardDifficulty(game);
+            assertEquals(game.getDifficulty().getLevel(), "Difficile");
+        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+            fail("errore [GC:15]: " + e.getMessage());
+        }
+    }
+    /**
+     * 16) Test: Verifica che il metodo setHardDifficulty() generi
+     * correttamente un'eccezione di tipo SessionAlreadyStartedException
+     * nel caso in cui una sessione di gioco sia già stata avviata.
+     * <p>
+     * Atteso: SessionAlreadyStartedException
+     */
+    @Test
+    void testSetHardDifficultyStarted() {
+        try{
+            GameController.startSession(game);
+            assertThrows(SessionAlreadyStartedException.class, () -> GameController.setHardDifficulty(game));
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:16]: " + e.getMessage());
+        }
+    }
 }
 
