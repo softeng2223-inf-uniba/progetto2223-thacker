@@ -15,6 +15,7 @@ import it.uniba.app.battleship.entity.Grid;
  * TODO espandi.
  */
 public final class GameController {
+    private static GameController instance;
 
     private GameController() { }
 
