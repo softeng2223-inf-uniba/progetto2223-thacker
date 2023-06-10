@@ -11,6 +11,13 @@ public final class ExitController {
 
     private ExitController() { };
 
+    public static ExitController getInstance() {
+        if (instance == null) {
+            instance = new ExitController();
+        }
+        return instance;
+    }
+
     /**
      * Registra una richiesta di uscita dall'applicazione.
      */
