@@ -27,7 +27,7 @@ public final class GameController {
      * @throws DifficultyNotSetException
      *      Non è possibile avviare una sessione se la difficoltà non è stata impostata.
      */
-    public static void startSession(final Game game)
+    public void startSession(final Game game)
         throws SessionAlreadyStartedException, DifficultyNotSetException {
             if (game.isSessionStarted()) {
                 throw new SessionAlreadyStartedException();
@@ -45,7 +45,7 @@ public final class GameController {
      *
      * @throws SessionNotStartedException Non è possibile terminare una sessione se non è in corso.
      */
-    public static void endSession(final Game game) throws SessionNotStartedException {
+    public void endSession(final Game game) throws SessionNotStartedException {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
@@ -55,7 +55,7 @@ public final class GameController {
     /**
      * Imposta la difficoltà ad Easy.
      */
-    public static void setEasyDifficulty(final Game game) throws SessionAlreadyStartedException {
+    public void setEasyDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
@@ -70,7 +70,7 @@ public final class GameController {
     /**
      * Imposta la difficoltà a Medium.
      */
-    public static void setMediumDifficulty(final Game game) throws SessionAlreadyStartedException {
+    public void setMediumDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
@@ -85,7 +85,7 @@ public final class GameController {
     /**
      * Imposta la difficoltà a Hard.
      */
-    public static void setHardDifficulty(final Game game) throws SessionAlreadyStartedException {
+    public void setHardDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
@@ -103,7 +103,7 @@ public final class GameController {
      * @return difficoltà selezionata
      * @throws CloneNotSupportedException
      */
-    public static Difficulty getDifficulty(final Game game) throws CloneNotSupportedException {
+    public Difficulty getDifficulty(final Game game) throws CloneNotSupportedException {
         return game.getDifficulty();
     }
 
@@ -117,7 +117,7 @@ public final class GameController {
      * @return griglia della sessione corrente nell'istante corrente
      * @throws SessionNotStartedException
      */
-    public static Grid getSessionGrid(final Game game) throws SessionNotStartedException {
+    public Grid getSessionGrid(final Game game) throws SessionNotStartedException {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
