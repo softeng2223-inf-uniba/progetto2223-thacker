@@ -1,6 +1,5 @@
 package it.uniba.app.battleship.controller;
 
-import it.uniba.app.battleship.exception.DifficultyNotSetException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.entity.Difficulty;
@@ -28,13 +27,13 @@ public final class GameController {
      *      Non è possibile avviare una sessione se la difficoltà non è stata impostata.
      */
     public static void startSession(final Game game)
-        throws SessionAlreadyStartedException, DifficultyNotSetException {
+        throws SessionAlreadyStartedException {
             if (game.isSessionStarted()) {
                 throw new SessionAlreadyStartedException();
             }
 
             if (!game.isDifficultySet()) {
-                throw new DifficultyNotSetException();
+                setEasyDifficulty(game);
             }
 
             game.startSession();
