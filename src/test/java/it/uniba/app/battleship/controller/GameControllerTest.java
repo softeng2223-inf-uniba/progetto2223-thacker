@@ -36,9 +36,10 @@ class GameControllerTest {
         try {
             GameController.setEasyDifficulty(game);
             GameController.startSession(game);
-            assertTrue(game.isSessionStarted());
+            assertTrue(game.isSessionStarted(),
+                    "errore [GC:1] : startSession() non ha avviato la sessione di gioco");
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:1]: " + e.getMessage());
+            fail("errore [GC:1]: Non è possibile avviare una sessione di gioco se ne è già stata avviata una");
         }
     }
     /**
@@ -53,9 +54,10 @@ class GameControllerTest {
         try {
             GameController.setMediumDifficulty(game);
             GameController.startSession(game);
-            assertTrue(game.isSessionStarted());
+            assertTrue(game.isSessionStarted(),
+                    "errore [GC:2] : startSession() non ha avviato la sessione di gioco");
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:2]: " + e.getMessage());
+            fail("errore [GC:2]: Non è possibile avviare una sessione di gioco se ne è già stata avviata una");
         }
     }
     /**
@@ -70,9 +72,10 @@ class GameControllerTest {
         try {
             GameController.setHardDifficulty(game);
             GameController.startSession(game);
-            assertTrue(game.isSessionStarted());
+            assertTrue(game.isSessionStarted(),
+                    "errore [GC:3] : startSession() non ha avviato la sessione di gioco");
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:3]: " + e.getMessage());
+            fail("errore [GC:3]: Non è possibile avviare una sessione di gioco se ne è già stata avviata una");
         }
     }
     /**
@@ -85,9 +88,10 @@ class GameControllerTest {
     void testStartSessioneDefault() {
         try {
             GameController.startSession(game);
-            assertTrue(game.isSessionStarted());
+            assertTrue(game.isSessionStarted(),
+                    "errore [GC:4] : startSession() non ha avviato la sessione di gioco");
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:4]: " + e.getMessage());
+            fail("errore [GC:4]: Non è possibile avviare una sessione di gioco se ne è già stata avviata una");
         }
     }
     /**
@@ -103,11 +107,12 @@ class GameControllerTest {
             GameController.startSession(game);
             Difficulty diff = game.getDifficulty();
             diff.setLevel("Facile");
-            assertEquals(game.getDifficulty().getLevel(), diff.getLevel());
+            assertEquals(game.getDifficulty().getLevel(), diff.getLevel(),
+                    "errore [GC:5] : startSession() non ha impostato la difficoltà di gioco di default come \"Facile\"");
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:5.1]: " + e.getMessage());
+            fail("errore [GC:5]: Non è possibile avviare una sessione di gioco se ne è già stata avviata una"
         } catch (CloneNotSupportedException e) {
-            fail("errore [GC:5.2]: " + e.getMessage());
+            fail("errore [GC:5]: " + e.getMessage());
         }
     }
     /**
@@ -120,7 +125,8 @@ class GameControllerTest {
     @Test
     void testStartSessionAlreadyStarted() throws SessionAlreadyStartedException {
         GameController.startSession(game);
-        assertThrows(SessionAlreadyStartedException.class, () -> GameController.startSession(game));
+        assertThrows(SessionAlreadyStartedException.class, () -> GameController.startSession(game),
+                "errore [GC:6] : startSession() non ha generato l'eccezione SessionAlreadyStartedException");
     }
     /**
      * 7) Test: Verifica che il metodo endSession() termini
@@ -133,11 +139,12 @@ class GameControllerTest {
         try {
             GameController.startSession(game);
             GameController.endSession(game);
-            assertFalse(game.isSessionStarted());
+            assertFalse(game.isSessionStarted(),
+                    "errore [GC:7] : endSession() non ha terminato la sessione di gioco");
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:7.1]: " + e.getMessage());
+            fail("errore [GC:7]: Non è possibile avviare una sessione di gioco se ne è già stata avviata una");
         } catch (SessionNotStartedException e) {
-            fail("errore [GC:7.2]: " + e.getMessage());
+            fail("errore [GC:7]: Non è possibile terminare una sessione di gioco se non ne è stata avviata una");
         }
     }
     /**
@@ -149,7 +156,8 @@ class GameControllerTest {
      */
     @Test
     void testEndSessionNotStarted() {
-        assertThrows(SessionNotStartedException.class, () -> GameController.endSession(game));
+        assertThrows(SessionNotStartedException.class, () -> GameController.endSession(game),
+                "errore [GC:8] : endSession() non ha generato l'eccezione SessionNotStartedException");
     }
     /**
      * 9) Test: Verifica che il metodo setEasyDifficulty() imposti
@@ -163,7 +171,9 @@ class GameControllerTest {
         try {
             GameController.setEasyDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Facile");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:9]: setEasyDifficulty() non ha impostato la difficoltà di gioco come \"Facile\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:9]: " + e.getMessage());
         }
     }
@@ -180,7 +190,7 @@ class GameControllerTest {
             GameController.startSession(game);
             assertThrows(SessionAlreadyStartedException.class, () -> GameController.setEasyDifficulty(game));
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:10]: " + e.getMessage());
+            fail("errore [GC:10]: setEasyDifficulty() non ha generato l'eccezione SessionAlreadyStartedException");
         }
     }
     /**
@@ -196,7 +206,9 @@ class GameControllerTest {
             GameController.setMediumDifficulty(game);
             GameController.setEasyDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Facile");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:11]: setEasyDifficulty() non ha impostato la difficoltà di gioco come \"Facile\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:11]: " + e.getMessage());
         }
     }
@@ -212,7 +224,9 @@ class GameControllerTest {
         try {
             GameController.setMediumDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Medio");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:12]: setMediumDifficulty() non ha impostato la difficoltà di gioco come \"Medio\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:12]: " + e.getMessage());
         }
     }
@@ -229,7 +243,7 @@ class GameControllerTest {
             GameController.startSession(game);
             assertThrows(SessionAlreadyStartedException.class, () -> GameController.setMediumDifficulty(game));
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:13]: " + e.getMessage());
+            fail("errore [GC:13]: setMediumDifficulty() non ha generato l'eccezione SessionAlreadyStartedException");
         }
     }
     /**
@@ -245,11 +259,12 @@ class GameControllerTest {
             GameController.setEasyDifficulty(game);
             GameController.setMediumDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Medio");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:14]: setMediumDifficulty() non ha impostato la difficoltà di gioco come \"Medio\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:14]: " + e.getMessage());
         }
     }
-
     /**
      * 15) Test: Verifica che il metodo setHardDifficulty() imposti
      * correttamente la difficoltà di gioco come "Medio" quando
@@ -262,7 +277,9 @@ class GameControllerTest {
         try {
             GameController.setHardDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Difficile");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:15]: setHardDifficulty() non ha impostato la difficoltà di gioco come \"Difficile\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:15]: " + e.getMessage());
         }
     }
@@ -279,7 +296,7 @@ class GameControllerTest {
             GameController.startSession(game);
             assertThrows(SessionAlreadyStartedException.class, () -> GameController.setHardDifficulty(game));
         } catch (SessionAlreadyStartedException e) {
-            fail("errore [GC:16]: " + e.getMessage());
+            fail("errore [GC:16]: setHardDifficulty() non ha generato l'eccezione SessionAlreadyStartedException");
         }
     }
     /**
@@ -295,7 +312,9 @@ class GameControllerTest {
             GameController.setEasyDifficulty(game);
             GameController.setHardDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Difficile");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:17]: setHardDifficulty() non ha impostato la difficoltà di gioco come \"Difficile\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:17]: " + e.getMessage());
         }
     }
@@ -311,7 +330,9 @@ class GameControllerTest {
         try {
             GameController.setEasyDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Facile");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:18]: setEasyDifficulty() non ha impostato la difficoltà di gioco come \"Facile\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:18]: " + e.getMessage());
         }
     }
@@ -327,7 +348,9 @@ class GameControllerTest {
         try {
             GameController.setMediumDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Medio");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:19]: setMediumDifficulty() non ha impostato la difficoltà di gioco come \"Medio\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:19]: " + e.getMessage());
         }
     }
@@ -344,7 +367,9 @@ class GameControllerTest {
             GameController.setHardDifficulty(game);
             assertEquals(game.getDifficulty().getLevel(), "Difficile",
                     "errore [GC:20]: setHardDifficulty() non ha impostato la difficolta' di gioco come Difficile");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:20]: non e' stato possibile impostare la difficolta' di gioco come \"Difficile\"");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:20]: " + e.getMessage());
         }
     }
@@ -373,7 +398,9 @@ class GameControllerTest {
             GameController.setHardDifficulty(game);
             GameController.startSession(game);
             assertEquals(game.getDifficulty().getLevel(), "Difficile");
-        } catch (SessionAlreadyStartedException | CloneNotSupportedException e) {
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:22]: getDifficulty() non ha restituito la difficolta' di gioco impostata dall'utente");
+        } catch (CloneNotSupportedException e) {
             fail("errore [GC:22]: " + e.getMessage());
         }
     }
@@ -388,8 +415,10 @@ class GameControllerTest {
         try {
             GameController.startSession(game);
             assertNotNull(GameController.getSessionGrid(game));
-        } catch (SessionAlreadyStartedException | SessionNotStartedException e) {
-            fail("errore [GC:23]: " + e.getMessage());
+        } catch (SessionAlreadyStartedException e) {
+            fail("errore [GC:23]: Non puoi avviae una sessione di gioco se una partita e' gia' stata avviata");
+        } catch (SessionNotStartedException e) {
+            fail("errore [GC:23]: Non puoi ottenere la griglia di gioco se una partita non e' stata avviata");
         }
     }
     /**
