@@ -103,7 +103,7 @@ public final class CommandHandler {
 
     private static void handleMediumDifficulty(final Game game) {
         try {
-            GameController.setMediumDifficulty(game);
+            GameController.getInstance().setMediumDifficulty(game);
             System.out.println("OK, livello di difficoltà impostato a medio.");
         } catch (SessionAlreadyStartedException err) {
             System.out.println("[CH] Non puoi modificare la difficoltà durante una partita.");
