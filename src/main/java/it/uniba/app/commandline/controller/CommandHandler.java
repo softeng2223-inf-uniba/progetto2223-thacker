@@ -3,7 +3,6 @@ package it.uniba.app.commandline.controller;
 
 import java.io.IOException;
 
-import it.uniba.app.battleship.exception.DifficultyNotSetException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.controller.ExitController;
