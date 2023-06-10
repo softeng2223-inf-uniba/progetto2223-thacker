@@ -82,7 +82,7 @@ public final class CommandHandler {
 
     private static void handleShowDifficulty(final Game game) {
         try {
-            Difficulty diff = GameController.getDifficulty(game);
+            Difficulty diff = GameController.getInstance().getDifficulty(game);
             System.out.println(
                 "livello impostato:\n"
                 + "Nome " + diff.getLevel()
