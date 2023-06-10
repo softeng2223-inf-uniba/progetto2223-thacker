@@ -83,7 +83,7 @@ class GameControllerTest {
      */
     @Test
     void testStartSessioneDefault() {
-        try{
+        try {
             GameController.startSession(game);
             assertTrue(game.isSessionStarted());
         } catch (SessionAlreadyStartedException e) {
