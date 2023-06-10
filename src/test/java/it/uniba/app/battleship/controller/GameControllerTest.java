@@ -108,7 +108,7 @@ class GameControllerTest {
             Difficulty diff = game.getDifficulty();
             diff.setLevel("Facile");
             assertEquals(game.getDifficulty().getLevel(), diff.getLevel(),
-                    "errore [GC:5] : startSession() non ha impostato la difficoltà di gioco di default come \"Facile\"");
+                    "errore [GC:5] : startSession() non ha impostato la difficoltà di gioco di default = \"Facile\"");
         } catch (SessionAlreadyStartedException e) {
             fail("errore [GC:5]: Non è possibile avviare una sessione di gioco se ne è già stata avviata una");
         } catch (CloneNotSupportedException e) {
