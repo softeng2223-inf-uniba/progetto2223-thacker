@@ -18,6 +18,13 @@ public final class GameController {
     private static GameController instance;
 
     private GameController() { }
+    
+    public static GameController getInstance() {
+        if (instance == null) {
+            instance = new GameController();
+        }
+        return instance;
+    }
 
     /**
      * Avvia una nuova sessione di gioco.<hr>
