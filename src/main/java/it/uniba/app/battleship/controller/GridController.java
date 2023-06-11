@@ -37,12 +37,8 @@ public final class GridController {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
-        try {
             Grid.setChosenSize(game, Grid.getDefaultSize());
             System.out.println("OK, la dimensione della griglia è 10x10.");
-        } catch (SessionAlreadyStartedException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     /**
@@ -52,12 +48,8 @@ public final class GridController {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
-        try {
             Grid.setChosenSize(game, Grid.getLargeSize());
             System.out.println("OK, la dimensione della griglia e' 18x18.");
-        } catch (SessionAlreadyStartedException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     /**
@@ -67,12 +59,8 @@ public final class GridController {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
-        try {
             Grid.setChosenSize(game, Grid.getExtraLargeSize());
             System.out.println("OK, la dimensione della griglia e' 26x26.");
-        } catch (SessionAlreadyStartedException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     /**
