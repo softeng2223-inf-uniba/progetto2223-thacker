@@ -13,12 +13,12 @@ public class Time {
         timeLimitMinute = time;
     }
 
-    public void setTimeLimitMill(final Long time) {
-        timeLimitMilliseconds = time;
+    public long getTimeLimitMin() {
+        return timeLimitMinute;
     }
 
-    public long getTimeLimitMinute() {
-        return timeLimitMinute;
+    public void setTimeLimitMill(final Long time) {
+        timeLimitMilliseconds = time;
     }
 
     public void setStartTimeMill(final Long time) {
