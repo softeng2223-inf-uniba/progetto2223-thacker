@@ -6,4 +6,6 @@ public class Time {
     private static long startTimeMill;
     private static long timeLimitMilliseconds;
     private static long currentTimeMill;
+
+    public Time() { };
 }
