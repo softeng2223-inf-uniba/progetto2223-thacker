@@ -22,4 +22,8 @@ public final class TimeController {
         }
         game.getTime().setTimeLimitMin(timeSet);
     }
+
+    private static long checkTimePassedMill(final Game game) {
+        return game.getTime().getCurrentTimeMill() - game.getTime().getStartTimeMill();
+    }
 }
