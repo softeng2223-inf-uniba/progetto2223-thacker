@@ -184,9 +184,17 @@ public class Grid implements Cloneable {
 
             for (int i = 0; i < chosenSize; i++) {
                 for (int j = 0; i < chosenSize; j++) {
-                    
+                    Ship originalShip = map[i][j];
+                    Ship clonedShip;
+                    if (clonedShipsMap.containsKey(originalShip)) {
+                        clonedShip = clonedShipsMap.get(originalShip);
+                    } else {
+                        clonedShip = originalShip.clone();
+                    }
+                    clone.map[i][j] = clonedShip;
                 }
             }
+        } catch (CloneNotSupportedException err) { }
         return clone;
     }
 
