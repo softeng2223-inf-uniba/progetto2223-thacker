@@ -45,6 +45,7 @@ public final class CommandHandler {
             switch (command) {
                 case "/help"            -> handleHelp();
                 case "/mostranavi"      -> handleShowShip();
+                case "/mostragriglia"   -> handleShowHitMap(game);
                 case "/gioca"           -> handlePlay(game);
                 case "/mostralivello"   -> handleShowDifficulty(game);
                 case "/facile"          -> handleEasyDifficulty(game);
@@ -59,6 +60,16 @@ public final class CommandHandler {
         }
     }
 
+    private static void handleShowHitMap(final Game game) {
+        try {
+            Grid grid = GameController.getSessionGrid(game);
+            String str = GridController.genHitMap(grid);
+            System.out.println(str);
+        } catch (SessionNotStartedException err) {
+            System.out.println(err.getMessage());
+        }
+    }
+
     private static void handleShowShip() {
         ShowShipsController.showShips();
     }
@@ -70,6 +81,7 @@ public final class CommandHandler {
     private static void handlePlay(final Game game) {
         try {
             GameController.startSession(game);
+            handleShowHitMap(game);
         } catch (SessionAlreadyStartedException e) {
             System.out.println(e.getMessage());
         }
