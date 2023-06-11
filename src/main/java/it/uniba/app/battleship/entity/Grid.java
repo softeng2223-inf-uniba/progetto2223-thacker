@@ -42,7 +42,7 @@ public class Grid implements Cloneable {
      * @return dimensione mappa
      */
     public static int getSize() {
-        return SIZE;
+        return chosenSize;
     }
 
     /**
