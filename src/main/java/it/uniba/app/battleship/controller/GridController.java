@@ -31,7 +31,7 @@ public final class GridController {
     private GridController() { }
 
     /**
-     * TODO javadoc.
+     * Imposta la dimensione della mappa a 10x10.
      */
     public static void standardGridSize(final Game game) {
         try {
@@ -43,7 +43,7 @@ public final class GridController {
     }
 
     /**
-     * TODO javadoc.
+     * Imposta la dimensione della mappa a 18x18.
      */
     public static void largeGridSize(final Game game) {
         try {
@@ -55,7 +55,7 @@ public final class GridController {
     }
 
     /**
-     * TODO javadoc.
+     * Imposta la dimensione della mappa a 26x26.
      */
     public static void extraLargeGridSize(final Game game) {
         try {
