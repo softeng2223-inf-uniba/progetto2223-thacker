@@ -30,6 +30,9 @@ public final class GridController {
         String str = "      A    B    C    D    E    F    G    H    I    J";
         str += ROW_SPACE;
         for (int row = 0; row < Grid.getSize(); row++) {
+            if (row < DEFAULT_NUMBER_OF_ROW) {
+                str += " ";
+            }
             str += (row + 1) + ":" + WHITE_SPACE;
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coord = new Coordinate(row, col);
