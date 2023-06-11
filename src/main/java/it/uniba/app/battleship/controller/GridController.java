@@ -63,7 +63,10 @@ public final class GridController {
     /**
      * Imposta la dimensione della mappa a 26x26.
      */
-    public static void extraLargeGridSize(final Game game) {
+    public static void extraLargeGridSize(final Game game) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
         try {
             Grid.setChosenSize(game, Grid.getExtraLargeSize());
             System.out.println("OK, la dimensione della griglia e' 26x26.");
