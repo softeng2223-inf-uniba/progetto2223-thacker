@@ -138,4 +138,20 @@ public final class GameController {
         return game.getAttempts();
     }
 
+    /**
+     * Fornisce il numero di tentativi effettuati e falliti fino al momento corrente di una sessione di gioco in corso.
+     * Per fallito si intende un tentativo che non ha colpito alcuna nave.
+     * 
+     * @param game la sessione
+     * @return numero di tentativi falliti all'istante corrente
+     * @throws SessionNotStartedException
+     *      non è possibile ottenere questa informazione per una sessione non in corso.
+     */
+    public static int getFailedAttempts(final Game game) throws SessionNotStartedException {
+        if(!game.isSessionStarted()) {
+            throw new SessionNotStartedException();
+        }
+        return game.getAttempts();
+    }
+
 }
