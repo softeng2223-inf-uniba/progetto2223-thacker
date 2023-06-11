@@ -31,7 +31,7 @@ public final class CommandHandler {
             switch (tokens.length) {
                 case 1 -> executeNoArgs(game, command);
                 case 2 -> executeArgs(game, tokens);
-                default -> System.err.println("[CH] Comando inesistente.");
+                default -> System.err.println("[CH] Il comando " + command + " non è valido.");
             }
         } catch (IOException e) {
             System.out.println("Si è verificato un errore durante la lettura del comando: " + e.getMessage());
@@ -39,7 +39,10 @@ public final class CommandHandler {
     }
     private static void executeArgs(final Game game, final String[] tokens) {
         switch (tokens[0]) {
-            
+            case "/facile" -> break;
+            case "/medio" -> break;
+            case "/difficile" -> break;
+            default -> System.err.println("[CH] Il comando " + tokens[0] + " non è valido.");
         }
     }
 
@@ -77,7 +80,7 @@ public final class CommandHandler {
             case "/svelagriglia"    -> handleShowGameGrid(game);
             case "/mostratentativi" -> handleShowAttempts(game);
             case "/esci"            -> handleExit();
-            default                 -> System.err.println("[CH] Comando inesistente.");
+            default                 -> System.err.println("[CH] Il comando " + command + " non è valido.");
         }
     }
 
