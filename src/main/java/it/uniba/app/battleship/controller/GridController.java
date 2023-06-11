@@ -16,6 +16,8 @@ public final class GridController {
     private static final int POSSIBLE_DIRECTIONS = 2;
     private static final int VERTICAL = 0;
 
+    private static final String WHITE_SPACE = "    ";
+
     private GridController() { }
 
     /**
