@@ -267,6 +267,16 @@ public final class CommandHandler {
             System.out.println("Impossibile recuperare informazioni sul livello di difficoltà");
         }
     }
+
+    private static void handleEndSession(final Game game) {
+        try {
+            GameController.endSession(game);
+            System.out.println("Sessione terminata");
+        } catch (SessionNotStartedException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     private static void handleExit() {
         try {
             System.out.println("Conferma l'uscita dal gioco (si/no)");
