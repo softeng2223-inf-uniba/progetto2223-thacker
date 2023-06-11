@@ -3,6 +3,7 @@ package it.uniba.app.battleship.entity;
 import java.util.HashSet;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * La classe {@code Grid} rappresenta la mappa delle navi
@@ -154,26 +155,48 @@ public class Grid implements Cloneable {
         return hits.contains(coord);
     }
 
+    /**
+     * Javadoc momentaneo.
+     * @param coord
+     */
+    public void mark(final Coordinate coord) {
+        hits.add(coord);
+    }
+
+    /**
+     * Controlla se la coordinata passata come parametro è all'interno dei
+     * confini della mappa.
+     * @param coord coordinata su cui effettuare il controllo.
+     * @return {@code true} se è all'interno dei confini della mappa, {@code false} altrimenti
+     */
+    public boolean isWithinBounds(final Coordinate coord) {
+        return (coord.getRow() >= 0 && coord.getRow() <= chosenSize - 1)
+            && (coord.getCol() >= 0 && coord.getCol() <= chosenSize - 1);
+    }
+
     @Override
     public final Grid clone() {
         Grid clone = null;
         try {
             clone = (Grid) super.clone();
-            clone.map = Arrays.copyOf(map, map.length);
-            for (int i = 0; i < chosenSize; i++) {
-                clone.map[i] = Arrays.copyOf(map[i], map[i].length);
-            }
+            HashMap<Ship, Ship> clonedShipsMap = new HashMap<>();
+
             for (int row = 0; row < chosenSize; row++) {
                 for (int col = 0; col < chosenSize; col++) {
-                    Coordinate coords = new Coordinate(row, col);
-
-                    if (!this.isCellEmpty(coords)) {
-                        Ship ship = this.get(coords).clone();
-                        clone.set(coords, ship);
+                    Ship originalShip = map[row][col];
+                    Ship clonedShip;
+                    if (originalShip == null) {
+                        clonedShip = null;
+                    } else if (clonedShipsMap.containsKey(originalShip)) {
+                        clonedShip = clonedShipsMap.get(originalShip);
+                    } else {
+                        clonedShip = originalShip.clone();
+                        clonedShipsMap.put(originalShip, clonedShip);
                     }
+                    clone.map[row][col] = clonedShip;
                 }
             }
-        } catch (CloneNotSupportedException e) { }
+        } catch (CloneNotSupportedException err) { }
         return clone;
     }
 
