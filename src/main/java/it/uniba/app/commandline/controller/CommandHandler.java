@@ -85,7 +85,7 @@ public final class CommandHandler {
         try {
             time = Integer.parseInt(input);
             if (time < 1) {
-                System.out.println("Valore non valido");
+                System.out.println("[CH] Valore non valido, inserire un intero maggiore di 0.");
                 return 0;
             }
         } catch (NumberFormatException e) {
