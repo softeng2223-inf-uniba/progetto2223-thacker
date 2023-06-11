@@ -14,6 +14,7 @@ public final class Game {
 
     private boolean sessionStarted;
     private boolean diffSet;
+    private int sunkShips;
 
     private Difficulty difficulty;
     private Grid grid;
@@ -55,6 +56,7 @@ public final class Game {
         grid = new Grid();
         GridController.randomlyFill(SHIPS, grid);
 
+        sunkShips = 0;
         totAttempts = 0;
         failedAttempts = 0;
         sessionStarted = true;
