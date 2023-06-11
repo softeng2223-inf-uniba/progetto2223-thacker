@@ -126,14 +126,15 @@ public final class GridController {
     */
     public static String genShipMap(final Grid grid) {
         String str = LETTER_WHITE_SPACE;
-            for (int i = 0; i < Grid.getSize(); i++) {
+        for (int i = 0; i < Grid.getSize(); i++) {
             str += ALPH[i] + WHITE_SPACE;
         }
+        str += ROW_SPACE;
         for (int row = 0; row < Grid.getSize(); row++) {
             if (row < DEFAULT_NUMBER_OF_ROW) {
                 str += " ";
             }
-            str += row + ":    ";
+            str += (row + 1) + ":    ";
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coords = new Coordinate(row, col);
                 Ship item = grid.get(coords);
