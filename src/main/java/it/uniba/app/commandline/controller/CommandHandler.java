@@ -73,15 +73,15 @@ public final class CommandHandler {
         }
     }
 
-    private void handleStandardGrid(final Game game) {
+    private static void handleStandardGrid(final Game game) {
         GridController.standardGridSize(game);
     }
 
-    private void handleLargeGrid(final Game game) {
+    private static void handleLargeGrid(final Game game) {
         GridController.largeGridSize(game);
     }
 
-    private void handleExtraLargeGrid(final Game game) {
+    private static void handleExtraLargeGrid(final Game game) {
         GridController.extraLargeGridSize(game);
     }
 
