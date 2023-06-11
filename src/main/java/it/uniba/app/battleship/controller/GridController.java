@@ -47,7 +47,7 @@ public final class GridController {
                     str += Grid.getWaterSymbol() + "    ";
                 }
             }
-            str += "\n";
+            str += ROW_SPACE;
         }
         return str;
     }
