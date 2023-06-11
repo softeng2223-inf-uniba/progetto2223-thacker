@@ -64,6 +64,7 @@ public final class CommandHandler {
         try {
             Grid grid = GameController.getSessionGrid(game);
             String str = GridController.genHitMap(grid);
+            System.out.println(str);
         } catch (SessionNotStartedException err) {
             // aggiungere gestione eccezione.
         }
