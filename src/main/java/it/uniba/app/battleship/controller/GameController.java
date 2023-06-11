@@ -123,4 +123,19 @@ public final class GameController {
         return game.getSessionGrid();
     }
 
+    /**
+     * Fornisce il numero di tentativi effettuati fino al momento corrente di una sessione di gioco in corso.
+     * 
+     * @param game la sessione
+     * @return numero di tentativi totali all'istante corrente
+     * @throws SessionNotStartedException
+     *      non è possibile ottenere questa informazione per una sessione non in corso.
+     */
+    public static int getAttempts(final Game game) throws SessionNotStartedException {
+        if(!game.isSessionStarted()) {
+            throw new SessionNotStartedException();
+        }
+        return game.getAttempts();
+    }
+
 }
