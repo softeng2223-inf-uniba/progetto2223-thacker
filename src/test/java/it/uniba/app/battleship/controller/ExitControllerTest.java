@@ -100,6 +100,7 @@ class ExitControllerTest {
     void testGetInstanceReturnsInstanceWithRequestedExitTrue() {
         instance.requestExit();
         assertTrue(ExitController.getInstance().isExitRequested(),
-                "err [EX:7]: Il metodo getInstance() restituisce un'istanza di ExitController con requestedExit impostato a false");
+                "err [EX:7]: Il metodo getInstance() restituisce un'istanza di ExitController " +
+                        "con requestedExit impostato a false");
     }
 }
