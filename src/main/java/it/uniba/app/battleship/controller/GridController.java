@@ -26,7 +26,7 @@ public final class GridController {
     public static String genHitMap(final Grid grid) {
         String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
         for (int row = 0; row < Grid.getSize(); row++) {
-            str += (row + 1) + ":" + "    ";
+            str += (row + 1) + ":" + WHITE_SPACE;
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coord = new Coordinate(row, col);
                 if (grid.isCellHit(coord)) {
@@ -34,7 +34,7 @@ public final class GridController {
                     // aggiungere controlli sulla nave
                     if (ship != null) {
                         if (ship.isSunk()) {
-                            str += ship + "    ";
+                            str += ship + WHITE_SPACE;
                         }
                     }
                 } else {
