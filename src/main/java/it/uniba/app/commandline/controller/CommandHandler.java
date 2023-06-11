@@ -11,6 +11,7 @@ import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
 import it.uniba.app.battleship.controller.HelpController;
 import it.uniba.app.battleship.controller.ShowShipsController;
+import it.uniba.app.battleship.controller.TimeController;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
@@ -66,6 +67,17 @@ public final class CommandHandler {
         } catch (IOException e) {
             System.out.println("Si è verificato un errore durante la lettura del comando: " + e.getMessage());
         }
+    }
+
+    private static boolean gameTimeCheck(final Game game) {
+        if (TimeController.isTimeOver(game)) {
+            game.getTime().setTimeLimitMin(0);
+            try {
+                GameController.endSession(game);
+            } catch (SessionNotStartedException e) { }
+            return true;
+        }
+            return false;
     }
 
     private static void handleDefaultOrShoot(final Game game, final String command) {
