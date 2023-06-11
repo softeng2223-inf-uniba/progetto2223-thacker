@@ -271,11 +271,26 @@ public final class CommandHandler {
 
     private static void handleEndSession(final Game game) {
         try {
-            GameController.endSession(game);
-            System.out.println("Sessione terminata");
-            System.out.println(GridController.genShipMap(game.getSessionGrid()));
+            if (!game.isSessionStarted()) {
+                throw new SessionNotStartedException();
+            }
+            System.out.println("Confermi? (si / no)");
+            String confirm = Input.get().toLowerCase();
+            switch (confirm) {
+                case "si":
+                    System.out.println(GridController.genShipMap(game.getSessionGrid()));
+                    GameController.endSession(game);
+                    System.out.println("Sessione terminata");
+                    break;
+                case "no": break;
+                default:
+                    System.out.println("Comando non riconosciuto, operazione annullata");
+                    break;
+            }
         } catch (SessionNotStartedException e) {
             System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Impossibile leggere l'input");
         }
     }
 
