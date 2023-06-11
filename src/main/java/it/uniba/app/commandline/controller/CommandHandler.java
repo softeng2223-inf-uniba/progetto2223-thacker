@@ -159,20 +159,6 @@ public final class CommandHandler {
             return false;
     }
 
-    private static int handleTimeInput(final String input) {
-        int time = 0;
-        try {
-            time = Integer.parseInt(input);
-            if (time < 1) {
-                System.out.println("[CH] Valore non valido, inserire un intero maggiore di 0.");
-                return 0;
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("[CH] Comando inesistente.");
-        }
-        return time;
-    }
-
     private static void handleTime(final String input, final Game game) {
         long time = handleTimeInput(input);
         if (time > 0) {
