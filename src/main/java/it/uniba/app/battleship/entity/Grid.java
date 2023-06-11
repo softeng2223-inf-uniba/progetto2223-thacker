@@ -45,6 +45,10 @@ public class Grid implements Cloneable {
         return chosenSize;
     }
 
+    public static int getLargeSize() {
+        return LARGE_SIZE;
+    }
+
     /**
      * Restituisce il puntino che viene usato come simbolo
      * per definire una cella che non è ancora stata colpita.
