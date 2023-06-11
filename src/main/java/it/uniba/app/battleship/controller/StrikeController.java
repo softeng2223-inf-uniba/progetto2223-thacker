@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.entity.Coordinate;
+import it.uniba.app.battleship.entity.Grid;
 
 /**
  * Javadoc momentaneo.
