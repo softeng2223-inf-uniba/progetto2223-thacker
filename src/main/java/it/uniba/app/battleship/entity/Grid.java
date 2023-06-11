@@ -179,17 +179,19 @@ public class Grid implements Cloneable {
         Grid clone = null;
         try {
             clone = (Grid) super.clone();
-            clone.map = Arrays.copyOf(map, map.length);
             HashMap<Ship, Ship> clonedShipsMap = new HashMap<>();
 
             for (int i = 0; i < chosenSize; i++) {
                 for (int j = 0; i < chosenSize; j++) {
                     Ship originalShip = map[i][j];
                     Ship clonedShip;
-                    if (clonedShipsMap.containsKey(originalShip)) {
+                    if (originalShip == null) {
+                        clonedShip = null;
+                    } else if (clonedShipsMap.containsKey(originalShip)) {
                         clonedShip = clonedShipsMap.get(originalShip);
                     } else {
                         clonedShip = originalShip.clone();
+                        clonedShipsMap.put(originalShip, clonedShip);
                     }
                     clone.map[i][j] = clonedShip;
                 }
