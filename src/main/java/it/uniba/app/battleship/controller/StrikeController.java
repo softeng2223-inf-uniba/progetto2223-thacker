@@ -18,6 +18,7 @@ public final class StrikeController {
      */
     public static boolean strike(final String command,
         final Coordinate coord, final Grid grid) {
-
+            String[] tokens = command.split("");
+            char letter = tokens[0].charAt(0);
     }
 }
