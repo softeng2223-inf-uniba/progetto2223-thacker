@@ -34,7 +34,7 @@ public final class Game {
     }
 
     public Time getTime() {
-        return time;
+        return time.clone();
     }
 
     /**
