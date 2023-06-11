@@ -60,6 +60,10 @@ public final class CommandHandler {
         }
     }
 
+    private static void handleShowHitMap() {
+        
+    }
+
     private static void handleShowShip() {
         ShowShipsController.showShips();
     }
