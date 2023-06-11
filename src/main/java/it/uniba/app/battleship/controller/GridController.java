@@ -23,6 +23,10 @@ public final class GridController {
     private static final String WHITE_SPACE = "    ";
     private static final String ROW_SPACE = "\n\n";
     private static final int DEFAULT_NUMBER_OF_ROW = 9;
+    private static final String[] ALPH = new String[] {
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+        "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+    };
 
     private GridController() { }
 
@@ -61,7 +65,7 @@ public final class GridController {
             System.out.println(e.getMessage());
         }
     }
-    
+
     /**
      * Restituisce un oggetto di tipo {@code String} che contiene
      * la struttura della mappa da stampare a video.
