@@ -163,13 +163,14 @@ public class Grid implements Cloneable {
     }
 
     /**
-     * Javadoc momentaneo.
-     * @param coord
-     * @return
+     * Controlla se la coordinata passata come parametro è all'interno dei
+     * confini della mappa.
+     * @param coord coordinata su cui effettuare il controllo.
+     * @return {@code true} se è all'interno dei confini della mappa, {@code false} altrimenti
      */
     public boolean isWithinBounds(final Coordinate coord) {
-        return (coord.getRow() >= 0 && coord.getRow() <= SIZE - 1)
-            && (coord.getCol() >= 0 && coord.getCol() <= SIZE - 1);
+        return (coord.getRow() >= 0 && coord.getRow() <= chosenSize - 1)
+            && (coord.getCol() >= 0 && coord.getCol() <= chosenSize - 1);
     }
 
     @Override
