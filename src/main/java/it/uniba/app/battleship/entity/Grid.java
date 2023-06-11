@@ -65,7 +65,7 @@ public class Grid implements Cloneable {
 
     /**
      * Restituisce la dimensione
-     * {@code LARGE_SIZE} che la mappa può assumere.
+     * {@code LARGE_SIZE} che la griglia può assumere.
      */
     public static int getLargeSize() {
         return LARGE_SIZE;
@@ -73,12 +73,16 @@ public class Grid implements Cloneable {
 
     /**
      * Restituisce la dimensione
-     * {@code EXTRALARGE_SIZE} che la mappa può assumere.
+     * {@code EXTRALARGE_SIZE} che la griglia può assumere.
      */
     public static int getExtraLargeSize() {
         return EXTRALARGE_SIZE;
     }
 
+    /**
+     * Restituisce la dimensione
+     * {@code DEFAULT_SIZE} che la griglia può assumere.
+     */
     public static int getDefaultSize() {
         return DEFAULT_SIZE;
     }
