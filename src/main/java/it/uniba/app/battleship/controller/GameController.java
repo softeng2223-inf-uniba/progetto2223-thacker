@@ -1,5 +1,6 @@
 package it.uniba.app.battleship.controller;
 
+import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.entity.Difficulty;
@@ -58,13 +59,16 @@ public final class GameController {
      * @throws SessionNotStartedException
      */
     public static void strike(final Game game, final String command)
-        throws SessionNotStartedException {
+        throws SessionNotStartedException, CellAlreadyMarkedException,
+        SessionNotStartedException {
             if (!game.isSessionStarted()) {
                 throw new SessionNotStartedException();
             }
 
             if (StrikeController.strike(command, game.getSessionGrid())) {
                 game.setSunkShips(game.getSunkShips() + 1);
+            } else {
+                game.setFailedAttempt(game.getFailedAttempts() + 1);
             }
         }
 
