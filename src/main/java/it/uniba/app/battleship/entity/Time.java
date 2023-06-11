@@ -29,6 +29,11 @@ public class Time {
         timeLimitMinute = time;
     }
 
+    /**
+     * Restituisce il numero di minuti a diposizione
+     * per giocare scelto dall'utente.
+     * @return {@code timeLimitMinute} tempo in minuti.
+     */
     public long getTimeLimitMin() {
         return timeLimitMinute;
     }
