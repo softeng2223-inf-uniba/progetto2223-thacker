@@ -114,6 +114,15 @@ public class Grid implements Cloneable {
         return hits.contains(coord);
     }
 
+    /**
+     * Javadoc momentaneo.
+     * @param coord
+     * @return
+     */
+    public boolean isWithinBounds(final Coordinate coord) {
+
+    }
+
     @Override
     public final Grid clone() {
         Grid clone = null;
