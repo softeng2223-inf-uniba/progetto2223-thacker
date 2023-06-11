@@ -25,7 +25,10 @@ public final class GridController {
     private GridController() { }
 
     /**
-     * momentaneo.
+     * Restituisce un oggetto di tipo {@code String} che contiene
+     * la struttura della mappa da stampare a video.
+     * @param grid griglia di gioco
+     * @return mappa dei colpi in formato stringa
      */
     public static String genHitMap(final Grid grid) {
         String str = LETTER_WHITE_SPACE + "A    B    C    D    E    F    G    H    I    J";
