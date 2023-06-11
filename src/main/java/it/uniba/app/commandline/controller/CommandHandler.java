@@ -33,7 +33,10 @@ public final class CommandHandler {
         try {
             String command = Input.get().toLowerCase();
             String[] tokens = command.split(" ");
-
+            if (gameTimeCheck(game)) {
+                System.out.println("Tempo scaduto. Comando ignorato. Hai perso.");
+                return;
+            }
             switch (tokens.length) {
                 case 1 -> executeNoArgs(game, command);
                 case 2 -> executeArgs(game, tokens);
