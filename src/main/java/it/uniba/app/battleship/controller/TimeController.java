@@ -3,6 +3,12 @@ package it.uniba.app.battleship.controller;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 
+/**
+ * La classe {@code TimeController} fornisce i servizi
+ * per gestire il comando {@code /tempo}, che permette di
+ * impostare il numero di minuti disponibile in una partita
+ * per giocare.
+ */
 public final class TimeController {
 
     private static final int SECOND = 60;
