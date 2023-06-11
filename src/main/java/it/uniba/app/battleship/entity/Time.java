@@ -8,4 +8,12 @@ public class Time {
     private static long currentTimeMill;
 
     public Time() { };
+
+    public void setTimeLimitMin(final long time) {
+        timeLimitMinute = time;
+    }
+
+    public void setTimeLimitMill(final Long time) {
+        timeLimitMilliseconds = time;
+    }
 }
