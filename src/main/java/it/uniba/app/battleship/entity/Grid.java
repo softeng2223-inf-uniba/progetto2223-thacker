@@ -124,11 +124,11 @@ public class Grid implements Cloneable {
         try {
             clone = (Grid) super.clone();
             clone.map = Arrays.copyOf(map, map.length);
-            for (int i = 0; i < SIZE; i++) {
+            for (int i = 0; i < chosenSize; i++) {
                 clone.map[i] = Arrays.copyOf(map[i], map[i].length);
             }
-            for (int row = 0; row < SIZE; row++) {
-                for (int col = 0; col < SIZE; col++) {
+            for (int row = 0; row < chosenSize; row++) {
+                for (int col = 0; col < chosenSize; col++) {
                     Coordinate coords = new Coordinate(row, col);
 
                     if (!this.isCellEmpty(coords)) {
