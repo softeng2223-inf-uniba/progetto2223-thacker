@@ -103,9 +103,13 @@ public final class GameController {
      * @throws CloneNotSupportedException
      */
     public static Difficulty getDifficulty(final Game game) throws CloneNotSupportedException {
+        if (!game.isSessionStarted() && game.getDifficulty().getLevel() == null) {
+            try{
+                setEasyDifficulty(game);
+            } catch (SessionAlreadyStartedException e) { }
+        }
         return game.getDifficulty();
     }
-
     /**
      * Fornisce una copia della griglia di gioco in un determinato istante della sessione in corso.
      * Non è possibile ottenere una griglia prima che una sessione di gioco sia iniziata.
