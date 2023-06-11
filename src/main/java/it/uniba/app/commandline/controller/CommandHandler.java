@@ -118,7 +118,7 @@ public final class CommandHandler {
 
 
     private static void handleShowShip() {
-        ShowShipsController.showShips();
+        System.out.println(ShowShipsController.getShipInfo());
     }
 
     private static void handleHelp() {
