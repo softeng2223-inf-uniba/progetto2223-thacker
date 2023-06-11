@@ -80,6 +80,20 @@ public final class CommandHandler {
             return false;
     }
 
+    private static int handleTimeInput(final String input) {
+        int time = 0;
+        try {
+            time = Integer.parseInt(input);
+            if (time < 1) {
+                System.out.println("Valore non valido");
+                return 0;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("[CH] Comando inesistente.");
+        }
+        return time;
+    }
+
     private static void handleDefaultOrShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
