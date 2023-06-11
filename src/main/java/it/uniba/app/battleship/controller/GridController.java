@@ -38,24 +38,32 @@ public final class GridController {
             if (row < DEFAULT_NUMBER_OF_ROW) {
                 b.append(" ");
             }
-            b.append((row + 1) + ":" + WHITE_SPACE);
+            b.append((row + 1));
+            b.append(":");
+            b.append(WHITE_SPACE);
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coord = new Coordinate(row, col);
                 if (grid.isCellHit(coord)) {
                     Ship ship = grid.get(coord);
                     if (ship != null) {
                         if (ship.isSunk()) {
-                            b.append(Color.get(ship.getColor()) + ship
-                               + Color.getReset() + WHITE_SPACE);
+                            b.append(Color.get(ship.getColor()));
+                            b.append(ship);
+                            b.append(Color.getReset());
+                            b.append(WHITE_SPACE);
                         } else {
-                            b.append(ship + WHITE_SPACE);
+                            b.append(ship);
+                            b.append(WHITE_SPACE);
                         }
                     } else {
-                        b.append(Color.get("blue")
-                            + Grid.getWaterSymbol() + Color.getReset() + WHITE_SPACE);
+                            b.append(Color.get("blue"));
+                            b.append(Grid.getWaterSymbol());
+                            b.append(Color.getReset());
+                            b.append(WHITE_SPACE);
                     }
                 } else {
-                    b.append(Grid.getWaterSymbol() + WHITE_SPACE);
+                    b.append(Grid.getWaterSymbol());
+                    b.append(WHITE_SPACE);
                 }
             }
             b.append(ROW_SPACE);
