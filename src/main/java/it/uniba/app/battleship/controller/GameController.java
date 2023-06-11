@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
+import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.entity.Difficulty;
@@ -60,7 +61,7 @@ public final class GameController {
      */
     public static void strike(final Game game, final String command)
         throws SessionNotStartedException, CellAlreadyMarkedException,
-        SessionNotStartedException {
+        OutOfMapException {
             if (!game.isSessionStarted()) {
                 throw new SessionNotStartedException();
             }

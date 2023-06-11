@@ -4,6 +4,7 @@ import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Grid;
 import it.uniba.app.battleship.entity.Ship;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
+import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.utility.Color;
 
 /**
@@ -37,10 +38,10 @@ public final class StrikeController {
      * @return
      */
     public static boolean strike(final String command, final Grid grid)
-        throws CellAlreadyMarkedException {
+        throws CellAlreadyMarkedException, OutOfMapException {
             Coordinate coord = convert(command);
             if (!grid.isWithinBounds(coord)) {
-                return false;
+                throw new OutOfMapException();
             }
 
             if (grid.isCellHit(coord)) {
