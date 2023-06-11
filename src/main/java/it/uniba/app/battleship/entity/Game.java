@@ -31,6 +31,14 @@ public final class Game {
     }
 
     /**
+     * TODO javadoc.
+     * @param number
+     */
+    public void setSunkShips(final int number) {
+        sunkShips = number;
+    }
+
+    /**
      * Informa se una sessione di gioco è iniziata e quindi in corso o meno.
      *
      * @return true se la sessione è in corso, false altrimenti.
