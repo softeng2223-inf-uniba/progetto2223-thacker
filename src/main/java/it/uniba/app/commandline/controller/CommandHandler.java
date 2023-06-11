@@ -45,6 +45,7 @@ public final class CommandHandler {
             switch (command) {
                 case "/help"            -> handleHelp();
                 case "/mostranavi"      -> handleShowShip();
+                case "/mostragriglia"   -> handleShowHitMap();
                 case "/gioca"           -> handlePlay(game);
                 case "/mostralivello"   -> handleShowDifficulty(game);
                 case "/facile"          -> handleEasyDifficulty(game);
