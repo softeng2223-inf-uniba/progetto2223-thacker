@@ -86,4 +86,15 @@ public class Time {
         currentTimeMill = System.currentTimeMillis();
         return currentTimeMill;
     }
+
+    public final Time clone() {
+
+        Time clone = null;
+        try {
+            clone = (Time) super.clone();
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+        return clone;
+    }
 }
