@@ -1,5 +1,12 @@
 package it.uniba.app.battleship.entity;
 
+/**
+ * La classe {@code Time} permette di conservare
+ * i valori del tempo, utilizzati dal {@code TimeController},
+ * necessari per poter aggiungere a
+ * <i>Battleship</i> la funzionalità del comando
+ * {@code /tempo}.
+ */
 public class Time {
 
     private static long timeLimitMinute;
