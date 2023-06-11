@@ -2,6 +2,7 @@ package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Grid;
+import it.uniba.app.battleship.entity.Ship;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 
 /**
@@ -29,6 +30,12 @@ public final class StrikeController {
 
             if (grid.isCellHit(coord)) {
                 throw new CellAlreadyMarkedException();
+            }
+
+            grid.mark(coord);
+            if (!grid.isCellEmpty(coord)) {
+                Ship ship = grid.get(coord);
+                ship.hit();
             }
         }
 }
