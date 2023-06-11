@@ -24,6 +24,7 @@ public final class GridController {
     public static String genHitMap(final Grid grid) {
         String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
         for (int i = 0; i < Grid.getSize(); i++) {
+            str += (i + 1) + ":" + "    ";
             for (int j = 0; j < Grid.getSize(); j++) {
 
             }
