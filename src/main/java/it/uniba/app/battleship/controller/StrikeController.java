@@ -69,7 +69,7 @@ public final class StrikeController {
             }
             System.out.println(
                 Color.get("yellow")
-                + "\nMANCATO\n"
+                + "\nACQUA\n"
                 + Color.getReset()
             );
             return -1;
