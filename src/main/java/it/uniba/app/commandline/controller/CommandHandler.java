@@ -91,6 +91,7 @@ public final class CommandHandler {
             case "/large"           -> handleLargeGrid(game);
             case "/extralarge"      -> handleExtraLargeGrid(game);
             case "/gioca"           -> handlePlay(game);
+            case "/abbandona"       -> handleEndSession(game);
             case "/mostralivello"   -> handleShowDifficulty(game);
             case "/facile"          -> handleEasyDifficulty(game);
             case "/medio"           -> handleMediumDifficulty(game);
