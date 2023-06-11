@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.entity.Ship;
+import it.uniba.app.utility.Color;
 
 /**
  * Classe necessaria per eseguire il comando
@@ -12,6 +13,8 @@ import it.uniba.app.battleship.entity.Ship;
  * relativi alla stampa delle informazioni di ciascuna nave.
 */
 public final class ShowShipsController {
+    private static final String INSTANCE_WHITE_SPACE = "       ";
+    private static final String NAME_WHITE_SPACE = "";
 
     private ShowShipsController() { }
 
@@ -61,26 +64,32 @@ public final class ShowShipsController {
      * il nome, la dimensione in quadrati
      * e il numero di esemplari da affondare.
      */
-    public static void showShips() {
-        String numOfInstancesWhiteSpace = "       ";
-        String nameWhiteSpace = "";
+    public static String getShipInfo() {
+        String numOfInstancesWhiteSpace = INSTANCE_WHITE_SPACE;
+        String nameWhiteSpace = NAME_WHITE_SPACE;
 
         String str = "";
+        StringBuilder b = new StringBuilder();
         for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
-            StringBuilder b = new StringBuilder();
             Ship ship = new Ship(i);
             nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
-            b.append(ship.getName() + nameWhiteSpace);
+            b.append(ship.getName());
+            b.append(nameWhiteSpace);
 
             for (int j = 0; j < ship.getSize(); j++) {
+                b.append(Color.get(ship.getColor()));
                 b.append(ship);
+                b.append(Color.getReset());
             }
 
-            b.append(numOfInstancesWhiteSpace + "Esemplari:" + Ship.getMaxInstances(i));
+            b.append(numOfInstancesWhiteSpace);
+            b.append("Esemplari:");
+            b.append(Ship.getMaxInstances(i));
             numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
-            str = b.toString();
-            System.out.println(str);
+            b.append("\n");
         }
+        str = b.toString();
+        return str;
     }
 
 }
