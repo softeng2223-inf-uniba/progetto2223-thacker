@@ -74,11 +74,11 @@ public final class GridController {
      */
     public static String genHitMap(final Grid grid) {
         String str = LETTER_WHITE_SPACE;
-        for (int i = 0; i < Grid.getSize(); i++) {
-            str += ALPH[i] + WHITE_SPACE;
-        }
-        str += ROW_SPACE;
         StringBuilder b = new StringBuilder();
+        for (int i = 0; i < Grid.getSize(); i++) {
+            b.append(ALPH[i] + WHITE_SPACE);
+        }
+        b.append(ROW_SPACE);
         for (int row = 0; row < Grid.getSize(); row++) {
             if (row < DEFAULT_NUMBER_OF_ROW) {
                 b.append(" ");
