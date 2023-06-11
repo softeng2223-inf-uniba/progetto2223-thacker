@@ -18,6 +18,7 @@ public final class Game {
 
     private Difficulty difficulty;
     private Grid grid;
+    private Time time;
 
     private int totAttempts;
     private int failedAttempts;
@@ -28,6 +29,7 @@ public final class Game {
         sessionStarted = false;
         diffSet = false;
         difficulty = new Difficulty();
+        time = new Time();
     }
 
     /**
