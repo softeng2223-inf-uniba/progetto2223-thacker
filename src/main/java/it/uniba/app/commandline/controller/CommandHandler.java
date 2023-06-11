@@ -14,7 +14,6 @@ import it.uniba.app.battleship.controller.ShowShipsController;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
-import it.uniba.app.utility.Color;
 import it.uniba.app.utility.Input;
 
 /**
