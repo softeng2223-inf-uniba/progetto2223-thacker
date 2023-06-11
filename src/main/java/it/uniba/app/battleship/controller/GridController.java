@@ -33,7 +33,6 @@ public final class GridController {
                 Coordinate coord = new Coordinate(row, col);
                 if (grid.isCellHit(coord)) {
                     Ship ship = grid.get(coord);
-                    // aggiungere controlli sulla nave
                     if (ship != null) {
                         if (ship.isSunk()) {
                             str += Color.get(ship.getColor()) + ship
@@ -43,7 +42,6 @@ public final class GridController {
                         }
                     }
                 } else {
-                    // migliorare concatenamento stringa
                     str += Grid.getWaterSymbol() + "    ";
                 }
             }
