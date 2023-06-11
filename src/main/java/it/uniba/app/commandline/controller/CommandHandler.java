@@ -29,6 +29,9 @@ public final class CommandHandler {
      * <ul>
      * <li><{@code /help} : mostra l'elenco dei comandi disponibili</li>
      * <li><{@code /mostranavi} : mostra l'elenco delle navi disponibili</li>
+     * <li><{@code /standard} : imposta la dimensione della griglia a 10x10</li>
+     * <li><{@code /large} : imposta la dimensione della griglia a 18x18</li>
+     * <li><{@code /extralarge} : imposta la dimensione della griglia a 26x26</li>
      * <li><{@code /gioca} : avvia una nuova partita</li>
      * <li><{@code /mostralivello} : mostra il livello di difficoltà impostato</li>
      * <li><{@code /facile} : imposta il livello di difficoltà a 'facile'</li>
