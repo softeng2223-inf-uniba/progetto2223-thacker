@@ -28,6 +28,12 @@ public final class TimeController {
         time.setStartTimeMill(System.currentTimeMillis());
     }
 
+    /**
+     * Permette di settare il numero di minuti a disposizione
+     * nella partita per giocare.
+     * @param game istanza di Game in cui settare il limite di tempo.
+     * @param timeSet contiene i minuti a disposizione per giocare.
+     */
     public static void setTimeLimit(final Game game, final long timeSet)
     throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
