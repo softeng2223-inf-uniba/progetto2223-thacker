@@ -32,4 +32,9 @@ public class Time {
     public long getTimeLimitMill() {
         return timeLimitMilliseconds;
     }
+
+    public long getCurrentTimeMill() {
+        currentTimeMill = System.currentTimeMillis();
+        return currentTimeMill;
+    }
 }
