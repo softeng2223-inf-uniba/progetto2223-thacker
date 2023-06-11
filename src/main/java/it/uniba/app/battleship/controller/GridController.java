@@ -6,6 +6,7 @@ import java.util.Random;
 import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Grid;
 import it.uniba.app.battleship.entity.Ship;
+import it.uniba.app.utility.Color;
 
 /**
  * Classe che contiene i metodi utili alla visualizzazione della
