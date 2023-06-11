@@ -392,9 +392,13 @@ class GameControllerTest {
      * Atteso: DifficultyNotSetException
      */
     @Test
-    void testGetDifficultyNotSet() {
-        assertThrows(DifficultyNotSetException.class, () -> GameController.getDifficulty(game),
-                "errore [GC:21]: getDifficulty() non ha generato l'eccezione DifficultyNotSetException");
+    void testGetDifficultyIfNotSet() {
+        try {
+            assertEquals(GameController.getDifficulty(game).getLevel(), "Facile",
+                    "errore [GC:21]: getDifficulty() non ha generato l'eccezione DifficultyNotSetException");
+        } catch (CloneNotSupportedException e) {
+            fail("errore [GC:21]: " + e.getMessage());
+        }
     }
     /**
      * 22) Test: Verifica che il metodo getDifficulty() restituisce
