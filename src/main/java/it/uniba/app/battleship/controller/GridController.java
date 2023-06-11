@@ -30,8 +30,10 @@ public final class GridController {
                 if (grid.isCellHit(coord)) {
                     Ship ship = grid.get(coord);
                     // aggiungere controlli sulla nave
-                    if(ship.isSunk()){
-                        str += ship + "    ";
+                    if (ship != null) {
+                        if (ship.isSunk()) {
+                            str += ship + "    ";
+                        }
                     }
                 } else {
                     // migliorare concatenamento stringa
