@@ -13,6 +13,19 @@ public final class StrikeController {
     private StrikeController() { }
 
     /**
+     * Javadoc momentaneo.
+     * @param command
+     * @return
+     */
+    public static Coordinate convert(final String command) {
+        String[] tokens = command.split("");
+        char letter = tokens[0].charAt(0);
+
+        int row = Integer.parseInt(tokens[2]);
+        return new Coordinate(row, letter);
+    }
+
+    /**
      * Javadoc.
      * @param command
      * @param grid
@@ -20,11 +33,6 @@ public final class StrikeController {
      */
     public static boolean strike(final String command, final Grid grid)
         throws CellAlreadyMarkedException {
-            String[] tokens = command.split("");
-            char letter = tokens[0].charAt(0);
-
-            int row = Integer.parseInt(tokens[2]);
-            Coordinate coord = new Coordinate(row, letter);
             if (!grid.isWithinBounds(coord)) {
                 return false;
             }
