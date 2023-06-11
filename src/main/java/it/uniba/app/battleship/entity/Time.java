@@ -14,6 +14,10 @@ public class Time {
     private static long timeLimitMilliseconds;
     private static long currentTimeMill;
 
+    /**
+     * Costruttore pubblico che permette di istanziare un oggetto
+     * {@code Time} con attributi inizializzati con valori di default.
+     */
     public Time() { };
 
     public void setTimeLimitMin(final long time) {
