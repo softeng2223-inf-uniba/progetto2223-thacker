@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.entity.Ship;
+import it.uniba.app.utility.Color;
 
 /**
  * Classe necessaria per eseguire il comando
@@ -70,13 +71,18 @@ public final class ShowShipsController {
             StringBuilder b = new StringBuilder();
             Ship ship = new Ship(i);
             nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
-            b.append(ship.getName() + nameWhiteSpace);
+            b.append(ship.getName());
+            b.append(nameWhiteSpace);
 
             for (int j = 0; j < ship.getSize(); j++) {
+                b.append(Color.get(ship.getColor()));
                 b.append(ship);
+                b.append(Color.getReset());
             }
 
-            b.append(numOfInstancesWhiteSpace + "Esemplari:" + Ship.getMaxInstances(i));
+            b.append(numOfInstancesWhiteSpace);
+            b.append("Esemplari:");
+            b.append(Ship.getMaxInstances(i));
             numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
             str = b.toString();
             System.out.println(str);
