@@ -4,8 +4,10 @@ import java.util.LinkedList;
 import java.util.Random;
 
 import it.uniba.app.battleship.entity.Coordinate;
+import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
 import it.uniba.app.battleship.entity.Ship;
+import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.utility.Color;
 
 /**
@@ -18,6 +20,18 @@ public final class GridController {
     private static final int VERTICAL = 0;
 
     private GridController() { }
+
+    /**
+     * TODO javadoc.
+     */
+    public static void standardGridSize(final Game game) {
+        try {
+            Grid.setChosenSize(game, Grid.getDefaultSize());
+            System.out.println("OK, la dimensione della griglia è 10x10.");
+        } catch (SessionAlreadyStartedException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     /**
      * Restituisce una oggetto di tipi {@code String} che
