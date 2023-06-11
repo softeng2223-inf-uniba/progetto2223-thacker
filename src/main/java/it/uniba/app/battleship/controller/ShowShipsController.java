@@ -64,13 +64,13 @@ public final class ShowShipsController {
      * il nome, la dimensione in quadrati
      * e il numero di esemplari da affondare.
      */
-    public static void showShips() {
+    public static String getShipInfo() {
         String numOfInstancesWhiteSpace = INSTANCE_WHITE_SPACE;
         String nameWhiteSpace = NAME_WHITE_SPACE;
 
         String str = "";
+        StringBuilder b = new StringBuilder();
         for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
-            StringBuilder b = new StringBuilder();
             Ship ship = new Ship(i);
             nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
             b.append(ship.getName());
@@ -86,9 +86,10 @@ public final class ShowShipsController {
             b.append("Esemplari:");
             b.append(Ship.getMaxInstances(i));
             numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
-            str = b.toString();
-            System.out.println(str);
+            b.append("\n");
         }
+        str = b.toString();
+        return str;
     }
 
 }
