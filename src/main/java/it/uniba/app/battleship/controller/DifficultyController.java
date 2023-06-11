@@ -12,8 +12,8 @@ public final class DifficultyController {
     private static final int DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS = 30;
     private static final int DEFAULT_HARD_MAX_FAILED_ATTEMPTS = 10;
     private static int easyMaxFailedAttempts = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
-    private static int MediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
-    private static int HardMaxFailedAttempts = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+    private static int mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
+    private static int hardMaxFailedAttempts = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
     private DifficultyController() { }
     /**
      * Imposta la difficoltà dell'oggetto Difficulty come "Facile" e
@@ -33,7 +33,7 @@ public final class DifficultyController {
      */
     public static void setDefaultMedium(final Difficulty difficulty) {
         difficulty.setNameLevel(MEDIUM_NAME);
-        difficulty.setMaxFailedAttempts(MediumMaxFailedAttempts);
+        difficulty.setMaxFailedAttempts(mediumMaxFailedAttempts);
     }
     /**
      * Imposta la difficoltà dell'oggetto Difficulty come "Difficile" e
@@ -43,7 +43,7 @@ public final class DifficultyController {
      */
     public static void setDefaultHard(final Difficulty difficulty) {
         difficulty.setNameLevel(HARD_NAME);
-        difficulty.setMaxFailedAttempts(HardMaxFailedAttempts);
+        difficulty.setMaxFailedAttempts(hardMaxFailedAttempts);
     }
 
     /**
@@ -63,16 +63,16 @@ public final class DifficultyController {
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
      */
     public static void setCustomMedium(final int maxFailedAttempts) {
-        MediumMaxFailedAttempts = maxFailedAttempts;
+        mediumMaxFailedAttempts = maxFailedAttempts;
     }
 
     /**
      * Imposta la difficoltà dell'oggetto Difficulty come "Difficile" e
      * il numero massimo di tentativi falliti a maxFailedAttempts.
-     * 
+     *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
      */
     public static void setCustomHard(final int maxFailedAttempts) {
-        HardMaxFailedAttempts = maxFailedAttempts;
+        hardMaxFailedAttempts = maxFailedAttempts;
     }
 }
