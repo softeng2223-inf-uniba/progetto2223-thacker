@@ -14,6 +14,7 @@ public final class Game {
 
     private boolean sessionStarted;
     private boolean diffSet;
+    private int sunkShips;
 
     private Difficulty difficulty;
     private Grid grid;
@@ -27,6 +28,31 @@ public final class Game {
         sessionStarted = false;
         diffSet = false;
         difficulty = new Difficulty();
+    }
+
+    /**
+     * Imposta il valore delle navi affondate.
+     * @param number nuovo valore delle navi affondate
+     */
+    public void setSunkShips(final int number) {
+        sunkShips = number;
+    }
+
+    /**
+     * Imposta il valore dei tentativi falliti.
+     * @param number nuovo valore dei tentativi falliti
+     */
+    public void setFailedAttempt(final int number) {
+        failedAttempts = number;
+    }
+
+    /**
+     * Restituisce il valore delle navi che sono
+     * state già affondate.
+     * @return numero di navi affondate
+     */
+    public int getSunkShips() {
+        return sunkShips;
     }
 
     /**
@@ -55,6 +81,7 @@ public final class Game {
         grid = new Grid();
         GridController.randomlyFill(SHIPS, grid);
 
+        sunkShips = 0;
         totAttempts = 0;
         failedAttempts = 0;
         sessionStarted = true;

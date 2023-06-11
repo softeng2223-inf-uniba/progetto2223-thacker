@@ -104,7 +104,7 @@ public final class GridController {
                             b.append(WHITE_SPACE);
                     }
                 } else {
-                    b.append(Grid.getWaterSymbol());
+                    b.append(Grid.getDotSymbol());
                     b.append(WHITE_SPACE);
                 }
             }
