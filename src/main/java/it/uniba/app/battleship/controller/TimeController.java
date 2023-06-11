@@ -42,6 +42,13 @@ public final class TimeController {
         game.getTime().setTimeLimitMin(timeSet);
     }
 
+    /**
+     * Permette di controllare quanto tempo è trascorso
+     * dall'inizio della partita all'istante in cui
+     * viene chiamato il metodo.
+     * @param game contiene i dati della partita in corso.
+     * @return il tempo trascorso in millisecondi.
+     */
     private static long checkTimePassedMill(final Game game) {
         return game.getTime().getCurrentTimeMill() - game.getTime().getStartTimeMill();
     }
