@@ -74,6 +74,10 @@ public final class CommandHandler {
         GridController.standardGridSize(game);
     }
 
+    private void handleLargeGrid(final Game game) {
+        GridController.largeGridSize(game);
+    }
+
     private static void handleShowShip() {
         ShowShipsController.showShips();
     }
