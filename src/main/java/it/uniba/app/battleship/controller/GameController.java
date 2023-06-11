@@ -62,6 +62,10 @@ public final class GameController {
             if (!game.isSessionStarted()) {
                 throw new SessionNotStartedException();
             }
+
+            if (StrikeController.strike(command, game.getSessionGrid())) {
+                game.setSunkShips(game.getSunkShips() + 1);
+            }
         }
 
     /**
