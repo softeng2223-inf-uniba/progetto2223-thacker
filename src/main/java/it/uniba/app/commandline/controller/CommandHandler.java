@@ -101,6 +101,51 @@ public final class CommandHandler {
             default                 -> System.err.println("[CH] Il comando " + command + " non è valido.");
         }
     }
+    /**
+     * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
+     * Inoltre imposta la difficoltà della sessione a 'facile'.
+     * @param game sessione di gioco.
+     * @param num numero di tentativi massimi fallibili.
+     */
+    private static void handleCustomEasyDifficulty(final Game game, final int num) {
+        DifficultyController.setCustomEasy(num);
+        try {
+            GameController.setEasyDifficulty(game);
+            System.out.println("Ok");
+        } catch (SessionAlreadyStartedException e) {
+            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
+        }
+    }
+    /**
+     * Imposta i tentativi massimi fallibili per la difficoltà 'medio' a num.
+     * Inoltre imposta la difficoltà della sessione a 'medio'.
+     * @param game sessione di gioco.
+     * @param num numero di tentativi massimi fallibili.
+     */
+    private static void handleCustomMediumDifficulty(final Game game, final int num) {
+        DifficultyController.setCustomMedium(num);
+        try {
+            GameController.setMediumDifficulty(game);
+            System.out.println("Ok");
+        } catch (SessionAlreadyStartedException e) {
+            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
+        }
+    }
+    /**
+     * Imposta i tentativi massimi fallibili per la difficoltà 'difficile' a num.
+     * Inoltre imposta la difficoltà della sessione a 'difficile'.
+     * @param game sessione di gioco
+     * @param num numero di tentativi massimi fallibili.
+     */
+    private static void handleCustomHardDifficulty(final Game game, final int num) {
+        DifficultyController.setCustomHard(num);
+        try {
+            GameController.setHardDifficulty(game);
+            System.out.println("Ok");
+        } catch (SessionAlreadyStartedException e) {
+            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
+        }
+    }
     private static void handleShowHitMap(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
