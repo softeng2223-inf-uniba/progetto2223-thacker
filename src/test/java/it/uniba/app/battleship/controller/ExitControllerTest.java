@@ -80,4 +80,27 @@ class ExitControllerTest {
         assertFalse(instance.isExitRequested(),
                 "err [EX:5]: Il metodo isExitRequested() restituisce true senza una richiesta attiva di uscita");
     }
+    /**
+     * 6) Test: Verifica che il metodo getInstance() non alteri
+     * lo stato interno di ExitController.
+     * <p>
+     * Atteso: false.
+     */
+    @Test
+    void testGetInstanceDoesNotAlterState() {
+        assertFalse(ExitController.getInstance().isExitRequested(),
+                "err [EX:6]: Il metodo getInstance() altera lo stato interno di ExitController");
+    }
+    /**
+     * 7) Test: Verifica che il metodo getInstance() dopo aver
+     * chiamato requestExit() restituisca un'istanza di ExitController
+     * con requestedExit impostato a true.
+     */
+    @Test
+    void testGetInstanceReturnsInstanceWithRequestedExitTrue() {
+        instance.requestExit();
+        assertTrue(ExitController.getInstance().isExitRequested(),
+                "err [EX:7]: Il metodo getInstance() restituisce un'istanza di ExitController "
+                        + "con requestedExit impostato a false");
+    }
 }
