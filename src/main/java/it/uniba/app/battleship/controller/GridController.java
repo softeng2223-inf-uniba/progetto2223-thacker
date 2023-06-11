@@ -19,6 +19,7 @@ public final class GridController {
 
     private static final String WHITE_SPACE = "    ";
     private static final String ROW_SPACE = "\n\n";
+    private static final int DEFAULT_NUMBER_OF_ROW = 9;
 
     private GridController() { }
 
