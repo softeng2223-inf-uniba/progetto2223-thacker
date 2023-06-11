@@ -22,7 +22,7 @@ public final class GridController {
      * momentaneo.
      */
     public static String genHitMap(final Grid grid) {
-        String str = "";
+        String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
 
         return str;
     }
