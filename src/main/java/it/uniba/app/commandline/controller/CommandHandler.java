@@ -3,6 +3,7 @@ package it.uniba.app.commandline.controller;
 
 import java.io.IOException;
 
+import it.uniba.app.battleship.exception.GameException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.controller.ExitController;
@@ -64,7 +65,11 @@ public final class CommandHandler {
     private void handleShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]";
         if (command.matches(regex)) {
-            // inserire logica di colpo da GameController.
+            try {
+                GameController.strike(game, command);
+            } catch (GameException err) {
+                System.out.println(err.getMessage());
+            }
         }
     }
 
