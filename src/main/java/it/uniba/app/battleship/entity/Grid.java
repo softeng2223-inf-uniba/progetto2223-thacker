@@ -28,8 +28,10 @@ public class Grid implements Cloneable {
     private Ship[][] map;
     private HashSet<Coordinate> hits;
 
+
     /**
-     * Javadoc momentaneo.
+     * Costruttore che permette di istanziare
+     * un oggetto {@code Grid} di dimensione {@code chosenSize}.
      */
     public Grid() {
         map = new Ship[chosenSize][chosenSize];
