@@ -17,6 +17,7 @@ public final class GridController {
     private static final int POSSIBLE_DIRECTIONS = 2;
     private static final int VERTICAL = 0;
 
+    private static final String LETTER_WHITE_SPACE = "       ";
     private static final String WHITE_SPACE = "    ";
     private static final String ROW_SPACE = "\n\n";
     private static final int DEFAULT_NUMBER_OF_ROW = 9;
@@ -27,7 +28,7 @@ public final class GridController {
      * momentaneo.
      */
     public static String genHitMap(final Grid grid) {
-        String str = "      A    B    C    D    E    F    G    H    I    J";
+        String str = LETTER_WHITE_SPACE + "A    B    C    D    E    F    G    H    I    J";
         str += ROW_SPACE;
         for (int row = 0; row < Grid.getSize(); row++) {
             if (row < DEFAULT_NUMBER_OF_ROW) {
@@ -57,6 +58,7 @@ public final class GridController {
         }
         return str;
     }
+
     /**
      * Restituisce una oggetto di tipi {@code String} che
      * contiene la mappa delle navi che viene mostrata col
