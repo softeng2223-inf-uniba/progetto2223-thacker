@@ -33,30 +33,31 @@ public final class GridController {
         StringBuilder b = new StringBuilder();
         for (int row = 0; row < Grid.getSize(); row++) {
             if (row < DEFAULT_NUMBER_OF_ROW) {
-                str += " ";
+                b.append(" ");
             }
-            str += (row + 1) + ":" + WHITE_SPACE;
+            b.append((row + 1) + ":" + WHITE_SPACE);
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coord = new Coordinate(row, col);
                 if (grid.isCellHit(coord)) {
                     Ship ship = grid.get(coord);
                     if (ship != null) {
                         if (ship.isSunk()) {
-                            str += Color.get(ship.getColor()) + ship
-                                + Color.getReset() + WHITE_SPACE;
+                            b.append(Color.get(ship.getColor()) + ship
+                               + Color.getReset() + WHITE_SPACE);
                         } else {
-                            str += ship + WHITE_SPACE;
+                            b.append(ship + WHITE_SPACE);
                         }
                     } else {
-                        str += Color.get("blue")
-                            + Grid.getWaterSymbol() + Color.getReset() + WHITE_SPACE;
+                        b.append(Color.get("blue")
+                            + Grid.getWaterSymbol() + Color.getReset() + WHITE_SPACE);
                     }
                 } else {
-                    str += Grid.getWaterSymbol() + WHITE_SPACE;
+                    b.append(Grid.getWaterSymbol() + WHITE_SPACE);
                 }
             }
-            str += ROW_SPACE;
+            b.append(ROW_SPACE);
         }
+        str += b.toString();
         return str;
     }
 
