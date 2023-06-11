@@ -67,6 +67,7 @@ public final class CommandHandler {
             System.out.println(str);
         } catch (SessionNotStartedException err) {
             // aggiungere gestione eccezione.
+            System.out.println(err.getMessage());
         }
     }
 
