@@ -40,6 +40,14 @@ public final class Game {
 
     /**
      * TODO javadoc.
+     * @param number
+     */
+    public void setFailedAttempt(final int number) {
+        failedAttempts = number;
+    }
+
+    /**
+     * TODO javadoc.
      * @return
      */
     public int getSunkShips() {
