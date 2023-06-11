@@ -36,8 +36,9 @@ public final class StrikeController {
      * @param grid
      * @return
      */
-    public static boolean strike(final String command, final Grid grid,
-        final Coordinate coord) throws CellAlreadyMarkedException {
+    public static boolean strike(final String command, final Grid grid)
+        throws CellAlreadyMarkedException {
+            Coordinate coord = convert(command);
             if (!grid.isWithinBounds(coord)) {
                 return false;
             }
