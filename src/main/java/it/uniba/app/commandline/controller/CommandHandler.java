@@ -55,22 +55,31 @@ public final class CommandHandler {
                 case "/svelagriglia"    -> handleShowGameGrid(game);
                 case "/mostratentativi" -> handleShowAttempts(game);
                 case "/esci"            -> handleExit();
-                default                 -> System.err.println("[CH] Comando inesistente.");
+                default                 -> handleDefaultOrShoot(game, command);
             }
         } catch (IOException e) {
             System.out.println("Si è verificato un errore durante la lettura del comando: " + e.getMessage());
         }
     }
 
-    private void handleShoot(final Game game, final String command) {
+    private static void handleDefaultOrShoot(final Game game, final String command) {
+        if (!handleShoot(game, command)) {
+            System.out.println("[CH] comando inesistente");
+        }
+    }
+
+    private static boolean handleShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]";
         if (command.matches(regex)) {
             try {
                 GameController.strike(game, command);
+                System.out.println(GridController.genHitMap(game.getSessionGrid()));
+                return true;
             } catch (GameException err) {
                 System.out.println(err.getMessage());
             }
         }
+        return false;
     }
 
     private static void handleShowHitMap(final Game game) {
