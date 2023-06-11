@@ -20,9 +20,9 @@ public class Grid implements Cloneable {
     private static final int LARGE_SIZE      = 18;
     private static final int EXTRALARGE_SIZE = 26;
 
-    private static final String STR_DOT = "\u00B7";
-    private static final String STR_WATER   = "~";
-    private static final String STR_HIT     = "X";
+    private static final String STR_DOT   = "\u00B7";
+    private static final String STR_WATER = "~";
+    private static final String STR_HIT   = "X";
 
     private static int chosenSize = DEFAULT_SIZE;
     private Ship[][] map;
