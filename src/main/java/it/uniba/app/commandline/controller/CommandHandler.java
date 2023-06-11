@@ -81,6 +81,7 @@ public final class CommandHandler {
     private static void handlePlay(final Game game) {
         try {
             GameController.startSession(game);
+            handleShowHitMap(game);
         } catch (SessionAlreadyStartedException e) {
             System.out.println(e.getMessage());
         }
