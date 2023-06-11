@@ -30,6 +30,7 @@ public final class GridController {
     public static String genHitMap(final Grid grid) {
         String str = LETTER_WHITE_SPACE + "A    B    C    D    E    F    G    H    I    J";
         str += ROW_SPACE;
+        StringBuilder b = new StringBuilder();
         for (int row = 0; row < Grid.getSize(); row++) {
             if (row < DEFAULT_NUMBER_OF_ROW) {
                 str += " ";
