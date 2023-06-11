@@ -52,6 +52,7 @@ public final class CommandHandler {
                 case "/medio"           -> handleMediumDifficulty(game);
                 case "/difficile"       -> handleHardDifficulty(game);
                 case "/svelagriglia"    -> handleShowGameGrid(game);
+                case "/mostratentativi" -> handleShowAttempts(game);
                 case "/esci"            -> handleExit();
                 default                 -> System.err.println("[CH] Comando inesistente.");
             }
@@ -138,6 +139,20 @@ public final class CommandHandler {
             System.out.println(message);
         } catch (SessionNotStartedException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    private static void handleShowAttempts(final Game game) {
+        try {
+            String message =
+                "tentativi effettuati: " + GameController.getAttempts(game) + "\n"
+                + "di cui falliti: " + GameController.getFailedAttempts(game) + "\n"
+                + "massimo fallibili: " + GameController.getDifficulty(game).getMaxFailedAttempts();
+            System.out.println(message);
+        } catch (SessionNotStartedException e) {
+            System.out.println(e.getMessage());
+        } catch (CloneNotSupportedException e) {
+            System.out.println("Impossibile recuperare informazioni sul livello di difficoltà");
         }
     }
 
