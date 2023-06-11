@@ -34,7 +34,7 @@ public final class TimeController {
      * @param game istanza di Game in cui settare il limite di tempo.
      * @param timeSet contiene i minuti a disposizione per giocare.
      */
-    public static void setTimeLimit(final Game game, final long timeSet)
+    public static void setTimeLimit(final Game game, final int timeSet)
     throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
