@@ -12,7 +12,6 @@ public final class StrikeController {
     /**
      * Javadoc.
      * @param command
-     * @param coord
      * @param grid
      * @return
      */
@@ -21,5 +20,9 @@ public final class StrikeController {
             char letter = tokens[0].charAt(0);
 
             int row = Integer.parseInt(tokens[2]);
+            Coordinate coord = new Coordinate(row, letter);
+            if (!grid.isWithinBounds(coord)) {
+                return false;
+            }
     }
 }
