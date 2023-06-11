@@ -181,9 +181,9 @@ public class Grid implements Cloneable {
             clone = (Grid) super.clone();
             HashMap<Ship, Ship> clonedShipsMap = new HashMap<>();
 
-            for (int i = 0; i < chosenSize; i++) {
-                for (int j = 0; i < chosenSize; j++) {
-                    Ship originalShip = map[i][j];
+            for (int row = 0; row < chosenSize; row++) {
+                for (int col = 0; col < chosenSize; col++) {
+                    Ship originalShip = map[row][col];
                     Ship clonedShip;
                     if (originalShip == null) {
                         clonedShip = null;
@@ -193,7 +193,7 @@ public class Grid implements Cloneable {
                         clonedShip = originalShip.clone();
                         clonedShipsMap.put(originalShip, clonedShip);
                     }
-                    clone.map[i][j] = clonedShip;
+                    clone.map[row][col] = clonedShip;
                 }
             }
         } catch (CloneNotSupportedException err) { }
