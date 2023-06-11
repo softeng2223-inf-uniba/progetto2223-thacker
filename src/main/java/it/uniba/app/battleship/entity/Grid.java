@@ -42,8 +42,10 @@ public class Grid implements Cloneable {
     }
 
     /**
-     * TODO javadoc.
-     * @param size
+     * Imposta la {@code chosenSize} alla dimensione scelta
+     * passata come parametro.
+     * @param game oggetto game che contiene i dati della partita in corso.
+     * @param size dimensione scelta.
      * @throws SessionAlreadyStartedException
      */
     public static void setChosenSize(final Game game, final int size) throws SessionAlreadyStartedException {
