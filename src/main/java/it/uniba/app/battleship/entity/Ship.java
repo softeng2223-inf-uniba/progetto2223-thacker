@@ -122,6 +122,10 @@ public final class Ship implements Cloneable {
         return types[typeId].size;
     }
 
+    public String getColor() {
+        return types[typeId].colorCode;
+    }
+
     /**
      * Restituisce il numero di colpi
      * che ha subito la singola nave.
