@@ -20,5 +20,7 @@ public final class StrikeController {
         final Coordinate coord, final Grid grid) {
             String[] tokens = command.split("");
             char letter = tokens[0].charAt(0);
+
+            int row = Integer.parseInt(tokens[2]);
     }
 }
