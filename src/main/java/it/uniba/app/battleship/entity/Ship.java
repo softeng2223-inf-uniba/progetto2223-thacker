@@ -1,7 +1,5 @@
 package it.uniba.app.battleship.entity;
 
-import it.uniba.app.utility.Color;
-
 /**
  * La classe {@code Ship} contiene gli attributi e i
  * metodi necessari per istanziare gli esemplari
@@ -122,6 +120,10 @@ public final class Ship implements Cloneable {
         return types[typeId].size;
     }
 
+    public String getColor() {
+        return types[typeId].colorCode;
+    }
+
     /**
      * Restituisce il numero di colpi
      * che ha subito la singola nave.
@@ -171,8 +173,7 @@ public final class Ship implements Cloneable {
     */
     @Override
     public String toString() {
-        return Color.get(types[typeId].colorCode)
-            + SYMBOL + Color.getReset();
+        return SYMBOL;
     }
 }
 
