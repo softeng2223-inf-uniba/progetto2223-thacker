@@ -126,26 +126,28 @@ public final class GridController {
     */
     public static String genShipMap(final Grid grid) {
         String str = LETTER_WHITE_SPACE;
+        StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {
-            str += ALPH[i] + WHITE_SPACE;
+            b.append(ALPH[i] + WHITE_SPACE);
         }
-        str += ROW_SPACE;
+        b.append(ROW_SPACE);
         for (int row = 0; row < Grid.getSize(); row++) {
             if (row < DEFAULT_NUMBER_OF_ROW) {
-                str += " ";
+                b.append(" ");
             }
-            str += (row + 1) + ":    ";
+            b.append((row + 1) + ":    ");
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coords = new Coordinate(row, col);
                 Ship item = grid.get(coords);
                 if (item == null) {
-                    str += Grid.getWaterSymbol() + "    ";
+                    b.append(Grid.getWaterSymbol() + "    ");
                 } else {
-                    str += item + "    ";
+                    b.append(item + "    ");
                 }
             }
-            str += "\n\n";
+            b.append(ROW_SPACE);
         }
+        str += b.toString();
         return str;
     }
 
