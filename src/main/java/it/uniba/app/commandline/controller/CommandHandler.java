@@ -46,6 +46,9 @@ public final class CommandHandler {
                 case "/help"            -> handleHelp();
                 case "/mostranavi"      -> handleShowShip();
                 case "/mostragriglia"   -> handleShowHitMap(game);
+                case "/standard"        -> handleStandardGrid(game);
+                case "/large"           -> handleLargeGrid(game);
+                case "/extralarge"      -> handleExtraLargeGrid(game);
                 case "/gioca"           -> handlePlay(game);
                 case "/mostralivello"   -> handleShowDifficulty(game);
                 case "/facile"          -> handleEasyDifficulty(game);
