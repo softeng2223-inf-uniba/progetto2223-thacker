@@ -23,7 +23,7 @@ public final class App {
         Game game = new Game();
         System.out.println("Digita un comando");
         while (!ExitController.getInstance().isExitRequested()) {
-            CommandHandler.execute(game);
+            CommandHandler.handler(game);
         }
     }
 }
