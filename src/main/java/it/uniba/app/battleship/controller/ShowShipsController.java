@@ -13,6 +13,8 @@ import it.uniba.app.utility.Color;
  * relativi alla stampa delle informazioni di ciascuna nave.
 */
 public final class ShowShipsController {
+    private static final String INSTANCE_WHITE_SPACE = "       ";
+    private static final String NAME_WHITE_SPACE = "";
 
     private ShowShipsController() { }
 
@@ -63,8 +65,8 @@ public final class ShowShipsController {
      * e il numero di esemplari da affondare.
      */
     public static void showShips() {
-        String numOfInstancesWhiteSpace = "       ";
-        String nameWhiteSpace = "";
+        String numOfInstancesWhiteSpace = INSTANCE_WHITE_SPACE;
+        String nameWhiteSpace = NAME_WHITE_SPACE;
 
         String str = "";
         for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
