@@ -30,6 +30,9 @@ public final class GridController {
                 if (grid.isCellHit(coord)) {
                     Ship ship = grid.get(coord);
                     // aggiungere controlli sulla nave
+                } else {
+                    // migliorare concatenamento stringa
+                    str += Grid.getWaterSymbol() + "    ";
                 }
             }
             str += "\n";
