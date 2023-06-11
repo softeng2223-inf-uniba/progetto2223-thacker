@@ -120,7 +120,8 @@ public class Grid implements Cloneable {
      * @return
      */
     public boolean isWithinBounds(final Coordinate coord) {
-
+        return (coord.getRow() >= 0 && coord.getRow() <= SIZE - 1)
+            && (coord.getCol() >= 0 && coord.getCol() <= SIZE - 1);
     }
 
     @Override
