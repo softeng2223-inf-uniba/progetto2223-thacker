@@ -18,11 +18,13 @@ public final class StrikeController {
      * @return
      */
     public static Coordinate convert(final String command) {
-        String[] tokens = command.split("");
-        char letter = tokens[0].charAt(0);
+        char letter = command.charAt(0);
+        int col = letter - 97;
 
-        int row = Integer.parseInt(tokens[2]);
-        return new Coordinate(row, letter);
+        String sub = command.substring(2);
+        int row = Integer.parseInt(sub) - 1;
+
+        return new Coordinate(row, col);
     }
 
     /**
