@@ -11,6 +11,7 @@ import it.uniba.app.utility.Color;
  */
 public final class StrikeController {
     private static final int CHAR_CONVERT = 97;
+    private static final int NUM_START_INDEX = 2;
     
     private StrikeController() { }
 
