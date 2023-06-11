@@ -20,6 +20,11 @@ public class Time {
      */
     public Time() { };
 
+    /**
+     * Permette di impostare il limite di tempo
+     * in minuti inserito dall'utente.
+     * @param time tempo in minuti scelto dall'utente.
+     */
     public void setTimeLimitMin(final long time) {
         timeLimitMinute = time;
     }
