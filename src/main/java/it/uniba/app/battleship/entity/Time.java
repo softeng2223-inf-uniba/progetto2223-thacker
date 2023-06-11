@@ -9,10 +9,10 @@ package it.uniba.app.battleship.entity;
  */
 public class Time {
 
-    private static long timeLimitMinute;
-    private static long startTimeMill;
-    private static long timeLimitMilliseconds;
-    private static long currentTimeMill;
+    private long timeLimitMinute;
+    private long startTimeMill;
+    private long timeLimitMilliseconds;
+    private long currentTimeMill;
 
     /**
      * Costruttore pubblico che permette di istanziare un oggetto
