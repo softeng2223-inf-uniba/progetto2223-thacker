@@ -4,8 +4,10 @@ import java.util.LinkedList;
 import java.util.Random;
 
 import it.uniba.app.battleship.entity.Coordinate;
+import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
 import it.uniba.app.battleship.entity.Ship;
+import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.utility.Color;
 
 /**
@@ -21,8 +23,45 @@ public final class GridController {
     private static final String WHITE_SPACE = "    ";
     private static final String ROW_SPACE = "\n\n";
     private static final int DEFAULT_NUMBER_OF_ROW = 9;
+    private static final String[] ALPH = new String[] {
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+        "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+    };
 
     private GridController() { }
+
+    /**
+     * Imposta la dimensione della mappa a 10x10.
+     */
+    public static void standardGridSize(final Game game) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        Grid.setChosenSize(Grid.getDefaultSize());
+        System.out.println("OK, la dimensione della griglia è 10x10.");
+    }
+
+    /**
+     * Imposta la dimensione della mappa a 18x18.
+     */
+    public static void largeGridSize(final Game game) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        Grid.setChosenSize(Grid.getLargeSize());
+        System.out.println("OK, la dimensione della griglia e' 18x18.");
+    }
+
+    /**
+     * Imposta la dimensione della mappa a 26x26.
+     */
+    public static void extraLargeGridSize(final Game game) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        Grid.setChosenSize(Grid.getExtraLargeSize());
+        System.out.println("OK, la dimensione della griglia e' 26x26.");
+    }
 
     /**
      * Restituisce un oggetto di tipo {@code String} che contiene
@@ -31,9 +70,12 @@ public final class GridController {
      * @return mappa dei colpi in formato stringa
      */
     public static String genHitMap(final Grid grid) {
-        String str = LETTER_WHITE_SPACE + "A    B    C    D    E    F    G    H    I    J";
-        str += ROW_SPACE;
+        String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
+        for (int i = 0; i < Grid.getSize(); i++) {
+            b.append(ALPH[i] + WHITE_SPACE);
+        }
+        b.append(ROW_SPACE);
         for (int row = 0; row < Grid.getSize(); row++) {
             if (row < DEFAULT_NUMBER_OF_ROW) {
                 b.append(" ");
@@ -80,20 +122,29 @@ public final class GridController {
      * @return stringa contenente tutta la mappa delle navi.
     */
     public static String genShipMap(final Grid grid) {
-        String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
+        String str = LETTER_WHITE_SPACE;
+        StringBuilder b = new StringBuilder();
+        for (int i = 0; i < Grid.getSize(); i++) {
+            b.append(ALPH[i] + WHITE_SPACE);
+        }
+        b.append(ROW_SPACE);
         for (int row = 0; row < Grid.getSize(); row++) {
-            str += row + ":    ";
+            if (row < DEFAULT_NUMBER_OF_ROW) {
+                b.append(" ");
+            }
+            b.append((row + 1) + ":    ");
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coords = new Coordinate(row, col);
                 Ship item = grid.get(coords);
                 if (item == null) {
-                    str += Grid.getWaterSymbol() + "    ";
+                    b.append(Grid.getWaterSymbol() + "    ");
                 } else {
-                    str += item + "    ";
+                    b.append(item + "    ");
                 }
             }
-            str += "\n\n";
+            b.append(ROW_SPACE);
         }
+        str += b.toString();
         return str;
     }
 

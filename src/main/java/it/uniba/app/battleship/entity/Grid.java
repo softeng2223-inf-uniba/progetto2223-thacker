@@ -14,23 +14,39 @@ import java.util.Arrays;
  * </pre><quoteblock></p>
 */
 public class Grid implements Cloneable {
-    private static final int SIZE = 10;
-    private static final String STR_DOT = "\u00B7";
-    private static final String STR_WATER   = "~";
-    private static final String STR_HIT     = "X";
+    private static final int DEFAULT_SIZE    = 10;
+    private static final int LARGE_SIZE      = 18;
+    private static final int EXTRALARGE_SIZE = 26;
 
+    private static final String STR_DOT   = "\u00B7";
+    private static final String STR_WATER = "~";
+    private static final String STR_HIT   = "X";
+
+    private static int chosenSize = DEFAULT_SIZE;
     private Ship[][] map;
     private HashSet<Coordinate> hits;
 
+
     /**
-     * Javadoc momentaneo.
+     * Costruttore che permette di istanziare
+     * un oggetto {@code Grid} di dimensione {@code chosenSize}.
      */
     public Grid() {
-        map = new Ship[SIZE][SIZE];
-        for (int i = 0; i < SIZE; i++) {
+        map = new Ship[chosenSize][chosenSize];
+        for (int i = 0; i < chosenSize; i++) {
             Arrays.fill(map[i], null);
         }
         hits = new HashSet<Coordinate>();
+    }
+
+    /**
+     * Imposta la {@code chosenSize} alla dimensione scelta
+     * passata come parametro.
+     * @param size dimensione scelta.
+     * @throws SessionAlreadyStartedException
+     */
+    public static void setChosenSize(final int size) {
+        chosenSize = size;
     }
 
     /**
@@ -38,7 +54,31 @@ public class Grid implements Cloneable {
      * @return dimensione mappa
      */
     public static int getSize() {
-        return SIZE;
+        return chosenSize;
+    }
+
+    /**
+     * Restituisce la dimensione
+     * {@code LARGE_SIZE} che la griglia può assumere.
+     */
+    public static int getLargeSize() {
+        return LARGE_SIZE;
+    }
+
+    /**
+     * Restituisce la dimensione
+     * {@code EXTRALARGE_SIZE} che la griglia può assumere.
+     */
+    public static int getExtraLargeSize() {
+        return EXTRALARGE_SIZE;
+    }
+
+    /**
+     * Restituisce la dimensione
+     * {@code DEFAULT_SIZE} che la griglia può assumere.
+     */
+    public static int getDefaultSize() {
+        return DEFAULT_SIZE;
     }
 
     /**
@@ -120,11 +160,11 @@ public class Grid implements Cloneable {
         try {
             clone = (Grid) super.clone();
             clone.map = Arrays.copyOf(map, map.length);
-            for (int i = 0; i < SIZE; i++) {
+            for (int i = 0; i < chosenSize; i++) {
                 clone.map[i] = Arrays.copyOf(map[i], map[i].length);
             }
-            for (int row = 0; row < SIZE; row++) {
-                for (int col = 0; col < SIZE; col++) {
+            for (int row = 0; row < chosenSize; row++) {
+                for (int col = 0; col < chosenSize; col++) {
                     Coordinate coords = new Coordinate(row, col);
 
                     if (!this.isCellEmpty(coords)) {
