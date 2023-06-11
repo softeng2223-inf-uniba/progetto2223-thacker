@@ -117,6 +117,14 @@ public class Grid implements Cloneable {
     /**
      * Javadoc momentaneo.
      * @param coord
+     */
+    public void mark(final Coordinate coord) {
+        hits.add(coord);
+    }
+
+    /**
+     * Javadoc momentaneo.
+     * @param coord
      * @return
      */
     public boolean isWithinBounds(final Coordinate coord) {
