@@ -3,13 +3,14 @@ package it.uniba.app.commandline.controller;
 
 import java.io.IOException;
 
-import it.uniba.app.battleship.exception.GameException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
+import it.uniba.app.battleship.exception.GameException;
 import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
 import it.uniba.app.battleship.controller.HelpController;
+import it.uniba.app.battleship.controller.DifficultyController;
 import it.uniba.app.battleship.controller.ShowShipsController;
 import it.uniba.app.battleship.controller.TimeController;
 import it.uniba.app.battleship.entity.Difficulty;
@@ -23,9 +24,47 @@ import it.uniba.app.utility.Input;
  * con il gioco.
  */
 public final class CommandHandler {
-
     private CommandHandler() { }
+    /**
+     * Esegue un comando passato come parametro.
+     * @param game istanza di {@link Game}
+     */
+    public static void handler(final Game game) {
+        try {
+            String command = Input.get().toLowerCase();
+            String[] tokens = command.split(" ");
 
+            switch (tokens.length) {
+                case 1 -> executeNoArgs(game, command);
+                case 2 -> executeArgs(game, tokens);
+                default -> System.err.println("[CH] Il comando " + command + " non è valido.");
+            }
+        } catch (IOException e) {
+            System.out.println("Si è verificato un errore durante la lettura del comando: " + e.getMessage());
+        }
+    }
+    /**
+     * Esegue un comando senza parametri.
+     * @param game istanza di {@link Game}
+     * @param tokens comando splittato in tokens.
+     */
+    private static void executeArgs(final Game game, final String[] tokens) {
+        try {
+            int value = Integer.parseInt(tokens[1]);
+            if (value > 0) {
+                switch (tokens[0]) {
+                    case "/facile" -> handleCustomEasyDifficulty(game, value);
+                    case "/medio" -> handleCustomMediumDifficulty(game, value);
+                    case "/difficile" -> handleCustomHardDifficulty(game, value);
+                    default -> System.err.println("[CH] Il comando " + tokens[0] + " non è valido.");
+                }
+            } else {
+                System.err.println("[CH] Devi inserire un parametro intero >0");
+            }
+        } catch (NumberFormatException e) {
+            System.err.println("[CH] " + tokens[1] + " non è un numero intero valido.");
+        }
+    }
     /** Esegue un comando letto dal terminale.
      * Alcuni dei comandi attualmente interpretati sono:
      * <ul>
@@ -44,28 +83,68 @@ public final class CommandHandler {
      * </ul>
      * @param game
      */
-    public static void execute(final Game game) {
+    public static void executeNoArgs(final Game game, final String command) {
+        switch (command) {
+            case "/help"            -> handleHelp();
+            case "/mostranavi"      -> handleShowShip();
+            case "/mostragriglia"   -> handleShowHitMap(game);
+            case "/standard"        -> handleStandardGrid(game);
+            case "/large"           -> handleLargeGrid(game);
+            case "/extralarge"      -> handleExtraLargeGrid(game);
+            case "/gioca"           -> handlePlay(game);
+            case "/mostralivello"   -> handleShowDifficulty(game);
+            case "/facile"          -> handleEasyDifficulty(game);
+            case "/medio"           -> handleMediumDifficulty(game);
+            case "/difficile"       -> handleHardDifficulty(game);
+            case "/svelagriglia"    -> handleShowGameGrid(game);
+            case "/mostratentativi" -> handleShowAttempts(game);
+            case "/esci"            -> handleExit();
+            default -> handleDefaultOrShoot(game, command);
+        }
+    }
+    /**
+     * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
+     * Inoltre imposta la difficoltà della sessione a 'facile'.
+     * @param game sessione di gioco.
+     * @param num numero di tentativi massimi fallibili.
+     */
+    private static void handleCustomEasyDifficulty(final Game game, final int num) {
+        DifficultyController.setCustomEasy(num);
         try {
-            String command = Input.get().toLowerCase();
-            switch (command) {
-                case "/help"            -> handleHelp();
-                case "/mostranavi"      -> handleShowShip();
-                case "/mostragriglia"   -> handleShowHitMap(game);
-                case "/standard"        -> handleStandardGrid(game);
-                case "/large"           -> handleLargeGrid(game);
-                case "/extralarge"      -> handleExtraLargeGrid(game);
-                case "/gioca"           -> handlePlay(game);
-                case "/mostralivello"   -> handleShowDifficulty(game);
-                case "/facile"          -> handleEasyDifficulty(game);
-                case "/medio"           -> handleMediumDifficulty(game);
-                case "/difficile"       -> handleHardDifficulty(game);
-                case "/svelagriglia"    -> handleShowGameGrid(game);
-                case "/mostratentativi" -> handleShowAttempts(game);
-                case "/esci"            -> handleExit();
-                default                 -> handleDefaultOrShoot(game, command);
-            }
-        } catch (IOException e) {
-            System.out.println("Si è verificato un errore durante la lettura del comando: " + e.getMessage());
+            GameController.setEasyDifficulty(game);
+            System.out.println("Ok");
+        } catch (SessionAlreadyStartedException e) {
+            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
+        }
+    }
+    /**
+     * Imposta i tentativi massimi fallibili per la difficoltà 'medio' a num.
+     * Inoltre imposta la difficoltà della sessione a 'medio'.
+     * @param game sessione di gioco.
+     * @param num numero di tentativi massimi fallibili.
+     */
+    private static void handleCustomMediumDifficulty(final Game game, final int num) {
+        DifficultyController.setCustomMedium(num);
+        try {
+            GameController.setMediumDifficulty(game);
+            System.out.println("Ok");
+        } catch (SessionAlreadyStartedException e) {
+            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
+        }
+    }
+    /**
+     * Imposta i tentativi massimi fallibili per la difficoltà 'difficile' a num.
+     * Inoltre imposta la difficoltà della sessione a 'difficile'.
+     * @param game sessione di gioco
+     * @param num numero di tentativi massimi fallibili.
+     */
+    private static void handleCustomHardDifficulty(final Game game, final int num) {
+        DifficultyController.setCustomHard(num);
+        try {
+            GameController.setHardDifficulty(game);
+            System.out.println("Ok");
+        } catch (SessionAlreadyStartedException e) {
+            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
         }
     }
 
@@ -119,7 +198,6 @@ public final class CommandHandler {
             System.out.println("[CH] comando inesistente");
         }
     }
-
     private static void handleShowHitMap(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
@@ -129,7 +207,6 @@ public final class CommandHandler {
             System.out.println(err.getMessage());
         }
     }
-
     private static void handleStandardGrid(final Game game) {
         try {
             GridController.standardGridSize(game);
@@ -137,7 +214,6 @@ public final class CommandHandler {
             System.out.println(e.getMessage());
         }
     }
-
     private static void handleLargeGrid(final Game game) {
         try {
             GridController.largeGridSize(game);
@@ -145,7 +221,6 @@ public final class CommandHandler {
             System.out.println(e.getMessage());
         }
     }
-
     private static void handleExtraLargeGrid(final Game game) {
         try {
             GridController.extraLargeGridSize(game);
@@ -153,10 +228,8 @@ public final class CommandHandler {
             System.out.println(e.getMessage());
         }
     }
-
-
     private static void handleShowShip() {
-        ShowShipsController.showShips();
+        System.out.println(ShowShipsController.getShipInfo());
     }
 
     private static void handleHelp() {
@@ -176,19 +249,17 @@ public final class CommandHandler {
         if (!game.isDifficultySet()) {
             setDefaultDifficulty(game);
         }
-
         try {
             Difficulty diff = GameController.getDifficulty(game);
             System.out.println(
                 "Livello impostato:\n"
-                + "Nome : " + diff.getLevel() + "\n"
+                + "Nome : " + diff.getNameLevel() + "\n"
                 + "Numero massimo di tentativi fallibili : " + diff.getMaxFailedAttempts()
                 );
         } catch (CloneNotSupportedException e) {
             System.out.println("Impossibile recuperare l'informazione richiesta");
         }
     }
-
     private static void handleEasyDifficulty(final Game game) {
         try {
             GameController.setEasyDifficulty(game);
@@ -197,7 +268,6 @@ public final class CommandHandler {
             System.out.println("[CH] Non puoi modificare la difficoltà durante una partita.");
          }
     }
-
     private static void handleMediumDifficulty(final Game game) {
         try {
             GameController.setMediumDifficulty(game);
@@ -206,7 +276,6 @@ public final class CommandHandler {
             System.out.println("[CH] Non puoi modificare la difficoltà durante una partita.");
          }
     }
-
     private static void handleHardDifficulty(final Game game) {
         try {
             GameController.setHardDifficulty(game);
@@ -215,7 +284,6 @@ public final class CommandHandler {
             System.out.println("[CH] Non puoi modificare la difficoltà durante una partita.");
          }
     }
-
     private static void handleShowGameGrid(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
@@ -225,7 +293,6 @@ public final class CommandHandler {
             System.out.println(e.getMessage());
         }
     }
-
     private static void handleShowAttempts(final Game game) {
         try {
             String message =
@@ -239,7 +306,6 @@ public final class CommandHandler {
             System.out.println("Impossibile recuperare informazioni sul livello di difficoltà");
         }
     }
-
     private static void handleExit() {
         try {
             System.out.println("Conferma l'uscita dal gioco (si/no)");
@@ -257,7 +323,6 @@ public final class CommandHandler {
             }
         } catch (IOException err) { }
     }
-
     private static void setDefaultDifficulty(final Game game) {
         try {
             GameController.setEasyDifficulty(game);     //difficoltà predefinita: Facile
