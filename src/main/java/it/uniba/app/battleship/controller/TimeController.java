@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.entity.Game;
+import it.uniba.app.battleship.entity.Time;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 
 /**
@@ -16,6 +17,12 @@ public final class TimeController {
 
     private TimeController() { };
 
+    /**
+     * Permette di settare il limite di tempo e il
+     * tempo di inizio in millisecondi.
+     * @param time contiene l'istanza di Time da
+     * aggiornare con i valori corretti.
+     */
     public static void setTime(final Time time) {
         time.setTimeLimitMill(time.getTimeLimitMin() * SECOND * MILLISECONDS);
         time.setStartTimeMill(System.currentTimeMillis());
