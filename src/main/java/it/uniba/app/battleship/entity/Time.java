@@ -24,4 +24,12 @@ public class Time {
     public void setStartTimeMill(final Long time) {
         startTimeMill = time;
     }
+
+    public long getStartTimeMill() {
+        return startTimeMill;
+    }
+
+    public long getTimeLimitMill() {
+        return timeLimitMilliseconds;
+    }
 }
