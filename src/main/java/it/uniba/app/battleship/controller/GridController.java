@@ -73,7 +73,10 @@ public final class GridController {
      * @return mappa dei colpi in formato stringa
      */
     public static String genHitMap(final Grid grid) {
-        String str = LETTER_WHITE_SPACE + "A    B    C    D    E    F    G    H    I    J";
+        String str = LETTER_WHITE_SPACE;
+        for (int i = 0; i < Grid.getSize(); i++) {
+            str += ALPH[i] + WHITE_SPACE;
+        }
         str += ROW_SPACE;
         StringBuilder b = new StringBuilder();
         for (int row = 0; row < Grid.getSize(); row++) {
