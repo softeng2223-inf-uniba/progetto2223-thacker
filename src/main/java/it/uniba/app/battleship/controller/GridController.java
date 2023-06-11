@@ -20,6 +20,14 @@ public final class GridController {
     private GridController() { }
 
     /**
+     * momentaneo.
+     */
+    public static String genHitMap(final Grid grid) {
+        String str = "";
+
+        return str;
+    }
+    /**
      * Restituisce una oggetto di tipi {@code String} che
      * contiene la mappa delle navi che viene mostrata col
      * comando {@code /svelagriglia}.
