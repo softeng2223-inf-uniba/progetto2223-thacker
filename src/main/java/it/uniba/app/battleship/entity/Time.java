@@ -66,10 +66,22 @@ public class Time {
         return startTimeMill;
     }
 
+    /**
+     * Restituisce il numero di minuti a disposizione
+     * per giocare in millisecondi.
+     * @return {@code timeLimitMilleseconds} tempo limite in millisecondi.
+     */
     public long getTimeLimitMill() {
         return timeLimitMilliseconds;
     }
 
+    /**
+     * Restituisce il tempo calcolato nell'istante in cui
+     * il metodo viene chiamato in millisecondi. E' necessario
+     * per effettuare controlli sul tempo ancora a
+     * disposizione per giocare.
+     * @return {@code currentTimeMill} tempo corrente in millisecondi.
+     */
     public long getCurrentTimeMill() {
         currentTimeMill = System.currentTimeMillis();
         return currentTimeMill;
