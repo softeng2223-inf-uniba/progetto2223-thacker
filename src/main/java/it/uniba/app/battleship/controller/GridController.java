@@ -40,6 +40,8 @@ public final class GridController {
                         } else {
                             str += ship + WHITE_SPACE;
                         }
+                    } else {
+                        str += Grid.getWaterSymbol() + WHITE_SPACE;
                     }
                 } else {
                     str += Grid.getWaterSymbol() + WHITE_SPACE;
