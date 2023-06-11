@@ -91,6 +91,7 @@ public final class CommandHandler {
             case "/large"           -> handleLargeGrid(game);
             case "/extralarge"      -> handleExtraLargeGrid(game);
             case "/gioca"           -> handlePlay(game);
+            case "/abbandona"       -> handleEndSession(game);
             case "/mostralivello"   -> handleShowDifficulty(game);
             case "/facile"          -> handleEasyDifficulty(game);
             case "/medio"           -> handleMediumDifficulty(game);
@@ -267,6 +268,32 @@ public final class CommandHandler {
             System.out.println("Impossibile recuperare informazioni sul livello di difficoltà");
         }
     }
+
+    private static void handleEndSession(final Game game) {
+        try {
+            if (!game.isSessionStarted()) {
+                throw new SessionNotStartedException();
+            }
+            System.out.println("Confermi? (si / no)");
+            String confirm = Input.get().toLowerCase();
+            switch (confirm) {
+                case "si":
+                    System.out.println(GridController.genShipMap(game.getSessionGrid()));
+                    GameController.endSession(game);
+                    System.out.println("Sessione terminata");
+                    break;
+                case "no": break;
+                default:
+                    System.out.println("Comando non riconosciuto, operazione annullata");
+                    break;
+            }
+        } catch (SessionNotStartedException e) {
+            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Impossibile leggere l'input");
+        }
+    }
+
     private static void handleExit() {
         try {
             System.out.println("Conferma l'uscita dal gioco (si/no)");
