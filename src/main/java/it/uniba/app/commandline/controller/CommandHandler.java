@@ -61,6 +61,13 @@ public final class CommandHandler {
         }
     }
 
+    private void handleShoot(final Game game, final String command) {
+        String regex = "[a-z]-[0-9]";
+        if (command.matches(regex)) {
+            // inserire logica di colpo da GameController.
+        }
+    }
+
     private static void handleShowHitMap(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
