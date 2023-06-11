@@ -60,8 +60,8 @@ public final class CommandHandler {
         }
     }
 
-    private static void handleShowHitMap() {
-        String str = Grid.genHitMap();
+    private static void handleShowHitMap(final Game game) {
+        String str = GridController.genHitMap();
     }
 
     private static void handleShowShip() {
