@@ -52,6 +52,19 @@ public final class GameController {
     }
 
     /**
+     * TODO javadoc.
+     * @param game
+     * @param command
+     * @throws SessionNotStartedException
+     */
+    public static void strike(final Game game, final String command)
+        throws SessionNotStartedException {
+            if (!game.isSessionStarted()) {
+                throw new SessionNotStartedException();
+            }
+        }
+
+    /**
      * Imposta la difficoltà ad Easy.
      */
     public static void setEasyDifficulty(final Game game) throws SessionAlreadyStartedException {
