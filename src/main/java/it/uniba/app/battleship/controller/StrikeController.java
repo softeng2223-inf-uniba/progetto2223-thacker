@@ -36,6 +36,8 @@ public final class StrikeController {
             if (!grid.isCellEmpty(coord)) {
                 Ship ship = grid.get(coord);
                 ship.hit();
+                return true;
             }
+            return false;
         }
 }
