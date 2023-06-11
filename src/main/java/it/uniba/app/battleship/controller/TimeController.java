@@ -26,4 +26,12 @@ public final class TimeController {
     private static long checkTimePassedMill(final Game game) {
         return game.getTime().getCurrentTimeMill() - game.getTime().getStartTimeMill();
     }
+
+    public static boolean isTimeOver(final Game game) {
+        if ((checkTimePassedMill(game) > game.getTime().getTimeLimitMill())
+        && (game.getTime().getTimeLimitMin() != 0) && game.isSessionStarted()) {
+            return true;
+        }
+        return false;
+    }
 }
