@@ -32,6 +32,10 @@ public final class Game {
         time = new Time();
     }
 
+    public Time getTime() {
+        return time;
+    }
+
     /**
      * Imposta il valore delle navi affondate.
      * @param number nuovo valore delle navi affondate
