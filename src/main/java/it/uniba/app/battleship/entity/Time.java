@@ -7,7 +7,7 @@ package it.uniba.app.battleship.entity;
  * <i>Battleship</i> la funzionalità del comando
  * {@code /tempo}.
  */
-public class Time {
+public class Time implements Cloneable {
 
     private long timeLimitMinute;
     private long startTimeMill;
