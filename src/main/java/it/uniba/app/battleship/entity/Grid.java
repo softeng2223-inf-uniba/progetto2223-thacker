@@ -2,8 +2,6 @@ package it.uniba.app.battleship.entity;
 
 import java.util.HashSet;
 
-import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
-
 import java.util.Arrays;
 
 /**
