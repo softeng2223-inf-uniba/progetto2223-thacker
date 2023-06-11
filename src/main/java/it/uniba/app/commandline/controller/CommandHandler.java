@@ -29,7 +29,7 @@ public final class CommandHandler {
      * Esegue un comando passato come parametro.
      * @param game istanza di {@link Game}
      */
-    public static void handler(final Game game) {
+    public static void handleCommand(final Game game) {
         try {
             String command = Input.get().toLowerCase();
             String[] tokens = command.split(" ");
