@@ -63,6 +63,10 @@ public class Grid implements Cloneable {
         return chosenSize;
     }
 
+    /**
+     * Restituisce la dimensione
+     * {@code LARGE_SIZE} che la mappa può assumere.
+     */
     public static int getLargeSize() {
         return LARGE_SIZE;
     }
