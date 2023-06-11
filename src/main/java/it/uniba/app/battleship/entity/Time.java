@@ -57,6 +57,11 @@ public class Time {
         startTimeMill = time;
     }
 
+    /**
+     * Restituisce il tempo di inizio del gioco
+     * in millisecondi.
+     * @return {@code startTimeMill} tempo di inizio del gioco.
+     */
     public long getStartTimeMill() {
         return startTimeMill;
     }
