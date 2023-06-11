@@ -41,7 +41,8 @@ public final class GridController {
                             str += ship + WHITE_SPACE;
                         }
                     } else {
-                        str += Grid.getWaterSymbol() + WHITE_SPACE;
+                        str += Color.get("blue")
+                            + Grid.getWaterSymbol() + Color.getReset() + WHITE_SPACE;
                     }
                 } else {
                     str += Grid.getWaterSymbol() + WHITE_SPACE;
