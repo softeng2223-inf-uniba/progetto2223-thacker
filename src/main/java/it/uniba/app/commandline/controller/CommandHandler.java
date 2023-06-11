@@ -273,6 +273,7 @@ public final class CommandHandler {
         try {
             GameController.endSession(game);
             System.out.println("Sessione terminata");
+            System.out.println(GridController.genShipMap(game.getSessionGrid()));
         } catch (SessionNotStartedException e) {
             System.out.println(e.getMessage());
         }
