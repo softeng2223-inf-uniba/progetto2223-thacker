@@ -47,6 +47,12 @@ public class Time {
         timeLimitMilliseconds = time;
     }
 
+    /**
+     * Imposta il tempo iniziale di gioco in
+     * millisecondi necessario per i controlli
+     * sul tempo disponibile durante la partita.
+     * @param time contiene il tempo di inizio in millisecondi.
+     */
     public void setStartTimeMill(final Long time) {
         startTimeMill = time;
     }
