@@ -28,6 +28,7 @@ public final class GridController {
             for (int j = 0; j < Grid.getSize(); j++) {
 
             }
+            str += "\n";
         }
         return str;
     }
