@@ -10,6 +10,8 @@ import it.uniba.app.utility.Color;
  * Javadoc momentaneo.
  */
 public final class StrikeController {
+    private static final int CHAR_CONVERT = 97;
+    
     private StrikeController() { }
 
     /**
