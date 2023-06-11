@@ -67,6 +67,11 @@ public final class StrikeController {
                     return 0;
                 }
             }
+            System.out.println(
+                Color.get("yellow")
+                + "\nMANCATO\n"
+                + Color.getReset()
+            );
             return -1;
         }
 }
