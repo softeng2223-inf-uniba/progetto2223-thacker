@@ -18,6 +18,7 @@ public final class GridController {
     private static final int VERTICAL = 0;
 
     private static final String WHITE_SPACE = "    ";
+    private static final String ROW_SPACE = "\n\n";
 
     private GridController() { }
 
