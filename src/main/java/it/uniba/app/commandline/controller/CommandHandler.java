@@ -61,7 +61,7 @@ public final class CommandHandler {
     }
 
     private static void handleShowHitMap() {
-        
+        String str = Grid.genHitMap();
     }
 
     private static void handleShowShip() {
