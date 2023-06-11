@@ -42,7 +42,7 @@ public final class GridController {
                         }
                     }
                 } else {
-                    str += Grid.getWaterSymbol() + "    ";
+                    str += Grid.getWaterSymbol() + WHITE_SPACE;
                 }
             }
             str += ROW_SPACE;
