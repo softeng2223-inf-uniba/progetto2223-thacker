@@ -26,7 +26,7 @@ public final class GridController {
         for (int i = 0; i < Grid.getSize(); i++) {
             str += (i + 1) + ":" + "    ";
             for (int j = 0; j < Grid.getSize(); j++) {
-
+                Coordinate coord = new Coordinate(i, j);
             }
             str += "\n";
         }
