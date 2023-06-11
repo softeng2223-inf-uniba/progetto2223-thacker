@@ -16,12 +16,7 @@ public final class StrikeController {
 
     private StrikeController() { }
 
-    /**
-     * Javadoc momentaneo.
-     * @param command
-     * @return
-     */
-    public static Coordinate convert(final String command) {
+    private static Coordinate convert(final String command) {
         char letter = command.charAt(0);
         int col = letter - CHAR_CONVERT;
 
@@ -32,11 +27,15 @@ public final class StrikeController {
     }
 
     /**
-     * Javadoc.
-     * @param command
-     * @param grid
-     * @return
-     */
+     * Permette di colpire una cella della mappa. Se si tenta di effettuare
+     * un colpo su una cella che è già stata colpita in precedenza, viene lanciata
+     * una eccezione di tipo `CellAlreadyMarkedException`,.
+     * Se le coordinate scelte sono al di fuori dei confini della mappa, viene
+     * lanciata una eccezione di tipo `OutOfMapException`.
+     * @param command contiene la coordinata in formato stringa.
+     * @param grid mappa di gioco su cui colpire.
+     * @return {@code true} se una nave viene colpita o affondata, {@code false} altrimenti
+    */
     public static boolean strike(final String command, final Grid grid)
         throws CellAlreadyMarkedException, OutOfMapException {
             Coordinate coord = convert(command);

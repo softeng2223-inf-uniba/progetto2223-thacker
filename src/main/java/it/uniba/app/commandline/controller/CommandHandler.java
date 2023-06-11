@@ -69,7 +69,7 @@ public final class CommandHandler {
     }
 
     private static boolean handleShoot(final Game game, final String command) {
-        String regex = "[a-z]-[0-9]";
+        String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
             try {
                 GameController.strike(game, command);
