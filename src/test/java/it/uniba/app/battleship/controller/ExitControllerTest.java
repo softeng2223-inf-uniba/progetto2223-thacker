@@ -30,7 +30,7 @@ class ExitControllerTest {
     @Test
     void testGetInstanceReturnsSameInstance() {
         assertEquals(instance, ExitController.getInstance(),
-                "Il metodo getInstance() non restituisce la stessa istanza di ExitController");
+                "err [EX:1]: Il metodo getInstance() non restituisce la stessa istanza di ExitController");
     }
     /**
      *  2) Test: verifica che chiamare getInstance() restituisca
@@ -41,7 +41,7 @@ class ExitControllerTest {
     @Test
     void testGetInstanceReturnsNotNullInstance() {
         assertNotNull(instance,
-                "Il metodo getInstance() restituisce un'istanza nulla di ExitController");
+                "err [EX:2]: Il metodo getInstance() restituisce un'istanza nulla di ExitController");
     }
     /**
      *  3) Test: Verifica che chiamare il metodo requestExit() imposti
@@ -53,7 +53,7 @@ class ExitControllerTest {
     void testRequestExit() {
         instance.requestExit();
         assertTrue(instance.isExitRequested(),
-                "Il metodo requestExit() non imposta correttamente il flag isExitRequested a true");
+                "err [EX:3]: Il metodo requestExit() non imposta correttamente il flag isExitRequested a true");
     }
     /**
      * 4) Test: verifica che chiamare il metodo requestExit() due
@@ -67,7 +67,7 @@ class ExitControllerTest {
         instance.requestExit();
         instance.requestExit();
         assertTrue(instance.isExitRequested(),
-                "Il metodo requestExit() chiamato due volte consecutivamente non imposta isExitRequested a true");
+                "err [EX:4]: Il metodo requestExit() chiamato due volte non imposta isExitRequested a true");
     }
     /**
      *  5) Test: Verifica che chiamare il metodo isExitRequested() senza
@@ -76,8 +76,8 @@ class ExitControllerTest {
      *  Atteso: true.
      */
     @Test
-    void testIsExitRequestedNotRequested() {
+    void testIsNotExitRequestIfNotRequested() {
         assertFalse(instance.isExitRequested(),
-                "Il metodo isExitRequested() restituisce true senza una richiesta attiva di uscita");
+                "err [EX:5]: Il metodo isExitRequested() restituisce true senza una richiesta attiva di uscita");
     }
 }
