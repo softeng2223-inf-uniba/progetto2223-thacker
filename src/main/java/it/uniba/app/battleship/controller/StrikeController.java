@@ -12,7 +12,7 @@ import it.uniba.app.utility.Color;
 public final class StrikeController {
     private static final int CHAR_CONVERT = 97;
     private static final int NUM_START_INDEX = 2;
-    
+
     private StrikeController() { }
 
     /**
@@ -22,9 +22,9 @@ public final class StrikeController {
      */
     public static Coordinate convert(final String command) {
         char letter = command.charAt(0);
-        int col = letter - 97;
+        int col = letter - CHAR_CONVERT;
 
-        String sub = command.substring(2);
+        String sub = command.substring(NUM_START_INDEX);
         int row = Integer.parseInt(sub) - 1;
 
         return new Coordinate(row, col);
