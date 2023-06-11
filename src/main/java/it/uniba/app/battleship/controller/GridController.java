@@ -37,10 +37,9 @@ public final class GridController {
                         if (ship.isSunk()) {
                             str += Color.get(ship.getColor()) + ship
                                 + Color.getReset() + WHITE_SPACE;
-                        }else{
-                            str += ship + WHITE_SPACE; 
+                        } else {
+                            str += ship + WHITE_SPACE;
                         }
-                        
                     }
                 } else {
                     // migliorare concatenamento stringa
