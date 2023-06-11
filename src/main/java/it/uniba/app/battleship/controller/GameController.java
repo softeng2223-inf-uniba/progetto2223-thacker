@@ -125,14 +125,14 @@ public final class GameController {
 
     /**
      * Fornisce il numero di tentativi effettuati fino al momento corrente di una sessione di gioco in corso.
-     * 
+     *
      * @param game la sessione
      * @return numero di tentativi totali all'istante corrente
      * @throws SessionNotStartedException
      *      non è possibile ottenere questa informazione per una sessione non in corso.
      */
     public static int getAttempts(final Game game) throws SessionNotStartedException {
-        if(!game.isSessionStarted()) {
+        if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
         return game.getAttempts();
@@ -141,14 +141,14 @@ public final class GameController {
     /**
      * Fornisce il numero di tentativi effettuati e falliti fino al momento corrente di una sessione di gioco in corso.
      * Per fallito si intende un tentativo che non ha colpito alcuna nave.
-     * 
+     *
      * @param game la sessione
      * @return numero di tentativi falliti all'istante corrente
      * @throws SessionNotStartedException
      *      non è possibile ottenere questa informazione per una sessione non in corso.
      */
     public static int getFailedAttempts(final Game game) throws SessionNotStartedException {
-        if(!game.isSessionStarted()) {
+        if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
         return game.getAttempts();
