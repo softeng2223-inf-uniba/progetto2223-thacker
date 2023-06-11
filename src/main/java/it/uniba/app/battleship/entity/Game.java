@@ -3,6 +3,7 @@ package it.uniba.app.battleship.entity;
 import java.util.LinkedList;
 
 import it.uniba.app.battleship.controller.GridController;
+import it.uniba.app.battleship.controller.TimeController;
 
 /**
  * Entity class <hr>
@@ -86,6 +87,7 @@ public final class Game {
     public void startSession() {
         grid = new Grid();
         GridController.randomlyFill(SHIPS, grid);
+        TimeController.setTime(time);
 
         sunkShips = 0;
         totAttempts = 0;
