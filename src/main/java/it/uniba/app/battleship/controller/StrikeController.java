@@ -4,6 +4,7 @@ import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Grid;
 import it.uniba.app.battleship.entity.Ship;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
+import it.uniba.app.utility.Color;
 
 /**
  * Javadoc momentaneo.
@@ -36,7 +37,13 @@ public final class StrikeController {
             if (!grid.isCellEmpty(coord)) {
                 Ship ship = grid.get(coord);
                 ship.hit();
-                return true;
+                if (ship.isSunk()) {
+                    System.out.println(
+                        Color.get("red")
+                        + "\nCOLPITO E AFFONDATO\n"
+                        + Color.getReset()
+                    );
+                }
             }
             return false;
         }
