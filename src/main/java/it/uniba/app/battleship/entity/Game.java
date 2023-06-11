@@ -39,8 +39,8 @@ public final class Game {
     }
 
     /**
-     * TODO javadoc.
-     * @param number
+     * Imposta il valore dei tentativi falliti.
+     * @param number nuovo valore dei tentativi falliti
      */
     public void setFailedAttempt(final int number) {
         failedAttempts = number;
