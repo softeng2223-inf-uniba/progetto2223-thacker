@@ -38,6 +38,11 @@ public class Time {
         return timeLimitMinute;
     }
 
+    /**
+     * Permette di inizializzare {@code timeLimitMilliseconds}
+     * con il valore contenuto nel parametro {@code time}.
+     * @param time tempo limite in millisecondi passato in input.
+     */
     public void setTimeLimitMill(final Long time) {
         timeLimitMilliseconds = time;
     }
