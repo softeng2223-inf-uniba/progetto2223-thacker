@@ -87,6 +87,10 @@ public class Time {
         return currentTimeMill;
     }
 
+    /**
+     * Restituisce un oggetto Time clonato.
+     */
+    @Override
     public final Time clone() {
 
         Time clone = null;
