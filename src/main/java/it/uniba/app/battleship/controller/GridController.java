@@ -25,8 +25,8 @@ public final class GridController {
         String str = "      A    B    C    D    E    F    G    H    I    J\n\n";
         for (int row = 0; row < Grid.getSize(); row++) {
             str += (row + 1) + ":" + "    ";
-            for (int j = 0; j < Grid.getSize(); j++) {
-                Coordinate coord = new Coordinate(row, j);
+            for (int col = 0; col < Grid.getSize(); col++) {
+                Coordinate coord = new Coordinate(row, col);
             }
             str += "\n";
         }
