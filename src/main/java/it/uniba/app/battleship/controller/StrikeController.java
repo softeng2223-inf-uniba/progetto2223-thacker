@@ -43,7 +43,14 @@ public final class StrikeController {
                         + "\nCOLPITO E AFFONDATO\n"
                         + Color.getReset()
                     );
+                } else {
+                    System.out.println(
+                        Color.get("blue")
+                        + "\nCOLPITO\n"
+                        + Color.getReset()
+                    );
                 }
+                return true;
             }
             return false;
         }
