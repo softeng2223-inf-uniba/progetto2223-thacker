@@ -47,8 +47,9 @@ public final class Game {
     }
 
     /**
-     * TODO javadoc.
-     * @return
+     * Restituisce il valore delle navi che sono
+     * state già affondate.
+     * @return numero di navi affondate
      */
     public int getSunkShips() {
         return sunkShips;
