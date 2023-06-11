@@ -88,10 +88,6 @@ public final class CommandHandler {
     }
 
     private static void handleShowDifficulty(final Game game) {
-        if (!game.isDifficultySet()) {
-            setDefaultDifficulty(game);
-        }
-
         try {
             Difficulty diff = GameController.getDifficulty(game);
             System.out.println(
@@ -158,11 +154,4 @@ public final class CommandHandler {
             }
         } catch (IOException err) { }
     }
-
-    private static void setDefaultDifficulty(final Game game) {
-        try {
-            GameController.setEasyDifficulty(game);     //difficoltà predefinita: Facile
-        } catch (SessionAlreadyStartedException e) { }
-    }
-
 }
