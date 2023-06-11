@@ -27,6 +27,10 @@ public final class GridController {
             str += (row + 1) + ":" + "    ";
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coord = new Coordinate(row, col);
+                if (grid.isCellHit(coord)) {
+                    Ship ship = grid.get(coord);
+                    // aggiungere controlli sulla nave
+                }
             }
             str += "\n";
         }
