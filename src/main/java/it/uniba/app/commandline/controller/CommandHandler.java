@@ -94,6 +94,18 @@ public final class CommandHandler {
         return time;
     }
 
+    private static void handleTime(final String input, final Game game) {
+        long time = handleTimeInput(input);
+        if (time > 0) {
+            try {
+                TimeController.setTimeLimit(game, time);
+                System.out.println("OK, il numero di minuti a disposizione per giocare e': " + time);
+            } catch (SessionAlreadyStartedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+
     private static void handleDefaultOrShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
