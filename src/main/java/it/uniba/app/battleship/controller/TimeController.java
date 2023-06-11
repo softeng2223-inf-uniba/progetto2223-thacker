@@ -7,4 +7,8 @@ public final class TimeController {
 
     private TimeController() { };
 
+    public static void setTime(final Time time) {
+        time.setTimeLimitMill(time.getTimeLimitMin() * SECOND * MILLISECONDS);
+        time.setStartTimeMill(System.currentTimeMillis());
+    }
 }
