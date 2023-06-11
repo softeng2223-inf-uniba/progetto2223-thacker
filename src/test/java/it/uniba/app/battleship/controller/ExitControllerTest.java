@@ -22,8 +22,10 @@ class ExitControllerTest {
         instance = (ExitController) getInstanceMethod.invoke(null);
     }
     /**
-     *  Verifica che chiamare getInstance() più volte restituisca
-     *  sempre la stessa instance di ExitController.
+     *  1) Test: verifica che chiamare getInstance() restituisca
+     *  sempre la stessa istanza di ExitController.
+     *  <p>
+     *  Atteso: true.
      */
     @Test
     void testGetInstanceReturnsSameInstance() {
@@ -31,8 +33,10 @@ class ExitControllerTest {
                 "Il metodo getInstance() non restituisce la stessa istanza di ExitController");
     }
     /**
-     *  Verifica che chiamare getInstance() restituisca un'istanza
-     *  di ExitController non nulla.
+     *  2) Test: verifica che chiamare getInstance() restituisca
+     *  un'istanza non nulla di ExitController.
+     *  <p>
+     *  Atteso: true.
      */
     @Test
     void testGetInstanceReturnsNotNullInstance() {
@@ -40,8 +44,10 @@ class ExitControllerTest {
                 "Il metodo getInstance() restituisce un'istanza nulla di ExitController");
     }
     /**
-     *  Verifica che chiamare il metodo requestExit() imposti
+     *  3) Test: Verifica che chiamare il metodo requestExit() imposti
      *  correttamente l'attributo requestExit a true.
+     *  <p>
+     *  Atteso: true.
      */
     @Test
     void testRequestExit() {
@@ -50,8 +56,11 @@ class ExitControllerTest {
                 "Il metodo requestExit() non imposta correttamente il flag isExitRequested a true");
     }
     /**
-     * Verifica che chiamare il metodo requestExit() due volte
-     * consecutivamente imposti comunque l'attributo requestExit a true.
+     * 4) Test: verifica che chiamare il metodo requestExit() due
+     * volte consecutivamente imposti correttamente l'attributo
+     * requestExit a true.
+     * <p>
+     * Atteso: true.
      */
     @Test
     void testRequestExitTwice() {
@@ -61,8 +70,10 @@ class ExitControllerTest {
                 "Il metodo requestExit() chiamato due volte consecutivamente non imposta isExitRequested a true");
     }
     /**
-     *  Verifica che chiamare il metodo isExitRequested() senza
+     *  5) Test: Verifica che chiamare il metodo isExitRequested() senza
      *  una richiesta attiva restituisca false.
+     *  <p>
+     *  Atteso: true.
      */
     @Test
     void testIsExitRequestedNotRequested() {
