@@ -3,7 +3,6 @@ package it.uniba.app.commandline.controller;
 
 import java.io.IOException;
 
-import it.uniba.app.battleship.exception.DifficultyNotSetException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.controller.ExitController;
@@ -46,6 +45,7 @@ public final class CommandHandler {
             switch (command) {
                 case "/help"            -> handleHelp();
                 case "/mostranavi"      -> handleShowShip();
+                case "/mostragriglia"   -> handleShowHitMap(game);
                 case "/gioca"           -> handlePlay(game);
                 case "/mostralivello"   -> handleShowDifficulty(game);
                 case "/facile"          -> handleEasyDifficulty(game);
@@ -60,6 +60,16 @@ public final class CommandHandler {
         }
     }
 
+    private static void handleShowHitMap(final Game game) {
+        try {
+            Grid grid = GameController.getSessionGrid(game);
+            String str = GridController.genHitMap(grid);
+            System.out.println(str);
+        } catch (SessionNotStartedException err) {
+            System.out.println(err.getMessage());
+        }
+    }
+
     private static void handleShowShip() {
         ShowShipsController.showShips();
     }
@@ -70,27 +80,30 @@ public final class CommandHandler {
 
     private static void handlePlay(final Game game) {
         try {
-            GameController.setEasyDifficulty(game);
             GameController.startSession(game);
-        } catch (DifficultyNotSetException e) {
-            System.out.println(e.getMessage());
+            handleShowHitMap(game);
         } catch (SessionAlreadyStartedException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private static void handleShowDifficulty(final Game game) {
+        if (!game.isDifficultySet()) {
+            setDefaultDifficulty(game);
+        }
+
         try {
             Difficulty diff = GameController.getDifficulty(game);
             System.out.println(
-                "livello impostato:\n"
-                + "Nome " + diff.getLevel()
-                + "Tentativi fallibili: " + diff.getMaxFailedAttempts()
+                "Livello impostato:\n"
+                + "Nome : " + diff.getLevel() + "\n"
+                + "Numero massimo di tentativi fallibili : " + diff.getMaxFailedAttempts()
                 );
         } catch (CloneNotSupportedException e) {
             System.out.println("Impossibile recuperare l'informazione richiesta");
         }
     }
+
     private static void handleEasyDifficulty(final Game game) {
         try {
             GameController.setEasyDifficulty(game);
@@ -144,6 +157,12 @@ public final class CommandHandler {
                     break;
             }
         } catch (IOException err) { }
+    }
+
+    private static void setDefaultDifficulty(final Game game) {
+        try {
+            GameController.setEasyDifficulty(game);     //difficoltà predefinita: Facile
+        } catch (SessionAlreadyStartedException e) { }
     }
 
 }
