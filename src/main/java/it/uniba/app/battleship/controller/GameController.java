@@ -59,7 +59,7 @@ public final class GameController {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setEasy(diff);
+        DifficultyController.setDefaultEasy(diff);
 
         try {
             game.setDifficulty(diff);
@@ -74,7 +74,7 @@ public final class GameController {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setMedium(diff);
+        DifficultyController.setDefaultMedium(diff);
 
         try {
             game.setDifficulty(diff);
@@ -89,7 +89,7 @@ public final class GameController {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setHard(diff);
+        DifficultyController.setDefaultHard(diff);
 
         try {
             game.setDifficulty(diff);
