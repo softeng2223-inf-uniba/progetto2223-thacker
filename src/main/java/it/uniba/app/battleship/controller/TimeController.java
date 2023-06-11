@@ -53,6 +53,13 @@ public final class TimeController {
         return game.getTime().getCurrentTimeMill() - game.getTime().getStartTimeMill();
     }
 
+    /**
+     * Permette di controllare se il tempo a dispozione
+     * per giocare è terminato, assicurandosi che il limite di tempo
+     * sia stato impostato e che la partita sia cominciata.
+     * @param game contiene i dati della partita in corso.
+     * @return {@code true} se il tempo a dispozione è finito / {@code false} in caso contrario.
+     */
     public static boolean isTimeOver(final Game game) {
         if ((checkTimePassedMill(game) > game.getTime().getTimeLimitMill())
         && (game.getTime().getTimeLimitMin() != 0) && game.isSessionStarted()) {
