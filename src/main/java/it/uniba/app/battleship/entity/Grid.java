@@ -22,6 +22,7 @@ public class Grid implements Cloneable {
     private static final String STR_WATER   = "~";
     private static final String STR_HIT     = "X";
 
+    private static int chosenSize = DEFAULT_SIZE;
     private Ship[][] map;
     private HashSet<Coordinate> hits;
 
