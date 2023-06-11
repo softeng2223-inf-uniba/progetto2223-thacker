@@ -53,6 +53,7 @@ public final class CommandHandler {
             int value = Integer.parseInt(tokens[1]);
             if (value > 0) {
                 switch (tokens[0]) {
+                    case "/tempo"  -> handleTime(game, value);
                     case "/facile" -> handleCustomEasyDifficulty(game, value);
                     case "/medio" -> handleCustomMediumDifficulty(game, value);
                     case "/difficile" -> handleCustomHardDifficulty(game, value);
@@ -159,16 +160,13 @@ public final class CommandHandler {
             return false;
     }
 
-    private static void handleTime(final String input, final Game game) {
-        long time = handleTimeInput(input);
-        if (time > 0) {
+    private static void handleTime(final Game game, final int value) {
             try {
-                TimeController.setTimeLimit(game, time);
-                System.out.println("OK, il numero di minuti a disposizione per giocare e': " + time);
+                TimeController.setTimeLimit(game, value);
+                System.out.println("OK, il numero di minuti a disposizione per giocare e': " + value);
             } catch (SessionAlreadyStartedException e) {
                 System.out.println(e.getMessage());
             }
-        }
     }
 
     private static void handleDefaultOrShoot(final Game game, final String command) {
