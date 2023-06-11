@@ -48,10 +48,7 @@ public class Grid implements Cloneable {
      * @param size dimensione scelta.
      * @throws SessionAlreadyStartedException
      */
-    public static void setChosenSize(final Game game, final int size) throws SessionAlreadyStartedException {
-        if (game.isSessionStarted()) {
-            throw new SessionAlreadyStartedException();
-        }
+    public static void setChosenSize(final Game game, final int size){
         chosenSize = size;
     }
 
