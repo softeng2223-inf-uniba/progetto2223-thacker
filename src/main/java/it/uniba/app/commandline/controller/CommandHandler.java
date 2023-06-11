@@ -71,8 +71,9 @@ public final class CommandHandler {
             } catch (GameException err) {
                 System.out.println(err.getMessage());
             }
+        } else {
+            System.out.println("[CH] comando inesistente");
         }
-        System.out.println("[CH] comando inesistente");
     }
 
     private static void handleShowHitMap(final Game game) {

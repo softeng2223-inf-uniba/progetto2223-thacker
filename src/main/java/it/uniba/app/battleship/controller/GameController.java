@@ -73,11 +73,11 @@ public final class GameController {
                 throw new SessionNotStartedException();
             }
 
-            if (StrikeController.strike(command, game.getSessionGrid()) == 1) {
+            int result = StrikeController.strike(command, game.getSessionGrid());
+            if (result == 1) {
                 game.setSunkShips(game.getSunkShips() + 1);
             }
-
-            if (StrikeController.strike(command, game.getSessionGrid()) == -1) {
+            if (result == -1) {
                 game.setFailedAttempt(game.getFailedAttempts() + 1);
             }
         }
