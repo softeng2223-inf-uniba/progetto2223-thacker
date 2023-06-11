@@ -1,5 +1,7 @@
 package it.uniba.app.battleship.controller;
 
+import it.uniba.app.battleship.entity.Coordinate;
+
 /**
  * Javadoc momentaneo.
  */
