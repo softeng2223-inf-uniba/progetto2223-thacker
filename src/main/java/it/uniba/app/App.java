@@ -9,15 +9,7 @@ import it.uniba.app.battleship.controller.ExitController;
  * Main class of the application.
  */
 public final class App {
-
-    /**
-     * Get a greeting sentence.
-     *
-     * @return the "Hello World!" string.
-     */
-    public String getGreeting() {
-        return "Hello World!!!";
-    }
+    private App() { }
 
     /**
      * Entrypoint of the application.
@@ -25,7 +17,6 @@ public final class App {
      * @param args command line arguments
      */
     public static void main(final String[] args) {
-        System.out.println(new App().getGreeting());
 
         FlagHandler.execute(args);
 
