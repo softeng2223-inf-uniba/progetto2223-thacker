@@ -36,7 +36,7 @@ public final class StrikeController {
      * @param grid mappa di gioco su cui colpire.
      * @return {@code true} se una nave viene colpita o affondata, {@code false} altrimenti
     */
-    public static boolean strike(final String command, final Grid grid)
+    public static int strike(final String command, final Grid grid)
         throws CellAlreadyMarkedException, OutOfMapException {
             Coordinate coord = convert(command);
             if (!grid.isWithinBounds(coord)) {
@@ -57,15 +57,16 @@ public final class StrikeController {
                         + "\nCOLPITO E AFFONDATO\n"
                         + Color.getReset()
                     );
+                    return 1;
                 } else {
                     System.out.println(
                         Color.get("blue")
                         + "\nCOLPITO\n"
                         + Color.getReset()
                     );
+                    return 0;
                 }
-                return true;
             }
-            return false;
+            return -1;
         }
 }

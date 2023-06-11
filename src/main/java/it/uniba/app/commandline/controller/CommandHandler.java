@@ -63,23 +63,16 @@ public final class CommandHandler {
     }
 
     private static void handleDefaultOrShoot(final Game game, final String command) {
-        if (!handleShoot(game, command)) {
-            System.out.println("[CH] comando inesistente");
-        }
-    }
-
-    private static boolean handleShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
             try {
                 GameController.strike(game, command);
                 System.out.println(GridController.genHitMap(game.getSessionGrid()));
-                return true;
             } catch (GameException err) {
                 System.out.println(err.getMessage());
             }
         }
-        return false;
+        System.out.println("[CH] comando inesistente");
     }
 
     private static void handleShowHitMap(final Game game) {
