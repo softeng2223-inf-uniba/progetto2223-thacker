@@ -21,7 +21,6 @@ public final class ExitController {
         if (instance == null) {
             instance = new ExitController();
         }
-        instance.requestedExit = false;
         return instance;
     }
 
