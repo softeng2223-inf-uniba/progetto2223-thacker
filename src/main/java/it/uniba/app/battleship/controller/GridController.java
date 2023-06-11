@@ -35,7 +35,8 @@ public final class GridController {
                     // aggiungere controlli sulla nave
                     if (ship != null) {
                         if (ship.isSunk()) {
-                            str += ship + WHITE_SPACE;
+                            str += Color.get(ship.getColor()) + ship
+                                + Color.getReset() + WHITE_SPACE;
                         }
                     }
                 } else {
