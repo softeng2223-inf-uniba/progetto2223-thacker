@@ -2,6 +2,8 @@ package it.uniba.app.battleship.entity;
 
 import java.util.HashSet;
 
+import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
+
 import java.util.Arrays;
 
 /**
@@ -35,6 +37,18 @@ public class Grid implements Cloneable {
             Arrays.fill(map[i], null);
         }
         hits = new HashSet<Coordinate>();
+    }
+
+    /**
+     * TODO javadoc.
+     * @param size
+     * @throws SessionAlreadyStartedException
+     */
+    public static void setChosenSize(final Game game, final int size) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        chosenSize = size;
     }
 
     /**
