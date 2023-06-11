@@ -31,8 +31,8 @@ public final class Game {
     }
 
     /**
-     * TODO javadoc.
-     * @param number
+     * Imposta il valore delle navi affondate.
+     * @param number nuovo valore delle navi affondate
      */
     public void setSunkShips(final int number) {
         sunkShips = number;
