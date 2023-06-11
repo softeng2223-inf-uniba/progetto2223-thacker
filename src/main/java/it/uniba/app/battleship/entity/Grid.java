@@ -30,8 +30,8 @@ public class Grid implements Cloneable {
      * Javadoc momentaneo.
      */
     public Grid() {
-        map = new Ship[SIZE][SIZE];
-        for (int i = 0; i < SIZE; i++) {
+        map = new Ship[chosenSize][chosenSize];
+        for (int i = 0; i < chosenSize; i++) {
             Arrays.fill(map[i], null);
         }
         hits = new HashSet<Coordinate>();
