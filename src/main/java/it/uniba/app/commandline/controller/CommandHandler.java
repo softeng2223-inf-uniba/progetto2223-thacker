@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
+import it.uniba.app.battleship.exception.GameException;
 import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
@@ -97,7 +98,7 @@ public final class CommandHandler {
             case "/svelagriglia"    -> handleShowGameGrid(game);
             case "/mostratentativi" -> handleShowAttempts(game);
             case "/esci"            -> handleExit();
-            default                 -> System.err.println("[CH] Il comando " + command + " non è valido.");
+            default -> handleDefaultOrShoot(game, command);
         }
     }
     /**
@@ -143,6 +144,19 @@ public final class CommandHandler {
             System.out.println("Ok");
         } catch (SessionAlreadyStartedException e) {
             System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
+        }
+    }
+    private static void handleDefaultOrShoot(final Game game, final String command) {
+        String regex = "[a-z]-[0-9]{1,2}";
+        if (command.matches(regex)) {
+            try {
+                GameController.strike(game, command);
+                System.out.println(GridController.genHitMap(game.getSessionGrid()));
+            } catch (GameException err) {
+                System.out.println(err.getMessage());
+            }
+        } else {
+            System.out.println("[CH] comando inesistente");
         }
     }
     private static void handleShowHitMap(final Game game) {
