@@ -46,6 +46,18 @@ public final class GridController {
     }
 
     /**
+     * TODO javadoc.
+     */
+    public static void extraLargeGridSize(final Game game) {
+        try {
+            Grid.setChosenSize(game, Grid.getExtraLargeSize());
+            System.out.println("OK, la dimensione della griglia e' 26x26.");
+        } catch (SessionAlreadyStartedException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
      * Restituisce una oggetto di tipi {@code String} che
      * contiene la mappa delle navi che viene mostrata col
      * comando {@code /svelagriglia}.
