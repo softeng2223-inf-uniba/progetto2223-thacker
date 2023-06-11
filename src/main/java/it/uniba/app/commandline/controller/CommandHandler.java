@@ -62,7 +62,8 @@ public final class CommandHandler {
 
     private static void handleShowHitMap(final Game game) {
         try {
-            String str = GridController.genHitMap(GameController.getSessionGrid(game));
+            Grid grid = GameController.getSessionGrid(game);
+            String str = GridController.genHitMap(grid);
         } catch (SessionNotStartedException err) {
             // aggiungere gestione eccezione.
         }
