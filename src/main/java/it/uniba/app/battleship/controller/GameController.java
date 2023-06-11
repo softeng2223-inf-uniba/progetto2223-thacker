@@ -104,7 +104,7 @@ public final class GameController {
      */
     public static Difficulty getDifficulty(final Game game) throws CloneNotSupportedException {
         if (!game.isSessionStarted() && game.getDifficulty().getLevel() == null) {
-            try{
+            try {
                 setEasyDifficulty(game);
             } catch (SessionAlreadyStartedException e) { }
         }

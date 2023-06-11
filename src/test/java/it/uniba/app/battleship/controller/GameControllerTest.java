@@ -2,7 +2,6 @@ package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
-import it.uniba.app.battleship.exception.DifficultyNotSetException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import org.junit.jupiter.api.BeforeEach;
