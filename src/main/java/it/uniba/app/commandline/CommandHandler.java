@@ -18,7 +18,9 @@ import it.uniba.app.battleship.entity.Grid;
 // Altro.
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 /**
+ * {@code <<Control>>}<hr>
  * {@code CommandHandler} è una classe che
  * gestisce i comandi con cui l'utente interagisce
  * con il gioco.
@@ -129,7 +131,7 @@ public final class CommandHandler {
         }
     }
     private static void handleShowTime(final Game game) {
-        Output.println(TimeController.showTime(game));
+        Output.println(ShowTimeController.showTime(game));
     }
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
@@ -187,7 +189,7 @@ public final class CommandHandler {
         if (command.matches(regex)) {
             try {
                 StrikeController.strike(game, command);
-                Output.printHitMap(GridController.genHitMap(game));
+                Output.printHitMap(ShowGridController.genHitMap(game));
             } catch (SessionNotStartedException err) {
                 Output.printHitSessionNotStarted();
             } catch (CellAlreadyMarkedException err) {
@@ -201,7 +203,7 @@ public final class CommandHandler {
     }
     private static void handleShowHitMap(final Game game) {
         try {
-            String map = GridController.genHitMap(game);
+            String map = ShowGridController.genHitMap(game);
             Output.clearScreen();
             Output.printHitMap(map);
         } catch (SessionNotStartedException err) {
@@ -311,7 +313,7 @@ public final class CommandHandler {
         try {
             Grid grid = GameController.getSessionGrid(game);
             Output.clearScreen();
-            Output.printShipMap(GridController.genShipMap(grid));
+            Output.printShipMap(ShowGridController.genShipMap(grid));
         } catch (SessionNotStartedException e) {
             Output.printShowGridSessionNotStarted();
         }
@@ -336,7 +338,7 @@ public final class CommandHandler {
             String confirm = Input.get().toLowerCase();
             switch (confirm) {
                 case "si" -> {
-                    Output.printEndSessionConfirm(GridController.genShipMap(game.getSessionGrid()));
+                    Output.printEndSessionConfirm(ShowGridController.genShipMap(game.getSessionGrid()));
                     GameController.endSession(game);
                     try {
                         GameController.setTime(game, 0);
