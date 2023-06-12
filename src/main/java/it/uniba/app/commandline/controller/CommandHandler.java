@@ -106,6 +106,7 @@ public final class CommandHandler {
             default -> handleDefaultOrShoot(game, command);
         }
     }
+
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
      * Inoltre imposta la difficoltà della sessione a 'facile'.
@@ -154,10 +155,13 @@ public final class CommandHandler {
 
     private static boolean gameTimeCheck(final Game game) {
         if (TimeController.isTimeOver(game)) {
-            game.getTime().setTimeLimitMin(0);
             try {
                 GameController.endSession(game);
-            } catch (SessionNotStartedException e) { }
+                GameController.setTime(game, 0);
+            } catch (SessionNotStartedException e) {
+
+            } catch (SessionAlreadyStartedException e) { }
+
             return true;
         }
             return false;
@@ -165,7 +169,7 @@ public final class CommandHandler {
 
     private static void handleTime(final Game game, final int value) {
             try {
-                TimeController.setTimeLimit(game, value);
+                GameController.setTime(game, value);
                 System.out.println("OK, il numero di minuti a disposizione per giocare e': " + value);
             } catch (SessionAlreadyStartedException e) {
                 System.out.println(e.getMessage());
