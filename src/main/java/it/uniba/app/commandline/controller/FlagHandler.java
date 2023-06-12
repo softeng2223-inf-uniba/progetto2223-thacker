@@ -19,16 +19,17 @@ public final class FlagHandler {
      * </ul>
      * @param args flag da elaborare
      */
-    public static void execute(final String[] args) {
+    public static boolean execute(final String[] args) {
         if (args.length == 0) {
-            return;
+            return false;
         }
         if (args.length == 1) {
             if (args[0].equals("-h") || args[0].equals("--help")) {
                 HelpController.showHelp();
-                return;
+                return true;
             }
         }
         Output.printFlagNotRecognised(args);
+        return false;
     }
 }

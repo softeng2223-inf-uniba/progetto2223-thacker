@@ -13,7 +13,11 @@ public final class Output {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
-
+    public static void printStartMessage() {
+        print("Benvenuto al gioco Battaglia Navale!\n"
+                + "Preparati a sfidare e distruggere le navi nemiche.\n"
+                + "Fai /help per vedere la lista dei comandi disponibili\n", "yellow");
+    }
     /**
      * Stampa un messaggio a video.
      * @param message Il messaggio da stampare.
