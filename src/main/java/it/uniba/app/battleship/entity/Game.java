@@ -3,6 +3,7 @@ package it.uniba.app.battleship.entity;
 import java.util.LinkedList;
 
 import it.uniba.app.battleship.controller.GridController;
+import it.uniba.app.battleship.controller.TimeController;
 
 /**
  * Entity class <hr>
@@ -18,6 +19,7 @@ public final class Game {
 
     private Difficulty difficulty;
     private Grid grid;
+    private Time time;
 
     private int totAttempts;
     private int failedAttempts;
@@ -28,6 +30,15 @@ public final class Game {
         sessionStarted = false;
         diffSet = false;
         difficulty = new Difficulty();
+        time = new Time();
+    }
+
+    public Time getTime() {
+        return time.clone();
+    }
+
+    public void setTime(final Time t) {
+        time = t.clone();
     }
 
     /**
@@ -80,6 +91,7 @@ public final class Game {
     public void startSession() {
         grid = new Grid();
         GridController.randomlyFill(SHIPS, grid);
+        TimeController.setTime(time);
 
         sunkShips = 0;
         totAttempts = 0;

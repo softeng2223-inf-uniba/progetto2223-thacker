@@ -7,6 +7,7 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
+import it.uniba.app.battleship.entity.Time;
 
 /**
  * Control class <hr>
@@ -51,6 +52,23 @@ public final class GameController {
             throw new SessionNotStartedException();
         }
         game.endSession();
+    }
+    /**
+     * Permette di settare il numero massimo di
+     * minuti a disposizione per giocare.
+     * @param game oggetto che conserva i dati di gioco.
+     * @param value intero che contiene il numero di minuti
+     * a disposizione per giocare.
+     * @throws SessionAlreadyStartedException
+     */
+    public static void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+
+        Time time = new Time();
+        TimeController.setTimeLimit(time, value);
+        game.setTime(time);
     }
 
     /**

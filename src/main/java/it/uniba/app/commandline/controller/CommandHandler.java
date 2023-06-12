@@ -12,6 +12,7 @@ import it.uniba.app.battleship.controller.GridController;
 import it.uniba.app.battleship.controller.HelpController;
 import it.uniba.app.battleship.controller.DifficultyController;
 import it.uniba.app.battleship.controller.ShowShipsController;
+import it.uniba.app.battleship.controller.TimeController;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
@@ -28,11 +29,14 @@ public final class CommandHandler {
      * Esegue un comando passato come parametro.
      * @param game istanza di {@link Game}
      */
-    public static void handler(final Game game) {
+    public static void handleCommand(final Game game) {
         try {
             String command = Input.get().toLowerCase();
             String[] tokens = command.split(" ");
-
+            if (gameTimeCheck(game)) {
+                System.out.println("Tempo scaduto. Comando ignorato. Hai perso.");
+                return;
+            }
             switch (tokens.length) {
                 case 1 -> executeNoArgs(game, command);
                 case 2 -> executeArgs(game, tokens);
@@ -43,7 +47,7 @@ public final class CommandHandler {
         }
     }
     /**
-     * Esegue un comando senza parametri.
+     * Esegue un comando con parametri.
      * @param game istanza di {@link Game}
      * @param tokens comando splittato in tokens.
      */
@@ -52,6 +56,7 @@ public final class CommandHandler {
             int value = Integer.parseInt(tokens[1]);
             if (value > 0) {
                 switch (tokens[0]) {
+                    case "/tempo"  -> handleTime(game, value);
                     case "/facile" -> handleCustomEasyDifficulty(game, value);
                     case "/medio" -> handleCustomMediumDifficulty(game, value);
                     case "/difficile" -> handleCustomHardDifficulty(game, value);
@@ -102,6 +107,7 @@ public final class CommandHandler {
             default -> handleDefaultOrShoot(game, command);
         }
     }
+
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
      * Inoltre imposta la difficoltà della sessione a 'facile'.
@@ -147,6 +153,30 @@ public final class CommandHandler {
             System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
         }
     }
+
+    private static boolean gameTimeCheck(final Game game) {
+        if (TimeController.isTimeOver(game)) {
+            try {
+                GameController.endSession(game);
+                GameController.setTime(game, 0);
+            } catch (SessionNotStartedException e) {
+
+            } catch (SessionAlreadyStartedException e) { }
+
+            return true;
+        }
+            return false;
+    }
+
+    private static void handleTime(final Game game, final int value) {
+            try {
+                GameController.setTime(game, value);
+                System.out.println("OK, il numero di minuti a disposizione per giocare e': " + value);
+            } catch (SessionAlreadyStartedException e) {
+                System.out.println(e.getMessage());
+            }
+    }
+
     private static void handleDefaultOrShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
