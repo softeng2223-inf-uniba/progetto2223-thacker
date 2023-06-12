@@ -42,12 +42,12 @@ public final class StrikeController {
             Coordinate coord = convert(command);
 
             int result = GameController.strike(game, coord);
-
+            Output.clearScreen();
             Output.print("Lancio colpo in " + command + "\n" + "Esito: ");
 
             switch (result) {
-                case 1 -> Output.printShipSunken();
-                case 0 -> Output.printHitShip();
+                case 1  -> Output.printShipSunken();
+                case 0  -> Output.printHitShip();
                 default -> Output.printHitWater();
             }
         }

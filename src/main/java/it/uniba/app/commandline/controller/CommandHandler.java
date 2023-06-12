@@ -208,7 +208,9 @@ public final class CommandHandler {
     }
     private static void handleShowHitMap(final Game game) {
         try {
-            Output.printHitMap(GridController.genHitMap(game));
+            String map = GridController.genHitMap(game);
+            Output.clearScreen();
+            Output.printHitMap(map);
         } catch (SessionNotStartedException err) {
             Output.printCantShowHitMap();
         }
