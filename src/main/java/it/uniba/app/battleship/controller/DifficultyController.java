@@ -5,16 +5,20 @@ import it.uniba.app.battleship.entity.Difficulty;
  * relative alle difficoltà di gioco.
  */
 public final class DifficultyController {
-    private static final String EASY_NAME = "Facile";
+    private static final String EASY_NAME   = "Facile";
     private static final String MEDIUM_NAME = "Medio";
-    private static final String HARD_NAME = "Difficile";
-    private static final int DEFAULT_EASY_MAX_FAILED_ATTEMPTS = 50;
+    private static final String HARD_NAME   = "Difficile";
+
+    private static final int DEFAULT_EASY_MAX_FAILED_ATTEMPTS   = 50;
     private static final int DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS = 30;
-    private static final int DEFAULT_HARD_MAX_FAILED_ATTEMPTS = 10;
-    private static int easyMaxFailedAttempts = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
+    private static final int DEFAULT_HARD_MAX_FAILED_ATTEMPTS   = 10;
+
+    private static int easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
     private static int mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
-    private static int hardMaxFailedAttempts = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+    private static int hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+
     private DifficultyController() { }
+
     /**
      * Imposta la difficoltà dell'oggetto Difficulty come "Facile" e
      * il numero massimo di tentativi falliti a EASY_MAX_FAILED_ATTEMPTS.
