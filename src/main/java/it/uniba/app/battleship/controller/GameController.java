@@ -93,11 +93,12 @@ public final class GameController {
 
             int result = StrikeController.strike(command, game.getSessionGrid());
             if (result == 1) {
-                game.setSunkShips(game.getSunkShips() + 1);
+                game.incrementSunkShips();
             }
             if (result == -1) {
-                game.setFailedAttempt(game.getFailedAttempts() + 1);
+                game.incrementFailedAttempt();
             }
+            game.incrementTotalAttempts();
         }
         /**
          * Imposta la difficoltà ad una personalizzata con valori di tentativi fallibili personalizzati.
@@ -216,7 +217,7 @@ public final class GameController {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
-        return game.getAttempts();
+        return game.getFailedAttempts();
     }
 
 }

@@ -4,7 +4,8 @@ package it.uniba.app.commandline.controller;
 import java.io.IOException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
-import it.uniba.app.battleship.exception.GameException;
+import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
+import it.uniba.app.battleship.exception.OutOfMapException;
 // Import classi controller.
 import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.battleship.controller.GameController;
@@ -215,9 +216,13 @@ public final class CommandHandler {
             try {
                 GameController.strike(game, command);
                 System.out.println(GridController.genHitMap(game.getSessionGrid()));
-            } catch (GameException err) {
+            } catch (SessionNotStartedException err) {
                 System.err.println("[CH] Non puoi lanciare un colpo se non inizi una partita. "
                         + "\nUtilizza il comando '/gioca' per iniziare una partita.");
+            } catch (CellAlreadyMarkedException err) {
+                System.err.println(err.getMessage());
+            } catch (OutOfMapException err) {
+                System.err.println(err.getMessage());
             }
         } else {
             System.err.println("[CH] '" + command + "' non è un comando senza parametri valido."

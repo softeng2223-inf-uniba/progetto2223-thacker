@@ -73,7 +73,8 @@ public final class GridController {
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {
-            b.append(ALPH[i] + WHITE_SPACE);
+            b.append(ALPH[i]);
+            b.append(WHITE_SPACE);
         }
         b.append(ROW_SPACE);
         for (int row = 0; row < Grid.getSize(); row++) {
@@ -125,21 +126,30 @@ public final class GridController {
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {
-            b.append(ALPH[i] + WHITE_SPACE);
+            b.append(ALPH[i]);
+            b.append(WHITE_SPACE);
         }
         b.append(ROW_SPACE);
         for (int row = 0; row < Grid.getSize(); row++) {
             if (row < DEFAULT_NUMBER_OF_ROW) {
                 b.append(" ");
             }
-            b.append((row + 1) + ":    ");
+            b.append((row + 1));
+            b.append(":");
+            b.append(WHITE_SPACE);
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coords = new Coordinate(row, col);
-                Ship item = grid.get(coords);
-                if (item == null) {
-                    b.append(Grid.getWaterSymbol() + "    ");
+                Ship ship = grid.get(coords);
+                if (ship == null) {
+                    b.append(Color.get("blue"));
+                    b.append(Grid.getWaterSymbol());
+                    b.append(Color.getReset());
+                    b.append(WHITE_SPACE);
                 } else {
-                    b.append(item + "    ");
+                    b.append(Color.get(ship.getColor()));
+                    b.append(ship);
+                    b.append(Color.getReset());
+                    b.append(WHITE_SPACE);
                 }
             }
             b.append(ROW_SPACE);
