@@ -8,20 +8,18 @@ package it.uniba.app.battleship.entity;
  * {@code /tempo}.
  */
 public class Time implements Cloneable {
-
     private int timeLimitMinute;
-    private long startTimeMill;
-    private long timeLimitMilliseconds;
-    private long currentTimeMill;
+    private long startTimeMillis;
+    private long timeLimitMillisSeconds;
 
     /**
-     * Costruttore pubblico che permette di istanziare un oggetto
+     * Costruttore pubblico che permette d'istanziare un oggetto
      * {@code Time} con attributi inizializzati con valori di default.
      */
     public Time() { };
 
     /**
-     * Permette di impostare il limite di tempo
+     * Permette d'impostare il limite di tempo
      * in minuti inserito dall'utente.
      * @param time tempo in minuti scelto dall'utente.
      */
@@ -30,7 +28,7 @@ public class Time implements Cloneable {
     }
 
     /**
-     * Restituisce il numero di minuti a diposizione
+     * Restituisce il numero di minuti a disposizione
      * per giocare scelto dall'utente.
      * @return {@code timeLimitMinute} tempo in minuti.
      */
@@ -43,27 +41,27 @@ public class Time implements Cloneable {
      * con il valore contenuto nel parametro {@code time}.
      * @param time tempo limite in millisecondi passato in input.
      */
-    public void setTimeLimitMill(final int time) {
-        timeLimitMilliseconds = time;
+    public void setTimeLimitMillis(final int time) {
+        timeLimitMillisSeconds = time;
     }
 
     /**
      * Imposta il tempo iniziale di gioco in
      * millisecondi necessario per i controlli
      * sul tempo disponibile durante la partita.
-     * @param time contiene il tempo di inizio in millisecondi.
+     * @param time contiene il tempo d'inizio in millisecondi.
      */
     public void setStartTimeMill(final Long time) {
-        startTimeMill = time;
+        startTimeMillis = time;
     }
 
     /**
-     * Restituisce il tempo di inizio del gioco
+     * Restituisce il tempo d'inizio del gioco
      * in millisecondi.
-     * @return {@code startTimeMill} tempo di inizio del gioco.
+     * @return {@code startTimeMill} tempo d'inizio del gioco.
      */
-    public long getStartTimeMill() {
-        return startTimeMill;
+    public long getStartTimeMillis() {
+        return startTimeMillis;
     }
 
     /**
@@ -72,19 +70,18 @@ public class Time implements Cloneable {
      * @return {@code timeLimitMilleseconds} tempo limite in millisecondi.
      */
     public long getTimeLimitMill() {
-        return timeLimitMilliseconds;
+        return timeLimitMillisSeconds;
     }
 
     /**
      * Restituisce il tempo calcolato nell'istante in cui
-     * il metodo viene chiamato in millisecondi. E' necessario
+     * il metodo viene chiamato in millisecondi. È necessario
      * per effettuare controlli sul tempo ancora a
      * disposizione per giocare.
      * @return {@code currentTimeMill} tempo corrente in millisecondi.
      */
-    public long getCurrentTimeMill() {
-        currentTimeMill = System.currentTimeMillis();
-        return currentTimeMill;
+    public long getCurrentTimeMillis() {
+        return System.currentTimeMillis();
     }
 
     /**
@@ -92,7 +89,6 @@ public class Time implements Cloneable {
      */
     @Override
     public final Time clone() {
-
         Time clone = null;
         try {
             clone = (Time) super.clone();
