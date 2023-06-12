@@ -5,10 +5,11 @@ import it.uniba.app.battleship.entity.Grid;
 import it.uniba.app.battleship.entity.Ship;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
+import it.uniba.app.commandline.Output;
 import it.uniba.app.utility.Color;
 
 /**
- * Javadoc momentaneo.
+ *  TODO
  */
 public final class StrikeController {
     private static final int CHAR_CONVERT = 97;
@@ -48,30 +49,20 @@ public final class StrikeController {
             }
 
             grid.mark(coord);
+
             if (!grid.isCellEmpty(coord)) {
                 Ship ship = grid.get(coord);
                 ship.hit();
+
                 if (ship.isSunk()) {
-                    System.out.println(
-                        Color.get("red")
-                        + "\nCOLPITO E AFFONDATO\n"
-                        + Color.getReset()
-                    );
+                    Output.printShipSunken();
                     return 1;
                 } else {
-                    System.out.println(
-                        Color.get("blue")
-                        + "\nCOLPITO\n"
-                        + Color.getReset()
-                    );
+                    Output.printHitShip();
                     return 0;
                 }
             }
-            System.out.println(
-                Color.get("yellow")
-                + "\nACQUA\n"
-                + Color.getReset()
-            );
+            Output.printHitWater();
             return -1;
         }
 }
