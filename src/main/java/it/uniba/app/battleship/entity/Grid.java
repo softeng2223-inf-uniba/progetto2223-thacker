@@ -1,7 +1,5 @@
 package it.uniba.app.battleship.entity;
 
-import java.util.HashSet;
-
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -25,8 +23,6 @@ public class Grid implements Cloneable {
 
     private static int chosenSize = DEFAULT_SIZE;
     private Ship[][] map;
-    private HashSet<Coordinate> hits;
-
 
     /**
      * Costruttore che permette di istanziare
@@ -37,7 +33,6 @@ public class Grid implements Cloneable {
         for (int i = 0; i < chosenSize; i++) {
             Arrays.fill(map[i], null);
         }
-        hits = new HashSet<Coordinate>();
     }
 
     /**
@@ -142,25 +137,6 @@ public class Grid implements Cloneable {
      */
     public boolean isCellEmpty(final Coordinate coord) {
         return map[coord.getRow()][coord.getCol()] == null;
-    }
-
-    /**
-     * Effettua un controllo sulle coordinate che sono già state colpite.
-     * Se la {@code Coordinate} si rivela essere una coordinata già colpita,
-     * allora il controllo darà esito positivo, altrimenti sarà negativo.
-     * @param coord coordinate su cui effettuare il controllo
-     * @return {@code true} se è una posizione già colpita, {@code false} altrimenti
-     */
-    public boolean isCellHit(final Coordinate coord) {
-        return hits.contains(coord);
-    }
-
-    /**
-     * Javadoc momentaneo.
-     * @param coord
-     */
-    public void mark(final Coordinate coord) {
-        hits.add(coord);
     }
 
     /**

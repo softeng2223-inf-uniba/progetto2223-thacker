@@ -13,6 +13,7 @@ import it.uniba.app.battleship.controller.GridController;
 import it.uniba.app.battleship.controller.HelpController;
 import it.uniba.app.battleship.controller.DifficultyController;
 import it.uniba.app.battleship.controller.ShowShipsController;
+import it.uniba.app.battleship.controller.StrikeController;
 import it.uniba.app.battleship.controller.TimeController;
 // Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
@@ -188,8 +189,8 @@ public final class CommandHandler {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
             try {
-                GameController.strike(game, command);
-                Output.printHitMap(GridController.genHitMap(game.getSessionGrid()));
+                StrikeController.strike(game, command);
+                Output.printHitMap(GridController.genHitMap(game));
             } catch (SessionNotStartedException err) {
                 Output.printHitSessionNotStarted();
             } catch (CellAlreadyMarkedException err) {
@@ -203,8 +204,7 @@ public final class CommandHandler {
     }
     private static void handleShowHitMap(final Game game) {
         try {
-            Grid grid = GameController.getSessionGrid(game);
-            Output.printHitMap(GridController.genHitMap(grid));
+            Output.printHitMap(GridController.genHitMap(game));
         } catch (SessionNotStartedException err) {
             Output.printCantShowHitMap();
         }
