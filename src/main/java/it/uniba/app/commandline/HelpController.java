@@ -1,5 +1,4 @@
-package it.uniba.app.battleship.controller;
-import it.uniba.app.commandline.Output;
+package it.uniba.app.commandline;
 
 /**
  * Classe del comando /help.
