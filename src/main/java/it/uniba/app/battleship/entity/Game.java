@@ -37,6 +37,10 @@ public final class Game {
         return time.clone();
     }
 
+    public void setTime(final Time t) {
+        time = t;
+    }
+
     /**
      * Imposta il valore delle navi affondate.
      * @param number nuovo valore delle navi affondate
