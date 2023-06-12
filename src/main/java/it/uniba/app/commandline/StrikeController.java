@@ -1,10 +1,10 @@
-package it.uniba.app.battleship.controller;
+package it.uniba.app.commandline;
 
+import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
-import it.uniba.app.commandline.Output;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 
 /**
