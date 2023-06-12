@@ -1,4 +1,4 @@
-package it.uniba.app.utility;
+package it.uniba.app.commandline;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
