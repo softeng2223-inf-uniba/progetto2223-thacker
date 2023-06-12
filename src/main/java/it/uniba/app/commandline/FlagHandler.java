@@ -1,7 +1,4 @@
-package it.uniba.app.commandline.controller;
-
-import it.uniba.app.battleship.controller.HelpController;
-import it.uniba.app.commandline.Output;
+package it.uniba.app.commandline;
 
 /**
  * Gestisce i parametri passati all'avvio dell'applicazione (flags).

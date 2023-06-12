@@ -1,4 +1,4 @@
-package it.uniba.app.commandline.controller;
+package it.uniba.app.commandline;
 
 // Import eccezioni.
 import java.io.IOException;
@@ -6,22 +6,15 @@ import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
-// Import classi controller.
-import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
-import it.uniba.app.battleship.controller.HelpController;
 import it.uniba.app.battleship.controller.DifficultyController;
-import it.uniba.app.battleship.controller.ShowShipsController;
-import it.uniba.app.battleship.controller.StrikeController;
 import it.uniba.app.battleship.controller.TimeController;
 // Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
-// Import classi boundary.
-import it.uniba.app.commandline.Output;
-import it.uniba.app.utility.Input;
+
 // Altro.
 import java.util.LinkedHashSet;
 import java.util.Set;
