@@ -1,10 +1,10 @@
 package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.entity.Coordinate;
-import it.uniba.app.battleship.entity.Grid;
-import it.uniba.app.battleship.entity.Ship;
+import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
+import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.utility.Color;
 
 /**
@@ -33,45 +33,36 @@ public final class StrikeController {
      * Se le coordinate scelte sono al di fuori dei confini della mappa, viene
      * lanciata una eccezione di tipo `OutOfMapException`.
      * @param command contiene la coordinata in formato stringa.
-     * @param grid mappa di gioco su cui colpire.
-     * @return {@code true} se una nave viene colpita o affondata, {@code false} altrimenti
+     * @param game sessione di gioco
+     *
     */
-    public static int strike(final String command, final Grid grid)
-        throws CellAlreadyMarkedException, OutOfMapException {
+    public static void strike(final Game game, final String command)
+        throws SessionNotStartedException, CellAlreadyMarkedException, OutOfMapException {
             Coordinate coord = convert(command);
-            if (!grid.isWithinBounds(coord)) {
-                throw new OutOfMapException();
-            }
 
-            if (grid.isCellHit(coord)) {
-                throw new CellAlreadyMarkedException();
-            }
+            int result = GameController.strike(game, coord);
 
-            grid.mark(coord);
-            if (!grid.isCellEmpty(coord)) {
-                Ship ship = grid.get(coord);
-                ship.hit();
-                if (ship.isSunk()) {
+            switch (result) {
+                case 1:
                     System.out.println(
                         Color.get("red")
                         + "\nCOLPITO E AFFONDATO\n"
                         + Color.getReset()
                     );
-                    return 1;
-                } else {
+                    break;
+                case 0:
                     System.out.println(
                         Color.get("blue")
                         + "\nCOLPITO\n"
                         + Color.getReset()
                     );
-                    return 0;
-                }
+                    break;
+                default:
+                    System.out.println(
+                        Color.get("yellow")
+                        + "\nACQUA\n"
+                        + Color.getReset()
+                    );
             }
-            System.out.println(
-                Color.get("yellow")
-                + "\nACQUA\n"
-                + Color.getReset()
-            );
-            return -1;
         }
 }
