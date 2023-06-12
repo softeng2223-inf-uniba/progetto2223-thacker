@@ -99,7 +99,12 @@ public final class GameController {
                 game.setFailedAttempt(game.getFailedAttempts() + 1);
             }
         }
-
+        /**
+         * Imposta la difficoltà ad una personalizzata con valori di tentativi fallibili personalizzati.
+         * @param game oggetto che conserva i dati di gioco.
+         * @param val intero che contiene il numero di tentativi falliti.
+         * @throws SessionAlreadyStartedException non è possibile impostare la difficoltà
+         */
         public static void setCustomDifficulty(final Game game, final int val) throws SessionAlreadyStartedException{
             if (game.isSessionStarted()) {
                 throw new SessionAlreadyStartedException();
