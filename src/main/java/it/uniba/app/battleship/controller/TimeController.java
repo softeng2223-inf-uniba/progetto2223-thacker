@@ -74,7 +74,7 @@ public final class TimeController {
         long minutePassed = checkTimePassedMillis(game)/SECOND/MILLISECONDS;
 
         if (maxMinute == 0) {
-            return "Quando inizierai la partita avrai a disposizione tempo illimitato";
+            return "Hai a disposizione un tempo illimitato";
         } else if (!game.isSessionStarted()) {
             return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuti";
         } else {
