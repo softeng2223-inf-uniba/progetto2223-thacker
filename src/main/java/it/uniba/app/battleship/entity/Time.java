@@ -34,7 +34,7 @@ public class Time implements Cloneable {
      * per giocare scelto dall'utente.
      * @return {@code timeLimitMinute} tempo in minuti.
      */
-    public long getTimeLimitMin() {
+    public int getTimeLimitMin() {
         return timeLimitMinute;
     }
 
