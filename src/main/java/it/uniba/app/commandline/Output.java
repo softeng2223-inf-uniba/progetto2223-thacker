@@ -9,6 +9,10 @@ public final class Output {
     private static final String OK_COLOR_CODE = "green";
 
     private Output() { }
+
+    /**
+     * Pulisce lo schermo.
+     */
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
