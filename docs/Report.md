@@ -185,7 +185,8 @@ Nei seguenti diagrammi di classe, è omessa la visibilità degli attributi perch
 Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
 
 ### (5.1) Come giocatore voglio iniziare una partita
-Issue: #79
+Pullrequest: #79
+Issue: #22
 
 **diagramma di sequenza**
 ```mermaid
