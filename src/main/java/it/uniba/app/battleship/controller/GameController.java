@@ -98,6 +98,7 @@ public final class GameController {
             if (result == -1) {
                 game.setFailedAttempt(game.getFailedAttempts() + 1);
             }
+            game.incrementTotalAttempts();
         }
         /**
          * Imposta la difficoltà ad una personalizzata con valori di tentativi fallibili personalizzati.
