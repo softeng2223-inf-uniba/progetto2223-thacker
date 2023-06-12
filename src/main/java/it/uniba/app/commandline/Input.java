@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
 /**
+ * {@code <<Boundary>>}<hr>
  * La classe gestisce l'input da parte dell'utente.
  * Permette di usare il metodo {@code get()} per ottenre una stringa.
  * Gestisce in maniera automatica l'uso del charset.
