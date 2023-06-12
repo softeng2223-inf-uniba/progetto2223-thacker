@@ -9,7 +9,7 @@ package it.uniba.app.battleship.entity;
  */
 public class Time implements Cloneable {
 
-    private long timeLimitMinute;
+    private int timeLimitMinute;
     private long startTimeMill;
     private long timeLimitMilliseconds;
     private long currentTimeMill;
@@ -25,7 +25,7 @@ public class Time implements Cloneable {
      * in minuti inserito dall'utente.
      * @param time tempo in minuti scelto dall'utente.
      */
-    public void setTimeLimitMin(final long time) {
+    public void setTimeLimitMin(final int time) {
         timeLimitMinute = time;
     }
 
