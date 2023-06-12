@@ -100,6 +100,17 @@ public final class GameController {
             }
         }
 
+        public static void setCustomDifficulty(final Game game, final int val) throws SessionAlreadyStartedException{
+            if (game.isSessionStarted()) {
+                throw new SessionAlreadyStartedException();
+            }
+            Difficulty diff = new Difficulty();
+            DifficultyController.setCustomDifficulty(diff, val);
+            try {
+                game.setDifficulty(diff);
+            } catch (CloneNotSupportedException e) { }
+        }
+
     /**
      * Imposta la difficoltà ad Easy.
      */
