@@ -182,7 +182,49 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 Nei seguenti diagrammi di classe, è omessa la visibilità degli attributi perchè sottointesa quella privata (-): Il sistema infatti è stato progettato per osservare il principio di *incapsulamento* e *information hiding*.
 
-Seguono i diagrammi di classe e di sequenza per le userstory più importanti
+Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
+
+### Come giocatore voglio iniziare una partita 
+
+```mermaid
+sequenceDiagram
+  autonumber
+
+  participant App
+  actor Player
+  participant Input
+  participant Output
+  participant CH as CommandHandler
+  participant Ga as Game
+  participant GaCo as GameController
+  participant Grid
+  participant GriCo as GridController
+
+  App ->> Ga : crea
+  activate Ga
+
+  App ->> CH: execute()
+  CH ->> Input: get()
+  Input ->> Player: attende comando
+  Player -->> Input: /gioca
+  CH ->> CH: handlePlay()
+  CH ->> GaCo: startSession()
+  GaCo ->> GaCo: controlla se sessione non in corso
+  GaCo ->> GaCo: se difficoltà non impostata, setEasyDifficulty()
+  GaCo ->> Ga: startSession()
+  Ga ->> Grid: crea
+  
+  activate Grid
+  Ga ->> GriCo: randomlyFill()
+  GriCo ->> Grid: riempimento
+  CH ->> GriCo: genHitMap()
+  GriCo -->> CH: griglia dei colpi (vuota)
+  CH ->> Output: print()
+  Output -->> Player : mostra griglia vuota
+
+  deactivate Grid
+  deactivate Ga
+```
 
 ## (7) Manuale Utente
 
