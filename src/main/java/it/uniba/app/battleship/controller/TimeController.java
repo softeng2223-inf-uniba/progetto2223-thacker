@@ -61,7 +61,14 @@ public final class TimeController {
         }
         return false;
     }
-    
+
+    /**
+     * Restituisce una oggetto di tipo {@code String} che
+     * contiene il numero di minuti disponibile per giocare
+     * durante una partita in quel momento.
+     * Permette di implementare il comando {@code /mostratempo}.
+     * @param game contiene i dati relativi alla sessione di gioco.
+     */
     public static String showTime(final Game game) {
         String time = "";
         int min = game.getTime().getTimeLimitMin();
