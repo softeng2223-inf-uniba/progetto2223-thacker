@@ -1,11 +1,11 @@
 package it.uniba.app.commandline.controller;
 
-
+// Import eccezioni.
 import java.io.IOException;
-
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.exception.GameException;
+// Import classi controller.
 import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
@@ -13,11 +13,15 @@ import it.uniba.app.battleship.controller.HelpController;
 import it.uniba.app.battleship.controller.DifficultyController;
 import it.uniba.app.battleship.controller.ShowShipsController;
 import it.uniba.app.battleship.controller.TimeController;
+// Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
+// Import classi boundary.
 import it.uniba.app.utility.Input;
-
+// Altro.
+import java.util.LinkedHashSet;
+import java.util.Set;
 /**
  * {@code CommandHandler} è una classe che
  * gestisce i comandi con cui l'utente interagisce
@@ -29,6 +33,13 @@ public final class CommandHandler {
      * Esegue un comando passato come parametro.
      * @param game istanza di {@link Game}
      */
+    private static final Set<String> commandsWithParams = new LinkedHashSet<>() {{
+        add("/tentativi");
+        add("/tempo");
+        add("/facile");
+        add("/medio");
+        add("/difficile");
+    }};
     public static void handleCommand(final Game game) {
         try {
             String command = Input.get().toLowerCase();
