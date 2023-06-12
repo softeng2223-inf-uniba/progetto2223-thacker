@@ -217,7 +217,7 @@ public final class GameController {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
-        return game.getAttempts();
+        return game.getFailedAttempts();
     }
 
 }
