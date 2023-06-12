@@ -1,7 +1,9 @@
-package it.uniba.app.battleship.controller;
+package it.uniba.app.commandline;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import it.uniba.app.commandline.ExitController;
 
 import java.lang.reflect.Method;
 
