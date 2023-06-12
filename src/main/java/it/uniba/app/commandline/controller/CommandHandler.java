@@ -47,7 +47,7 @@ public final class CommandHandler {
         }
     }
     /**
-     * Esegue un comando senza parametri.
+     * Esegue un comando con parametri.
      * @param game istanza di {@link Game}
      * @param tokens comando splittato in tokens.
      */
