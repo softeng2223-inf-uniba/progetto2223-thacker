@@ -218,10 +218,10 @@ public final class Output {
      * @param value Il valore del tempo di gioco in minuti.
      */
     public static void printSetTime(final int value) {
-        if (value == 1) {
-            println("OK, il tempo di gioco e' ora " + value + " minuto.", OK_COLOR_CODE);
-        } else {
-            println("OK, il tempo di gioco e' ora " + value + " minuti.", OK_COLOR_CODE);
+        switch (value) {
+            case 0 -> println("OK, il tempo di gioco e' ora illimitato.", OK_COLOR_CODE);
+            case 1 -> println("OK, il tempo di gioco e' ora " + value + " minuto.", OK_COLOR_CODE);
+            default -> println("OK, il tempo di gioco e' ora " + value + " minuti.", OK_COLOR_CODE);
         }
     }
 
