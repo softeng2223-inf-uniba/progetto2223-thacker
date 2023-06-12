@@ -24,7 +24,8 @@ public class Output {
      * @param message Il messaggio da stampare.
      * @param colorName Il nome del colore da utilizzare.
      */
-    public static void print(final String message, String colorName) {
+    public static void print(final String message,
+                             final String colorName) {
         print(Color.get(colorName) + message + Color.getReset());
     }
 
@@ -41,7 +42,8 @@ public class Output {
      * @param message Il messaggio da stampare.
      * @param colorName Il nome del colore da utilizzare.
      */
-    public static void println(final String message, String colorName) {
+    public static void println(final String message,
+                               final String colorName) {
         print(message + "\n", colorName);
     }
 
@@ -60,7 +62,7 @@ public class Output {
      * - '/extralarge'
      * @param size La dimensione della griglia.
      */
-    public static void printSetGridSize(int size) {
+    public static void printSetGridSize(final int size) {
         println("OK, la dimensione della griglia e' ora " + size + "x" + size + ".", OK_COLOR_CODE);
     }
 
@@ -91,7 +93,7 @@ public class Output {
      * al main un argomento non riconosciuto.
      * @param arg L'argomento non riconosciuto.
      */
-    public static void printFlagNotRecognised(String[] arg) {
+    public static void printFlagNotRecognised(final String[] arg) {
         String str = String.join(" ", arg);
         println("BattleShip: '" + str + "' non e' un comando valido.\n"
                 + "Comandi disponibili: --help o -h.", ERR_COLOR_CODE);
@@ -110,7 +112,7 @@ public class Output {
      * da tastiera un comando non riconosciuto.
      * @param command Il comando non riconosciuto.
      */
-    public static void printCommandNotRecognised(String command) {
+    public static void printCommandNotRecognised(final String command) {
         println("[CH] '" + command + "' non è un comando valido.\n"
                 + "Usa il comando '/help' per vedere la lista dei comandi disponibili.", ERR_COLOR_CODE);
     }
@@ -120,7 +122,7 @@ public class Output {
      * da tastiera un comando con parametro non riconosciuto.
      * @param command Il comando con parametro non riconosciuto.
      */
-    public static void printCommandWithParamsNotRecognised(String command) {
+    public static void printCommandWithParamsNotRecognised(final String command) {
         println("[CH] '" + command + "' non e' un comando con parametro valido.\n"
                 + "Usa il comando '/help' per vedere la lista dei comandi disponibili.", ERR_COLOR_CODE);
     }
@@ -130,7 +132,7 @@ public class Output {
      * da tastiera un comando senza parametro non riconosciuto.
      * @param command Il comando senza parametro non riconosciuto.
      */
-    public static void printCommandWithoutParamsNotRecognised(String command) {
+    public static void printCommandWithoutParamsNotRecognised(final String command) {
         println("[CH] '" + command + "' non e' un comando senza parametro valido.\n"
                 + "Usa il comando '/help' per vedere la lista dei comandi disponibili.", ERR_COLOR_CODE);
     }
@@ -140,7 +142,7 @@ public class Output {
      * un comando con parametro che non è un numero intero >0.
      * @param value Il valore non valido.
      */
-    public static void printNumberFormatError(String value) {
+    public static void printNumberFormatError(final String value) {
         println("[CH] '" + value + "' non è un numero intero >0.", ERR_COLOR_CODE);
     }
 
@@ -158,7 +160,7 @@ public class Output {
      * a lanciare un colpo su una cella già colpita.
      * @param coordinate Le coordinate della cella già colpita.
      */
-    public static void printHitCellAlreadyHit(String coordinate) {
+    public static void printHitCellAlreadyHit(final String coordinate) {
         println("[CH] '" + coordinate + "' e' una cella gia' colpita.", ERR_COLOR_CODE);
     }
 
@@ -167,7 +169,7 @@ public class Output {
      * a lanciare un colpo su una cella fuori dalla griglia.
      * @param coordinate Le coordinate della cella fuori dalla griglia.
      */
-    public static void printHitOutOfMap(String coordinate) {
+    public static void printHitOutOfMap(final String coordinate) {
         println("[CH] '" + coordinate + "' e' una cella fuori dalla griglia.", ERR_COLOR_CODE);
     }
 
@@ -198,14 +200,6 @@ public class Output {
                 + "Utilizza il comando '/gioca' per iniziare una partita.", ERR_COLOR_CODE);
     }
 
-    /**
-     * Stampa il messaggio d'errore quando si prova
-     * a vedere la mappa delle navi prima dell'inizio della partita.
-     */
-    public static void printCantShowShipMap() {
-        println("[CH] Non puoi vedere una mappa delle navi se non hai iniziato una partita.\n"
-                + "Utilizza il comando '/gioca' per iniziare una partita.", ERR_COLOR_CODE);
-    }
 
     /**
      * Stampa il messaggio d'errore quando si prova
@@ -252,7 +246,8 @@ public class Output {
      * @param nameDifficulty Il nome della difficoltà.
      * @param maxFailedAttempts Il numero massimo di tentativi fallibili.
      */
-    public static void printSetDifficulty(String nameDifficulty, int maxFailedAttempts) {
+    public static void printSetDifficulty(final String nameDifficulty,
+                                          final int maxFailedAttempts) {
         println("OK, la difficolta' e' ora " + nameDifficulty + " con " + maxFailedAttempts
                 + " tentativi fallibili.",OK_COLOR_CODE);
     }
@@ -278,7 +273,7 @@ public class Output {
      * ad abbandonare una partita in corso.
      * @param shipMap La mappa delle navi dell'avversario.
      */
-    public static void printEndSessionConfirm(String shipMap) {
+    public static void printEndSessionConfirm(final String shipMap) {
         println("\nOK, grazie per aver giocato.\n"
                 + "Ecco la mappa delle navi dell'avversario:\n\n\n"
                 + shipMap + "\n\n"
@@ -291,7 +286,7 @@ public class Output {
      * confermare un'operazione.
      * @param operation L'operazione da confermare.
      */
-    public static void printConfirmOperation(String operation) {
+    public static void printConfirmOperation(final String operation) {
         print("Confermi di voler " + operation + "? [si/no]\n"
                 + "> ", "yellow");
     }
@@ -326,7 +321,8 @@ public class Output {
      * @param name Nome della difficolta corrente.
      * @param MaxFailedAttempts Numero massimo di tentativi fallibili.
      */
-    public static void printGameLevel(String name, int MaxFailedAttempts) {
+    public static void printGameLevel(final String name,
+                                      final int MaxFailedAttempts) {
         println("Difficolta' corrente: " + name + "\n"
                 + "Tentativi fallibili: " + MaxFailedAttempts);
     }
@@ -337,7 +333,9 @@ public class Output {
      * @param attempts Numero di tentativi falliti.
      * @param maxFailAttempts Numero massimo di tentativi fallibili.
      */
-    public static void printShowAttempts(int totalHit, int attempts, int maxFailAttempts) {
+    public static void printShowAttempts(final int totalHit,
+                                         final int attempts,
+                                         final int maxFailAttempts) {
         println("Tentativi effettuati: " + totalHit + "\n"
                 + "tentativi falliti: " + attempts + "\n"
                 + "Max-tentativi che puoi fallire" + maxFailAttempts);
@@ -365,7 +363,7 @@ public class Output {
      * Stampa la mappa dei colpi.
      * @param hitMap La mappa dei colpi.
      */
-    public static void printHitMap(String hitMap) {
+    public static void printHitMap(final String hitMap) {
         print("\nMappa dei colpi:\n\n"
                 + hitMap);
     }
@@ -374,7 +372,7 @@ public class Output {
      * Stampa la mappa delle navi.
      * @param shipMap La mappa delle navi.
      */
-    public static void printShipMap(String shipMap) {
+    public static void printShipMap(final String shipMap) {
         print("\nMappa delle navi:\n\n"
                 + shipMap);
     }
