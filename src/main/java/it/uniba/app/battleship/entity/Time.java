@@ -9,7 +9,7 @@ package it.uniba.app.battleship.entity;
  */
 public class Time implements Cloneable {
 
-    private long timeLimitMinute;
+    private int timeLimitMinute;
     private long startTimeMill;
     private long timeLimitMilliseconds;
     private long currentTimeMill;
@@ -25,7 +25,7 @@ public class Time implements Cloneable {
      * in minuti inserito dall'utente.
      * @param time tempo in minuti scelto dall'utente.
      */
-    public void setTimeLimitMin(final long time) {
+    public void setTimeLimitMin(final int time) {
         timeLimitMinute = time;
     }
 
@@ -34,7 +34,7 @@ public class Time implements Cloneable {
      * per giocare scelto dall'utente.
      * @return {@code timeLimitMinute} tempo in minuti.
      */
-    public long getTimeLimitMin() {
+    public int getTimeLimitMin() {
         return timeLimitMinute;
     }
 
@@ -43,7 +43,7 @@ public class Time implements Cloneable {
      * con il valore contenuto nel parametro {@code time}.
      * @param time tempo limite in millisecondi passato in input.
      */
-    public void setTimeLimitMill(final Long time) {
+    public void setTimeLimitMill(final int time) {
         timeLimitMilliseconds = time;
     }
 
@@ -96,9 +96,7 @@ public class Time implements Cloneable {
         Time clone = null;
         try {
             clone = (Time) super.clone();
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e);
-        }
+        } catch (CloneNotSupportedException e) { }
         return clone;
     }
 }

@@ -56,9 +56,35 @@ public final class TimeController {
      */
     public static boolean isTimeOver(final Game game) {
         if ((checkTimePassedMill(game) > game.getTime().getTimeLimitMill())
-        && (game.getTime().getTimeLimitMin() != 0) && game.isSessionStarted()) {
+                && (game.getTime().getTimeLimitMin() != 0) && game.isSessionStarted()) {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Restituisce una oggetto di tipo {@code String} che
+     * contiene il numero di minuti disponibile per giocare
+     * durante una partita in quel momento.
+     * Permette di implementare il comando {@code /mostratempo}.
+     * @param game contiene i dati relativi alla sessione di gioco.
+     */
+    public static String showTime(final Game game) {
+        String time = "";
+        int min = game.getTime().getTimeLimitMin();
+        long mill = checkTimePassedMill(game) / SECOND / MILLISECONDS;
+        if (min == 0) {
+            time = "Tempo illimitato.";
+        } else if (!game.isSessionStarted() && min != 0) {
+            time = "Minuti a disposizione per giocare durante la partita: "
+            + min;
+        } else {
+            time = "Numero di minuti trascorsi nel gioco: ";
+            time += Long.toString(mill)
+            + "/" + min;
+            time += "\nNumero di minuti ancora disponibili per giocare: "
+            + Long.toString((min - mill));
+        }
+        return time;
     }
 }
