@@ -93,10 +93,10 @@ public final class GameController {
 
             int result = StrikeController.strike(command, game.getSessionGrid());
             if (result == 1) {
-                game.setSunkShips(game.getSunkShips() + 1);
+                game.incrementSunkShips();
             }
             if (result == -1) {
-                game.setFailedAttempt(game.getFailedAttempts() + 1);
+                game.incrementFailedAttempt();
             }
             game.incrementTotalAttempts();
         }

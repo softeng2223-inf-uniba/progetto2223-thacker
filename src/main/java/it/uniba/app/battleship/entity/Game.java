@@ -42,19 +42,17 @@ public final class Game {
     }
 
     /**
-     * Imposta il valore delle navi affondate.
-     * @param number nuovo valore delle navi affondate
+     * Incrementa il valore delle navi affondate.
      */
-    public void setSunkShips(final int number) {
-        sunkShips = number;
+    public void incrementSunkShips() {
+        sunkShips += 1;
     }
 
     /**
-     * Imposta il valore dei tentativi falliti.
-     * @param number nuovo valore dei tentativi falliti
+     * Incrementa il valore dei tentativi falliti.
      */
-    public void setFailedAttempt(final int number) {
-        failedAttempts = number;
+    public void incrementFailedAttempt() {
+        failedAttempts += 1;
     }
 
     /**
