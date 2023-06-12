@@ -184,7 +184,8 @@ Nei seguenti diagrammi di classe, è omessa la visibilità degli attributi perch
 
 Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
 
-### Come giocatore voglio iniziare una partita 
+### (5.1) Come giocatore voglio iniziare una partita
+Issue: #79
 
 **diagramma di sequenza**
 ```mermaid
@@ -196,9 +197,9 @@ sequenceDiagram
   participant Input
   participant Output
   participant CH as CommandHandler
-  participant Ga as Game
+  participant Ga as :Game
   participant GaCo as GameController
-  participant Grid
+  participant Grid as :Grid
   participant GriCo as GridController
 
   App ->> Ga : crea
