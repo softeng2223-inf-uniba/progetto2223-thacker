@@ -184,10 +184,16 @@ Nei seguenti diagrammi di classe, è omessa la visibilità degli attributi perch
 
 Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
 
-### (5.1) Come giocatore voglio iniziare una partita
+### (5.1) Come _giocatore_ voglio _iniziare una partita_
 Pullrequest: #79
 
 Issue: #29
+
+**Attori**: giocatore (o Player)
+
+**Caso d'uso:**
+Il giocatore, se non vi è una sessione di gioco in corso, eseguendo il comando `/gioca` è in grado di iniziare una nuova partita e di visualizzare la griglia dei colpi (inizialmente vuota);
+Da quel momento in poi sarà possibile, oltre agli altri comandi, effettuare tentativi per colpire una nave.
 
 **diagramma di sequenza**
 ```mermaid
