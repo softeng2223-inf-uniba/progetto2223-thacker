@@ -350,6 +350,11 @@ public final class CommandHandler {
                 case "si" -> {
                     System.out.println(GridController.genShipMap(game.getSessionGrid()));
                     GameController.endSession(game);
+                    try {
+                        GameController.setTime(game, 0);
+                    } catch (SessionAlreadyStartedException e) {
+                        System.out.println(e);
+                    }
                     System.out.println("Sessione terminata");
                 }
                 case "no" -> System.out.println("OK, Operazione annullata");
