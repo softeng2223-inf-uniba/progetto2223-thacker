@@ -69,6 +69,7 @@ public final class CommandHandler {
             System.err.println("[CH] " + tokens[1] + " non è un numero intero valido.");
         }
     }
+
     /** Esegue un comando letto dal terminale.
      * Alcuni dei comandi attualmente interpretati sono:
      * <ul>
@@ -83,6 +84,7 @@ public final class CommandHandler {
      * <li><{@code /medio} : imposta il livello di difficoltà a 'medio'</li>
      * <li><{@code /difficile} : imposta il livello di difficoltà a 'difficile'</li>
      * <li><{@code /svelagriglia} : mostra la griglia di gioco con le navi posizionate</li>
+     * <li><{@code /mostratempo} : mostra il tempo trascorso e i minuti ancora disponibili per giocare</li>
      * <li><{@code /esci} : permette di uscire dal gioco restituendo il controllo al SO</li>
      * </ul>
      * @param game
@@ -103,11 +105,15 @@ public final class CommandHandler {
             case "/difficile"       -> handleHardDifficulty(game);
             case "/svelagriglia"    -> handleShowGameGrid(game);
             case "/mostratentativi" -> handleShowAttempts(game);
+            case "/mostratempo"     -> handleShowTime(game);
             case "/esci"            -> handleExit();
             default -> handleDefaultOrShoot(game, command);
         }
     }
-
+    private static void handleShowTime(final Game game) {
+        String time = TimeController.showTime(game);
+        System.out.println(time);
+    }
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
      * Inoltre imposta la difficoltà della sessione a 'facile'.
