@@ -103,6 +103,7 @@ public final class CommandHandler {
             case "/difficile"       -> handleHardDifficulty(game);
             case "/svelagriglia"    -> handleShowGameGrid(game);
             case "/mostratentativi" -> handleShowAttempts(game);
+            case "/mostratempo"     -> handleShowTime(game);
             case "/esci"            -> handleExit();
             default -> handleDefaultOrShoot(game, command);
         }
