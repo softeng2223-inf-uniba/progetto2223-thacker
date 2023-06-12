@@ -29,7 +29,7 @@ public final class ShowGridController {
      * @param game sessione di gioco
      * @return mappa dei colpi in formato stringa
      */
-    public static String genHitMap(final Game game) throws SessionNotStartedException {
+    static String genHitMap(final Game game) throws SessionNotStartedException {
         Grid gameGrid = GameController.getSessionGrid(game);
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
@@ -83,7 +83,7 @@ public final class ShowGridController {
      * @param grid oggetto che contiene la mappa delle navi.
      * @return stringa contenente tutta la mappa delle navi.
     */
-    public static String genShipMap(final Grid grid) {
+    static String genShipMap(final Grid grid) {
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {

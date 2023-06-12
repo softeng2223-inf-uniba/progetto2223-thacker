@@ -18,7 +18,7 @@ public final class StrikeController {
 
     private StrikeController() { }
 
-    private static Coordinate convert(final String command) {
+    static Coordinate convert(final String command) {
         char letter = command.charAt(0);
         int col = letter - CHAR_CONVERT;
 
@@ -38,7 +38,7 @@ public final class StrikeController {
      * @param game sessione di gioco
      *
     */
-    public static void strike(final Game game, final String command)
+    static void strike(final Game game, final String command)
         throws SessionNotStartedException, CellAlreadyMarkedException, OutOfMapException {
             Coordinate coord = convert(command);
 

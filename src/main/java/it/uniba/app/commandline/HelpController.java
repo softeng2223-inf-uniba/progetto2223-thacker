@@ -27,7 +27,7 @@ public final class HelpController {
      * che contiene i comandi di gioco in stile
      * "macchina da scrivere".
      */
-    public static void showHelp() {
+    static void showHelp() {
         for (char c : TEXT.toCharArray()) {
             Output.print(String.valueOf(c));
             try {

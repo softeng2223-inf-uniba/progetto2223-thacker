@@ -19,6 +19,39 @@ public final class ShowShipsController {
     private ShowShipsController() { }
 
     /**
+     * Stampa a video, per ogni tipo di nave,
+     * il nome, la dimensione in quadrati
+     * e il numero di esemplari da affondare.
+     */
+    static String getShipInfo() {
+        String numOfInstancesWhiteSpace = INSTANCE_WHITE_SPACE;
+        String nameWhiteSpace = NAME_WHITE_SPACE;
+
+        String str = "";
+        StringBuilder b = new StringBuilder();
+        for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
+            Ship ship = new Ship(i);
+            nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
+            b.append(ship.getName());
+            b.append(nameWhiteSpace);
+
+            for (int j = 0; j < ship.getSize(); j++) {
+                b.append(Color.get(ship.getColor()));
+                b.append(ship);
+                b.append(Color.getReset());
+            }
+
+            b.append(numOfInstancesWhiteSpace);
+            b.append("Esemplari:");
+            b.append(Ship.getMaxInstances(i));
+            numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
+            b.append("\n");
+        }
+        str = b.toString();
+        return str;
+    }
+
+    /**
      * Restiituisce una stringa contenente il nome
      * del tipo di nave specifico con l'aggiunta
      * di uno spazio, che rende possibile la stampa
@@ -59,37 +92,4 @@ public final class ShowShipsController {
         String subStr = space.substring(0, strDim);
         return subStr;
     }
-    /**
-     * Stampa a video, per ogni tipo di nave,
-     * il nome, la dimensione in quadrati
-     * e il numero di esemplari da affondare.
-     */
-    public static String getShipInfo() {
-        String numOfInstancesWhiteSpace = INSTANCE_WHITE_SPACE;
-        String nameWhiteSpace = NAME_WHITE_SPACE;
-
-        String str = "";
-        StringBuilder b = new StringBuilder();
-        for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
-            Ship ship = new Ship(i);
-            nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
-            b.append(ship.getName());
-            b.append(nameWhiteSpace);
-
-            for (int j = 0; j < ship.getSize(); j++) {
-                b.append(Color.get(ship.getColor()));
-                b.append(ship);
-                b.append(Color.getReset());
-            }
-
-            b.append(numOfInstancesWhiteSpace);
-            b.append("Esemplari:");
-            b.append(Ship.getMaxInstances(i));
-            numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
-            b.append("\n");
-        }
-        str = b.toString();
-        return str;
-    }
-
 }

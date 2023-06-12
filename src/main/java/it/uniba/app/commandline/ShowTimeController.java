@@ -18,7 +18,7 @@ public final class ShowTimeController {
      * Permette d'implementare il comando {@code /mostratempo}.
      * @param game contiene i dati relativi alla sessione di gioco.
      */
-    public static String showTime(final Game game) {
+    static String showTime(final Game game) {
         int maxMinute = game.getTime().getTimeLimitMin();
         long minutePassed = TimeController.checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
 
