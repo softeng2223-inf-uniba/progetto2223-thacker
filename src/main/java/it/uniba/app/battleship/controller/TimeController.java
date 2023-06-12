@@ -2,7 +2,6 @@ package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Time;
-import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 
 /**
  * La classe {@code TimeController} fornisce i servizi
@@ -31,15 +30,10 @@ public final class TimeController {
     /**
      * Permette di settare il numero di minuti a disposizione
      * nella partita per giocare.
-     * @param game istanza di Game in cui settare il limite di tempo.
      * @param timeSet contiene i minuti a disposizione per giocare.
      */
-    public static void setTimeLimit(final Game game, final int timeSet)
-    throws SessionAlreadyStartedException {
-        if (game.isSessionStarted()) {
-            throw new SessionAlreadyStartedException();
-        }
-        game.getTime().setTimeLimitMin(timeSet);
+    public static void setTimeLimit(final Time time, final int timeSet) {
+        time.setTimeLimitMin(timeSet);
     }
 
     /**
