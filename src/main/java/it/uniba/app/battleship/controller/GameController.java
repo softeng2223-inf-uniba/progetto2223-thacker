@@ -53,15 +53,22 @@ public final class GameController {
         }
         game.endSession();
     }
-
+    /**
+     * Permette di settare il numero massimo di
+     * minuti a disposizione per giocare.
+     * @param game oggetto che conserva i dati di gioco.
+     * @param value intero che contiene il numero di minuti
+     * a disposizione per giocare.
+     * @throws SessionAlreadyStartedException
+     */
     public static void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
-        Time time = new Time();
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
-            TimeController.setTimeLimit(time, value);
-        game.setTime(time);
 
+        Time time = new Time();
+        TimeController.setTimeLimit(time, value);
+        game.setTime(time);
     }
 
     /**
