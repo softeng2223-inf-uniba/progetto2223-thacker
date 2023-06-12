@@ -22,7 +22,6 @@ public final class App {
         FlagHandler.execute(args);
 
         Game game = new Game();
-        Output.printEnterCommand();
         while (!ExitController.getInstance().isExitRequested()) {
             CommandHandler.handleCommand(game);
         }
