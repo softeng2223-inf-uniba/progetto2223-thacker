@@ -107,7 +107,10 @@ public final class CommandHandler {
             default -> handleDefaultOrShoot(game, command);
         }
     }
-
+    private static void handleShowTime(final Game game) {
+        String time = TimeController.showTime(game);
+        System.out.println(time);
+    }
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
      * Inoltre imposta la difficoltà della sessione a 'facile'.
