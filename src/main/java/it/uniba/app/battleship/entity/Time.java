@@ -96,9 +96,7 @@ public class Time implements Cloneable {
         Time clone = null;
         try {
             clone = (Time) super.clone();
-        } catch (CloneNotSupportedException e) {
-            System.out.println(e);
-        }
+        } catch (CloneNotSupportedException e) { }
         return clone;
     }
 }
