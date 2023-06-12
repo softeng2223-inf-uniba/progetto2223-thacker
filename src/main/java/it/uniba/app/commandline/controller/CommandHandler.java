@@ -56,6 +56,7 @@ public final class CommandHandler {
             int value = Integer.parseInt(tokens[1]);
             if (value > 0) {
                 switch (tokens[0]) {
+                    case "/tentativi" -> handleCustomDifficulty(game, value);
                     case "/tempo"  -> handleTime(game, value);
                     case "/facile" -> handleCustomEasyDifficulty(game, value);
                     case "/medio" -> handleCustomMediumDifficulty(game, value);
@@ -108,6 +109,14 @@ public final class CommandHandler {
             case "/mostratempo"     -> handleShowTime(game);
             case "/esci"            -> handleExit();
             default -> handleDefaultOrShoot(game, command);
+        }
+    }
+
+    private static void handleCustomDifficulty(final Game game, final int value) {
+        try {
+            GameController.setCustomDifficulty(game, value);
+        } catch (SessionAlreadyStartedException e) {
+            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
         }
     }
     private static void handleShowTime(final Game game) {

@@ -5,16 +5,21 @@ import it.uniba.app.battleship.entity.Difficulty;
  * relative alle difficoltà di gioco.
  */
 public final class DifficultyController {
-    private static final String EASY_NAME = "Facile";
+    private static final String EASY_NAME   = "Facile";
     private static final String MEDIUM_NAME = "Medio";
-    private static final String HARD_NAME = "Difficile";
-    private static final int DEFAULT_EASY_MAX_FAILED_ATTEMPTS = 50;
+    private static final String HARD_NAME   = "Difficile";
+    private static final String CUSTOM_NAME = "Difficoltà personalizzata";
+
+    private static final int DEFAULT_EASY_MAX_FAILED_ATTEMPTS   = 50;
     private static final int DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS = 30;
-    private static final int DEFAULT_HARD_MAX_FAILED_ATTEMPTS = 10;
-    private static int easyMaxFailedAttempts = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
+    private static final int DEFAULT_HARD_MAX_FAILED_ATTEMPTS   = 10;
+
+    private static int easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
     private static int mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
-    private static int hardMaxFailedAttempts = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+    private static int hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+
     private DifficultyController() { }
+
     /**
      * Imposta la difficoltà dell'oggetto Difficulty come "Facile" e
      * il numero massimo di tentativi falliti a EASY_MAX_FAILED_ATTEMPTS.
@@ -44,6 +49,17 @@ public final class DifficultyController {
     public static void setDefaultHard(final Difficulty difficulty) {
         difficulty.setNameLevel(HARD_NAME);
         difficulty.setMaxFailedAttempts(hardMaxFailedAttempts);
+    }
+
+    /**
+     * Imposta la difficoltà dell'oggetto Difficulty come "Difficoltà personalizzata"
+     * e il numero massimo di tentativi fallibili a value.
+     * @param difficulty l'oggetto Game da modificare.
+     * @param value il numero massimo di tentativi falliti.
+     */
+    public static void setCustomDifficulty(final Difficulty difficulty, final int value) {
+        difficulty.setNameLevel(CUSTOM_NAME);
+        difficulty.setMaxFailedAttempts(value);
     }
 
     /**
