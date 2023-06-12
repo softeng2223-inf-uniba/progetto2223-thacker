@@ -18,7 +18,7 @@ public final class App {
      * @param args command line arguments
      */
     public static void main(final String[] args) {
-        if(!FlagHandler.execute(args)) {
+        if (!FlagHandler.execute(args)) {
             Output.printStartMessage();
         }
 

@@ -9,10 +9,14 @@ public final class Output {
     private static final String OK_COLOR_CODE = "green";
 
     private Output() { }
-    private void clearScreen() {
+    public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
+
+    /**
+     * Stampa un messaggio di benvenuto.
+     */
     public static void printStartMessage() {
         print("Benvenuto al gioco Battaglia Navale!\n"
                 + "Preparati a sfidare e distruggere le navi nemiche.\n"
@@ -58,8 +62,12 @@ public final class Output {
      * Stampa il messaggio "Digita un comando" prima di
      * ogni lettura da tastiera.
      */
-    public static void printEnterCommand() {
-        print("> Digita un comando: ");
+    public static void printEnterCommand(final boolean isGameStarted) {
+        if (isGameStarted) {
+            print("partita > Digita un comando: ");
+        } else {
+            print("menu > Digita un comando: ");
+        }
     }
 
     /**
@@ -281,6 +289,7 @@ public final class Output {
      * @param shipMap La mappa delle navi dell'avversario.
      */
     public static void printEndSessionConfirm(final String shipMap) {
+        clearScreen();
         println("\nOK, grazie per aver giocato.\n"
                 + "Ecco la mappa delle navi dell'avversario:\n\n\n"
                 + shipMap + "\n\n"

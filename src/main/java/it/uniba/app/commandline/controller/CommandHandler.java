@@ -45,7 +45,7 @@ public final class CommandHandler {
      */
     public static void handleCommand(final Game game) {
         try {
-            Output.printEnterCommand();
+            Output.printEnterCommand(game.isSessionStarted());
             String command = Input.get().toLowerCase();
             String[] tokens = command.split(" ");
             if (gameTimeCheck(game)) {
@@ -58,7 +58,7 @@ public final class CommandHandler {
                 default -> Output.printCommandNotRecognised(command);
             }
         } catch (IOException e) {
-            System.err.println("Si è verificato un errore durante la lettura del comando: " + e.getMessage());
+            Output.printCantReadInput();
         }
     }
     /**
@@ -238,16 +238,19 @@ public final class CommandHandler {
         }
     }
     private static void handleShowShip() {
-        System.out.println(ShowShipsController.getShipInfo());
+        Output.clearScreen();
+        Output.println(ShowShipsController.getShipInfo());
     }
 
     private static void handleHelp() {
+        Output.clearScreen();
         HelpController.showHelp();
     }
 
     private static void handlePlay(final Game game) {
         try {
             GameController.startSession(game);
+            Output.clearScreen();
             handleShowHitMap(game);
         } catch (SessionAlreadyStartedException e) {
             Output.printStartSessionAlreadyStarted();
@@ -312,6 +315,7 @@ public final class CommandHandler {
     private static void handleShowGameGrid(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
+            Output.clearScreen();
             Output.printShipMap(GridController.genShipMap(grid));
         } catch (SessionNotStartedException e) {
             Output.printShowGridSessionNotStarted();
