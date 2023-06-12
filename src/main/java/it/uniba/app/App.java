@@ -1,6 +1,7 @@
 package it.uniba.app;
 
 import it.uniba.app.battleship.entity.Game;
+import it.uniba.app.commandline.Output;
 import it.uniba.app.commandline.controller.CommandHandler;
 import it.uniba.app.commandline.controller.FlagHandler;
 import it.uniba.app.battleship.controller.ExitController;
@@ -21,7 +22,7 @@ public final class App {
         FlagHandler.execute(args);
 
         Game game = new Game();
-        System.out.println("Digita un comando");
+        Output.printEnterCommand();
         while (!ExitController.getInstance().isExitRequested()) {
             CommandHandler.handleCommand(game);
         }

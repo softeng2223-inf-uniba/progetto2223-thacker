@@ -26,9 +26,7 @@ public final class GameController {
      *
      * @throws SessionAlreadyStartedException
      *      Non è possibile avviare un altra sessione se un'altra è in corso.
-     * @throws DifficultyNotSetException
-     *      Non è possibile avviare una sessione se la difficoltà non è stata impostata.
-     */
+    */
     public static void startSession(final Game game)
         throws SessionAlreadyStartedException {
             if (game.isSessionStarted()) {
@@ -101,7 +99,7 @@ public final class GameController {
             game.incrementTotalAttempts();
         }
         /**
-         * Imposta la difficoltà ad una personalizzata con valori di tentativi fallibili personalizzati.
+         * Imposta la difficoltà a una personalizzata con valori di tentativi fallibili personalizzati.
          * @param game oggetto che conserva i dati di gioco.
          * @param val intero che contiene il numero di tentativi falliti.
          * @throws SessionAlreadyStartedException non è possibile impostare la difficoltà
