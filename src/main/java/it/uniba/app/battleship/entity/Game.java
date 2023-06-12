@@ -67,7 +67,7 @@ public final class Game {
     }
 
     /**
-     * TODO javadoc.
+     * Incrementa di 1 il numero attuale di tentativi falliti.
      */
     public void incrementTotalAttempts() {
         totAttempts += 1;
