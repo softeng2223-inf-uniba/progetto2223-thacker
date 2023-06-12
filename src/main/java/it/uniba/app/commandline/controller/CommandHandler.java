@@ -71,7 +71,11 @@ public final class CommandHandler {
         if (!COMMANDS_WITH_PARAMS.contains(commandStr)) {
             Output.printCommandWithParamsNotRecognised(commandStr);
         } else if (!valueStr.matches("^[1-9]\\d*$")) {
-            Output.printNumberFormatError(valueStr);
+            if (commandStr.equals("/tempo") && valueStr.equals("0")) {
+                handleTime(game, 0);
+            } else {
+                Output.printNumberFormatError(valueStr);
+            }
         } else {
             int value = Integer.parseInt(valueStr);
             switch (commandStr) {
@@ -335,6 +339,9 @@ public final class CommandHandler {
                 case "si" -> {
                     Output.printEndSessionConfirm(GridController.genShipMap(game.getSessionGrid()));
                     GameController.endSession(game);
+                    try {
+                        GameController.setTime(game, 0);
+                    } catch (SessionAlreadyStartedException ignored) { }
                 }
                 case "no" -> Output.printNotConfirm();
                 default   -> Output.printConfirmCommandNotFound();
