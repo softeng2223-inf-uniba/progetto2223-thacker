@@ -7,6 +7,7 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
+import it.uniba.app.battleship.entity.Time;
 
 /**
  * Control class <hr>
@@ -51,6 +52,16 @@ public final class GameController {
             throw new SessionNotStartedException();
         }
         game.endSession();
+    }
+
+    public static void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
+        Time time = new Time();
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+            TimeController.setTimeLimit(time, value);
+        game.setTime(time);
+
     }
 
     /**
