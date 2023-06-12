@@ -1,6 +1,7 @@
 package it.uniba.app.commandline;
 
 /**
+ * {@code <<Control>>}<hr>
  * Gestisce i parametri passati all'avvio dell'applicazione (flags).
  */
 public final class FlagHandler {

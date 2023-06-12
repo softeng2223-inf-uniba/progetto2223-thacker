@@ -9,7 +9,7 @@ import it.uniba.app.battleship.entity.Grid;
 import it.uniba.app.battleship.entity.Ship;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 
-/**
+/** {@code <<Control>>}<hr>
  * Classe che contiene i metodi utili alla visualizzazione della
  * mappa delle navi e della mappa dei colpi.
  */

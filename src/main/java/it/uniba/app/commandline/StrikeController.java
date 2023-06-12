@@ -8,8 +8,9 @@ import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 
 /**
- *  La classe {@code StrikeController} fornisce i servizi
- *  per gestire il comando che lancia un colpo.
+ * {@code <<Control>>}<hr>
+ * La classe {@code StrikeController} fornisce i servizi
+ * per gestire il comando che lancia un colpo.
  */
 public final class StrikeController {
     private static final int CHAR_CONVERT = 97;

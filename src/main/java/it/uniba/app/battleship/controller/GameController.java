@@ -12,11 +12,8 @@ import it.uniba.app.battleship.entity.Ship;
 import it.uniba.app.battleship.entity.Time;
 
 /**
- * Control class <hr>
- *
- * Fornisce servizi per gestire una sessione di gioco (o partita) di <i>Battleship solitaire</i>.
- *
- * TODO espandi.
+ * {@code <<Control>>}<hr>
+ * Fornisce servizi per gestire una sessione di gioco.
  */
 public final class GameController {
 

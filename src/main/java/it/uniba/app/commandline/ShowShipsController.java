@@ -3,6 +3,7 @@ package it.uniba.app.commandline;
 import it.uniba.app.battleship.entity.Ship;
 
 /**
+ * {@code <<Control>>}<hr>
  * Classe necessaria per eseguire il comando
  * {@code /mostranavi} e ottenere l'output desiderato.
  * Permette di stampare a video, di ogni tipo

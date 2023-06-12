@@ -1,6 +1,7 @@
 package it.uniba.app.commandline;
 
 /**
+ * {@code <<Control>>}<hr>
  * Classe del comando /help.
  * Contiene il codice da eseguire con il comando /help.
  */

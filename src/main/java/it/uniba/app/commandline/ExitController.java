@@ -1,9 +1,8 @@
 package it.uniba.app.commandline;
 
 /**
+ * {@code <<Control>>}<hr>
  * Gestisce la richiesta di uscita dall'applicazione.
- * <hr>
- * <b>Control class</b>
  */
 public final class ExitController {
     private boolean requestedExit = false;
