@@ -1,7 +1,6 @@
-package it.uniba.app.battleship.controller;
+package it.uniba.app.commandline;
 
 import it.uniba.app.battleship.entity.Ship;
-import it.uniba.app.utility.Color;
 
 /**
  * Classe necessaria per eseguire il comando
