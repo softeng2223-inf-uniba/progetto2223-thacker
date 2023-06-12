@@ -58,9 +58,8 @@ public final class DifficultyController {
      * @param value il numero massimo di tentativi falliti.
      */
     public static void setCustomDifficulty(final Difficulty difficulty, final int value) {
-        Difficulty diff = new Difficulty();
-        diff.setNameLevel(CUSTOM_NAME);
-        diff.setMaxFailedAttempts(value);
+        difficulty.setNameLevel(CUSTOM_NAME);
+        difficulty.setMaxFailedAttempts(value);
     }
 
     /**
