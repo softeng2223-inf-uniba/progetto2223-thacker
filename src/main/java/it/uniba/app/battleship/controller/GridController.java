@@ -8,6 +8,7 @@ import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
 import it.uniba.app.battleship.entity.Ship;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
+import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.utility.Color;
 
 /**
@@ -66,10 +67,11 @@ public final class GridController {
     /**
      * Restituisce un oggetto di tipo {@code String} che contiene
      * la struttura della mappa da stampare a video.
-     * @param grid griglia di gioco
+     * @param game sessione di gioco
      * @return mappa dei colpi in formato stringa
      */
-    public static String genHitMap(final Grid grid) {
+    public static String genHitMap(final Game game) throws SessionNotStartedException {
+        Grid gameGrid = GameController.getSessionGrid(game);
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {
@@ -86,8 +88,8 @@ public final class GridController {
             b.append(WHITE_SPACE);
             for (int col = 0; col < Grid.getSize(); col++) {
                 Coordinate coord = new Coordinate(row, col);
-                if (grid.isCellHit(coord)) {
-                    Ship ship = grid.get(coord);
+                if (game.isAlreadyAttempted(coord)) {
+                    Ship ship = gameGrid.get(coord);
                     if (ship != null) {
                         if (ship.isSunk()) {
                             b.append(Color.get(ship.getColor()));

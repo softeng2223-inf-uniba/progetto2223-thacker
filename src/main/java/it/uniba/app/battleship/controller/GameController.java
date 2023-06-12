@@ -4,9 +4,11 @@ import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
+import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
+import it.uniba.app.battleship.entity.Ship;
 import it.uniba.app.battleship.entity.Time;
 
 /**
@@ -76,7 +78,7 @@ public final class GameController {
      * il numero di navi affondate in Game, se invece il colpo va a vuoto,
      * viene incrementato il valore di tentativi falliti di Game.
      * @param game oggetto che conserva i parametri di gioco
-     * @param command contiene le coordinate in formato stringa
+     * @param coord coordinate
      * @throws SessionNotStartedException non è possibile lanciare il colpo se una
      * partita non è cominciata
      * @throws CellAlreadyMarkedException non è possibile colpire una cella
@@ -84,21 +86,35 @@ public final class GameController {
      * @throws OutOfMapException non è possibile lanciare il colpo fuori dalla
      * portata della mappa
      */
-    public static void strike(final Game game, final String command)
+    public static int strike(final Game game, final Coordinate coord)
         throws SessionNotStartedException, CellAlreadyMarkedException,
         OutOfMapException {
             if (!game.isSessionStarted()) {
                 throw new SessionNotStartedException();
             }
+            if (!game.isAttemptWithinBounds(coord)) {
+                throw new OutOfMapException();
+            }
+            if (game.isAlreadyAttempted(coord)) {
+                throw new CellAlreadyMarkedException();
+            }
 
-            int result = StrikeController.strike(command, game.getSessionGrid());
-            if (result == 1) {
-                game.incrementSunkShips();
+            game.addAttempt(coord);
+            Grid curGrid = game.getSessionGrid();
+
+            if (!curGrid.isCellEmpty(coord)) {
+                Ship occupantShip = curGrid.get(coord);
+                occupantShip.hit();
+                if (occupantShip.isSunk()) {
+                    game.incrementSunkShips();
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
-            if (result == -1) {
-                game.incrementFailedAttempt();
-            }
-            game.incrementTotalAttempts();
+            // se non è stata colpita alcuna nave:
+            game.incrementFailedAttempt();
+            return -1;
         }
         /**
          * Imposta la difficoltà ad una personalizzata con valori di tentativi fallibili personalizzati.
