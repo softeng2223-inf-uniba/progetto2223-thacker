@@ -186,6 +186,7 @@ Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
 
 ### Come giocatore voglio iniziare una partita 
 
+**diagramma di sequenza**
 ```mermaid
 sequenceDiagram
   autonumber
@@ -224,6 +225,66 @@ sequenceDiagram
 
   deactivate Grid
   deactivate Ga
+```
+
+
+**diagramma di classe**
+
+```mermaid
+classDiagram
+    direction LR
+
+    class App {
+      +main()$
+    }
+    class Input {
+      +get()$ String
+    }
+    <<boundary>> Input
+
+    class Output {
+      +print(String)$
+    }
+    <<boundary>> Output
+
+    class CommandHandler {
+      +execute(Game)$
+      -handlePlay(Game)$
+    }
+    <<control>> CommandHandler
+
+    class GameController {
+      +startSession(Game)$
+    }
+    <<control>> GameController
+
+    class GridController {
+      +genHitMap()$ : String
+    }
+    <<control>> GridController
+
+    class Grid {
+      size
+    }
+    <<entity>> Grid
+
+    class Game {
+      +startSession()
+      +isSessionStarted()
+      +isDifficultySet()
+    }
+    <<entity>> Game
+
+    Game *-- "1" Grid
+    App ..> Game
+    App ..> CommandHandler
+    GameController ..> Game
+    CommandHandler ..> Game
+    CommandHandler ..> GameController
+    CommandHandler .. Input
+    CommandHandler .. Output
+    CommandHandler .. GridController
+    Game ..> GridController
 ```
 
 ## (7) Manuale Utente
