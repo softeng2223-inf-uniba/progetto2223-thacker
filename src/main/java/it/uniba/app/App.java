@@ -1,9 +1,9 @@
 package it.uniba.app;
 
 import it.uniba.app.battleship.entity.Game;
-import it.uniba.app.commandline.controller.CommandHandler;
-import it.uniba.app.commandline.controller.FlagHandler;
-import it.uniba.app.battleship.controller.ExitController;
+import it.uniba.app.commandline.CommandHandler;
+import it.uniba.app.commandline.ExitController;
+import it.uniba.app.commandline.FlagHandler;
 import it.uniba.app.commandline.Output;
 
 /**

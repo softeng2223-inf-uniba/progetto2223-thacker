@@ -1,15 +1,16 @@
-package it.uniba.app.battleship.controller;
+package it.uniba.app.commandline;
 
+import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
-import it.uniba.app.commandline.Output;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 
 /**
- *  La classe {@code StrikeController} fornisce i servizi
- *  per gestire il comando che lancia un colpo.
+ * {@code <<Control>>}<hr>
+ * La classe {@code StrikeController} fornisce i servizi
+ * per gestire il comando che lancia un colpo.
  */
 public final class StrikeController {
     private static final int CHAR_CONVERT = 97;
@@ -17,7 +18,7 @@ public final class StrikeController {
 
     private StrikeController() { }
 
-    private static Coordinate convert(final String command) {
+    static Coordinate convert(final String command) {
         char letter = command.charAt(0);
         int col = letter - CHAR_CONVERT;
 
@@ -37,7 +38,7 @@ public final class StrikeController {
      * @param game sessione di gioco
      *
     */
-    public static void strike(final Game game, final String command)
+    static void strike(final Game game, final String command)
         throws SessionNotStartedException, CellAlreadyMarkedException, OutOfMapException {
             Coordinate coord = convert(command);
 

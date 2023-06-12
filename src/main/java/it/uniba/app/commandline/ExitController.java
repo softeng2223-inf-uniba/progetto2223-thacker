@@ -1,9 +1,8 @@
-package it.uniba.app.battleship.controller;
+package it.uniba.app.commandline;
 
 /**
+ * {@code <<Control>>}<hr>
  * Gestisce la richiesta di uscita dall'applicazione.
- * <hr>
- * <b>Control class</b>
  */
 public final class ExitController {
     private boolean requestedExit = false;
@@ -25,18 +24,18 @@ public final class ExitController {
     }
 
     /**
-     * Registra una richiesta di uscita dall'applicazione.
-     */
-    public void requestExit() {
-        requestedExit = true;
-    }
-
-    /**
      * Fornisce lo stato della richiesta di uscita dalla applicazione.
      *
      * @return <code>true</code> se è stata effettuata una richiesta, <code>false</code> altrimenti.
      */
     public boolean isExitRequested() {
         return requestedExit;
+    }
+
+    /**
+     * Registra una richiesta di uscita dall'applicazione.
+     */
+    void requestExit() {
+        requestedExit = true;
     }
 }

@@ -1,4 +1,4 @@
-package it.uniba.app.commandline.controller;
+package it.uniba.app.commandline;
 
 // Import eccezioni.
 import java.io.IOException;
@@ -6,26 +6,21 @@ import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
-// Import classi controller.
-import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
-import it.uniba.app.battleship.controller.HelpController;
 import it.uniba.app.battleship.controller.DifficultyController;
-import it.uniba.app.battleship.controller.ShowShipsController;
-import it.uniba.app.battleship.controller.StrikeController;
 import it.uniba.app.battleship.controller.TimeController;
 // Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
-// Import classi boundary.
-import it.uniba.app.commandline.Output;
-import it.uniba.app.utility.Input;
+
 // Altro.
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 /**
+ * {@code <<Control>>}<hr>
  * {@code CommandHandler} è una classe che
  * gestisce i comandi con cui l'utente interagisce
  * con il gioco.
@@ -136,7 +131,7 @@ public final class CommandHandler {
         }
     }
     private static void handleShowTime(final Game game) {
-        Output.println(TimeController.showTime(game));
+        Output.println(ShowTimeController.showTime(game));
     }
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
@@ -194,7 +189,7 @@ public final class CommandHandler {
         if (command.matches(regex)) {
             try {
                 StrikeController.strike(game, command);
-                Output.printHitMap(GridController.genHitMap(game));
+                Output.printHitMap(ShowGridController.genHitMap(game));
             } catch (SessionNotStartedException err) {
                 Output.printHitSessionNotStarted();
             } catch (CellAlreadyMarkedException err) {
@@ -208,7 +203,7 @@ public final class CommandHandler {
     }
     private static void handleShowHitMap(final Game game) {
         try {
-            String map = GridController.genHitMap(game);
+            String map = ShowGridController.genHitMap(game);
             Output.clearScreen();
             Output.printHitMap(map);
         } catch (SessionNotStartedException err) {
@@ -318,7 +313,7 @@ public final class CommandHandler {
         try {
             Grid grid = GameController.getSessionGrid(game);
             Output.clearScreen();
-            Output.printShipMap(GridController.genShipMap(grid));
+            Output.printShipMap(ShowGridController.genShipMap(grid));
         } catch (SessionNotStartedException e) {
             Output.printShowGridSessionNotStarted();
         }
@@ -343,7 +338,7 @@ public final class CommandHandler {
             String confirm = Input.get().toLowerCase();
             switch (confirm) {
                 case "si" -> {
-                    Output.printEndSessionConfirm(GridController.genShipMap(game.getSessionGrid()));
+                    Output.printEndSessionConfirm(ShowGridController.genShipMap(game.getSessionGrid()));
                     GameController.endSession(game);
                     try {
                         GameController.setTime(game, 0);

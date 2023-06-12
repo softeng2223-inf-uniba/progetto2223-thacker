@@ -1,7 +1,7 @@
 package it.uniba.app.commandline;
-import it.uniba.app.utility.Color;
 
 /**
+ * {@code <<Boundary>>}<hr>
  * La classe gestisce l'output a video.
  */
 public final class Output {

@@ -3,7 +3,7 @@ package it.uniba.app.battleship.controller;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Time;
 
-/**
+/** {@code <<Control>>}<hr>
  * La classe {@code TimeController} fornisce i servizi
  * per gestire il comando {@code /tempo}, che permette di
  * impostare il numero di minuti disponibile in una partita
@@ -43,7 +43,7 @@ public final class TimeController {
      * @param game contiene i dati della partita in corso.
      * @return il tempo trascorso in millisecondi.
      */
-    private static long checkTimePassedMillis(final Game game) {
+    public static long checkTimePassedMillis(final Game game) {
         return game.getTime().getCurrentTimeMillis() - game.getTime().getStartTimeMillis();
     }
 
@@ -60,28 +60,6 @@ public final class TimeController {
             return true;
         }
         return false;
-    }
-
-    /**
-     * Restituisce una oggetto di tipo {@code String} che
-     * contiene il numero di minuti disponibile per giocare
-     * durante una partita in quel momento.
-     * Permette d'implementare il comando {@code /mostratempo}.
-     * @param game contiene i dati relativi alla sessione di gioco.
-     */
-    public static String showTime(final Game game) {
-        int maxMinute = game.getTime().getTimeLimitMin();
-        long minutePassed = checkTimePassedMillis(game) / SECOND / MILLISECONDS;
-
-        if (maxMinute == 0) {
-            return "Hai a disposizione un tempo illimitato";
-        } else if (!game.isSessionStarted()) {
-            return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuti";
-        } else {
-            long remainingMin  = maxMinute - minutePassed;
-            return "Numero di minuti trascorsi dall'inizio della partita: " + (minutePassed)
-                    + "\nNumero di minuti ancora disponibili per giocare: " + (remainingMin);
-        }
     }
 
 }
