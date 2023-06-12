@@ -4,11 +4,12 @@ import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
+import it.uniba.app.commandline.Output;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
-import it.uniba.app.utility.Color;
 
 /**
- * Javadoc momentaneo.
+ *  La classe {@code StrikeController} fornisce i servizi
+ *  per gestire il comando che lancia un colpo.
  */
 public final class StrikeController {
     private static final int CHAR_CONVERT = 97;
@@ -41,28 +42,13 @@ public final class StrikeController {
             Coordinate coord = convert(command);
 
             int result = GameController.strike(game, coord);
+            Output.clearScreen();
+            Output.print("Lancio colpo in " + command + "\n" + "Esito: ");
 
             switch (result) {
-                case 1:
-                    System.out.println(
-                        Color.get("red")
-                        + "\nCOLPITO E AFFONDATO\n"
-                        + Color.getReset()
-                    );
-                    break;
-                case 0:
-                    System.out.println(
-                        Color.get("blue")
-                        + "\nCOLPITO\n"
-                        + Color.getReset()
-                    );
-                    break;
-                default:
-                    System.out.println(
-                        Color.get("yellow")
-                        + "\nACQUA\n"
-                        + Color.getReset()
-                    );
+                case 1  -> Output.printShipSunken();
+                case 0  -> Output.printHitShip();
+                default -> Output.printHitWater();
             }
         }
 }

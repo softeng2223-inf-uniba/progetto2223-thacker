@@ -18,12 +18,12 @@ public final class TimeController {
 
     /**
      * Permette di settare il limite di tempo e il
-     * tempo di inizio in millisecondi.
+     * tempo d'inizio in millisecondi.
      * @param time contiene l'istanza di Time da
      * aggiornare con i valori corretti.
      */
     public static void setTime(final Time time) {
-        time.setTimeLimitMill(time.getTimeLimitMin() * SECOND * MILLISECONDS);
+        time.setTimeLimitMillis(time.getTimeLimitMin() * SECOND * MILLISECONDS);
         time.setStartTimeMill(System.currentTimeMillis());
     }
 
@@ -43,8 +43,8 @@ public final class TimeController {
      * @param game contiene i dati della partita in corso.
      * @return il tempo trascorso in millisecondi.
      */
-    private static long checkTimePassedMill(final Game game) {
-        return game.getTime().getCurrentTimeMill() - game.getTime().getStartTimeMill();
+    private static long checkTimePassedMillis(final Game game) {
+        return game.getTime().getCurrentTimeMillis() - game.getTime().getStartTimeMillis();
     }
 
     /**
@@ -55,7 +55,7 @@ public final class TimeController {
      * @return {@code true} se il tempo a dispozione è finito / {@code false} in caso contrario.
      */
     public static boolean isTimeOver(final Game game) {
-        if ((checkTimePassedMill(game) > game.getTime().getTimeLimitMill())
+        if ((checkTimePassedMillis(game) > game.getTime().getTimeLimitMill())
                 && (game.getTime().getTimeLimitMin() != 0) && game.isSessionStarted()) {
             return true;
         }
@@ -66,25 +66,22 @@ public final class TimeController {
      * Restituisce una oggetto di tipo {@code String} che
      * contiene il numero di minuti disponibile per giocare
      * durante una partita in quel momento.
-     * Permette di implementare il comando {@code /mostratempo}.
+     * Permette d'implementare il comando {@code /mostratempo}.
      * @param game contiene i dati relativi alla sessione di gioco.
      */
     public static String showTime(final Game game) {
-        String time = "";
-        int min = game.getTime().getTimeLimitMin();
-        long mill = checkTimePassedMill(game) / SECOND / MILLISECONDS;
-        if (min == 0) {
-            time = "Tempo illimitato.";
-        } else if (!game.isSessionStarted() && min != 0) {
-            time = "Minuti a disposizione per giocare durante la partita: "
-            + min;
+        int maxMinute = game.getTime().getTimeLimitMin();
+        long minutePassed = checkTimePassedMillis(game) / SECOND / MILLISECONDS;
+
+        if (maxMinute == 0) {
+            return "Hai a disposizione un tempo illimitato";
+        } else if (!game.isSessionStarted()) {
+            return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuti";
         } else {
-            time = "Numero di minuti trascorsi nel gioco: ";
-            time += Long.toString(mill)
-            + "/" + min;
-            time += "\nNumero di minuti ancora disponibili per giocare: "
-            + Long.toString((min - mill));
+            long remainingMin  = maxMinute - minutePassed;
+            return "Numero di minuti trascorsi dall'inizio della partita: " + (minutePassed)
+                    + "\nNumero di minuti ancora disponibili per giocare: " + (remainingMin);
         }
-        return time;
     }
+
 }

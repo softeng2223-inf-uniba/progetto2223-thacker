@@ -1,21 +1,17 @@
 package it.uniba.app.commandline.controller;
 
 import it.uniba.app.battleship.controller.HelpController;
-
-/* CONTROL CLASS */
+import it.uniba.app.commandline.Output;
 
 /**
  * Gestisce i parametri passati all'avvio dell'applicazione (flags).
  */
 public final class FlagHandler {
-    private static final String MSG_NOT_RECOGNISED = "Flag non riconosciuto";
-    private static final String MSG_TOO_MANY = "Inseriti troppi flag";
-
     private FlagHandler() { }
 
     /**
      * Elabora ed esegue una sequenza di flag.
-     *
+     * <p>
      * I flag gestiti attualmente sono:
      * <ul>
      * <li>{@code --help} mostra l'elenco dei comandi</li>
@@ -23,20 +19,17 @@ public final class FlagHandler {
      * </ul>
      * @param args flag da elaborare
      */
-    public static void execute(final String[] args) {
+    public static boolean execute(final String[] args) {
         if (args.length == 0) {
-            return;
+            return false;
         }
-
-        if (args.length > 1) {
-            System.out.println(MSG_TOO_MANY);
-            return;
+        if (args.length == 1) {
+            if (args[0].equals("-h") || args[0].equals("--help")) {
+                HelpController.showHelp();
+                return true;
+            }
         }
-
-        if (args[0].equals("-h") || args[0].equals("--help")) {
-            HelpController.showHelp();
-        } else {
-            System.out.println(MSG_NOT_RECOGNISED);
-        }
+        Output.printFlagNotRecognised(args);
+        return false;
     }
 }
