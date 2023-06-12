@@ -51,6 +51,15 @@ public final class DifficultyController {
         difficulty.setMaxFailedAttempts(hardMaxFailedAttempts);
     }
 
+    public static void setCustomDifficulty(Game game, int value){
+        Difficulty diff = new Difficulty();
+        diff.setNameLevel(CUSTOM_NAME);
+        diff.setMaxFailedAttempts(value);
+        try {
+            game.setDifficulty(diff);
+        } catch (CloneNotSupportedException e){ }
+    }
+
     /**
      * Imposta la difficoltà dell'oggetto Difficulty come "Facile" e
      * il numero massimo di tentativi falliti a maxFailedAttempts.
