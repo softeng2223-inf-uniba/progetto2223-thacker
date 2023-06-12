@@ -43,7 +43,7 @@ public class Time implements Cloneable {
      * con il valore contenuto nel parametro {@code time}.
      * @param time tempo limite in millisecondi passato in input.
      */
-    public void setTimeLimitMill(final Long time) {
+    public void setTimeLimitMill(final int time) {
         timeLimitMilliseconds = time;
     }
 
