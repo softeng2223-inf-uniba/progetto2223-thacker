@@ -178,6 +178,10 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
   - (RNF2.3) Eseguire il container docker con il comando `docker run --rm -it ghcr.io/softeng2223-inf-uniba/battleship-thacker:latest`.
 - (RNF3) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
+## (5) Object Oriented Design 
+
+
+
 ## (7) Manuale Utente
 
 ### **(7.1) Prerequisiti**
