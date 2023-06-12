@@ -6,10 +6,10 @@ import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.commandline.Output;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
-import it.uniba.app.utility.Color;
 
 /**
- *  TODO
+ *  La classe {@code StrikeController} fornisce i servizi
+ *  per gestire il comando che lancia un colpo.
  */
 public final class StrikeController {
     private static final int CHAR_CONVERT = 97;

@@ -71,16 +71,16 @@ public final class TimeController {
      */
     public static String showTime(final Game game) {
         int maxMinute = game.getTime().getTimeLimitMin();
-        long minutePassed = checkTimePassedMillis(game)/SECOND/MILLISECONDS;
+        long minutePassed = checkTimePassedMillis(game) / SECOND / MILLISECONDS;
 
         if (maxMinute == 0) {
             return "Hai a disposizione un tempo illimitato";
         } else if (!game.isSessionStarted()) {
             return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuti";
         } else {
-            long RemainingMin = maxMinute - minutePassed;
+            long REMAINING_MIN = maxMinute - minutePassed;
             return "Numero di minuti trascorsi dall'inizio della partita: " + (minutePassed)
-                    + "\nNumero di minuti ancora disponibili per giocare: " + (RemainingMin);
+                    + "\nNumero di minuti ancora disponibili per giocare: " + (REMAINING_MIN);
         }
     }
 

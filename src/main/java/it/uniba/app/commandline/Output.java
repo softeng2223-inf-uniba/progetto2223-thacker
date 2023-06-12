@@ -1,7 +1,10 @@
 package it.uniba.app.commandline;
 import it.uniba.app.utility.Color;
 
-public class Output {
+/**
+ * La classe gestisce l'output a video.
+ */
+public final class Output {
     private static final String ERR_COLOR_CODE = "red";
     private static final String OK_COLOR_CODE = "green";
 
@@ -57,9 +60,9 @@ public class Output {
 
     /**
      * Stampa il messaggio per i comandi:
-     * - '/standard'
-     * - '/large'
-     * - '/extralarge'
+     * - '/standard'.
+     * - '/large'.
+     * - '/extralarge'.
      * @param size La dimensione della griglia.
      */
     public static void printSetGridSize(final int size) {
