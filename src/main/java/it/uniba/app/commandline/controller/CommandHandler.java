@@ -33,13 +33,18 @@ public final class CommandHandler {
      * Esegue un comando passato come parametro.
      * @param game istanza di {@link Game}
      */
-    private static final Set<String> commandsWithParams = new LinkedHashSet<>() {{
+    private static final Set<String> COMMANDS_WITH_PARAMS = new LinkedHashSet<>() {{
         add("/tentativi");
         add("/tempo");
         add("/facile");
         add("/medio");
         add("/difficile");
     }};
+
+    /**
+     * Esegue un comando con o senza parametri.
+     * @param game istanza di {@link Game}
+     */
     public static void handleCommand(final Game game) {
         try {
             String command = Input.get().toLowerCase();
@@ -50,7 +55,7 @@ public final class CommandHandler {
             }
             switch (tokens.length) {
                 case 1 -> executeNoArgs(game, command);
-                case 2 -> executeArgs(game, tokens);
+                case 2 -> executeArgs(game, tokens[0], tokens[1]);
                 default -> System.err.println("[CH] '" + command + "' non è un comando valido."
                         + "\nUsa il comando '/help' per vedere la lista dei comandi disponibili.");
             }
@@ -61,30 +66,24 @@ public final class CommandHandler {
     /**
      * Esegue un comando con parametri.
      * @param game istanza di {@link Game}
-     * @param tokens comando splittato in tokens.
+     * @param commandStr stringa che rappresenta il comando.
+     * @param valueStr stringa che rappresenta il parametro (intero >0).
      */
-    private static void executeArgs(final Game game, final String[] tokens) {
-        if (!commandsWithParams.contains(tokens[0])) {
-            System.err.println("[CH] '" + tokens[0] + "' non e' un comando con parametro valido."
+    private static void executeArgs(final Game game, final String commandStr, final String valueStr) {
+        if (!COMMANDS_WITH_PARAMS.contains(commandStr)) {
+            System.err.println("[CH] '" + commandStr + "' non e' un comando con parametro valido."
                     + "\nUsa il comando '/help' per vedere la lista dei comandi disponibili.");
-        } else if (!tokens[1].matches("^[1-9]\\d*$")) {
-            System.err.println("[CH] '" + tokens[1] + "' non e' un intero >0.");
+        } else if (!valueStr.matches("^[1-9]\\d*$")) {
+            System.err.println("[CH] '" + valueStr + "' non e' numero un intero >0.");
         } else {
-            try {
-                int value = Integer.parseInt(tokens[1]);
-                if (value > 0) {
-                    switch (tokens[0]) {
-                        case "/tentativi" -> handleCustomDifficulty(game, value);
-                        case "/tempo" -> handleTime(game, value);
-                        case "/facile" -> handleCustomEasyDifficulty(game, value);
-                        case "/medio" -> handleCustomMediumDifficulty(game, value);
-                        case "/difficile" -> handleCustomHardDifficulty(game, value);
-                    }
-                } else {
-                    System.err.println("[CH] '" + tokens[1] + "' non è un numero (>0) valido.");
-                }
-            } catch (NumberFormatException e) {
-                System.err.println("[CH] " + tokens[1] + " non è un numero intero (>0) valido.");
+            int value = Integer.parseInt(valueStr);
+            switch (commandStr) {
+                case "/tentativi" -> handleCustomDifficulty(game, value);
+                case "/tempo" -> handleTime(game, value);
+                case "/facile" -> handleCustomEasyDifficulty(game, value);
+                case "/medio" -> handleCustomMediumDifficulty(game, value);
+                case "/difficile" -> handleCustomHardDifficulty(game, value);
+                default -> { }
             }
         }
     }
@@ -108,7 +107,7 @@ public final class CommandHandler {
      * </ul>
      * @param game
      */
-    public static void executeNoArgs(final Game game, final String command) {
+    private static void executeNoArgs(final Game game, final String command) {
         switch (command) {
             case "/help"            -> handleHelp();
             case "/mostranavi"      -> handleShowShip();
