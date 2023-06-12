@@ -21,13 +21,13 @@ public class Output {
         println("OK, la dimensione della griglia e' ora " + size + "x" + size);
     }
     public static void printHitShip() {
-        println("\nCOLPITO\n", "blue");
+        println("COLPITO", "green");
     }
     public static void printShipSunken() {
-        println("\nCOLPITO E AFFONDATO\n", ERR_COLOR_CODE);
+        println("COLPITO E AFFONDATO", ERR_COLOR_CODE);
     }
     public static void printHitWater() {
-        println("\nACQUA\n", "yellow");
+        println("ACQUA", "blue");
     }
     public static void printEnterCommand() {
         print("> Digita un comando: ");
@@ -149,5 +149,12 @@ public class Output {
         println("[CH] Non puoi vedere la griglia se non hai iniziato una partita.\n"
                 + "Utilizza il comando '/gioca' per iniziare una partita.", ERR_COLOR_CODE);
     }
-
+    public static void printHitMap(String hitMap) {
+        println("\nMappa dei colpi:\n\n"
+                + hitMap);
+    }
+    public static void printShipMap(String shipMap) {
+        print("\nMappa delle navi:\n\n"
+                + shipMap);
+    }
 }
