@@ -64,21 +64,28 @@ public final class CommandHandler {
      * @param tokens comando splittato in tokens.
      */
     private static void executeArgs(final Game game, final String[] tokens) {
-        try {
-            int value = Integer.parseInt(tokens[1]);
-            if (value > 0) {
-                switch (tokens[0]) {
-                    case "/tentativi" -> handleCustomDifficulty(game, value);
-                    case "/tempo"  -> handleTime(game, value);
-                    case "/facile" -> handleCustomEasyDifficulty(game, value);
-                    case "/medio" -> handleCustomMediumDifficulty(game, value);
-                    case "/difficile" -> handleCustomHardDifficulty(game, value);
+        if (!commandsWithParams.contains(tokens[0])) {
+            System.err.println("[CH] '" + tokens[0] + "' non e' un comando con parametro valido."
+                    + "\nUsa il comando '/help' per vedere la lista dei comandi disponibili.");
+        } else if (!tokens[1].matches("^[1-9]\\d*$")) {
+            System.err.println("[CH] '" + tokens[1] + "' non e' un intero >0.");
+        } else {
+            try {
+                int value = Integer.parseInt(tokens[1]);
+                if (value > 0) {
+                    switch (tokens[0]) {
+                        case "/tentativi" -> handleCustomDifficulty(game, value);
+                        case "/tempo" -> handleTime(game, value);
+                        case "/facile" -> handleCustomEasyDifficulty(game, value);
+                        case "/medio" -> handleCustomMediumDifficulty(game, value);
+                        case "/difficile" -> handleCustomHardDifficulty(game, value);
+                    }
+                } else {
+                    System.err.println("[CH] '" + tokens[1] + "' non è un numero (>0) valido.");
                 }
-            } else {
-                System.err.println("[CH] '" + tokens[1] + "' non è un numero (>0) valido.");
+            } catch (NumberFormatException e) {
+                System.err.println("[CH] " + tokens[1] + " non è un numero intero (>0) valido.");
             }
-        } catch (NumberFormatException e) {
-            System.err.println("[CH] " + tokens[1] + " non è un numero intero (>0) valido.");
         }
     }
 
