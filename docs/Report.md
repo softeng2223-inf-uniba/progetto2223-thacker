@@ -186,7 +186,8 @@ Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
 
 ### (5.1) Come giocatore voglio iniziare una partita
 Pullrequest: #79
-Issue: #22
+
+Issue: #29
 
 **diagramma di sequenza**
 ```mermaid
@@ -230,7 +231,7 @@ sequenceDiagram
 ```
 
 
-**diagramma di classe**
+**diagramma delle classi**
 
 ```mermaid
 classDiagram
@@ -287,6 +288,113 @@ classDiagram
     CommandHandler .. Output
     CommandHandler .. GridController
     Game ..> GridController
+```
+
+### (5.2) Come _giocatore_ voglio _impostare la difficoltà_
+Pullrequest: #58
+
+Issue: #22
+
+**diagramma di sequenza:**
+```mermaid
+sequenceDiagram
+  autonumber
+
+  participant App
+  actor Player
+  participant Input
+  participant CH as CommandHandler
+  participant Game
+  participant GaCo as GameController
+  participant DC as DifficultyController
+  participant DG as Difficulty
+  participant DT as Difficulty (Temp)
+
+  App ->> Game : crea
+  
+  activate Game
+
+  Game ->> DG: crea
+  activate DG
+
+  App ->> CH: execute()
+  CH ->> Input: get()
+  Input ->> Player: attende comando
+  Player -->> Input: invia /facile
+  Input --> CH: /facile
+  CH ->> CH: handleEasyDifficulty()
+  CH ->> GaCo: setEasyDifficulty()
+
+  activate DT
+
+  GaCo ->> DC: setEasy()
+  DC ->> DT: setLevel()
+  DC ->> DT: setMaxAttempts()
+  GaCo ->> Game: setDifficulty()
+  Game ->> DT: clone()
+  deactivate DT
+
+  Game ->> DG: aggiorna 
+  deactivate DG
+  deactivate Game
+```
+**diagramma delle classi:**
+```mermaid
+classDiagram
+    direction LR
+
+    class App {
+      +main()$
+    }
+
+    class Input {
+      +get()$ String
+    }
+    <<boundary>> Input
+
+    class CommandHandler {
+      +execute(Game)$
+      -handleEasyDifficulty(Game)$
+      -handleMediumDifficulty(Game)$
+      -handleHardDifficulty(Game)$
+    }
+    <<control>> CommandHandler
+
+    class GameController {
+      +setEasyDifficulty(Game)$
+      +setMediumDifficulty(Game)$
+      +setHardDifficulty(Game)$
+    }
+    <<control>> GameController
+
+    class DifficultyController {
+      +setEasy(Difficulty)$
+      +setMedium(Difficulty)$
+      +setHard(Difficulty)$
+    }
+    <<control>> DifficultyController
+
+    class Game {
+      +setDifficulty(Difficulty)
+    }
+    <<entity>> Game
+
+    class Difficulty {
+      +setLevel()
+      +setMaxLevel()
+    }
+    <<entity>> Difficulty
+
+    App ..> Game
+    App ..> CommandHandler
+    GameController ..> Game
+    CommandHandler ..> Game
+    CommandHandler ..> GameController
+    DifficultyController ..> Difficulty
+    GameController ..> DifficultyController
+    GameController ..> Difficulty
+    CommandHandler .. Input
+    Game *-- "1" Difficulty
 ```
 
 ## (7) Manuale Utente
