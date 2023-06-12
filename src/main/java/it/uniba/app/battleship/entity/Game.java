@@ -38,7 +38,7 @@ public final class Game {
     }
 
     public void setTime(final Time t) {
-        time = t;
+        time = t.clone();
     }
 
     /**
