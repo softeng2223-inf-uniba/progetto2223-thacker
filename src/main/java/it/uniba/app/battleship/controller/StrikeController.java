@@ -49,6 +49,8 @@ public final class StrikeController {
             }
 
             grid.mark(coord);
+            Output.print("Lancio colpo in " + command + "\n"
+                         + "Esito: ");
 
             if (!grid.isCellEmpty(coord)) {
                 Ship ship = grid.get(coord);
