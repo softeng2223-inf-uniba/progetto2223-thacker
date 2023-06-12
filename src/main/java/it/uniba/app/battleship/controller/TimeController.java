@@ -78,9 +78,9 @@ public final class TimeController {
         } else if (!game.isSessionStarted()) {
             return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuti";
         } else {
-            long REMAINING_MIN = maxMinute - minutePassed;
+            long remainingMin  = maxMinute - minutePassed;
             return "Numero di minuti trascorsi dall'inizio della partita: " + (minutePassed)
-                    + "\nNumero di minuti ancora disponibili per giocare: " + (REMAINING_MIN);
+                    + "\nNumero di minuti ancora disponibili per giocare: " + (remainingMin);
         }
     }
 

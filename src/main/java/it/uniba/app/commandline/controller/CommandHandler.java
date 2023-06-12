@@ -260,7 +260,7 @@ public final class CommandHandler {
             Output.printCantClone();
         }
     }
-    private static void handleEasyDifficulty(final Game game, boolean custom) {
+    private static void handleEasyDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setEasyDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
@@ -275,7 +275,7 @@ public final class CommandHandler {
             Output.printCantClone();
         }
     }
-    private static void handleMediumDifficulty(final Game game, boolean custom) {
+    private static void handleMediumDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setMediumDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
@@ -290,7 +290,7 @@ public final class CommandHandler {
             Output.printCantClone();
         }
     }
-    private static void handleHardDifficulty(final Game game, boolean custom) {
+    private static void handleHardDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setHardDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),

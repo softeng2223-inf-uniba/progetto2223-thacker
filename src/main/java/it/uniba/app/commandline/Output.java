@@ -245,14 +245,14 @@ public final class Output {
     }
 
     /**
-     * Stampa il messaggio quando si invoca il comando '/nomeDifficoltà'
+     * Stampa il messaggio quando si invoca il comando '/nomeDifficoltà'.
      * @param nameDifficulty Il nome della difficoltà.
      * @param maxFailedAttempts Il numero massimo di tentativi fallibili.
      */
     public static void printSetDifficulty(final String nameDifficulty,
                                           final int maxFailedAttempts) {
         println("OK, la difficolta' e' ora " + nameDifficulty + " con " + maxFailedAttempts
-                + " tentativi fallibili.",OK_COLOR_CODE);
+                + " tentativi fallibili.", OK_COLOR_CODE);
     }
 
     /**
@@ -322,12 +322,12 @@ public final class Output {
     /**
      * Stampa il messaggio quando si invoca il comando '/mostralivello'.
      * @param name Nome della difficolta corrente.
-     * @param MaxFailedAttempts Numero massimo di tentativi fallibili.
+     * @param maxFailedAttempts Numero massimo di tentativi fallibili.
      */
     public static void printGameLevel(final String name,
-                                      final int MaxFailedAttempts) {
+                                      final int maxFailedAttempts) {
         println("Difficolta' corrente: " + name + "\n"
-                + "Tentativi fallibili: " + MaxFailedAttempts);
+                + "Tentativi fallibili: " + maxFailedAttempts);
     }
 
     /**
