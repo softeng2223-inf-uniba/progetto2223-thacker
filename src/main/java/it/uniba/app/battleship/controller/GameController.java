@@ -105,7 +105,7 @@ public final class GameController {
          * @param val intero che contiene il numero di tentativi falliti.
          * @throws SessionAlreadyStartedException non è possibile impostare la difficoltà
          */
-        public static void setCustomDifficulty(final Game game, final int val) throws SessionAlreadyStartedException{
+        public static void setCustomDifficulty(final Game game, final int val) throws SessionAlreadyStartedException {
             if (game.isSessionStarted()) {
                 throw new SessionAlreadyStartedException();
             }
