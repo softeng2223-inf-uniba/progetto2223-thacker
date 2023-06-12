@@ -180,7 +180,9 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (5) Object Oriented Design 
 
+Nei seguenti diagrammi di classe, è omessa la visibilità degli attributi perchè sottointesa quella privata (-): Il sistema infatti è stato progettato per osservare il principio di *incapsulamento* e *information hiding*.
 
+Seguono i diagrammi di classe e di sequenza per le userstory più importanti
 
 ## (7) Manuale Utente
 
