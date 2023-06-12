@@ -189,7 +189,7 @@ public final class CommandHandler {
         if (command.matches(regex)) {
             try {
                 GameController.strike(game, command);
-                System.out.println(GridController.genHitMap(game.getSessionGrid()));
+                Output.printHitMap(GridController.genHitMap(game.getSessionGrid()));
             } catch (SessionNotStartedException err) {
                 Output.printHitSessionNotStarted();
             } catch (CellAlreadyMarkedException err) {
@@ -204,8 +204,7 @@ public final class CommandHandler {
     private static void handleShowHitMap(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
-            String str = GridController.genHitMap(grid);
-            Output.println(str);
+            Output.printHitMap(GridController.genHitMap(grid));
         } catch (SessionNotStartedException err) {
             Output.printCantShowHitMap();
         }
@@ -309,7 +308,7 @@ public final class CommandHandler {
     private static void handleShowGameGrid(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
-            Output.println(GridController.genShipMap(grid));
+            Output.printShipMap(GridController.genShipMap(grid));
         } catch (SessionNotStartedException e) {
             Output.printShowGridSessionNotStarted();
         }
