@@ -51,7 +51,7 @@ public final class DifficultyController {
         difficulty.setMaxFailedAttempts(hardMaxFailedAttempts);
     }
 
-    public static void setCustomDifficulty(Game game, int value){
+    public static void setCustomDifficulty(final Game game, final int value) {
         Difficulty diff = new Difficulty();
         diff.setNameLevel(CUSTOM_NAME);
         diff.setMaxFailedAttempts(value);
