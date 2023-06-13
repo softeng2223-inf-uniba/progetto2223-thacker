@@ -187,15 +187,18 @@ public final class GameController {
     }
 
     /**
-     * Imposta la difficoltà a Hard.
+     * Imposta la difficoltà a difficile.
+     * @param game sessione di gioco.
+     * @throws SessionAlreadyStartedException
+     *      non è possibile impostare la difficoltà durante una sessione in corso
      */
-    public void setHardDifficulty(final Game game) throws SessionAlreadyStartedException {
+    public void setHardDifficulty(final Game game)  throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.getInstance().setDefaultHard(diff);
-
+        diff.setNameLevel(HARD_NAME);
+        diff.setMaxFailedAttempts(hardMaxFailedAttempts);
         try {
             game.setDifficulty(diff);
         } catch (CloneNotSupportedException e) { }
