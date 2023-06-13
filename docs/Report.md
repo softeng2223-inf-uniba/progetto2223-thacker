@@ -561,6 +561,8 @@ Questa separazione è stata implementata suddividendo le classi in due package:
 
 Questa suddivisione consentirebbe in futuro di riutilizzare i servizi offerti dal package `battleship` per realizzare una presentazione diversa (interfaccia grafica, ad esempio).
 
+#### Do Not Repeat Yourself (DRY)
+Il team di sviluppo ha tenuto conto del principio DRY, il quale suggerisce che una certa funzionalità (operazione, procedura, etc..) debba essere astratta a tal punto da poter essere riutilizzata ovunque ce ne dovesse essere bisogno, evitando quindi di scrivere codice duplicato.
 
 ## (7) Manuale Utente
 
