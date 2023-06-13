@@ -26,7 +26,21 @@ import java.util.Set;
  * con il gioco.
  */
 public final class CommandHandler {
-    private CommandHandler() { }
+
+    private static class Holder {
+        private static final CommandHandler INSTANCE = new CommandHandler();
+    }
+
+    private CommandHandler() { };
+
+    /**
+     * Fornisce l'istanza del gestore dei comandi.
+     * @return istanza di CommandHandler
+     */
+    public static CommandHandler getInstance() {
+        return Holder.INSTANCE;
+    }
+
     private static final Set<String> COMMANDS_WITH_PARAMS = new LinkedHashSet<>() {{
         add("/tentativi");
         add("/tempo");
@@ -38,7 +52,7 @@ public final class CommandHandler {
      * Esegue un comando con o senza parametri.
      * @param game istanza di {@link Game}
      */
-    public static void handleCommand(final Game game) {
+    public void handleCommand(final Game game) {
         try {
             Output.printEnterCommand(game.isSessionStarted());
             String command = Input.get().toLowerCase();
@@ -62,7 +76,7 @@ public final class CommandHandler {
      * @param commandStr stringa che rappresenta il comando.
      * @param valueStr stringa che rappresenta il parametro (intero >0).
      */
-    private static void executeArgs(final Game game, final String commandStr, final String valueStr) {
+    private void executeArgs(final Game game, final String commandStr, final String valueStr) {
         if (!COMMANDS_WITH_PARAMS.contains(commandStr)) {
             Output.printCommandWithParamsNotRecognised(commandStr);
         } else if (!valueStr.matches("^[1-9]\\d*$")) {
@@ -102,7 +116,7 @@ public final class CommandHandler {
      * </ul>
      * @param game
      */
-    private static void executeNoArgs(final Game game, final String command) {
+    private void executeNoArgs(final Game game, final String command) {
         switch (command) {
             case "/help"            -> handleHelp();
             case "/mostranavi"      -> handleShowShip();
@@ -123,14 +137,14 @@ public final class CommandHandler {
             default -> handleDefaultOrShoot(game, command);
         }
     }
-    private static void handleCustomDifficulty(final Game game, final int value) {
+    private void handleCustomDifficulty(final Game game, final int value) {
         try {
             GameController.setCustomDifficulty(game, value);
         } catch (SessionAlreadyStartedException e) {
             Output.printCantSetDiffDuringSession();
         }
     }
-    private static void handleShowTime(final Game game) {
+    private void handleShowTime(final Game game) {
         Output.println(ShowTimeController.showTime(game));
     }
     /**
@@ -139,7 +153,7 @@ public final class CommandHandler {
      * @param game sessione di gioco.
      * @param num numero di tentativi massimi fallibili.
      */
-    private static void handleCustomEasyDifficulty(final Game game, final int num) {
+    private void handleCustomEasyDifficulty(final Game game, final int num) {
         DifficultyController.setCustomEasy(num);
         handleEasyDifficulty(game, true);
     }
@@ -149,7 +163,7 @@ public final class CommandHandler {
      * @param game sessione di gioco.
      * @param num numero di tentativi massimi fallibili.
      */
-    private static void handleCustomMediumDifficulty(final Game game, final int num) {
+    private void handleCustomMediumDifficulty(final Game game, final int num) {
         DifficultyController.setCustomMedium(num);
         handleMediumDifficulty(game, true);
     }
@@ -159,11 +173,11 @@ public final class CommandHandler {
      * @param game sessione di gioco
      * @param num numero di tentativi massimi fallibili.
      */
-    private static void handleCustomHardDifficulty(final Game game, final int num) {
+    private void handleCustomHardDifficulty(final Game game, final int num) {
         DifficultyController.setCustomHard(num);
         handleHardDifficulty(game, true);
     }
-    private static boolean gameTimeCheck(final Game game) {
+    private boolean gameTimeCheck(final Game game) {
         if (TimeController.isTimeOver(game)) {
             try {
                 GameController.endSession(game);
@@ -176,7 +190,7 @@ public final class CommandHandler {
         }
         return false;
     }
-    private static void handleTime(final Game game, final int value) {
+    private void handleTime(final Game game, final int value) {
         try {
             GameController.setTime(game, value);
             Output.printSetTime(value);
@@ -184,7 +198,7 @@ public final class CommandHandler {
             Output.printCantSetTime();
         }
     }
-    private static void handleDefaultOrShoot(final Game game, final String command) {
+    private void handleDefaultOrShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
             try {
@@ -201,7 +215,7 @@ public final class CommandHandler {
             Output.printCommandWithoutParamsNotRecognised(command);
         }
     }
-    private static void handleShowHitMap(final Game game) {
+    private void handleShowHitMap(final Game game) {
         try {
             String map = ShowGridController.genHitMap(game);
             Output.clearScreen();
@@ -210,7 +224,7 @@ public final class CommandHandler {
             Output.printCantShowHitMap();
         }
     }
-    private static void handleStandardGrid(final Game game) {
+    private void handleStandardGrid(final Game game) {
         try {
             GridController.standardGridSize(game);
             Output.printSetGridSize(Grid.getSize());
@@ -218,7 +232,7 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
-    private static void handleLargeGrid(final Game game) {
+    private void handleLargeGrid(final Game game) {
         try {
             GridController.largeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
@@ -226,7 +240,7 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
-    private static void handleExtraLargeGrid(final Game game) {
+    private void handleExtraLargeGrid(final Game game) {
         try {
             GridController.extraLargeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
@@ -234,17 +248,17 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
-    private static void handleShowShip() {
+    private void handleShowShip() {
         Output.clearScreen();
         Output.println(ShowShipsController.getShipInfo());
     }
 
-    private static void handleHelp() {
+    private void handleHelp() {
         Output.clearScreen();
         HelpController.showHelp();
     }
 
-    private static void handlePlay(final Game game) {
+    private void handlePlay(final Game game) {
         try {
             GameController.startSession(game);
             Output.clearScreen();
@@ -253,7 +267,7 @@ public final class CommandHandler {
             Output.printStartSessionAlreadyStarted();
         }
     }
-    private static void handleShowDifficulty(final Game game) {
+    private void handleShowDifficulty(final Game game) {
         if (!game.isDifficultySet()) {
             setDefaultDifficulty(game);
         }
@@ -264,7 +278,7 @@ public final class CommandHandler {
             Output.printCantClone();
         }
     }
-    private static void handleEasyDifficulty(final Game game, final boolean custom) {
+    private void handleEasyDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setEasyDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
@@ -279,7 +293,7 @@ public final class CommandHandler {
             Output.printCantClone();
         }
     }
-    private static void handleMediumDifficulty(final Game game, final boolean custom) {
+    private void handleMediumDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setMediumDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
@@ -294,7 +308,7 @@ public final class CommandHandler {
             Output.printCantClone();
         }
     }
-    private static void handleHardDifficulty(final Game game, final boolean custom) {
+    private void handleHardDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setHardDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
@@ -309,7 +323,7 @@ public final class CommandHandler {
             Output.printCantClone();
         }
     }
-    private static void handleShowGameGrid(final Game game) {
+    private void handleShowGameGrid(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
             Output.clearScreen();
@@ -318,7 +332,7 @@ public final class CommandHandler {
             Output.printShowGridSessionNotStarted();
         }
     }
-    private static void handleShowAttempts(final Game game) {
+    private void handleShowAttempts(final Game game) {
         try {
             Output.printShowAttempts(GameController.getAttempts(game),
                                      GameController.getFailedAttempts(game),
@@ -329,7 +343,7 @@ public final class CommandHandler {
             Output.printCantClone();
         }
     }
-    private static void handleEndSession(final Game game) {
+    private void handleEndSession(final Game game) {
         try {
             if (!game.isSessionStarted()) {
                 throw new SessionNotStartedException();
@@ -353,7 +367,7 @@ public final class CommandHandler {
             Output.printCantReadInput();
         }
     }
-    private static void handleExitGame() {
+    private void handleExitGame() {
         try {
             Output.printConfirmOperation("uscire dal gioco");
             String confirm = Input.get().toLowerCase();
@@ -366,7 +380,7 @@ public final class CommandHandler {
             Output.printCantReadInput();
         }
     }
-    private static void setDefaultDifficulty(final Game game) {
+    private void setDefaultDifficulty(final Game game) {
         try {
             GameController.setEasyDifficulty(game);     //difficoltà predefinita: Facile
         } catch (SessionAlreadyStartedException ignored) { }

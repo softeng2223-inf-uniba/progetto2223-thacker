@@ -24,7 +24,7 @@ public final class App {
 
         Game game = new Game();
         while (!ExitController.getInstance().isExitRequested()) {
-            CommandHandler.handleCommand(game);
+            CommandHandler.getInstance().handleCommand(game);
         }
     }
 }
