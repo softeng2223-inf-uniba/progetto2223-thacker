@@ -6,6 +6,7 @@ import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 
+import java.util.LinkedList;
 import java.util.Random;
 
 import it.uniba.app.battleship.entity.Coordinate;
@@ -393,6 +394,17 @@ public final class GameController {
             throw new SessionAlreadyStartedException();
         }
         Grid.setChosenSize(Grid.getExtraLargeSize());
+    }
+
+    /**
+     * Inserisce nella mappa delle navi ad una ad una tutte le navi disponibili nel gioco.
+     * @param ships lista di navi da inserire nella mappa.
+     * @param grid mappa su cui inserire le navi.
+     */
+    public void randomlyFill(final LinkedList<Ship> ships, final Grid grid) {
+        for (Ship ship : ships) {
+            randomlyInsertShip(ship, grid);
+        }
     }
 
 }
