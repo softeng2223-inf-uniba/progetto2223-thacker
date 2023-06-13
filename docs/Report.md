@@ -190,6 +190,13 @@ Scendendo di livello, la struttura del package si articola nel seguente modo:
 
 ![diagramma del package](./img/s2-package-it-uniba-app.jpg)
 
+### (4.2) Componenti
+Il sistema è costituito da due componenti principali: 
+
+![diagramma dei componenti](./img/s2-componenti.jpg)
+
+- **Battleship**: fornisce servizi per gestire partite di battaglia navale solitario.
+- **Command Line Interface**: fornisce servizi per giocare a battleship attraverso la linea di comando.
 
 
 ## (7) Manuale Utente
