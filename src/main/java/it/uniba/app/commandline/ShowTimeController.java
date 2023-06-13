@@ -37,9 +37,11 @@ public final class ShowTimeController {
 
         if (maxMinute == 0) {
             return "Hai a disposizione un tempo illimitato";
-        } else if (!game.isSessionStarted()) {
+        } else if (!game.isSessionStarted() && maxMinute == 1) {
+            return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuto";
+        } else if (!game.isSessionStarted() && maxMinute > 1) {
             return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuti";
-        } else {
+        }  else {
             long remainingMin  = maxMinute - minutePassed;
             return "Numero di minuti trascorsi dall'inizio della partita: " + (minutePassed)
                     + "\nNumero di minuti ancora disponibili per giocare: " + (remainingMin);
