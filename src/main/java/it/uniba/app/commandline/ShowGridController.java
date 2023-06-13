@@ -12,6 +12,17 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
  * Fornisce servizi per presentare una griglia in linea di comando.
  */
 public final class ShowGridController {
+
+    private static class Holder {
+            private static final ShowGridController INSTANCE = new ShowGridController();
+    }
+
+    private ShowGridController() { };
+
+    public static ShowGridController getInstance() {
+            return Holder.INSTANCE;
+    }
+
     private static final String LETTER_WHITE_SPACE = "       ";
     private static final String WHITE_SPACE = "    ";
     private static final String ROW_SPACE = "\n\n";
@@ -21,15 +32,13 @@ public final class ShowGridController {
         "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
     };
 
-    private ShowGridController() { }
-
     /**
      * Restituisce un oggetto di tipo {@code String} che contiene
      * la struttura della mappa da stampare a video.
      * @param game sessione di gioco
      * @return mappa dei colpi in formato stringa
      */
-    static String genHitMap(final Game game) throws SessionNotStartedException {
+    String genHitMap(final Game game) throws SessionNotStartedException {
         Grid gameGrid = GameController.getInstance().getSessionGrid(game);
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
@@ -83,7 +92,7 @@ public final class ShowGridController {
      * @param grid oggetto che contiene la mappa delle navi.
      * @return stringa contenente tutta la mappa delle navi.
     */
-    static String genShipMap(final Grid grid) {
+    String genShipMap(final Grid grid) {
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {

@@ -48,6 +48,10 @@ public final class CommandHandler {
         add("/medio");
         add("/difficile");
     }};
+
+    /* CONTROLLERS */
+    private static ShowGridController CONTROL_SHOWGRID = ShowGridController.getInstance();
+
     /**
      * Esegue un comando con o senza parametri.
      * @param game istanza di {@link Game}
@@ -203,7 +207,7 @@ public final class CommandHandler {
         if (command.matches(regex)) {
             try {
                 StrikeController.strike(game, command);
-                Output.printHitMap(ShowGridController.genHitMap(game));
+                Output.printHitMap(CONTROL_SHOWGRID.genHitMap(game));
             } catch (SessionNotStartedException err) {
                 Output.printHitSessionNotStarted();
             } catch (CellAlreadyMarkedException err) {
@@ -217,7 +221,7 @@ public final class CommandHandler {
     }
     private void handleShowHitMap(final Game game) {
         try {
-            String map = ShowGridController.genHitMap(game);
+            String map = CONTROL_SHOWGRID.genHitMap(game);
             Output.clearScreen();
             Output.printHitMap(map);
         } catch (SessionNotStartedException err) {
@@ -327,7 +331,7 @@ public final class CommandHandler {
         try {
             Grid grid = GameController.getInstance().getSessionGrid(game);
             Output.clearScreen();
-            Output.printShipMap(ShowGridController.genShipMap(grid));
+            Output.printShipMap(CONTROL_SHOWGRID.genShipMap(grid));
         } catch (SessionNotStartedException e) {
             Output.printShowGridSessionNotStarted();
         }
@@ -353,7 +357,7 @@ public final class CommandHandler {
             String confirm = Input.get().toLowerCase();
             switch (confirm) {
                 case "si" -> {
-                    Output.printEndSessionConfirm(ShowGridController.genShipMap(game.getSessionGrid()));
+                    Output.printEndSessionConfirm(CONTROL_SHOWGRID.genShipMap(game.getSessionGrid()));
                     GameController.getInstance().endSession(game);
                     try {
                         GameController.getInstance().setTime(game, 0);
