@@ -403,6 +403,21 @@ classDiagram
     Game *-- "1" Difficulty
 ```
 
+### (5.3) Come _giocatore_ voglio _effettuare un tentativo_ per _colpire una nave_
+
+Issue: #109
+
+**Attori**: giocatore (o _Player_)
+
+**Caso d'uso**:
+il giocatore, dopo aver avviato una nuova partita digita una combinazione *lettera* e *numero* nel formato `<lettera>-<numero>` (per esempio `A-1` o `a-1`) per scegliere la cella da colpire (tentativo per colpire una nave), se non già colpita.
+A quel punto il sistema informa il giocatore dell'esito del tentativo: "_acqua_", "_colpito_" o "_(colpito e) affondato_" per poi mostrare la griglia dei colpi aggiornata.
+
+**Condizioni di partenza**:
+- l'attore _Player_ ha già effettuato il comando `/gioca` e quindi avviato una sessione di gioco
+- l'attore _Player_ digita una coordinata lecita (formato `<lettera>-<numero>`) nella comunicazione con _Input_
+
+
 ## (7) Manuale Utente
 
 ### **(7.1) Prerequisiti**
