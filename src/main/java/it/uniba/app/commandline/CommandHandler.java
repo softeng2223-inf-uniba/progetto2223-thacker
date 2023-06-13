@@ -254,7 +254,7 @@ public final class CommandHandler {
     }
     private void handleShowShip() {
         Output.clearScreen();
-        Output.println(ShowShipsController.getShipInfo());
+        Output.println(ShowShipsController.getInstance().getShipInfo());
     }
 
     private void handleHelp() {
