@@ -302,6 +302,7 @@ Pullrequest: #58
 Issue: #22
 
 **diagramma di sequenza:**
+
 ```mermaid
 sequenceDiagram
   autonumber
@@ -453,6 +454,88 @@ sequenceDiagram
     Output ->> Player: mostra griglia dei colpi
 
     deactivate Game
+```
+---
+
+---
+
+**diagramma delle classi**
+```mermaid
+classDiagram
+    direction LR
+
+    class Output {
+        print()$
+        printHitMap()$
+    }
+    <<boundary>> Output
+
+    class Input {
+        get()$
+    }
+    <<boundary>> Input
+
+    class Coordinate {
+        row
+        col
+        +equals()
+    }
+    <<entity>> Coordinate
+
+    class Ship {
+        +hit()
+        +isSunk()
+    }
+    <<entity>> Ship
+
+    class Grid {
+        +isWithinBounds(Coordinate)
+        +isCellEmpty(Coordinate)
+        +get(Coordinate): Ship
+    }
+    <<entity>> Grid
+
+    class Game {
+        +isAlreadyAttempted(Coordinate)
+        +isAttemptWithinBounds(Coordinate)
+        +addAttempt(Coordinate)
+    }
+    <<entity>> Game
+
+    Game *--> "*" Coordinate: attempts
+    Game ..> Ship
+    Game --> "grid" Grid
+    Grid ..> Coordinate
+    Grid *--> Ship
+
+    class GameController {
+        +strike(Coordinate) int
+    }
+    <<control>> GameController
+
+    GameController ..> Game
+    GameController ..> Coordinate
+    GameController ..> Ship: "colpisce e verifica afondamento"
+
+    class StrikeController {
+        +strike(String)
+    }
+    <<control>> StrikeController
+
+    StrikeController ..> Coordinate
+    StrikeController ..> Game
+    StrikeController ..> GameController
+    StrikeController ..> Output
+
+    class CommandHandler {
+        +handle()
+        -handleDefaultOrShoot()
+    }
+    <<control>> CommandHandler
+
+    CommandHandler ..> StrikeController
+    CommandHandler ..> Input
+    CommandHandler ..> Output
 ```
 ---
 
