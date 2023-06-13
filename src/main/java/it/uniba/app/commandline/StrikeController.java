@@ -16,7 +16,19 @@ public final class StrikeController {
     private static final int CHAR_CONVERT = 97;
     private static final int NUM_START_INDEX = 2;
 
-    private StrikeController() { }
+    private static class Holder {
+        private static final StrikeController INSTANCE = new StrikeController();
+    }
+
+    private StrikeController() { };
+
+    /**
+     * Fornisce l'istanza del gestore dei tentativi e la visualizzazione dell'esito.
+     * @return istanza di StrikeController
+     */
+    public static StrikeController getInstance() {
+            return Holder.INSTANCE;
+    }
 
     static Coordinate convert(final String command) {
         char letter = command.charAt(0);
@@ -38,7 +50,7 @@ public final class StrikeController {
      * @param game sessione di gioco
      *
     */
-    static void strike(final Game game, final String command)
+    void strike(final Game game, final String command)
         throws SessionNotStartedException, CellAlreadyMarkedException, OutOfMapException {
             Coordinate coord = convert(command);
 

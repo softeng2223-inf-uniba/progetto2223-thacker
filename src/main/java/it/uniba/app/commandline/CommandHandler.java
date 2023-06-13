@@ -50,9 +50,10 @@ public final class CommandHandler {
     }};
 
     /* CONTROLLERS */
-    private static GameController CONTROL_GAME = GameController.getInstance();
-    private static ShowGridController CONTROL_SHOWGRID = ShowGridController.getInstance();
-    private static ShowTimeController CONTROL_SHOWTIME = ShowTimeController.getInstance();
+    private static final GameController CONTROL_GAME = GameController.getInstance();
+    private static final ShowGridController CONTROL_SHOWGRID = ShowGridController.getInstance();
+    private static final ShowTimeController CONTROL_SHOWTIME = ShowTimeController.getInstance();
+    private static final StrikeController CONTROL_STRIKE = StrikeController.getInstance();
 
     /**
      * Esegue un comando con o senza parametri.
@@ -208,7 +209,7 @@ public final class CommandHandler {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
             try {
-                StrikeController.strike(game, command);
+                CONTROL_STRIKE.strike(game, command);
                 Output.printHitMap(CONTROL_SHOWGRID.genHitMap(game));
             } catch (SessionNotStartedException err) {
                 Output.printHitSessionNotStarted();
