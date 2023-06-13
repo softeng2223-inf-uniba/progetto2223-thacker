@@ -26,6 +26,11 @@ import java.util.Set;
  * con il gioco.
  */
 public final class CommandHandler {
+    /* CONTROLLERS */
+    private static final GameController CONTROL_GAME = GameController.getInstance();
+    private static final ShowGridController CONTROL_SHOWGRID = ShowGridController.getInstance();
+    private static final ShowTimeController CONTROL_SHOWTIME = ShowTimeController.getInstance();
+    private static final StrikeController CONTROL_STRIKE = StrikeController.getInstance();
 
     private static class Holder {
         private static final CommandHandler INSTANCE = new CommandHandler();
@@ -48,12 +53,6 @@ public final class CommandHandler {
         add("/medio");
         add("/difficile");
     }};
-
-    /* CONTROLLERS */
-    private static final GameController CONTROL_GAME = GameController.getInstance();
-    private static final ShowGridController CONTROL_SHOWGRID = ShowGridController.getInstance();
-    private static final ShowTimeController CONTROL_SHOWTIME = ShowTimeController.getInstance();
-    private static final StrikeController CONTROL_STRIKE = StrikeController.getInstance();
 
     /**
      * Esegue un comando con o senza parametri.

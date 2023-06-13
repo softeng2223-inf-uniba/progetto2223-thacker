@@ -13,6 +13,9 @@ import it.uniba.app.battleship.entity.Ship;
  * relativi alla stampa delle informazioni di ciascuna nave.
 */
 public final class ShowShipsController {
+    private static final String INSTANCE_WHITE_SPACE = "       ";
+    private static final String NAME_WHITE_SPACE = "";
+
 
     private static class Holder {
             private static final ShowShipsController INSTANCE = new ShowShipsController();
@@ -27,10 +30,6 @@ public final class ShowShipsController {
     public static ShowShipsController getInstance() {
             return Holder.INSTANCE;
     }
-
-    /* COSTANTI */
-    private static final String INSTANCE_WHITE_SPACE = "       ";
-    private static final String NAME_WHITE_SPACE = "";
 
     /* METODI STATICI DI SUPPORTO */
 

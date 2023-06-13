@@ -12,17 +12,6 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
  * Fornisce servizi per presentare una griglia in linea di comando.
  */
 public final class ShowGridController {
-
-    private static class Holder {
-            private static final ShowGridController INSTANCE = new ShowGridController();
-    }
-
-    private ShowGridController() { };
-
-    public static ShowGridController getInstance() {
-            return Holder.INSTANCE;
-    }
-
     private static final String LETTER_WHITE_SPACE = "       ";
     private static final String WHITE_SPACE = "    ";
     private static final String ROW_SPACE = "\n\n";
@@ -31,6 +20,22 @@ public final class ShowGridController {
         "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
         "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
     };
+
+
+    private static class Holder {
+            private static final ShowGridController INSTANCE = new ShowGridController();
+    }
+
+    private ShowGridController() { };
+
+    /**
+     * Fornisce l'istanza del gestore della visualizzazione della
+     * griglia dei colpi e la griglia delle navi.
+     * @return istanza di ShowGridController
+     */
+    public static ShowGridController getInstance() {
+            return Holder.INSTANCE;
+    }
 
     /**
      * Restituisce un oggetto di tipo {@code String} che contiene
