@@ -213,14 +213,15 @@ Il sistema è costituito da due componenti principali:
 
 ![diagramma dei componenti](./img/s2-componenti.jpg)
 
-_Battleship_ offre strumenti che prescindono dal tipo di presentazione (_logica di dominio_), in modo tale che le _core mechanics_ (meccaniche di gioco fondamentali) possano essere gestite da altri componenti che si occupano di interfacciarsi con l'utente.
+**Battleship** offre strumenti che prescindono dal tipo di presentazione (**logica di dominio**), in modo tale che le _core mechanics_ (meccaniche di gioco fondamentali) possano essere gestite da altri componenti che si occupano di interfacciarsi con l'utente.
 
-Infatti, il secondo componente - _Command Line Interface_ - si occupa di comunicare con _Battleship_ nel seguente modo:
+Infatti, il secondo componente - **Command Line Interface** - si occupa di comunicare con _Battleship_ nel seguente modo:
 
 1. Interpreta i comandi dell'utente, convertendoli in elementi che l'interfaccia offerta da _Battleship_ può comprendere
 2. Comunica i dati a _Battleship_ attraverso la sua interfaccia
-2. Interpreta il feedback ricevuto da _Battleship_, convertendolo in segnali (e.g. stampe su terminale) che consentono all'utente di venire a conoscenza dello stato corrente del sistema e prendere decisioni successive.
+3. Interpreta il feedback ricevuto da _Battleship_, convertendolo in segnali (e.g. stampe su terminale) che consentono all'utente di venire a conoscenza dello stato corrente del sistema e prendere decisioni successive.
 
+In altre parole, la **logica di presentazione** è di competenza di **Command Line Interface**.
 
 ## (7) Manuale Utente
 
