@@ -1,6 +1,6 @@
 package it.uniba.app.commandline;
 
-import it.uniba.app.battleship.controller.TimeController;
+import it.uniba.app.battleship.GameController;
 import it.uniba.app.battleship.entity.Game;
 
 /**
@@ -33,7 +33,7 @@ public final class ShowTimeController {
      */
     String showTime(final Game game) {
         int maxMinute = game.getTime().getTimeLimitMin();
-        long minutePassed = TimeController.getInstance().checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
+        long minutePassed = GameController.getInstance().checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
 
         if (maxMinute == 0) {
             return "Hai a disposizione un tempo illimitato";

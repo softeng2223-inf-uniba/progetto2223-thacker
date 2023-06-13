@@ -3,8 +3,7 @@ package it.uniba.app.battleship.entity;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-import it.uniba.app.battleship.controller.GridController;
-import it.uniba.app.battleship.controller.TimeController;
+import it.uniba.app.battleship.GameController;
 
 /**
  * Entity class <hr>
@@ -98,8 +97,8 @@ public final class Game {
      */
     public void startSession() {
         grid = new Grid();
-        GridController.getInstance().randomlyFill(SHIPS, grid);
-        TimeController.getInstance().setTime(time);
+        GameController.getInstance().randomlyFill(SHIPS, grid);
+        GameController.getInstance().setTime(time);
 
         sunkShips = 0;
         attempts = new HashSet<>();
