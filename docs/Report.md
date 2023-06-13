@@ -179,6 +179,14 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 - (RNF3) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
 ## (4) System Design
+### (4.1) Package
+Ad un alto livello di astrazione la struttura del sistema è la seguente:
+
+![diagramma dei package](./img/s2-package-general.jpg)
+
+Come si può osservare, il package it.uniba.app, che contiene il codice relativo al sistema oggetto di discussione di questo report (battleship) è costruito sfruttando l'archiettura di Java.
+
+
 
 ## (7) Manuale Utente
 
