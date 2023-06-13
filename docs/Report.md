@@ -540,9 +540,38 @@ classDiagram
 ---
 
 ### (5.B) Design pattern applicati
+
 Per le classi di tipo control (individuabili nel codice con il suffisso Controller e/o dall'etichetta `<<control>>` nel relativo javadoc) è stato applicato il design pattern "Singleton", come da convenzione.
 
 ### (5.C) Commenti sulle decisioni prese
+
+#### Information Hiding
+Ogni classe nasconde la propria struttura all'esterno, ovvero tutte le variabili di istanza sono private (**incapsulamento**).
+Di conseguenza. lo stato degli oggetti istanziati viene modificato solo attraverso le operazioni lecite (metodi pubblici) della classe di appartenenza.
+
+Per quanto riguarda i **package**:
+- `it.uniba.app.battleship` : tutte le classi sono visibili all'esterno, essendo un modulo progettato come una API flessibile che altri componenti esterni possono sfruttare per realizzare la propria versione del gioco (vedi sezione successiva _Presentazione separata_)
+- `it.uniba.app.commandline` : Poichè questo modulo è realizzato ad hoc per sfruttare l'API di `battleship` per giocare da linea di comando sono state rese visibili solo alcune classi (_CommandHandler, FlagHandler, ExitController, HelpController_) necessarie a _App_ in (`it.uniba.app`) per avviare i gestori.
+
+#### Presentazione separata
+
+Il sistema è stato sviluppato tenendo conto della necessità di separare la _logica di dominio_ (battaglia navale solitario, con tutte le proprietà che appartengono al suo dominio) dalla _logica di presentazione_ (interazione con il terminale per giocare).
+
+Questa separazione è stata implementata suddividendo le classi in due package:
+- `it.uniba.app.battleship` : logica di dominio
+- `it.uniba.app.commandline` : logica di presentazione
+
+Questa suddivisione consentirebbe in futuro di riutilizzare i servizi offerti dal package `battleship` per realizzare una presentazione diversa (interfaccia grafica, ad esempio).
+
+#### Do Not Repeat Yourself (DRY)
+Il team di sviluppo ha tenuto conto del principio DRY, il quale suggerisce che una certa funzionalità (operazione, procedura, etc..) debba essere astratta a tal punto da poter essere riutilizzata ovunque ce ne dovesse essere bisogno, evitando quindi di scrivere codice duplicato.
+
+#### Accoppiamento e Coesione
+Sia in fase di concezione di ogni classe, sia in quella di sviluppo, ci si è interrogati sulle responsabilità tali classi avrebbero dovuto/debbano avere e si sono prese determinate decisioni.
+
+Abbiamo limitato il più possibile l'accoppiamento tra classi (il grado di dipendenza di una classe da altre) in modo tale che future modifiche in una non comportassero grossi cambiamenti in altre.
+D'altro canto abbiamo cercato di rendere le classi coese, non assegnandoli troppe responsabiltà.
+Laddove questo non è stato fatto fino in fondo, perlomeno si è reso il componente di appartenza ad alta coesione e basso (o nullo) accoppiamento (si osservi la struttura del package `battleship`, sezione 4).
 
 
 ## (7) Manuale Utente
