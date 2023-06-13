@@ -185,13 +185,13 @@ Ad un alto livello di astrazione la struttura del sistema è la seguente:
 
 ![diagramma dei package](./img/s2-package-general.jpg)
 
-Come si può osservare, il package `it.uniba.app`, che contiene il codice relativo al sistema oggetto di discussione di questo report (battleship) è costruito sfruttando l'architettura di **java**; Nei passaggi successivi le relazioni dei sottopackage con l'infrastruttura java verranno per scontate, semplificando cosi il grafo delle dipendenze.
+Come si può osservare, il package `it.uniba.app`, che contiene il codice relativo al sistema oggetto di discussione di questo report (battleship) è costruito sfruttando l'architettura di **java**; Nei passaggi successivi le relazioni dei sottopackage con l'infrastruttura java verranno date per scontate, semplificando cosi il grafo delle dipendenze.
 
 Scendendo di livello, la struttura del package si articola nel seguente modo:
 
 ![diagramma del package](./img/s2-package-it-uniba-app.jpg)
 
-Come verrà anche descritto nella sezione successiva (4.2) i package sono stati realizzati in modo da rendere chiara la separazione tra logica di dominio e logica di presentazione:
+Come verrà anche descritto nella sezione successiva (4.2) i package sono stati realizzati in modo da rendere chiara la separazione tra **logica di dominio** e **logica di presentazione**:
 - `battleship` : contiene i componenti (package o classi) di competenza del domino di interesse (battaglia navale solitario);
 - `commandline` : contiene i componenti che utilizzano i servizi offerti da `battleship` per interfacciarsi con l'utente;
 
