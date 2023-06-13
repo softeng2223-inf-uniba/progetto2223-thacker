@@ -87,49 +87,6 @@ public final class GameController {
         game.endSession();
     }
 
-    /**
-     * Gestisce la chiamata di strike, se una nave viene affondata, incrementa
-     * il numero di navi affondate in Game, se invece il colpo va a vuoto,
-     * viene incrementato il valore di tentativi falliti di Game.
-     * @param game oggetto che conserva i parametri di gioco
-     * @param coord coordinate
-     * @throws SessionNotStartedException non è possibile lanciare il colpo se una
-     * partita non è cominciata
-     * @throws CellAlreadyMarkedException non è possibile colpire una cella
-     * già colpita in precedenza
-     * @throws OutOfMapException non è possibile lanciare il colpo fuori dalla
-     * portata della mappa
-     */
-    public int strike(final Game game, final Coordinate coord)
-        throws SessionNotStartedException, CellAlreadyMarkedException,
-            OutOfMapException {
-        if (!game.isSessionStarted()) {
-            throw new SessionNotStartedException();
-        }
-        if (!game.isAttemptWithinBounds(coord)) {
-            throw new OutOfMapException();
-        }
-        if (game.isAlreadyAttempted(coord)) {
-            throw new CellAlreadyMarkedException();
-        }
-
-        game.addAttempt(coord);
-        Grid curGrid = game.getSessionGrid();
-
-        if (!curGrid.isCellEmpty(coord)) {
-            Ship occupantShip = curGrid.get(coord);
-            occupantShip.hit();
-            if (occupantShip.isSunk()) {
-                game.incrementSunkShips();
-                return 1;
-            } else {
-                return 0;
-            }
-        }
-        // se non è stata colpita alcuna nave:
-        game.incrementFailedAttempt();
-        return -1;
-    }
 
     /* METODI PER IL TEMPO */
 
@@ -315,6 +272,50 @@ public final class GameController {
         return game.getDifficulty();
     }
 
+    // METODI PER I TENTATIVI
+    /**
+     * Gestisce la chiamata di strike, se una nave viene affondata, incrementa
+     * il numero di navi affondate in Game, se invece il colpo va a vuoto,
+     * viene incrementato il valore di tentativi falliti di Game.
+     * @param game oggetto che conserva i parametri di gioco
+     * @param coord coordinate
+     * @throws SessionNotStartedException non è possibile lanciare il colpo se una
+     * partita non è cominciata
+     * @throws CellAlreadyMarkedException non è possibile colpire una cella
+     * già colpita in precedenza
+     * @throws OutOfMapException non è possibile lanciare il colpo fuori dalla
+     * portata della mappa
+     */
+    public int strike(final Game game, final Coordinate coord)
+        throws SessionNotStartedException, CellAlreadyMarkedException,
+            OutOfMapException {
+        if (!game.isSessionStarted()) {
+            throw new SessionNotStartedException();
+        }
+        if (!game.isAttemptWithinBounds(coord)) {
+            throw new OutOfMapException();
+        }
+        if (game.isAlreadyAttempted(coord)) {
+            throw new CellAlreadyMarkedException();
+        }
+
+        game.addAttempt(coord);
+        Grid curGrid = game.getSessionGrid();
+
+        if (!curGrid.isCellEmpty(coord)) {
+            Ship occupantShip = curGrid.get(coord);
+            occupantShip.hit();
+            if (occupantShip.isSunk()) {
+                game.incrementSunkShips();
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        // se non è stata colpita alcuna nave:
+        game.incrementFailedAttempt();
+        return -1;
+    }
 
     /**
      * Fornisce il numero di tentativi effettuati fino al momento corrente di una sessione di gioco in corso.
