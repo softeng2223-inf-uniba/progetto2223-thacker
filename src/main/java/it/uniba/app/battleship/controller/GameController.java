@@ -484,4 +484,16 @@ public final class GameController {
         }
     }
 
+    /**
+     * Inserisce la nave con orientamento orizzontale nelle coordinate specificate.
+     * @param coord coordinate in cui cominciare ad inserire la nave in verticale.
+     * @param ship specifica quale nave dev'essere inserita nella mappa.
+     */
+    private void insertShipHorizontal(final Coordinate coord, final Ship ship, final Grid grid) {
+        for (int i = 0; i < ship.getSize(); i++) {
+            grid.set(coord, ship);
+            coord.setCol(coord.getCol() + 1);
+        }
+    }
+
 }
