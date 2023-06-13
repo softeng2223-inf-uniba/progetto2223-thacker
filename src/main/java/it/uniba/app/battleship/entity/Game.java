@@ -1,5 +1,6 @@
 package it.uniba.app.battleship.entity;
 
+import java.sql.Time;
 import java.util.HashSet;
 import java.util.LinkedList;
 
@@ -7,8 +8,7 @@ import it.uniba.app.battleship.controller.GridController;
 import it.uniba.app.battleship.controller.TimeController;
 
 /**
- * Entity class <hr>
- *
+ * {@code <<entity>>}
  * Fornisce servizi per gestire una sessione di gioco (o partita) di <i>Battleship solitaire</i>.
  */
 public final class Game {
