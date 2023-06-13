@@ -122,7 +122,7 @@ public final class GameController {
                 throw new SessionAlreadyStartedException();
             }
             Difficulty diff = new Difficulty();
-            DifficultyController.setCustomDifficulty(diff, val);
+            DifficultyController.getInstance().setCustomDifficulty(diff, val);
             try {
                 game.setDifficulty(diff);
             } catch (CloneNotSupportedException e) { }
@@ -136,7 +136,7 @@ public final class GameController {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setDefaultEasy(diff);
+        DifficultyController.getInstance().setDefaultEasy(diff);
 
         try {
             game.setDifficulty(diff);
@@ -151,7 +151,7 @@ public final class GameController {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setDefaultMedium(diff);
+        DifficultyController.getInstance().setDefaultMedium(diff);
 
         try {
             game.setDifficulty(diff);
@@ -166,7 +166,7 @@ public final class GameController {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setDefaultHard(diff);
+        DifficultyController.getInstance().setDefaultHard(diff);
 
         try {
             game.setDifficulty(diff);

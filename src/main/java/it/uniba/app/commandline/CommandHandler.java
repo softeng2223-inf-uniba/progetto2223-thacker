@@ -140,7 +140,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private static void handleCustomEasyDifficulty(final Game game, final int num) {
-        DifficultyController.setCustomEasy(num);
+        DifficultyController.getInstance().setCustomEasy(num);
         handleEasyDifficulty(game, true);
     }
     /**
@@ -150,7 +150,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private static void handleCustomMediumDifficulty(final Game game, final int num) {
-        DifficultyController.setCustomMedium(num);
+        DifficultyController.getInstance().setCustomMedium(num);
         handleMediumDifficulty(game, true);
     }
     /**
@@ -160,7 +160,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private static void handleCustomHardDifficulty(final Game game, final int num) {
-        DifficultyController.setCustomHard(num);
+        DifficultyController.getInstance().setCustomHard(num);
         handleHardDifficulty(game, true);
     }
     private static boolean gameTimeCheck(final Game game) {
