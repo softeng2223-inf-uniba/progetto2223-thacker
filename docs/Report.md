@@ -181,11 +181,13 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 ## (5) Object Oriented Design 
 
 ### (5.A) Diagrammi per user-story rilevanti
+
 Nei seguenti diagrammi di classe, è omessa la visibilità degli attributi perchè sottointesa quella privata (-): Il sistema infatti è stato progettato per osservare il principio di *incapsulamento* e *information hiding*.
 
 Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
 
 #### (5.A.1) Come _giocatore_ voglio _iniziare una partita_
+
 Pullrequest: #79
 
 Issue: #29
@@ -193,10 +195,13 @@ Issue: #29
 **Attori**: giocatore (o Player)
 
 **Caso d'uso:**
-Il giocatore, se non vi è una sessione di gioco in corso, eseguendo il comando `/gioca` è in grado di iniziare una nuova partita e di visualizzare la griglia dei colpi (inizialmente vuota);
+
+Il giocatore, se non vi è una sessione di gioco in corso, eseguendo il comando `/gioca` è in grado di iniziare una nuova partita e di visualizzare la griglia dei colpi (inizialmente vuota).
+
 Da quel momento in poi sarà possibile, oltre agli altri comandi, effettuare tentativi per colpire una nave.
 
 **diagramma di sequenza**
+
 ```mermaid
 sequenceDiagram
   autonumber
@@ -323,6 +328,7 @@ classDiagram
 ```
 
 #### (5.A.2) Come _giocatore_ voglio _impostare la difficoltà_
+
 Pullrequest: #58
 
 Issue: #22
@@ -372,6 +378,7 @@ sequenceDiagram
   deactivate Game
 ```
 **diagramma delle classi:**
+
 ```mermaid
 classDiagram
     direction LR
@@ -437,10 +444,12 @@ Issue: #109
 **Attori**: giocatore (o _Player_)
 
 **Caso d'uso**:
-il giocatore, dopo aver avviato una nuova partita digita una combinazione *lettera* e *numero* nel formato `<lettera>-<numero>` (per esempio `A-1` o `a-1`) per scegliere la cella da colpire (tentativo per colpire una nave), se non già colpita.
+
+Il giocatore, dopo aver avviato una nuova partita digita una combinazione *lettera* e *numero* nel formato `<lettera>-<numero>` (per esempio `A-1` o `a-1`) per scegliere la cella da colpire (tentativo per colpire una nave), se non già colpita.
 A quel punto il sistema informa il giocatore dell'esito del tentativo: "_acqua_", "_colpito_" o "_(colpito e) affondato_" per poi mostrare la griglia dei colpi aggiornata.
 
 **Condizioni di partenza**:
+
 - l'attore _Player_ ha già effettuato il comando `/gioca` e quindi avviato una sessione di gioco
 - l'attore _Player_ digita una coordinata lecita (formato `<lettera>-<numero>`) nella comunicazione con _Input_
 
@@ -576,11 +585,14 @@ Per le classi di tipo control (individuabili nel codice con il suffisso Controll
 ### (5.C) Commenti sulle decisioni prese
 
 #### Information Hiding
+
 Ogni classe nasconde la propria struttura all'esterno, ovvero tutte le variabili di istanza sono private (**incapsulamento**).
 Di conseguenza. lo stato degli oggetti istanziati viene modificato solo attraverso le operazioni lecite (metodi pubblici) della classe di appartenenza.
 
 Per quanto riguarda i **package**:
+
 - `it.uniba.app.battleship` : tutte le classi sono visibili all'esterno, essendo un modulo progettato come una API flessibile che altri componenti esterni possono sfruttare per realizzare la propria versione del gioco (vedi sezione successiva _Presentazione separata_)
+
 - `it.uniba.app.commandline` : Poichè questo modulo è realizzato ad hoc per sfruttare l'API di `battleship` per giocare da linea di comando sono state rese visibili solo alcune classi (_CommandHandler, FlagHandler, ExitController, HelpController_) necessarie a _App_ in (`it.uniba.app`) per avviare i gestori.
 
 #### Presentazione separata
@@ -588,19 +600,24 @@ Per quanto riguarda i **package**:
 Il sistema è stato sviluppato tenendo conto della necessità di separare la _logica di dominio_ (battaglia navale solitario, con tutte le proprietà che appartengono al suo dominio) dalla _logica di presentazione_ (interazione con il terminale per giocare).
 
 Questa separazione è stata implementata suddividendo le classi in due package:
+
 - `it.uniba.app.battleship` : logica di dominio
 - `it.uniba.app.commandline` : logica di presentazione
 
 Questa suddivisione consentirebbe in futuro di riutilizzare i servizi offerti dal package `battleship` per realizzare una presentazione diversa (interfaccia grafica, ad esempio).
 
 #### Do Not Repeat Yourself (DRY)
+
 Il team di sviluppo ha tenuto conto del principio DRY, il quale suggerisce che una certa funzionalità (operazione, procedura, etc..) debba essere astratta a tal punto da poter essere riutilizzata ovunque ce ne dovesse essere bisogno, evitando quindi di scrivere codice duplicato.
 
 #### Accoppiamento e Coesione
+
 Sia in fase di concezione di ogni classe, sia in quella di sviluppo, ci si è interrogati sulle responsabilità tali classi avrebbero dovuto/debbano avere e si sono prese determinate decisioni.
 
 Abbiamo limitato il più possibile l'accoppiamento tra classi (il grado di dipendenza di una classe da altre) in modo tale che future modifiche in una non comportassero grossi cambiamenti in altre.
+
 D'altro canto abbiamo cercato di rendere le classi coese, non assegnandoli troppe responsabiltà.
+
 Laddove questo non è stato fatto fino in fondo, perlomeno si è reso il componente di appartenza ad alta coesione e basso (o nullo) accoppiamento (si osservi la struttura del package `battleship`, sezione 4).
 
 
