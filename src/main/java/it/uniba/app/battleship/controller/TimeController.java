@@ -14,7 +14,15 @@ public final class TimeController {
     private static final int SECOND = 60;
     private static final int MILLISECONDS = 1000;
 
+    private static class Holder {
+        private static final TimeController INSTANCE = new TimeController();
+    }
+
     private TimeController() { };
+
+    public static TimeController getInstance() {
+        return Holder.INSTANCE;
+    }
 
     /**
      * Permette di settare il limite di tempo e il
@@ -22,7 +30,7 @@ public final class TimeController {
      * @param time contiene l'istanza di Time da
      * aggiornare con i valori corretti.
      */
-    public static void setTime(final Time time) {
+    public void setTime(final Time time) {
         time.setTimeLimitMillis(time.getTimeLimitMin() * SECOND * MILLISECONDS);
         time.setStartTimeMill(System.currentTimeMillis());
     }
@@ -32,7 +40,7 @@ public final class TimeController {
      * nella partita per giocare.
      * @param timeSet contiene i minuti a disposizione per giocare.
      */
-    public static void setTimeLimit(final Time time, final int timeSet) {
+    public void setTimeLimit(final Time time, final int timeSet) {
         time.setTimeLimitMin(timeSet);
     }
 
@@ -43,7 +51,7 @@ public final class TimeController {
      * @param game contiene i dati della partita in corso.
      * @return il tempo trascorso in millisecondi.
      */
-    public static long checkTimePassedMillis(final Game game) {
+    public long checkTimePassedMillis(final Game game) {
         return game.getTime().getCurrentTimeMillis() - game.getTime().getStartTimeMillis();
     }
 
@@ -54,7 +62,7 @@ public final class TimeController {
      * @param game contiene i dati della partita in corso.
      * @return {@code true} se il tempo a dispozione è finito / {@code false} in caso contrario.
      */
-    public static boolean isTimeOver(final Game game) {
+    public boolean isTimeOver(final Game game) {
         if ((checkTimePassedMillis(game) > game.getTime().getTimeLimitMill())
                 && (game.getTime().getTimeLimitMin() != 0) && game.isSessionStarted()) {
             return true;

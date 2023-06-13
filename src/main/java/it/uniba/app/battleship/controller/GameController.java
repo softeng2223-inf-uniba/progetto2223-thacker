@@ -17,7 +17,15 @@ import it.uniba.app.battleship.entity.Time;
  */
 public final class GameController {
 
-    private GameController() { }
+    private static class Holder {
+        private static final GameController INSTANCE = new GameController();
+    }
+
+    private GameController() { };
+
+    public static GameController getInstance() {
+        return Holder.INSTANCE;
+    }
 
     /**
      * Avvia una nuova sessione di gioco.<hr>
@@ -26,7 +34,7 @@ public final class GameController {
      * @throws SessionAlreadyStartedException
      *      Non è possibile avviare un altra sessione se un'altra è in corso.
     */
-    public static void startSession(final Game game)
+    public void startSession(final Game game)
         throws SessionAlreadyStartedException {
             if (game.isSessionStarted()) {
                 throw new SessionAlreadyStartedException();
@@ -44,7 +52,7 @@ public final class GameController {
      *
      * @throws SessionNotStartedException Non è possibile terminare una sessione se non è in corso.
      */
-    public static void endSession(final Game game) throws SessionNotStartedException {
+    public void endSession(final Game game) throws SessionNotStartedException {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
@@ -58,13 +66,13 @@ public final class GameController {
      * a disposizione per giocare.
      * @throws SessionAlreadyStartedException
      */
-    public static void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
+    public void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
 
         Time time = new Time();
-        TimeController.setTimeLimit(time, value);
+        TimeController.getInstance().setTimeLimit(time, value);
         game.setTime(time);
     }
 
@@ -81,7 +89,7 @@ public final class GameController {
      * @throws OutOfMapException non è possibile lanciare il colpo fuori dalla
      * portata della mappa
      */
-    public static int strike(final Game game, final Coordinate coord)
+    public int strike(final Game game, final Coordinate coord)
         throws SessionNotStartedException, CellAlreadyMarkedException,
         OutOfMapException {
             if (!game.isSessionStarted()) {
@@ -117,26 +125,26 @@ public final class GameController {
          * @param val intero che contiene il numero di tentativi falliti.
          * @throws SessionAlreadyStartedException non è possibile impostare la difficoltà
          */
-        public static void setCustomDifficulty(final Game game, final int val) throws SessionAlreadyStartedException {
+        public void setCustomDifficulty(final Game game, final int val) throws SessionAlreadyStartedException {
             if (game.isSessionStarted()) {
                 throw new SessionAlreadyStartedException();
             }
             Difficulty diff = new Difficulty();
-            DifficultyController.setCustomDifficulty(diff, val);
+            DifficultyController.getInstance().setCustomDifficulty(diff, val);
             try {
                 game.setDifficulty(diff);
             } catch (CloneNotSupportedException e) { }
         }
 
     /**
-     * Imposta la difficoltà ad Easy.
+     * Imposta la difficoltà a Easy.
      */
-    public static void setEasyDifficulty(final Game game) throws SessionAlreadyStartedException {
+    public void setEasyDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setDefaultEasy(diff);
+        DifficultyController.getInstance().setDefaultEasy(diff);
 
         try {
             game.setDifficulty(diff);
@@ -146,12 +154,12 @@ public final class GameController {
     /**
      * Imposta la difficoltà a Medium.
      */
-    public static void setMediumDifficulty(final Game game) throws SessionAlreadyStartedException {
+    public void setMediumDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setDefaultMedium(diff);
+        DifficultyController.getInstance().setDefaultMedium(diff);
 
         try {
             game.setDifficulty(diff);
@@ -161,12 +169,12 @@ public final class GameController {
     /**
      * Imposta la difficoltà a Hard.
      */
-    public static void setHardDifficulty(final Game game) throws SessionAlreadyStartedException {
+    public void setHardDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.setDefaultHard(diff);
+        DifficultyController.getInstance().setDefaultHard(diff);
 
         try {
             game.setDifficulty(diff);
@@ -179,7 +187,7 @@ public final class GameController {
      * @return difficoltà selezionata
      * @throws CloneNotSupportedException
      */
-    public static Difficulty getDifficulty(final Game game) throws CloneNotSupportedException {
+    public Difficulty getDifficulty(final Game game) throws CloneNotSupportedException {
         return game.getDifficulty();
     }
 
@@ -193,7 +201,7 @@ public final class GameController {
      * @return griglia della sessione corrente nell'istante corrente
      * @throws SessionNotStartedException
      */
-    public static Grid getSessionGrid(final Game game) throws SessionNotStartedException {
+    public Grid getSessionGrid(final Game game) throws SessionNotStartedException {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
@@ -208,7 +216,7 @@ public final class GameController {
      * @throws SessionNotStartedException
      *      non è possibile ottenere questa informazione per una sessione non in corso.
      */
-    public static int getAttempts(final Game game) throws SessionNotStartedException {
+    public int getAttempts(final Game game) throws SessionNotStartedException {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }
@@ -224,7 +232,7 @@ public final class GameController {
      * @throws SessionNotStartedException
      *      non è possibile ottenere questa informazione per una sessione non in corso.
      */
-    public static int getFailedAttempts(final Game game) throws SessionNotStartedException {
+    public int getFailedAttempts(final Game game) throws SessionNotStartedException {
         if (!game.isSessionStarted()) {
             throw new SessionNotStartedException();
         }

@@ -20,14 +20,25 @@ public final class HelpController {
                     + "/svelagriglia \n"
                     + "/mostranavi \n"
                     + "/esci";
-    private HelpController() { }
+
+
+    private static class Holder {
+        private static final HelpController INSTANCE = new HelpController();
+    }
+
+    private HelpController() { };
+
+    public static HelpController getInstance() {
+            return Holder.INSTANCE;
+    }
+
     /**
      * Il metodo esegue il codice del comando /help.
      * Stampa una breve descrizione
      * che contiene i comandi di gioco in stile
      * "macchina da scrivere".
      */
-    static void showHelp() {
+    void showHelp() {
         for (char c : TEXT.toCharArray()) {
             Output.print(String.valueOf(c));
             try {
