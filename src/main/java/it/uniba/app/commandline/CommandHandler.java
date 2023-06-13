@@ -9,7 +9,6 @@ import it.uniba.app.battleship.exception.InvalidValueException;
 import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
-import it.uniba.app.battleship.controller.TimeController;
 // Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
@@ -36,7 +35,6 @@ public final class CommandHandler {
     /* BATTLESHIP CONTROLLERS */
     private static final GameController CONTROL_GAME = GameController.getInstance();
     private static final StrikeController CONTROL_STRIKE = StrikeController.getInstance();
-    private static final TimeController CONTROL_TIME = TimeController.getInstance();
     private static final GridController CONTROL_GRID = GridController.getInstance();
 
     private static class Holder {
@@ -193,7 +191,7 @@ public final class CommandHandler {
         handleHardDifficulty(game, true);
     }
     private boolean gameTimeCheck(final Game game) {
-        if (CONTROL_TIME.isTimeOver(game)) {
+        if (CONTROL_GAME.isTimeOver(game)) {
             try {
                 CONTROL_GAME.endSession(game);
                 CONTROL_GAME.setTime(game, 0);
