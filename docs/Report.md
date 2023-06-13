@@ -198,6 +198,13 @@ Il sistema è costituito da due componenti principali:
 - **Battleship**: fornisce servizi per gestire partite di battaglia navale solitario.
 - **Command Line Interface**: fornisce servizi per giocare a battleship attraverso la linea di comando.
 
+_Battleship_ offre strumenti che prescindono dal tipo di presentazione (_logica di dominio_), in modo tale le _core mechanics_^[Meccaniche di gioco fondamentali] del gioco possano essere gestite da altri componenti che si occupano semplicemente di interfacciarsi con l'utente.
+
+Infatti, il secondo componente - _Command Line Interface_ - si occupa di comunicare con Battleship:
+
+1. Interpretando i comandi dell'utente, convertendoli in elementi che l'interfaccia offerta da Battleship può comprendere
+2. Interpretando il feedback ricevuto dall'API di Battleship, convertendoli in segnali (stampe su terminale) che consentono all'utente di conoscere lo stato del sistema e prendere decisioni successive.
+
 
 ## (7) Manuale Utente
 
