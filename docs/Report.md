@@ -564,6 +564,14 @@ Questa suddivisione consentirebbe in futuro di riutilizzare i servizi offerti da
 #### Do Not Repeat Yourself (DRY)
 Il team di sviluppo ha tenuto conto del principio DRY, il quale suggerisce che una certa funzionalità (operazione, procedura, etc..) debba essere astratta a tal punto da poter essere riutilizzata ovunque ce ne dovesse essere bisogno, evitando quindi di scrivere codice duplicato.
 
+#### Accoppiamento e Coesione
+Sia in fase di concezione di ogni classe, sia in quella di sviluppo, ci si è interrogati sulle responsabilità tali classi avrebbero dovuto/debbano avere e si sono prese determinate decisioni.
+
+Abbiamo limitato il più possibile l'accoppiamento tra classi (il grado di dipendenza di una classe da altre) in modo tale che future modifiche in una non comportassero grossi cambiamenti in altre.
+D'altro canto abbiamo cercato di rendere le classi coese, non assegnandoli troppe responsabiltà.
+Laddove questo non è stato fatto fino in fondo, perlomeno si è reso il componente di appartenza ad alta coesione e basso (o nullo) accoppiamento (si osservi la struttura del package `battleship`, sezione 4).
+
+
 ## (7) Manuale Utente
 
 ### **(7.1) Prerequisiti**
