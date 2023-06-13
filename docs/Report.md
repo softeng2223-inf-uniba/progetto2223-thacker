@@ -417,6 +417,44 @@ A quel punto il sistema informa il giocatore dell'esito del tentativo: "_acqua_"
 - l'attore _Player_ ha già effettuato il comando `/gioca` e quindi avviato una sessione di gioco
 - l'attore _Player_ digita una coordinata lecita (formato `<lettera>-<numero>`) nella comunicazione con _Input_
 
+---
+**diagramma di sequenza**
+```mermaid
+sequenceDiagram
+    autonumber
+
+    participant App
+    actor Player
+    participant Input
+    participant Output
+    participant CH as CommandHandler
+    participant Game as :Game
+    participant StCo as StrikeController
+    participant GaCo as GameController
+    participant GrCo as GridController
+
+    App ->> Game: 
+    activate Game
+
+    App ->> CH: handle()
+    CH ->> Input: get()
+    Input ->> Player: attende comando
+    Player -->> Input: invia "<lettera>-<numero>"
+    Input -->> CH: "<lettera>-<numero>"
+    CH ->> StCo: strike()
+    StCo ->> GaCo: strike()
+    GaCo ->> Game: registra un tentativo
+    GaCo ->> GaCo: verifica se tentativo colpisce nave
+    GaCo -->> StCo: esito
+    StCo ->> Output: esito
+    Output ->> Player: mostra esito
+    CH ->> GrCo: genHitGrid()
+    CH ->> Output: printHitMap()
+    Output ->> Player: mostra griglia dei colpi
+
+    deactivate Game
+```
+---
 
 ## (7) Manuale Utente
 
