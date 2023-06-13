@@ -1,6 +1,5 @@
 package it.uniba.app.battleship.entity;
 
-import java.sql.Time;
 import java.util.HashSet;
 import java.util.LinkedList;
 
