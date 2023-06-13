@@ -90,6 +90,13 @@ public final class Ship implements Cloneable {
         return types.length;
     }
 
+    public static int getNumberInstanceShips() {
+        return CACCIATORPEDINIERE_INSTANCES
+               + INCROCIATORE_INSTANCES
+               + CORAZZATA_INSTANCES
+               + PORTAEREI_INSTANCES;
+    }
+
     /**
      * Restituisce il numero massimo di esemplari
      * istanziabili per tipo di nave in una partita.
