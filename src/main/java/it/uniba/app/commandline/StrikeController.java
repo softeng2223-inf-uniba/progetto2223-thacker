@@ -56,7 +56,7 @@ public final class StrikeController {
 
             int result = GameController.getInstance().strike(game, coord);
             Output.clearScreen();
-            Output.print("Lancio colpo in " + command + "\n" + "Esito: ");
+            Output.print("Lancio colpo in " + command + ".\n" + "Esito: ");
 
             switch (result) {
                 case 1  -> Output.printShipSunken();
