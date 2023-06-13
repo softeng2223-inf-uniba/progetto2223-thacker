@@ -1,4 +1,4 @@
-package it.uniba.app.utility;
+package it.uniba.app.commandline;
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -18,15 +18,18 @@ public final class Color {
             put("purple",   "\u001B[35m");
         }
     };
+
     private Color() { }
+
     /**
      * Restituisce il valore di reset del colore.
      *
      * @return il valore di reset del colore
      */
-    public static String getReset() {
+    static String getReset() {
         return COLOR.get("reset");
     }
+
     /**
      * Restituisce il valore corrispondente al nome del colore specificato.
      * Se il nome del colore è presente nella mappa COLOR, restituisce il valore associato.
@@ -35,7 +38,7 @@ public final class Color {
      * @param colorName il nome del colore da cercare
      * @return il valore corrispondente al nome del colore, o il valore di reset se non presente
      */
-    public static String get(final String colorName) {
+    static String get(final String colorName) {
         String str = COLOR.get(colorName);
         if (str != null) {
             return str;

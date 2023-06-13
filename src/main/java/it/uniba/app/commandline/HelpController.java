@@ -1,5 +1,7 @@
-package it.uniba.app.battleship.controller;
+package it.uniba.app.commandline;
+
 /**
+ * {@code <<Control>>}<hr>
  * Classe del comando /help.
  * Contiene il codice da eseguire con il comando /help.
  */
@@ -25,15 +27,16 @@ public final class HelpController {
      * che contiene i comandi di gioco in stile
      * "macchina da scrivere".
      */
-    public static void showHelp() {
-        for (int i = 0; i < TEXT.length(); i++) {
-            System.out.print(String.valueOf(TEXT.charAt(i)));
+    static void showHelp() {
+        for (char c : TEXT.toCharArray()) {
+            Output.print(String.valueOf(c));
             try {
                 Thread.sleep(DELAY);
-            } catch (InterruptedException err) {
-                System.out.println("InterruptedException: " + err);
+            } catch (InterruptedException e) {
+                Output.print("InterruptedException: " + e);
+                Thread.currentThread().interrupt();
             }
         }
-        System.out.println("\n");
+        Output.print("\n");
     }
 }

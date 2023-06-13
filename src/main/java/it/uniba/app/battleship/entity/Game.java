@@ -1,5 +1,6 @@
 package it.uniba.app.battleship.entity;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 
 import it.uniba.app.battleship.controller.GridController;
@@ -21,7 +22,7 @@ public final class Game {
     private Grid grid;
     private Time time;
 
-    private int totAttempts;
+    private HashSet<Coordinate> attempts;
     private int failedAttempts;
 
 
@@ -65,10 +66,12 @@ public final class Game {
     }
 
     /**
-     * Incrementa di 1 il numero attuale di tentativi falliti.
+     * Aggiunge un tentativo alla partita.
+     *
+     * @param attempt coordinata
      */
-    public void incrementTotalAttempts() {
-        totAttempts += 1;
+    public void addAttempt(final Coordinate attempt) {
+        attempts.add(attempt);
     }
 
     /**
@@ -99,7 +102,7 @@ public final class Game {
         TimeController.setTime(time);
 
         sunkShips = 0;
-        totAttempts = 0;
+        attempts = new HashSet<>();
         failedAttempts = 0;
         sessionStarted = true;
     }
@@ -151,7 +154,28 @@ public final class Game {
      * @return tentativi totali nell'istante corrente
      */
     public int getAttempts() {
-        return totAttempts;
+        return attempts.size();
+    }
+
+    /**
+     * Effettua un controllo sulle coordinate che sono già state colpite.
+     * Se la {@code Coordinate} si rivela essere una coordinata già colpita,
+     * allora il controllo darà esito positivo, altrimenti sarà negativo.
+     * @param coord coordinate su cui effettuare il controllo
+     * @return {@code true} se è una posizione già colpita, {@code false} altrimenti
+     */
+    public boolean isAlreadyAttempted(final Coordinate coord) {
+        return attempts.contains(coord);
+    }
+
+    /**
+     * Controlla se una coordinata rientra tra quelle possibili per la griglia di gioco.
+     *
+     * @param coord coordinata
+     * @return
+     */
+    public boolean isAttemptWithinBounds(final Coordinate coord) {
+        return grid.isWithinBounds(coord);
     }
 
     /**

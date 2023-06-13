@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.controller;
 import it.uniba.app.battleship.entity.Difficulty;
 /**
+ * {@code <<Control>>}<hr>
  * La classe DifficultyController gestisce le operazioni
  * relative alle difficoltà di gioco.
  */

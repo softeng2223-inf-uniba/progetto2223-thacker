@@ -1,4 +1,4 @@
-package it.uniba.app.commandline.controller;
+package it.uniba.app.commandline;
 
 // Import eccezioni.
 import java.io.IOException;
@@ -6,34 +6,27 @@ import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.OutOfMapException;
-// Import classi controller.
-import it.uniba.app.battleship.controller.ExitController;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
-import it.uniba.app.battleship.controller.HelpController;
 import it.uniba.app.battleship.controller.DifficultyController;
-import it.uniba.app.battleship.controller.ShowShipsController;
 import it.uniba.app.battleship.controller.TimeController;
 // Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
-// Import classi boundary.
-import it.uniba.app.utility.Input;
+
 // Altro.
 import java.util.LinkedHashSet;
 import java.util.Set;
+
 /**
+ * {@code <<Control>>}<hr>
  * {@code CommandHandler} è una classe che
  * gestisce i comandi con cui l'utente interagisce
  * con il gioco.
  */
 public final class CommandHandler {
     private CommandHandler() { }
-    /**
-     * Esegue un comando passato come parametro.
-     * @param game istanza di {@link Game}
-     */
     private static final Set<String> COMMANDS_WITH_PARAMS = new LinkedHashSet<>() {{
         add("/tentativi");
         add("/tempo");
@@ -41,27 +34,26 @@ public final class CommandHandler {
         add("/medio");
         add("/difficile");
     }};
-
     /**
      * Esegue un comando con o senza parametri.
      * @param game istanza di {@link Game}
      */
     public static void handleCommand(final Game game) {
         try {
+            Output.printEnterCommand(game.isSessionStarted());
             String command = Input.get().toLowerCase();
             String[] tokens = command.split(" ");
             if (gameTimeCheck(game)) {
-                System.err.println("Tempo scaduto. Comando ignorato. Hai perso.");
+                Output.printTimeOut();
                 return;
             }
             switch (tokens.length) {
-                case 1 -> executeNoArgs(game, command);
-                case 2 -> executeArgs(game, tokens[0], tokens[1]);
-                default -> System.err.println("[CH] '" + command + "' non è un comando valido."
-                        + "\nUsa il comando '/help' per vedere la lista dei comandi disponibili.");
+                case 1  -> executeNoArgs(game, command);
+                case 2  -> executeArgs(game, tokens[0], tokens[1]);
+                default -> Output.printCommandNotRecognised(command);
             }
         } catch (IOException e) {
-            System.err.println("Si è verificato un errore durante la lettura del comando: " + e.getMessage());
+            Output.printCantReadInput();
         }
     }
     /**
@@ -72,10 +64,13 @@ public final class CommandHandler {
      */
     private static void executeArgs(final Game game, final String commandStr, final String valueStr) {
         if (!COMMANDS_WITH_PARAMS.contains(commandStr)) {
-            System.err.println("[CH] '" + commandStr + "' non e' un comando con parametro valido."
-                    + "\nUsa il comando '/help' per vedere la lista dei comandi disponibili.");
+            Output.printCommandWithParamsNotRecognised(commandStr);
         } else if (!valueStr.matches("^[1-9]\\d*$")) {
-            System.err.println("[CH] '" + valueStr + "' non e' numero un intero >0.");
+            if (commandStr.equals("/tempo") && valueStr.equals("0")) {
+                handleTime(game, 0);
+            } else {
+                Output.printNumberFormatError(valueStr);
+            }
         } else {
             int value = Integer.parseInt(valueStr);
             switch (commandStr) {
@@ -88,7 +83,6 @@ public final class CommandHandler {
             }
         }
     }
-
     /** Esegue un comando letto dal terminale.
      * Alcuni dei comandi attualmente interpretati sono:
      * <ul>
@@ -119,27 +113,25 @@ public final class CommandHandler {
             case "/gioca"           -> handlePlay(game);
             case "/abbandona"       -> handleEndSession(game);
             case "/mostralivello"   -> handleShowDifficulty(game);
-            case "/facile"          -> handleEasyDifficulty(game);
-            case "/medio"           -> handleMediumDifficulty(game);
-            case "/difficile"       -> handleHardDifficulty(game);
+            case "/facile"          -> handleEasyDifficulty(game, false);
+            case "/medio"           -> handleMediumDifficulty(game, false);
+            case "/difficile"       -> handleHardDifficulty(game, false);
             case "/svelagriglia"    -> handleShowGameGrid(game);
             case "/mostratentativi" -> handleShowAttempts(game);
             case "/mostratempo"     -> handleShowTime(game);
-            case "/esci"            -> handleExit();
+            case "/esci"            -> handleExitGame();
             default -> handleDefaultOrShoot(game, command);
         }
     }
-
     private static void handleCustomDifficulty(final Game game, final int value) {
         try {
             GameController.setCustomDifficulty(game, value);
         } catch (SessionAlreadyStartedException e) {
-            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
+            Output.printCantSetDiffDuringSession();
         }
     }
     private static void handleShowTime(final Game game) {
-        String time = TimeController.showTime(game);
-        System.out.println(time);
+        Output.println(ShowTimeController.showTime(game));
     }
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
@@ -149,12 +141,7 @@ public final class CommandHandler {
      */
     private static void handleCustomEasyDifficulty(final Game game, final int num) {
         DifficultyController.setCustomEasy(num);
-        try {
-            GameController.setEasyDifficulty(game);
-            System.out.println("Ok");
-        } catch (SessionAlreadyStartedException e) {
-            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
-        }
+        handleEasyDifficulty(game, true);
     }
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'medio' a num.
@@ -164,12 +151,7 @@ public final class CommandHandler {
      */
     private static void handleCustomMediumDifficulty(final Game game, final int num) {
         DifficultyController.setCustomMedium(num);
-        try {
-            GameController.setMediumDifficulty(game);
-            System.out.println("Ok");
-        } catch (SessionAlreadyStartedException e) {
-            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
-        }
+        handleMediumDifficulty(game, true);
     }
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'difficile' a num.
@@ -179,14 +161,8 @@ public final class CommandHandler {
      */
     private static void handleCustomHardDifficulty(final Game game, final int num) {
         DifficultyController.setCustomHard(num);
-        try {
-            GameController.setHardDifficulty(game);
-            System.out.println("Ok");
-        } catch (SessionAlreadyStartedException e) {
-            System.err.println("[CH] Non puoi cambiare difficoltà se la partita è già iniziata.");
-        }
+        handleHardDifficulty(game, true);
     }
-
     private static boolean gameTimeCheck(final Game game) {
         if (TimeController.isTimeOver(game)) {
             try {
@@ -198,185 +174,201 @@ public final class CommandHandler {
 
             return true;
         }
-            return false;
+        return false;
     }
-
     private static void handleTime(final Game game, final int value) {
-            try {
-                GameController.setTime(game, value);
-                System.out.println("OK, il numero di minuti a disposizione per giocare e': " + value);
-            } catch (SessionAlreadyStartedException e) {
-                System.err.println(e.getMessage());
-            }
+        try {
+            GameController.setTime(game, value);
+            Output.printSetTime(value);
+        } catch (SessionAlreadyStartedException e) {
+            Output.printCantSetTime();
+        }
     }
-
     private static void handleDefaultOrShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
             try {
-                GameController.strike(game, command);
-                System.out.println(GridController.genHitMap(game.getSessionGrid()));
+                StrikeController.strike(game, command);
+                Output.printHitMap(ShowGridController.genHitMap(game));
             } catch (SessionNotStartedException err) {
-                System.err.println("[CH] Non puoi lanciare un colpo se non inizi una partita. "
-                        + "\nUtilizza il comando '/gioca' per iniziare una partita.");
+                Output.printHitSessionNotStarted();
             } catch (CellAlreadyMarkedException err) {
-                System.err.println(err.getMessage());
+                Output.printHitCellAlreadyHit(command);
             } catch (OutOfMapException err) {
-                System.err.println(err.getMessage());
+                Output.printHitOutOfMap(command);
             }
         } else {
-            System.err.println("[CH] '" + command + "' non è un comando senza parametri valido."
-                    + "\nUsa il comando '/help' per vedere la lista dei comandi disponibili.");
+            Output.printCommandWithoutParamsNotRecognised(command);
         }
     }
     private static void handleShowHitMap(final Game game) {
         try {
-            Grid grid = GameController.getSessionGrid(game);
-            String str = GridController.genHitMap(grid);
-            System.out.println(str);
+            String map = ShowGridController.genHitMap(game);
+            Output.clearScreen();
+            Output.printHitMap(map);
         } catch (SessionNotStartedException err) {
-            System.err.println(err.getMessage());
+            Output.printCantShowHitMap();
         }
     }
     private static void handleStandardGrid(final Game game) {
         try {
             GridController.standardGridSize(game);
+            Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
-            System.err.println(e.getMessage());
+            Output.printCantChangeGridSize();
         }
     }
     private static void handleLargeGrid(final Game game) {
         try {
             GridController.largeGridSize(game);
+            Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
-            System.err.println(e.getMessage());
+            Output.printCantChangeGridSize();
         }
     }
     private static void handleExtraLargeGrid(final Game game) {
         try {
             GridController.extraLargeGridSize(game);
+            Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
-            System.err.println(e.getMessage());
+            Output.printCantChangeGridSize();
         }
     }
     private static void handleShowShip() {
-        System.out.println(ShowShipsController.getShipInfo());
+        Output.clearScreen();
+        Output.println(ShowShipsController.getShipInfo());
     }
 
     private static void handleHelp() {
+        Output.clearScreen();
         HelpController.showHelp();
     }
 
     private static void handlePlay(final Game game) {
         try {
             GameController.startSession(game);
+            Output.clearScreen();
             handleShowHitMap(game);
         } catch (SessionAlreadyStartedException e) {
-            System.err.println("[CH] Non puoi iniziare una nuova partita se una è già in corso. "
-                    + "\nSe vuoi terminare la partita corrente usa il comando '/abbandona'");
+            Output.printStartSessionAlreadyStarted();
         }
     }
-
     private static void handleShowDifficulty(final Game game) {
         if (!game.isDifficultySet()) {
             setDefaultDifficulty(game);
         }
         try {
             Difficulty diff = GameController.getDifficulty(game);
-            System.out.println(
-                "Livello impostato:\n"
-                + "Nome : " + diff.getNameLevel() + "\n"
-                + "Numero massimo di tentativi fallibili : " + diff.getMaxFailedAttempts()
-                );
+            Output.printGameLevel(diff.getNameLevel(), diff.getMaxFailedAttempts());
         } catch (CloneNotSupportedException e) {
-            System.err.println("Impossibile recuperare l'informazione richiesta");
+            Output.printCantClone();
         }
     }
-    private static void handleEasyDifficulty(final Game game) {
+    private static void handleEasyDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setEasyDifficulty(game);
-            System.out.println("OK, livello di difficoltà impostato a facile.");
+            Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
+                                      game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException err) {
-            System.err.println("[CH] Non puoi modificare la difficoltà durante una partita.");
-         }
+            if (!custom) {
+                Output.printCantSetDiffDuringSession();
+            } else {
+                Output.printNotSetCustomDiff();
+            }
+        } catch (CloneNotSupportedException e) {
+            Output.printCantClone();
+        }
     }
-    private static void handleMediumDifficulty(final Game game) {
+    private static void handleMediumDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setMediumDifficulty(game);
-            System.out.println("OK, livello di difficoltà impostato a medio.");
+            Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
+                                      game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException err) {
-            System.err.println("[CH] Non puoi modificare la difficoltà durante una partita.");
-         }
+            if (!custom) {
+                Output.printCantSetDiffDuringSession();
+            } else {
+                Output.printNotSetCustomDiff();
+            }
+        } catch (CloneNotSupportedException e) {
+            Output.printCantClone();
+        }
     }
-    private static void handleHardDifficulty(final Game game) {
+    private static void handleHardDifficulty(final Game game, final boolean custom) {
         try {
             GameController.setHardDifficulty(game);
-            System.out.println("OK, livello di difficoltà impostato a difficile.");
-        } catch (SessionAlreadyStartedException err) {
-            System.err.println("[CH] Non puoi modificare la difficoltà durante una partita.");
-         }
+            Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
+                                      game.getDifficulty().getMaxFailedAttempts());
+        } catch (SessionAlreadyStartedException e) {
+            if (!custom) {
+                Output.printCantSetDiffDuringSession();
+            } else {
+                Output.printNotSetCustomDiff();
+            }
+        } catch (CloneNotSupportedException e) {
+            Output.printCantClone();
+        }
     }
     private static void handleShowGameGrid(final Game game) {
         try {
             Grid grid = GameController.getSessionGrid(game);
-            String message = GridController.genShipMap(grid);
-            System.out.println(message);
+            Output.clearScreen();
+            Output.printShipMap(ShowGridController.genShipMap(grid));
         } catch (SessionNotStartedException e) {
-            System.err.println(e.getMessage());
+            Output.printShowGridSessionNotStarted();
         }
     }
     private static void handleShowAttempts(final Game game) {
         try {
-            String message =
-                "tentativi effettuati: " + GameController.getAttempts(game) + "\n"
-                + "di cui falliti: " + GameController.getFailedAttempts(game) + "\n"
-                + "massimo fallibili: " + GameController.getDifficulty(game).getMaxFailedAttempts();
-            System.out.println(message);
+            Output.printShowAttempts(GameController.getAttempts(game),
+                                     GameController.getFailedAttempts(game),
+                                     GameController.getDifficulty(game).getMaxFailedAttempts());
         } catch (SessionNotStartedException e) {
-            System.err.println(e.getMessage());
+            Output.printShowAttemptsSessionNotStarted();
         } catch (CloneNotSupportedException e) {
-            System.out.println("Impossibile recuperare informazioni sul livello di difficoltà");
+            Output.printCantClone();
         }
     }
-
     private static void handleEndSession(final Game game) {
         try {
             if (!game.isSessionStarted()) {
                 throw new SessionNotStartedException();
             }
-            System.out.println("Confermi? (si / no)");
+            Output.printConfirmOperation("abbandonare la partita");
             String confirm = Input.get().toLowerCase();
             switch (confirm) {
                 case "si" -> {
-                    System.out.println(GridController.genShipMap(game.getSessionGrid()));
+                    Output.printEndSessionConfirm(ShowGridController.genShipMap(game.getSessionGrid()));
                     GameController.endSession(game);
-                    System.out.println("Sessione terminata");
+                    try {
+                        GameController.setTime(game, 0);
+                    } catch (SessionAlreadyStartedException ignored) { }
                 }
-                case "no" -> System.out.println("OK, Operazione annullata");
-                default -> System.err.println("Comando non riconosciuto, operazione annullata");
+                case "no" -> Output.printNotConfirm();
+                default   -> Output.printConfirmCommandNotFound();
             }
         } catch (SessionNotStartedException e) {
-            System.err.println(e.getMessage());
+            Output.printCantExit();
         } catch (IOException e) {
-            System.err.println("Impossibile leggere l'input");
+            Output.printCantReadInput();
         }
     }
-
-    private static void handleExit() {
+    private static void handleExitGame() {
         try {
-            System.out.println("Conferma l'uscita dal gioco (si/no)");
+            Output.printConfirmOperation("uscire dal gioco");
             String confirm = Input.get().toLowerCase();
             switch (confirm) {
                 case "si" -> ExitController.getInstance().requestExit();
-                case "no" -> System.out.println("OK, Operazione annullata");
-                default -> System.err.println("[CH] '" + confirm + "'non e' una risposta valida, operazione annullata");
+                case "no" -> Output.printNotConfirm();
+                default   -> Output.printConfirmCommandNotFound();
             }
-        } catch (IOException err) { }
+        } catch (IOException err) {
+            Output.printCantReadInput();
+        }
     }
     private static void setDefaultDifficulty(final Game game) {
         try {
             GameController.setEasyDifficulty(game);     //difficoltà predefinita: Facile
-        } catch (SessionAlreadyStartedException e) { }
+        } catch (SessionAlreadyStartedException ignored) { }
     }
-
 }
