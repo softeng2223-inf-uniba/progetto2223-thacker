@@ -12,7 +12,7 @@ public final class FlagHandler {
     private FlagHandler() { };
 
     /**
-     * Fornisce l'istanza del gestore dei flag
+     * Fornisce l'istanza del gestore dei flag.
      * @return istanza di FlagHandler
      */
     public static FlagHandler getInstance() {
