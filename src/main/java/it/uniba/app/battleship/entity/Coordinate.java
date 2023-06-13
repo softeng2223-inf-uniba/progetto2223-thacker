@@ -1,7 +1,8 @@
 package it.uniba.app.battleship.entity;
 
 /**
- * {@code <<entity>>} La classe {@code Coordinate} incapsula il concetto di riga e colonna per la matrice di gioco.
+ * {@code <<entity>>}
+ * La classe {@code Coordinate} incapsula il concetto di riga e colonna per la matrice di gioco.
  * Implementa l'interfaccia {@code Cloneable} per poter effettuare modifiche su una copia dell'oggetto
  * senza che queste si riflettano sulle coordinate originali.
  * Ha due costruttori, uno che prende due parametri di tipo {@code int} ed un altro senza parametri.
