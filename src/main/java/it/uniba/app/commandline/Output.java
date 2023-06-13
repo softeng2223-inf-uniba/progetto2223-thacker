@@ -358,7 +358,7 @@ public final class Output {
                                          final int maxFailAttempts) {
         println("Tentativi effettuati: " + totalHit + "\n"
                 + "tentativi falliti: " + attempts + "\n"
-                + "Max-tentativi che puoi fallire" + maxFailAttempts);
+                + "Max-tentativi che puoi fallire: " + maxFailAttempts);
     }
 
     /**
@@ -384,7 +384,7 @@ public final class Output {
      * @param hitMap La mappa dei colpi.
      */
     public static void printHitMap(final String hitMap) {
-        print("\nMappa dei colpi:\n\n"
+        print("Mappa dei colpi:\n\n"
                 + hitMap);
     }
 
@@ -393,7 +393,20 @@ public final class Output {
      * @param shipMap La mappa delle navi.
      */
     public static void printShipMap(final String shipMap) {
-        print("\nMappa delle navi:\n\n"
+        print("Mappa delle navi:\n\n"
                 + shipMap);
+    }
+    /**
+     * Stampa il messaggio "partita terminata" dopo che
+     * l'utente ha terminato i tentativi a disposizione.
+     * @param shipMap La mappa delle navi dell'avversario da stampare.
+     */
+    public static void printEndGameAttempts(final String shipMap) {
+        clearScreen();
+        print("Hai esaurito i tentativi, hai perso.\n"
+                + "Ecco la mappa delle navi dell'avversario:\n", "red");
+        printShipMap(shipMap);
+        println("\nSe vuoi giocare di nuovo digita '/gioca'.\n"
+                + "Se vuoi uscire dal gioco digita '/esci'.");
     }
 }
