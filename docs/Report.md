@@ -186,6 +186,10 @@ Ad un alto livello di astrazione la struttura del sistema è la seguente:
 
 Come si può osservare, il package it.uniba.app, che contiene il codice relativo al sistema oggetto di discussione di questo report (battleship) è costruito sfruttando l'archiettura di Java.
 
+Scendendo di livello, la struttura del package si articola nel seguente modo:
+
+![diagramma del package](./img/s2-package-it-uniba-app.jpg)
+
 
 
 ## (7) Manuale Utente
