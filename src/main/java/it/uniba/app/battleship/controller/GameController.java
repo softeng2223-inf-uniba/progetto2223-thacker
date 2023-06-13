@@ -17,6 +17,20 @@ import it.uniba.app.battleship.entity.Time;
  */
 public final class GameController {
 
+    /* COSTANTI PER I LIVELLI DI DIFFICOLTÀ */
+    private static final String EASY_NAME   = "Facile";
+    private static final String MEDIUM_NAME = "Medio";
+    private static final String HARD_NAME   = "Difficile";
+    private static final String CUSTOM_NAME = "Difficoltà personalizzata";
+
+    private static final int DEFAULT_EASY_MAX_FAILED_ATTEMPTS   = 50;
+    private static final int DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS = 30;
+    private static final int DEFAULT_HARD_MAX_FAILED_ATTEMPTS   = 10;
+
+    private int easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
+    private int mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
+    private int hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+
     private static class Holder {
         private static final GameController INSTANCE = new GameController();
     }
