@@ -3,7 +3,6 @@ package it.uniba.app.battleship.entity;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 
 /**
  * {@code <<entity>>}
