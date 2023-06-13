@@ -365,4 +365,14 @@ public final class GameController {
         return game.getSessionGrid();
     }
 
+    /**
+     * Imposta la dimensione della mappa a 10x10.
+     */
+    public void standardGridSize(final Game game) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        Grid.setChosenSize(Grid.getDefaultSize());
+    }
+
 }
