@@ -162,6 +162,17 @@ public final class GameController {
         time.setStartTimeMill(System.currentTimeMillis());
     }
 
+    /**
+     * Permette di controllare quanto tempo è trascorso
+     * dall'inizio della partita all'istante in cui
+     * viene chiamato il metodo.
+     * @param game contiene i dati della partita in corso.
+     * @return il tempo trascorso in millisecondi.
+     */
+    public long checkTimePassedMillis(final Game game) {
+        return game.getTime().getCurrentTimeMillis() - game.getTime().getStartTimeMillis();
+    }
+
 
     /* METODI PER LA DIFFICOLTÀ */
 
