@@ -105,50 +105,54 @@ public final class GameController {
      */
     public int strike(final Game game, final Coordinate coord)
         throws SessionNotStartedException, CellAlreadyMarkedException,
-        OutOfMapException {
-            if (!game.isSessionStarted()) {
-                throw new SessionNotStartedException();
-            }
-            if (!game.isAttemptWithinBounds(coord)) {
-                throw new OutOfMapException();
-            }
-            if (game.isAlreadyAttempted(coord)) {
-                throw new CellAlreadyMarkedException();
-            }
-
-            game.addAttempt(coord);
-            Grid curGrid = game.getSessionGrid();
-
-            if (!curGrid.isCellEmpty(coord)) {
-                Ship occupantShip = curGrid.get(coord);
-                occupantShip.hit();
-                if (occupantShip.isSunk()) {
-                    game.incrementSunkShips();
-                    return 1;
-                } else {
-                    return 0;
-                }
-            }
-            // se non è stata colpita alcuna nave:
-            game.incrementFailedAttempt();
-            return -1;
+            OutOfMapException {
+        if (!game.isSessionStarted()) {
+            throw new SessionNotStartedException();
         }
-        /**
-         * Imposta la difficoltà a una personalizzata con valori di tentativi fallibili personalizzati.
-         * @param game oggetto che conserva i dati di gioco.
-         * @param val intero che contiene il numero di tentativi falliti.
-         * @throws SessionAlreadyStartedException non è possibile impostare la difficoltà
-         */
-        public void setCustomDifficulty(final Game game, final int val) throws SessionAlreadyStartedException {
-            if (game.isSessionStarted()) {
-                throw new SessionAlreadyStartedException();
-            }
-            Difficulty diff = new Difficulty();
-            DifficultyController.getInstance().setCustomDifficulty(diff, val);
-            try {
-                game.setDifficulty(diff);
-            } catch (CloneNotSupportedException e) { }
+        if (!game.isAttemptWithinBounds(coord)) {
+            throw new OutOfMapException();
         }
+        if (game.isAlreadyAttempted(coord)) {
+            throw new CellAlreadyMarkedException();
+        }
+
+        game.addAttempt(coord);
+        Grid curGrid = game.getSessionGrid();
+
+        if (!curGrid.isCellEmpty(coord)) {
+            Ship occupantShip = curGrid.get(coord);
+            occupantShip.hit();
+            if (occupantShip.isSunk()) {
+                game.incrementSunkShips();
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        // se non è stata colpita alcuna nave:
+        game.incrementFailedAttempt();
+        return -1;
+    }
+
+    /**
+     * Crea una difficoltà con un numero di tentativi fallibili personalizzato e la imposta.
+     * @param game sessione di gioco.
+     * @param value numero di tentativi fallibili
+     * @throws SessionAlreadyStartedException
+     *      non è possibile impostare la difficoltà durante una sessione in corso
+     */
+    public void setCustomDifficulty(final Game game, final int value)
+        throws SessionAlreadyStartedException, InvalidValueException {
+        if (value <= 0) {
+            throw new InvalidValueException();
+        }
+        Difficulty diff = new Difficulty();
+        diff.setNameLevel(CUSTOM_NAME);
+        diff.setMaxFailedAttempts(value);
+        try {
+            game.setDifficulty(diff);
+        } catch (CloneNotSupportedException e) { }
+    }
 
     /**
      * Imposta la difficoltà a facile.
