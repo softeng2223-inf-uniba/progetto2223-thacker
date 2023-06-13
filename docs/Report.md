@@ -444,8 +444,6 @@ A quel punto il sistema informa il giocatore dell'esito del tentativo: "_acqua_"
 - l'attore _Player_ ha già effettuato il comando `/gioca` e quindi avviato una sessione di gioco
 - l'attore _Player_ digita una coordinata lecita (formato `<lettera>-<numero>`) nella comunicazione con _Input_
 
----
-
 **diagramma di sequenza**
 
 ```mermaid
@@ -457,10 +455,10 @@ sequenceDiagram
     participant Input
     participant Output
     participant CH as CommandHandler
-    participant Game as :Game
     participant StCo as StrikeController
     participant GaCo as GameController
-    participant GrCo as GridController
+    participant ShGrCo as ShowGridController
+    participant Game as :Game
 
     App ->> Game: 
     activate Game
@@ -473,11 +471,10 @@ sequenceDiagram
     CH ->> StCo: strike()
     StCo ->> GaCo: strike()
     GaCo ->> Game: registra un tentativo
-    GaCo ->> GaCo: verifica se tentativo colpisce nave
     GaCo -->> StCo: esito
     StCo ->> Output: esito
     Output ->> Player: mostra esito
-    CH ->> GrCo: genHitGrid()
+    CH ->> ShGrCo: genHitGrid()
     CH ->> Output: printHitMap()
     Output ->> Player: mostra griglia dei colpi
 
@@ -488,82 +485,89 @@ sequenceDiagram
 
 ```mermaid
 classDiagram
-    direction LR
+  direction LR
 
-    class Output {
-        print()$
-        printHitMap()$
-    }
-    <<boundary>> Output
+  class App {
+    main()$
+  }
 
-    class Input {
-        get()$
-    }
-    <<boundary>> Input
+  App ..> Game
+  App ..> CommandHandler
 
-    class Coordinate {
-        row
-        col
-        +equals()
-    }
-    <<entity>> Coordinate
+  class Output {
+    print()$
+    printHitMap()$
+  }
+  <<boundary>> Output
 
-    class Ship {
-        +hit()
-        +isSunk()
-    }
-    <<entity>> Ship
+  class Input {
+    get()$
+  }
+  <<boundary>> Input
 
-    class Grid {
-        +isWithinBounds(Coordinate)
-        +isCellEmpty(Coordinate)
-        +get(Coordinate): Ship
-    }
-    <<entity>> Grid
+  class CommandHandler {
+    +handle()
+    -handleDefaultOrShoot()
+  }
+  <<control>> CommandHandler
 
-    class Game {
-        +isAlreadyAttempted(Coordinate)
-        +isAttemptWithinBounds(Coordinate)
-        +addAttempt(Coordinate)
-    }
-    <<entity>> Game
+  CommandHandler ..> StrikeController
+  CommandHandler ..> Input
+  CommandHandler ..> Output
 
-    Game *--> "*" Coordinate: attempts
-    Game ..> Ship
-    Game --> "grid" Grid
-    Grid ..> Coordinate
-    Grid *--> Ship
+  class StrikeController {
+    +strike(String)
+  }
+  <<control>> StrikeController
 
-    class GameController {
-        +strike(Coordinate) int
-    }
-    <<control>> GameController
+  StrikeController ..> Coordinate
+  StrikeController ..> Game
+  StrikeController ..> GameController
+  StrikeController ..> Output
 
-    GameController ..> Game
-    GameController ..> Coordinate
-    GameController ..> Ship: "colpisce e verifica afondamento"
+  class GameController {
+    +strike(Coordinate) int
+  }
+  <<control>> GameController
 
-    class StrikeController {
-        +strike(String)
-    }
-    <<control>> StrikeController
+  GameController ..> Game
+  GameController ..> Coordinate
+  GameController ..> Ship: "colpisce e verifica afondamento"
 
-    StrikeController ..> Coordinate
-    StrikeController ..> Game
-    StrikeController ..> GameController
-    StrikeController ..> Output
+  class Game {
+    +isAlreadyAttempted(Coordinate)
+    +isAttemptWithinBounds(Coordinate)
+    +addAttempt(Coordinate)
+  }
+  <<entity>> Game
 
-    class CommandHandler {
-        +handle()
-        -handleDefaultOrShoot()
-    }
-    <<control>> CommandHandler
+  Game *--> "*" Coordinate: attempts
+  Game ..> Ship
+  Game *-- "1" Grid
 
-    CommandHandler ..> StrikeController
-    CommandHandler ..> Input
-    CommandHandler ..> Output
+  class Coordinate {
+    row
+    col
+    +equals()
+  }
+  <<entity>> Coordinate
+
+  class Grid {
+    +isWithinBounds(Coordinate)
+    +isCellEmpty(Coordinate)
+    +get(Coordinate): Ship
+  }
+  <<entity>> Grid
+
+  Grid ..> Coordinate
+  Grid *--> Ship
+
+  class Ship {
+    +hit()
+    +isSunk()
+  }
+  <<entity>> Ship
 ```
----
 
 ### (5.B) Design pattern applicati
 
