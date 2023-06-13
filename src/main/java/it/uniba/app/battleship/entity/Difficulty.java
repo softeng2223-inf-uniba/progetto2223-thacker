@@ -1,5 +1,6 @@
 package it.uniba.app.battleship.entity;
 /**
+ * {@code <<entity>>}
  * La classe Difficulty rappresenta una singola difficoltà di gioco.
  */
 public class Difficulty implements Cloneable {

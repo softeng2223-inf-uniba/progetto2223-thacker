@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.entity;
 
 /**
+ * {@code <<entity>>}
  * La classe {@code Ship} contiene gli attributi e i
  * metodi necessari per istanziare gli esemplari
  * per tipo di nave. Permette anche di

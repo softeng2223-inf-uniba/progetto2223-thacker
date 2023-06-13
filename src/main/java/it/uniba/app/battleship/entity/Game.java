@@ -6,8 +6,7 @@ import java.util.LinkedList;
 import it.uniba.app.battleship.GameController;
 
 /**
- * Entity class <hr>
- *
+ * {@code <<entity>>}
  * Fornisce servizi per gestire una sessione di gioco (o partita) di <i>Battleship solitaire</i>.
  */
 public final class Game {
