@@ -18,13 +18,17 @@ public final class App {
      * @param args command line arguments
      */
     public static void main(final String[] args) {
-        if (!FlagHandler.execute(args)) {
+        FlagHandler flagHandler = FlagHandler.getInstance();
+        CommandHandler commandHandler = CommandHandler.getInstance();
+        ExitController exit = ExitController.getInstance();
+
+        if (!flagHandler.execute(args)) {
             Output.printStartMessage();
         }
 
         Game game = new Game();
-        while (!ExitController.getInstance().isExitRequested()) {
-            CommandHandler.getInstance().handleCommand(game);
+        while (!exit.isExitRequested()) {
+            commandHandler.handleCommand(game);
         }
     }
 }
