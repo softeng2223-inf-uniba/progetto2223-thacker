@@ -385,4 +385,14 @@ public final class GameController {
         Grid.setChosenSize(Grid.getLargeSize());
     }
 
+    /**
+     * Imposta la dimensione della mappa a 26x26.
+     */
+    public void extraLargeGridSize(final Game game) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        Grid.setChosenSize(Grid.getExtraLargeSize());
+    }
+
 }
