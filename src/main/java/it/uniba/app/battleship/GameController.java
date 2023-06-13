@@ -1,4 +1,4 @@
-package it.uniba.app.battleship.controller;
+package it.uniba.app.battleship;
 
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.InvalidValueException;

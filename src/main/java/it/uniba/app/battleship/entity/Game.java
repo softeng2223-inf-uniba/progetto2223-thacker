@@ -3,7 +3,7 @@ package it.uniba.app.battleship.entity;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-import it.uniba.app.battleship.controller.GameController;
+import it.uniba.app.battleship.GameController;
 
 /**
  * Entity class <hr>

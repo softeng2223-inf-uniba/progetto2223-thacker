@@ -7,7 +7,7 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.InvalidValueException;
 import it.uniba.app.battleship.exception.OutOfMapException;
-import it.uniba.app.battleship.controller.GameController;
+import it.uniba.app.battleship.GameController;
 // Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;

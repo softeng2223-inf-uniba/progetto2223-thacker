@@ -1,6 +1,6 @@
 package it.uniba.app.commandline;
 
-import it.uniba.app.battleship.controller.GameController;
+import it.uniba.app.battleship.GameController;
 import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
