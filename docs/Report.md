@@ -543,6 +543,10 @@ classDiagram
 
 ### (5.C) Commenti sulle decisioni prese
 
+#### Information Hiding
+Ogni classe nasconde la propria struttura all'esterno, ovvero tutte le variabili di istanza sono private (**incapsulamento**).
+Di conseguenza. lo stato degli oggetti istanziati viene modificato solo attraverso le operazioni lecite (metodi pubblici) della classe di appartenenza.
+
 
 ## (7) Manuale Utente
 
