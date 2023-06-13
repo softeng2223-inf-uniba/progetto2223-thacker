@@ -208,12 +208,12 @@ Dove:
 
 Il sistema è costituito da due componenti principali:
 
-- **Battleship**: fornisce servizi per gestire partite di battaglia navale solitario.
-- **Command Line Interface**: fornisce servizi per giocare a battleship attraverso la linea di comando.
+- **Battleship**: fornisce servizi per gestire partite di battaglia navale solitario e di manipolare gli elementi del gioco.
+- **Command Line Interface**: fornisce servizi per giocare a _battleship_ attraverso la linea di comando.
 
 ![diagramma dei componenti](./img/s2-componenti.jpg)
 
-**Battleship** offre strumenti che prescindono dal tipo di presentazione (**logica di dominio**), in modo tale che le _core mechanics_ (meccaniche di gioco fondamentali) possano essere gestite da altri componenti che si occupano di interfacciarsi con l'utente.
+**Battleship** offre strumenti che prescindono dal tipo di presentazione (**logica di dominio**), in modo tale che le _core mechanics_ (meccaniche fondamentali) e gli elementi portanti del gioco possano essere gestiti da altri componenti che si occupano di interfacciarsi con l'utente.
 
 Infatti, il secondo componente - **Command Line Interface** - si occupa di comunicare con _Battleship_ nel seguente modo:
 
