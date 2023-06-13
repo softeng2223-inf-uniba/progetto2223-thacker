@@ -450,4 +450,26 @@ public final class GameController {
         return (Grid.getSize() - axis) < ship.getSize();
     }
 
+    /**
+     * Posiziona una singola nave in modo randomico all'interno della mappa.
+     * Sia l'orientamento della nave che le coordinate vengono generate
+     * randomicamente, dopodiché la nave viene posizionata secondo l'orientamento
+     * e le coordinate generate.
+     * @param ship nave da inserire in posizione randomica.
+    */
+    private void randomlyInsertShip(final Ship ship, final Grid grid) {
+        int direction = getRandomDirection();
+
+        Coordinate coord;
+        do {
+            coord = getRandomCoordinates();
+        } while (!isPositionAvailable(coord, direction, ship, grid));
+
+        if (direction == VERTICAL) {
+            insertShipVertical(coord, ship, grid);
+        } else {
+            insertShipHorizontal(coord, ship, grid);
+        }
+    }
+
 }
