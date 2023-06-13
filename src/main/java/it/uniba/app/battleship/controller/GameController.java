@@ -168,16 +168,19 @@ public final class GameController {
         } catch (CloneNotSupportedException e) { }
     }
 
-    /**
-     * Imposta la difficoltà a Medium.
+     /**
+     * Imposta la difficoltà a medio.
+     * @param game sessione di gioco.
+     * @throws SessionAlreadyStartedException
+     *      non è possibile impostare la difficoltà durante una sessione in corso
      */
     public void setMediumDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.getInstance().setDefaultMedium(diff);
-
+        diff.setNameLevel(MEDIUM_NAME);
+        diff.setMaxFailedAttempts(mediumMaxFailedAttempts);
         try {
             game.setDifficulty(diff);
         } catch (CloneNotSupportedException e) { }
