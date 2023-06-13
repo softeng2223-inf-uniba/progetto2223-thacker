@@ -540,6 +540,7 @@ classDiagram
 ---
 
 ### (5.B) Design pattern applicati
+Per le classi di tipo control (individuabili nel codice con il suffisso Controller e/o dall'etichetta `<<control>>` nel relativo javadoc) è stato applicato il design pattern "Singleton", come da convenzione.
 
 ### (5.C) Commenti sulle decisioni prese
 
