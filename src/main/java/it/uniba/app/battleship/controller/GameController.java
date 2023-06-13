@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.controller;
 
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
+import it.uniba.app.battleship.exception.InvalidValueException;
 import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
@@ -134,6 +135,8 @@ public final class GameController {
         return -1;
     }
 
+    /* METODI PER LA DIFFICOLTÀ */
+
     /**
      * Crea una difficoltà con un numero di tentativi fallibili personalizzato e la imposta.
      * @param game sessione di gioco.
@@ -196,7 +199,7 @@ public final class GameController {
      * @throws SessionAlreadyStartedException
      *      non è possibile impostare la difficoltà durante una sessione in corso
      */
-    public void setHardDifficulty(final Game game)  throws SessionAlreadyStartedException {
+    public void setHardDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
@@ -205,7 +208,18 @@ public final class GameController {
         diff.setMaxFailedAttempts(hardMaxFailedAttempts);
         try {
             game.setDifficulty(diff);
-        } catch (CloneNotSupportedException e) { }
+        } catch (CloneNotSupportedException e) {
+        }
+    }
+
+     /**
+     * Imposta la difficoltà dell'oggetto Difficulty come "Facile" e
+     * il numero massimo di tentativi falliti a maxFailedAttempts.
+     *
+     * @param maxFailedAttempts il numero massimo di tentativi falliti.
+     */
+    public void setCustomEasyDifficulty(final int maxFailedAttempts) {
+        easyMaxFailedAttempts = maxFailedAttempts;
     }
 
     /**
