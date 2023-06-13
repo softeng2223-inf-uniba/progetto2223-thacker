@@ -5,6 +5,9 @@ import it.uniba.app.battleship.exception.InvalidValueException;
 import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
+
+import java.util.Random;
+
 import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
@@ -35,6 +38,11 @@ public final class GameController {
     private int easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
     private int mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
     private int hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+
+    /* COSTANTI PER IL RIEMPIMENTO DELLA GRIGLIA */
+    private static final Random RAND = new Random();
+    private static final int POSSIBLE_DIRECTIONS = 2;
+    private static final int VERTICAL = 0;
 
     private static class Holder {
         private static final GameController INSTANCE = new GameController();
