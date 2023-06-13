@@ -151,15 +151,18 @@ public final class GameController {
         }
 
     /**
-     * Imposta la difficoltà a Easy.
+     * Imposta la difficoltà a facile.
+     * @param game sessione di gioco
+     * @throws SessionAlreadyStartedException
+     *      non è possibile impostare la difficoltà durante una sessione in corso
      */
     public void setEasyDifficulty(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
         Difficulty diff = new Difficulty();
-        DifficultyController.getInstance().setDefaultEasy(diff);
-
+        diff.setNameLevel(EASY_NAME);
+        diff.setMaxFailedAttempts(easyMaxFailedAttempts);
         try {
             game.setDifficulty(diff);
         } catch (CloneNotSupportedException e) { }
