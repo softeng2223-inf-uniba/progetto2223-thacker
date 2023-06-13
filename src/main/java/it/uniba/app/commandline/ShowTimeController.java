@@ -20,7 +20,7 @@ public final class ShowTimeController {
      */
     static String showTime(final Game game) {
         int maxMinute = game.getTime().getTimeLimitMin();
-        long minutePassed = TimeController.checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
+        long minutePassed = TimeController.getInstance().checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
 
         if (maxMinute == 0) {
             return "Hai a disposizione un tempo illimitato";

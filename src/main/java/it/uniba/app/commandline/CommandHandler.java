@@ -164,7 +164,7 @@ public final class CommandHandler {
         handleHardDifficulty(game, true);
     }
     private static boolean gameTimeCheck(final Game game) {
-        if (TimeController.isTimeOver(game)) {
+        if (TimeController.getInstance().isTimeOver(game)) {
             try {
                 GameController.getInstance().endSession(game);
                 GameController.getInstance().setTime(game, 0);

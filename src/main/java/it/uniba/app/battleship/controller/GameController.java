@@ -72,7 +72,7 @@ public final class GameController {
         }
 
         Time time = new Time();
-        TimeController.setTimeLimit(time, value);
+        TimeController.getInstance().setTimeLimit(time, value);
         game.setTime(time);
     }
 
