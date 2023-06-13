@@ -5,7 +5,19 @@ package it.uniba.app.commandline;
  * Gestisce i parametri passati all'avvio dell'applicazione (flags).
  */
 public final class FlagHandler {
-    private FlagHandler() { }
+    private static class Holder {
+        private static final FlagHandler INSTANCE = new FlagHandler();
+    }
+
+    private FlagHandler() { };
+
+    /**
+     * Fornisce l'istanza del gestore dei flag
+     * @return istanza di FlagHandler
+     */
+    public static FlagHandler getInstance() {
+        return Holder.INSTANCE;
+    }
 
     /**
      * Elabora ed esegue una sequenza di flag.
@@ -17,7 +29,7 @@ public final class FlagHandler {
      * </ul>
      * @param args flag da elaborare
      */
-    public static boolean execute(final String[] args) {
+    public boolean execute(final String[] args) {
         if (args.length == 0) {
             return false;
         }
