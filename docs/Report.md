@@ -206,10 +206,10 @@ sequenceDiagram
   participant Input
   participant Output
   participant CH as CommandHandler
-  participant Ga as :Game
   participant GaCo as GameController
+  participant ShGriCo as ShowGridController
+  participant Ga as :Game
   participant Grid as :Grid
-  participant GriCo as GridController
 
   App ->> Ga : crea
   activate Ga
@@ -222,15 +222,17 @@ sequenceDiagram
   CH ->> GaCo: startSession()
   GaCo ->> GaCo: controlla se sessione non in corso
   GaCo ->> GaCo: se difficoltà non impostata, setEasyDifficulty()
+  
   GaCo ->> Ga: startSession()
   Ga ->> Grid: crea
-  
   activate Grid
-  Ga ->> GriCo: randomlyFill()
-  GriCo ->> Grid: riempimento
-  CH ->> GriCo: genHitMap()
-  GriCo -->> CH: griglia dei colpi (vuota)
-  CH ->> Output: print()
+  Ga ->> GaCo: randomlyFill()
+  GaCo ->> Grid: riempimento
+  CH ->> ShGriCo: genHitMap()
+  ShGriCo ->> Ga: getSessionGrid()
+  Ga ->> Grid: clone()
+  ShGriCo -->> CH: griglia dei colpi (vuota)
+  CH ->> Output: printHitMap()
   Output -->> Player : mostra griglia vuota
 
   deactivate Grid
@@ -241,59 +243,83 @@ sequenceDiagram
 
 ```mermaid
 classDiagram
-    direction LR
+  direction LR
 
-    class App {
-      +main()$
-    }
-    class Input {
-      +get()$ String
-    }
-    <<boundary>> Input
+  class App {
+    +main()$
+  }
 
-    class Output {
-      +print(String)$
-    }
-    <<boundary>> Output
+  App ..> Game
+  App ..> CommandHandler
 
-    class CommandHandler {
-      +execute(Game)$
-      -handlePlay(Game)$
-    }
-    <<control>> CommandHandler
+  class Input {
+    +get()$ String
+  }
+  <<boundary>> Input
 
-    class GameController {
-      +startSession(Game)$
-    }
-    <<control>> GameController
+  class Output {
+    +printHitMap(String)$
+  }
+  <<boundary>> Output
 
-    class GridController {
-      +genHitMap()$ : String
-    }
-    <<control>> GridController
+  class CommandHandler {
+    +execute()
+    -handlePlay()
+  }
+  <<control>> CommandHandler
 
-    class Grid {
-      size
-    }
-    <<entity>> Grid
+  CommandHandler ..> Input
+  CommandHandler ..> Output
+  CommandHandler ..> Game
+  CommandHandler ..> GameController
+  CommandHandler .. ShowGridController
 
-    class Game {
-      +startSession()
-      +isSessionStarted()
-      +isDifficultySet()
-    }
-    <<entity>> Game
+  class GameController {
+    +startSession()
+    +randomlyFill(Grid, Ship)
+    +setEasyDifficulty()
+  }
+  <<control>> GameController
 
-    Game *-- "1" Grid
-    App ..> Game
-    App ..> CommandHandler
-    GameController ..> Game
-    CommandHandler ..> Game
-    CommandHandler ..> GameController
-    CommandHandler .. Input
-    CommandHandler .. Output
-    CommandHandler .. GridController
-    Game ..> GridController
+  GameController .. Game
+  GameController ..> Grid
+  GameController ..> Ship
+  GameController ..> Difficulty
+
+  class ShowGridController {
+    +genHitMap() String
+  }
+  <<control>> ShowGridController
+
+  ShowGridController ..> Game
+  ShowGridController ..> Grid
+
+  class Game {
+    +startSession()
+    +isSessionStarted()
+    +isDifficultySet()
+    +setDifficulty()
+  }
+  <<entity>> Game
+
+  Game *-- "1" Difficulty
+  Game *-- "1" Grid
+
+  class Grid
+  <<entity>> Grid
+
+  Grid *-- "*" Ship
+
+  class Difficulty {
+    name
+    maxFailedAttempts
+  }
+
+  class Ship {
+    id
+  }
+  <<entity>> Ship
+
 ```
 
 #### (5.A.2) Come _giocatore_ voglio _impostare la difficoltà_
