@@ -6,6 +6,17 @@ package it.uniba.app.commandline;
  * Contiene il codice da eseguire con il comando /help.
  */
 public final class HelpController {
+
+    private static class Holder {
+        private static final HelpController INSTANCE = new HelpController();
+    }
+
+    private HelpController() { };
+
+    public static HelpController getInstance() {
+            return Holder.INSTANCE;
+    }
+
     private static final int DELAY = 10;
     private static final String TEXT =
             "Benvenuto in BattleShip!\n\n"
@@ -20,14 +31,14 @@ public final class HelpController {
                     + "/svelagriglia \n"
                     + "/mostranavi \n"
                     + "/esci";
-    private HelpController() { }
+
     /**
      * Il metodo esegue il codice del comando /help.
      * Stampa una breve descrizione
      * che contiene i comandi di gioco in stile
      * "macchina da scrivere".
      */
-    static void showHelp() {
+    void showHelp() {
         for (char c : TEXT.toCharArray()) {
             Output.print(String.valueOf(c));
             try {

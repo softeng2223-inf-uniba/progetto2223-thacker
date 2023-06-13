@@ -35,7 +35,7 @@ public final class FlagHandler {
         }
         if (args.length == 1) {
             if (args[0].equals("-h") || args[0].equals("--help")) {
-                HelpController.showHelp();
+                HelpController.getInstance().showHelp();
                 return true;
             }
         }

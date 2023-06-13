@@ -255,7 +255,7 @@ public final class CommandHandler {
 
     private void handleHelp() {
         Output.clearScreen();
-        HelpController.showHelp();
+        HelpController.getInstance().showHelp();
     }
 
     private void handlePlay(final Game game) {
