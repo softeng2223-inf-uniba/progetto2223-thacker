@@ -125,9 +125,8 @@ public final class Game {
      * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
      *
      * @return difficoltà selezionata
-     * @throws CloneNotSupportedException
      */
-    public Difficulty getDifficulty() throws CloneNotSupportedException {
+    public Difficulty getDifficulty() {
         return difficulty.clone();
     }
 
