@@ -180,11 +180,12 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (5) Object Oriented Design 
 
+### (5.A) Diagrammi per user-story rilevanti
 Nei seguenti diagrammi di classe, è omessa la visibilità degli attributi perchè sottointesa quella privata (-): Il sistema infatti è stato progettato per osservare il principio di *incapsulamento* e *information hiding*.
 
 Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
 
-### (5.1) Come _giocatore_ voglio _iniziare una partita_
+#### (5.A.1) Come _giocatore_ voglio _iniziare una partita_
 Pullrequest: #79
 
 Issue: #29
@@ -235,7 +236,6 @@ sequenceDiagram
   deactivate Grid
   deactivate Ga
 ```
-
 
 **diagramma delle classi**
 
@@ -296,7 +296,7 @@ classDiagram
     Game ..> GridController
 ```
 
-### (5.2) Come _giocatore_ voglio _impostare la difficoltà_
+#### (5.A.2) Come _giocatore_ voglio _impostare la difficoltà_
 Pullrequest: #58
 
 Issue: #22
@@ -404,7 +404,7 @@ classDiagram
     Game *-- "1" Difficulty
 ```
 
-### (5.3) Come _giocatore_ voglio _effettuare un tentativo_ per _colpire una nave_
+#### (5.A.3) Come _giocatore_ voglio _effettuare un tentativo_ per _colpire una nave_
 
 Issue: #109
 
@@ -419,7 +419,9 @@ A quel punto il sistema informa il giocatore dell'esito del tentativo: "_acqua_"
 - l'attore _Player_ digita una coordinata lecita (formato `<lettera>-<numero>`) nella comunicazione con _Input_
 
 ---
+
 **diagramma di sequenza**
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -455,11 +457,9 @@ sequenceDiagram
 
     deactivate Game
 ```
----
-
----
 
 **diagramma delle classi**
+
 ```mermaid
 classDiagram
     direction LR
@@ -538,6 +538,11 @@ classDiagram
     CommandHandler ..> Output
 ```
 ---
+
+### (5.B) Design pattern applicati
+
+### (5.C) Commenti sulle decisioni prese
+
 
 ## (7) Manuale Utente
 
