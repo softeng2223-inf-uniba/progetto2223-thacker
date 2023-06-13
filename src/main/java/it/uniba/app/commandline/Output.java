@@ -409,4 +409,16 @@ public final class Output {
         println("\nSe vuoi giocare di nuovo digita '/gioca'.\n"
                 + "Se vuoi uscire dal gioco digita '/esci'.");
     }
+    /**
+     * Stampa il messaggio "partita vinta" dopo che
+     * l'utente ha colpito tutte le navi.
+     * @param totalHit
+     */
+    public static void printWinGame(final int totalHit) {
+        clearScreen();
+        println("Hai vinto la partita!", "green");
+        println("Hai effettuato " + totalHit + " tentativi.", "green");
+        println("\nSe vuoi giocare di nuovo digita '/gioca'.\n"
+                + "Se vuoi uscire dal gioco digita '/esci'.");
+    }
 }
