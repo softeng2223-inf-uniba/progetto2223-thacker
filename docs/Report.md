@@ -179,6 +179,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 - (RNF3) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
 ## (4) System Design
+
 ### (4.1) Package
 Ad un alto livello di astrazione la struttura del sistema è la seguente:
 
@@ -194,7 +195,17 @@ Come verrà anche descritto nella sezione successiva (4.2) i package sono stati 
 - `battleship` : contiene i componenti (package o classi) di competenza del domino di interesse (battaglia navale solitario);
 - `commandline` : contiene i componenti che utilizzano i servizi offerti da `battleship` per interfacciarsi con l'utente;
 
+Nel dettaglio, in `it.uniba.app` si ha che:
+
+![diagramma del package it.uniba.app](./img/s2-package-it-uniba-app-in-depth.png)
+
+Dove:
+
+- `entity` contiene parte dei concetti individuati dal modello di domino (sezione 2)
+- `exceptions` contiene componenti che modellano situazioni eccezionali legate al dominio di interesse in modo che possano essere gestite, dall'esterno, nel modo desiderato;
+
 ### (4.2) Componenti
+
 Il sistema è costituito da due componenti principali: 
 
 ![diagramma dei componenti](./img/s2-componenti.jpg)
