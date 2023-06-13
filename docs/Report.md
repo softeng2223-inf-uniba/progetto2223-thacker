@@ -185,7 +185,7 @@ Ad un alto livello di astrazione la struttura del sistema è la seguente:
 
 ![diagramma dei package](./img/s2-package-general.jpg)
 
-Come si può osservare, il `package it.uniba.app`, che contiene il codice relativo al sistema oggetto di discussione di questo report (battleship) è costruito sfruttando l'archiettura di Java.
+Come si può osservare, il package `it.uniba.app`, che contiene il codice relativo al sistema oggetto di discussione di questo report (battleship) è costruito sfruttando l'architettura di **java**; Nei passaggi successivi le relazioni dei sottopackage con l'infrastruttura java verranno per scontate, semplificando cosi il grafo delle dipendenze.
 
 Scendendo di livello, la struttura del package si articola nel seguente modo:
 
@@ -201,24 +201,25 @@ Nel dettaglio, in `it.uniba.app` si ha che:
 
 Dove:
 
-- `entity` contiene parte dei concetti individuati dal modello di domino (sezione 2)
+- `entity` contiene parte dei concetti individuati dal modello di dominio (sezione 2)
 - `exceptions` contiene componenti che modellano situazioni eccezionali legate al dominio di interesse in modo che possano essere gestite, dall'esterno, nel modo desiderato;
 
 ### (4.2) Componenti
 
-Il sistema è costituito da due componenti principali: 
-
-![diagramma dei componenti](./img/s2-componenti.jpg)
+Il sistema è costituito da due componenti principali:
 
 - **Battleship**: fornisce servizi per gestire partite di battaglia navale solitario.
 - **Command Line Interface**: fornisce servizi per giocare a battleship attraverso la linea di comando.
 
-_Battleship_ offre strumenti che prescindono dal tipo di presentazione (_logica di dominio_), in modo tale le _core mechanics_^[Meccaniche di gioco fondamentali] del gioco possano essere gestite da altri componenti che si occupano semplicemente di interfacciarsi con l'utente.
+![diagramma dei componenti](./img/s2-componenti.jpg)
 
-Infatti, il secondo componente - _Command Line Interface_ - si occupa di comunicare con Battleship:
+_Battleship_ offre strumenti che prescindono dal tipo di presentazione (_logica di dominio_), in modo tale che le _core mechanics_ (meccaniche di gioco fondamentali) possano essere gestite da altri componenti che si occupano di interfacciarsi con l'utente.
 
-1. Interpretando i comandi dell'utente, convertendoli in elementi che l'interfaccia offerta da Battleship può comprendere
-2. Interpretando il feedback ricevuto dall'API di Battleship, convertendoli in segnali (stampe su terminale) che consentono all'utente di conoscere lo stato del sistema e prendere decisioni successive.
+Infatti, il secondo componente - _Command Line Interface_ - si occupa di comunicare con _Battleship_ nel seguente modo:
+
+1. Interpreta i comandi dell'utente, convertendoli in elementi che l'interfaccia offerta da _Battleship_ può comprendere
+2. Comunica i dati a _Battleship_ attraverso la sua interfaccia
+2. Interpreta il feedback ricevuto da _Battleship_, convertendolo in segnali (e.g. stampe su terminale) che consentono all'utente di venire a conoscenza dello stato corrente del sistema e prendere decisioni successive.
 
 
 ## (7) Manuale Utente
