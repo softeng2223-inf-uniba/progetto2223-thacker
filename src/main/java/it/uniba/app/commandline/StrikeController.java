@@ -42,7 +42,7 @@ public final class StrikeController {
         throws SessionNotStartedException, CellAlreadyMarkedException, OutOfMapException {
             Coordinate coord = convert(command);
 
-            int result = GameController.strike(game, coord);
+            int result = GameController.getInstance().strike(game, coord);
             Output.clearScreen();
             Output.print("Lancio colpo in " + command + "\n" + "Esito: ");
 

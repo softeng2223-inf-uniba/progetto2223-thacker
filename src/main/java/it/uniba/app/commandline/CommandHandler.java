@@ -139,7 +139,7 @@ public final class CommandHandler {
     }
     private void handleCustomDifficulty(final Game game, final int value) {
         try {
-            GameController.setCustomDifficulty(game, value);
+            GameController.getInstance().setCustomDifficulty(game, value);
         } catch (SessionAlreadyStartedException e) {
             Output.printCantSetDiffDuringSession();
         }
@@ -154,7 +154,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomEasyDifficulty(final Game game, final int num) {
-        DifficultyController.setCustomEasy(num);
+        DifficultyController.getInstance().setCustomEasy(num);
         handleEasyDifficulty(game, true);
     }
     /**
@@ -164,7 +164,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomMediumDifficulty(final Game game, final int num) {
-        DifficultyController.setCustomMedium(num);
+        DifficultyController.getInstance().setCustomMedium(num);
         handleMediumDifficulty(game, true);
     }
     /**
@@ -174,14 +174,14 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomHardDifficulty(final Game game, final int num) {
-        DifficultyController.setCustomHard(num);
+        DifficultyController.getInstance().setCustomHard(num);
         handleHardDifficulty(game, true);
     }
     private boolean gameTimeCheck(final Game game) {
-        if (TimeController.isTimeOver(game)) {
+        if (TimeController.getInstance().isTimeOver(game)) {
             try {
-                GameController.endSession(game);
-                GameController.setTime(game, 0);
+                GameController.getInstance().endSession(game);
+                GameController.getInstance().setTime(game, 0);
             } catch (SessionNotStartedException | SessionAlreadyStartedException e) {
 
             }
@@ -192,7 +192,7 @@ public final class CommandHandler {
     }
     private void handleTime(final Game game, final int value) {
         try {
-            GameController.setTime(game, value);
+            GameController.getInstance().setTime(game, value);
             Output.printSetTime(value);
         } catch (SessionAlreadyStartedException e) {
             Output.printCantSetTime();
@@ -226,7 +226,7 @@ public final class CommandHandler {
     }
     private void handleStandardGrid(final Game game) {
         try {
-            GridController.standardGridSize(game);
+            GridController.getInstance().standardGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -234,7 +234,7 @@ public final class CommandHandler {
     }
     private void handleLargeGrid(final Game game) {
         try {
-            GridController.largeGridSize(game);
+            GridController.getInstance().largeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -242,7 +242,7 @@ public final class CommandHandler {
     }
     private void handleExtraLargeGrid(final Game game) {
         try {
-            GridController.extraLargeGridSize(game);
+            GridController.getInstance().extraLargeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -260,7 +260,7 @@ public final class CommandHandler {
 
     private void handlePlay(final Game game) {
         try {
-            GameController.startSession(game);
+            GameController.getInstance().startSession(game);
             Output.clearScreen();
             handleShowHitMap(game);
         } catch (SessionAlreadyStartedException e) {
@@ -272,7 +272,7 @@ public final class CommandHandler {
             setDefaultDifficulty(game);
         }
         try {
-            Difficulty diff = GameController.getDifficulty(game);
+            Difficulty diff = GameController.getInstance().getDifficulty(game);
             Output.printGameLevel(diff.getNameLevel(), diff.getMaxFailedAttempts());
         } catch (CloneNotSupportedException e) {
             Output.printCantClone();
@@ -280,7 +280,7 @@ public final class CommandHandler {
     }
     private void handleEasyDifficulty(final Game game, final boolean custom) {
         try {
-            GameController.setEasyDifficulty(game);
+            GameController.getInstance().setEasyDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
                                       game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException err) {
@@ -295,7 +295,7 @@ public final class CommandHandler {
     }
     private void handleMediumDifficulty(final Game game, final boolean custom) {
         try {
-            GameController.setMediumDifficulty(game);
+            GameController.getInstance().setMediumDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
                                       game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException err) {
@@ -310,7 +310,7 @@ public final class CommandHandler {
     }
     private void handleHardDifficulty(final Game game, final boolean custom) {
         try {
-            GameController.setHardDifficulty(game);
+            GameController.getInstance().setHardDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
                                       game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException e) {
@@ -325,7 +325,7 @@ public final class CommandHandler {
     }
     private void handleShowGameGrid(final Game game) {
         try {
-            Grid grid = GameController.getSessionGrid(game);
+            Grid grid = GameController.getInstance().getSessionGrid(game);
             Output.clearScreen();
             Output.printShipMap(ShowGridController.genShipMap(grid));
         } catch (SessionNotStartedException e) {
@@ -334,9 +334,10 @@ public final class CommandHandler {
     }
     private void handleShowAttempts(final Game game) {
         try {
-            Output.printShowAttempts(GameController.getAttempts(game),
-                                     GameController.getFailedAttempts(game),
-                                     GameController.getDifficulty(game).getMaxFailedAttempts());
+            GameController gController = GameController.getInstance();
+            Output.printShowAttempts(gController.getAttempts(game),
+                                     gController.getFailedAttempts(game),
+                                     gController.getDifficulty(game).getMaxFailedAttempts());
         } catch (SessionNotStartedException e) {
             Output.printShowAttemptsSessionNotStarted();
         } catch (CloneNotSupportedException e) {
@@ -353,9 +354,9 @@ public final class CommandHandler {
             switch (confirm) {
                 case "si" -> {
                     Output.printEndSessionConfirm(ShowGridController.genShipMap(game.getSessionGrid()));
-                    GameController.endSession(game);
+                    GameController.getInstance().endSession(game);
                     try {
-                        GameController.setTime(game, 0);
+                        GameController.getInstance().setTime(game, 0);
                     } catch (SessionAlreadyStartedException ignored) { }
                 }
                 case "no" -> Output.printNotConfirm();
@@ -382,7 +383,7 @@ public final class CommandHandler {
     }
     private void setDefaultDifficulty(final Game game) {
         try {
-            GameController.setEasyDifficulty(game);     //difficoltà predefinita: Facile
+            GameController.getInstance().setEasyDifficulty(game);     //difficoltà predefinita: Facile
         } catch (SessionAlreadyStartedException ignored) { }
     }
 }

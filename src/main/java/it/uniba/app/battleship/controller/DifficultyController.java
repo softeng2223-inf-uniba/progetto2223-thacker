@@ -15,11 +15,19 @@ public final class DifficultyController {
     private static final int DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS = 30;
     private static final int DEFAULT_HARD_MAX_FAILED_ATTEMPTS   = 10;
 
-    private static int easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
-    private static int mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
-    private static int hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+    private int easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
+    private int mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
+    private int hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
 
-    private DifficultyController() { }
+    private static class Holder {
+        private static final DifficultyController INSTANCE = new DifficultyController();
+    }
+
+    private DifficultyController() { };
+
+    public static DifficultyController getInstance() {
+        return Holder.INSTANCE;
+    }
 
     /**
      * Imposta la difficoltà dell'oggetto Difficulty come "Facile" e
@@ -27,7 +35,7 @@ public final class DifficultyController {
      *
      * @param difficulty l'oggetto Difficulty da modificare.
      */
-    public static void setDefaultEasy(final Difficulty difficulty) {
+    public void setDefaultEasy(final Difficulty difficulty) {
         difficulty.setNameLevel(EASY_NAME);
         difficulty.setMaxFailedAttempts(easyMaxFailedAttempts);
     }
@@ -37,7 +45,7 @@ public final class DifficultyController {
      *
      * @param difficulty l'oggetto Difficulty da modificare.
      */
-    public static void setDefaultMedium(final Difficulty difficulty) {
+    public void setDefaultMedium(final Difficulty difficulty) {
         difficulty.setNameLevel(MEDIUM_NAME);
         difficulty.setMaxFailedAttempts(mediumMaxFailedAttempts);
     }
@@ -47,7 +55,7 @@ public final class DifficultyController {
      *
      * @param difficulty l'oggetto Difficulty da modificare.
      */
-    public static void setDefaultHard(final Difficulty difficulty) {
+    public void setDefaultHard(final Difficulty difficulty) {
         difficulty.setNameLevel(HARD_NAME);
         difficulty.setMaxFailedAttempts(hardMaxFailedAttempts);
     }
@@ -58,7 +66,7 @@ public final class DifficultyController {
      * @param difficulty l'oggetto Game da modificare.
      * @param value il numero massimo di tentativi falliti.
      */
-    public static void setCustomDifficulty(final Difficulty difficulty, final int value) {
+    public void setCustomDifficulty(final Difficulty difficulty, final int value) {
         difficulty.setNameLevel(CUSTOM_NAME);
         difficulty.setMaxFailedAttempts(value);
     }
@@ -69,7 +77,7 @@ public final class DifficultyController {
      *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
      */
-    public static void setCustomEasy(final int maxFailedAttempts) {
+    public void setCustomEasy(final int maxFailedAttempts) {
         easyMaxFailedAttempts = maxFailedAttempts;
     }
 
@@ -79,7 +87,7 @@ public final class DifficultyController {
      *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
      */
-    public static void setCustomMedium(final int maxFailedAttempts) {
+    public void setCustomMedium(final int maxFailedAttempts) {
         mediumMaxFailedAttempts = maxFailedAttempts;
     }
 
@@ -89,7 +97,7 @@ public final class DifficultyController {
      *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
      */
-    public static void setCustomHard(final int maxFailedAttempts) {
+    public void setCustomHard(final int maxFailedAttempts) {
         hardMaxFailedAttempts = maxFailedAttempts;
     }
 }

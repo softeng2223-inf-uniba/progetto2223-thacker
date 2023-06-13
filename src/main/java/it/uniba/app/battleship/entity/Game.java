@@ -98,8 +98,8 @@ public final class Game {
      */
     public void startSession() {
         grid = new Grid();
-        GridController.randomlyFill(SHIPS, grid);
-        TimeController.setTime(time);
+        GridController.getInstance().randomlyFill(SHIPS, grid);
+        TimeController.getInstance().setTime(time);
 
         sunkShips = 0;
         attempts = new HashSet<>();
