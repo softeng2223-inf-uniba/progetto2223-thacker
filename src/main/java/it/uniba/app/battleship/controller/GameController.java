@@ -139,6 +139,15 @@ public final class GameController {
         return -1;
     }
 
+    /**
+     * Permette di settare il numero di minuti a disposizione
+     * nella partita per giocare.
+     * @param timeSet contiene i minuti a disposizione per giocare.
+     */
+    public void setTimeLimit(final Time time, final int timeSet) {
+        time.setTimeLimitMin(timeSet);
+    }
+
     /* METODI PER LA DIFFICOLTÀ */
 
     /**
