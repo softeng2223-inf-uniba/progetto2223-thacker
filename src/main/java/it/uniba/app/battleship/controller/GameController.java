@@ -77,23 +77,6 @@ public final class GameController {
         }
         game.endSession();
     }
-    /**
-     * Permette di settare il numero massimo di
-     * minuti a disposizione per giocare.
-     * @param game oggetto che conserva i dati di gioco.
-     * @param value intero che contiene il numero di minuti
-     * a disposizione per giocare.
-     * @throws SessionAlreadyStartedException
-     */
-    public void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
-        if (game.isSessionStarted()) {
-            throw new SessionAlreadyStartedException();
-        }
-
-        Time time = new Time();
-        TimeController.getInstance().setTimeLimit(time, value);
-        game.setTime(time);
-    }
 
     /**
      * Gestisce la chiamata di strike, se una nave viene affondata, incrementa
@@ -139,6 +122,8 @@ public final class GameController {
         return -1;
     }
 
+    /* METODI PER IL TEMPO */
+
     /**
      * Permette di settare il numero di minuti a disposizione
      * nella partita per giocare.
@@ -147,6 +132,25 @@ public final class GameController {
     public void setTimeLimit(final Time time, final int timeSet) {
         time.setTimeLimitMin(timeSet);
     }
+
+    /**
+     * Permette di settare il numero massimo di
+     * minuti a disposizione per giocare.
+     * @param game oggetto che conserva i dati di gioco.
+     * @param value intero che contiene il numero di minuti
+     * a disposizione per giocare.
+     * @throws SessionAlreadyStartedException
+     */
+    public void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+
+        Time time = new Time();
+        setTimeLimit(time, value);
+        game.setTime(time);
+    }
+
 
     /* METODI PER LA DIFFICOLTÀ */
 
