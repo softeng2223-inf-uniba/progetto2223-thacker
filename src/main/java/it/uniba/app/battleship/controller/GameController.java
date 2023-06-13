@@ -233,6 +233,16 @@ public final class GameController {
     }
 
     /**
+     * Imposta la difficoltà dell'oggetto Difficulty come "Difficile" e
+     * il numero massimo di tentativi falliti a maxFailedAttempts.
+     *
+     * @param maxFailedAttempts il numero massimo di tentativi falliti.
+     */
+    public void setCustomHardDifficulty(final int maxFailedAttempts) {
+        hardMaxFailedAttempts = maxFailedAttempts;
+    }
+
+    /**
      * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
      *
      * @return difficoltà selezionata
