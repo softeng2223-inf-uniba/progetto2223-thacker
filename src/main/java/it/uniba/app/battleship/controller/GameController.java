@@ -18,6 +18,10 @@ import it.uniba.app.battleship.entity.Time;
  */
 public final class GameController {
 
+    /* COSTANTI PER IL TEMPO */
+    private static final int SECOND = 60;
+    private static final int MILLISECONDS = 1000;
+
     /* COSTANTI PER I LIVELLI DI DIFFICOLTÀ */
     private static final String EASY_NAME   = "Facile";
     private static final String MEDIUM_NAME = "Medio";
