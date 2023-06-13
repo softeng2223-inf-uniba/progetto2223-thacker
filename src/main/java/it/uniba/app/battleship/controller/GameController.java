@@ -151,6 +151,17 @@ public final class GameController {
         game.setTime(time);
     }
 
+    /**
+     * Permette di settare il limite di tempo e il
+     * tempo d'inizio in millisecondi.
+     * @param time contiene l'istanza di Time da
+     * aggiornare con i valori corretti.
+     */
+    public void setTime(final Time time) {
+        time.setTimeLimitMillis(time.getTimeLimitMin() * SECOND * MILLISECONDS);
+        time.setStartTimeMill(System.currentTimeMillis());
+    }
+
 
     /* METODI PER LA DIFFICOLTÀ */
 
