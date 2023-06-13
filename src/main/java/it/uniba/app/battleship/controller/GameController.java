@@ -314,22 +314,6 @@ public final class GameController {
         return game.getDifficulty();
     }
 
-    /**
-     * Fornisce una copia della griglia di gioco in un determinato istante della sessione in corso.
-     * Non è possibile ottenere una griglia prima che una sessione di gioco sia iniziata.
-     *
-     * Attenzione: Da usare solo per scopi di presentazione,
-     * operare sulla copia non influenza il corso della sessione.
-     *
-     * @return griglia della sessione corrente nell'istante corrente
-     * @throws SessionNotStartedException
-     */
-    public Grid getSessionGrid(final Game game) throws SessionNotStartedException {
-        if (!game.isSessionStarted()) {
-            throw new SessionNotStartedException();
-        }
-        return game.getSessionGrid();
-    }
 
     /**
      * Fornisce il numero di tentativi effettuati fino al momento corrente di una sessione di gioco in corso.
@@ -360,6 +344,25 @@ public final class GameController {
             throw new SessionNotStartedException();
         }
         return game.getFailedAttempts();
+    }
+
+    /* METODI PER LA GRIGLIA */
+
+    /**
+     * Fornisce una copia della griglia di gioco in un determinato istante della sessione in corso.
+     * Non è possibile ottenere una griglia prima che una sessione di gioco sia iniziata.
+     *
+     * Attenzione: Da usare solo per scopi di presentazione,
+     * operare sulla copia non influenza il corso della sessione.
+     * @param game la sessione di gioco
+     * @return griglia della sessione corrente nell'istante corrente
+     * @throws SessionNotStartedException
+     */
+    public Grid getSessionGrid(final Game game) throws SessionNotStartedException {
+        if (!game.isSessionStarted()) {
+            throw new SessionNotStartedException();
+        }
+        return game.getSessionGrid();
     }
 
 }
