@@ -2,6 +2,7 @@ package it.uniba.app.commandline;
 
 // Import eccezioni.
 import java.io.IOException;
+
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
@@ -12,6 +13,7 @@ import it.uniba.app.battleship.GameController;
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
+import it.uniba.app.battleship.entity.Ship;
 
 // Altro.
 import java.util.LinkedHashSet;
@@ -63,13 +65,12 @@ public final class CommandHandler {
      */
     public void handleCommand(final Game game) {
         try {
+            if (game.isSessionStarted() && isEnd(game)) {
+                return;
+            }
             Output.printEnterCommand(game.isSessionStarted());
             String command = Input.get().toLowerCase();
             String[] tokens = command.split(" ");
-            if (gameTimeCheck(game)) {
-                Output.printTimeOut();
-                return;
-            }
             switch (tokens.length) {
                 case 1  -> executeNoArgs(game, command);
                 case 2  -> executeArgs(game, tokens[0], tokens[1]);
@@ -78,6 +79,27 @@ public final class CommandHandler {
         } catch (IOException e) {
             Output.printCantReadInput();
         }
+    }
+    private boolean isEnd(final Game game) {
+        // Se il tempo è scaduto, termina la partita.
+        if (gameTimeCheck(game)) {
+            Output.printTimeOut();
+            return true;
+        }
+        // Se hai esausto i tentativi, termina la partita.
+        if (CONTROL_GAME.getFailedAttempts(game)
+            == game.getDifficulty().getMaxFailedAttempts()) {
+                Output.printEndGameAttempts(CONTROL_SHOWGRID.genShipMap(game.getSessionGrid()));
+                game.endSession();
+                return true;
+            }
+        // Se tutte le navi sono state affondate, termina la partita.
+        if (game.getSunkShips() == Ship.getNumberInstanceShips()) {
+            Output.printWinGame(CONTROL_GAME.getAttempts(game));
+            game.endSession();
+            return true;
+        }
+        return false;
     }
     /**
      * Esegue un comando con parametri.
@@ -300,8 +322,6 @@ public final class CommandHandler {
             } else {
                 Output.printNotSetCustomDiff();
             }
-        } catch (CloneNotSupportedException e) {
-            Output.printCantClone();
         }
     }
     private void handleMediumDifficulty(final Game game, final boolean custom) {
@@ -315,8 +335,6 @@ public final class CommandHandler {
             } else {
                 Output.printNotSetCustomDiff();
             }
-        } catch (CloneNotSupportedException e) {
-            Output.printCantClone();
         }
     }
     private void handleHardDifficulty(final Game game, final boolean custom) {
@@ -330,14 +348,13 @@ public final class CommandHandler {
             } else {
                 Output.printNotSetCustomDiff();
             }
-        } catch (CloneNotSupportedException e) {
-            Output.printCantClone();
         }
     }
     private void handleShowGameGrid(final Game game) {
         try {
             Grid grid = CONTROL_GAME.getSessionGrid(game);
             Output.clearScreen();
+            Output.print("[VISTA AVVERSARIO]\n]");
             Output.printShipMap(CONTROL_SHOWGRID.genShipMap(grid));
         } catch (SessionNotStartedException e) {
             Output.printShowGridSessionNotStarted();
