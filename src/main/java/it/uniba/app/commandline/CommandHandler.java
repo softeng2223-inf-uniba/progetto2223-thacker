@@ -5,10 +5,10 @@ import java.io.IOException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
+import it.uniba.app.battleship.exception.InvalidValueException;
 import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.controller.GameController;
 import it.uniba.app.battleship.controller.GridController;
-import it.uniba.app.battleship.controller.DifficultyController;
 import it.uniba.app.battleship.controller.TimeController;
 // Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
@@ -36,7 +36,6 @@ public final class CommandHandler {
     /* BATTLESHIP CONTROLLERS */
     private static final GameController CONTROL_GAME = GameController.getInstance();
     private static final StrikeController CONTROL_STRIKE = StrikeController.getInstance();
-    private static final DifficultyController CONTROL_DIFFICULTY = DifficultyController.getInstance();
     private static final TimeController CONTROL_TIME = TimeController.getInstance();
     private static final GridController CONTROL_GRID = GridController.getInstance();
 
@@ -156,6 +155,8 @@ public final class CommandHandler {
             CONTROL_GAME.setCustomDifficulty(game, value);
         } catch (SessionAlreadyStartedException e) {
             Output.printCantSetDiffDuringSession();
+        } catch (InvalidValueException e) {
+            Output.print(e.getMessage());
         }
     }
     private void handleShowTime(final Game game) {
@@ -168,7 +169,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomEasyDifficulty(final Game game, final int num) {
-        CONTROL_DIFFICULTY.setCustomEasy(num);
+        CONTROL_GAME.setCustomEasyDifficulty(num);
         handleEasyDifficulty(game, true);
     }
     /**
@@ -178,7 +179,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomMediumDifficulty(final Game game, final int num) {
-        CONTROL_DIFFICULTY.setCustomMedium(num);
+        CONTROL_GAME.setCustomMediumDifficulty(num);
         handleMediumDifficulty(game, true);
     }
     /**
@@ -188,7 +189,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomHardDifficulty(final Game game, final int num) {
-        CONTROL_DIFFICULTY.setCustomHard(num);
+        CONTROL_GAME.setCustomHardDifficulty(num);
         handleHardDifficulty(game, true);
     }
     private boolean gameTimeCheck(final Game game) {
