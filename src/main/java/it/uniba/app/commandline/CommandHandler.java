@@ -212,7 +212,7 @@ public final class CommandHandler {
     }
     private static void handleStandardGrid(final Game game) {
         try {
-            GridController.standardGridSize(game);
+            GridController.getInstance().standardGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -220,7 +220,7 @@ public final class CommandHandler {
     }
     private static void handleLargeGrid(final Game game) {
         try {
-            GridController.largeGridSize(game);
+            GridController.getInstance().largeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -228,7 +228,7 @@ public final class CommandHandler {
     }
     private static void handleExtraLargeGrid(final Game game) {
         try {
-            GridController.extraLargeGridSize(game);
+            GridController.getInstance().extraLargeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();

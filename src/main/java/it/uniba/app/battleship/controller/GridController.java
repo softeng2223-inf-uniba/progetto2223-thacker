@@ -18,12 +18,20 @@ public final class GridController {
     private static final int POSSIBLE_DIRECTIONS = 2;
     private static final int VERTICAL = 0;
 
-    private GridController() { }
+    private static class Holder {
+        private static final GridController INSTANCE = new GridController();
+    }
+
+    private GridController() { };
+
+    public static GridController getInstance() {
+        return Holder.INSTANCE;
+    }
 
     /**
      * Imposta la dimensione della mappa a 10x10.
      */
-    public static void standardGridSize(final Game game) throws SessionAlreadyStartedException {
+    public void standardGridSize(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
@@ -33,7 +41,7 @@ public final class GridController {
     /**
      * Imposta la dimensione della mappa a 18x18.
      */
-    public static void largeGridSize(final Game game) throws SessionAlreadyStartedException {
+    public void largeGridSize(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
@@ -43,7 +51,7 @@ public final class GridController {
     /**
      * Imposta la dimensione della mappa a 26x26.
      */
-    public static void extraLargeGridSize(final Game game) throws SessionAlreadyStartedException {
+    public void extraLargeGridSize(final Game game) throws SessionAlreadyStartedException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
@@ -55,7 +63,7 @@ public final class GridController {
      * @param ships lista di navi da inserire nella mappa.
      * @param grid mappa su cui inserire le navi.
      */
-    public static void randomlyFill(final LinkedList<Ship> ships, final Grid grid) {
+    public void randomlyFill(final LinkedList<Ship> ships, final Grid grid) {
         for (Ship ship : ships) {
             randomlyInsertShip(ship, grid);
         }
@@ -67,7 +75,7 @@ public final class GridController {
      * orizzontale.
      * @return un intero compreso tra {@code 0} ed {@code 1} generato randomicamente.
      */
-    private static int getRandomDirection() {
+    private int getRandomDirection() {
         return RAND.nextInt(POSSIBLE_DIRECTIONS);
     }
 
@@ -77,7 +85,7 @@ public final class GridController {
      * tra 0 e dimensione massima della mappa di gioco.
      * @return {@code Coordinate} con valori randomici.
      */
-    private static Coordinate getRandomCoordinates() {
+    private Coordinate getRandomCoordinates() {
         int first = RAND.nextInt(Grid.getSize());
         int sec   = RAND.nextInt(Grid.getSize());
         return new Coordinate(first, sec);
@@ -97,7 +105,7 @@ public final class GridController {
      * @return restituisce {@code true} se il risultato della sottrazione tra dimensione mappa
      * e indice è minore della dimensione della nave, {@code false} altrimenti.
     */
-    private static boolean isOutOfRange(final int axis, final Ship ship) {
+    private boolean isOutOfRange(final int axis, final Ship ship) {
         return (Grid.getSize() - axis) < ship.getSize();
     }
 
@@ -108,7 +116,7 @@ public final class GridController {
      * e le coordinate generate.
      * @param ship nave da inserire in posizione randomica.
     */
-    private static void randomlyInsertShip(final Ship ship, final Grid grid) {
+    private void randomlyInsertShip(final Ship ship, final Grid grid) {
         int direction = getRandomDirection();
 
         Coordinate coord;
@@ -128,7 +136,7 @@ public final class GridController {
      * @param coord coordinate in cui cominciare ad inserire la nave in verticale.
      * @param ship specifica quale nave dev'essere inserita nella mappa.
      */
-    private static void insertShipVertical(final Coordinate coord, final Ship ship, final Grid grid) {
+    private void insertShipVertical(final Coordinate coord, final Ship ship, final Grid grid) {
         for (int i = 0; i < ship.getSize(); i++) {
             grid.set(coord, ship);
             coord.setRow(coord.getRow() + 1);
@@ -140,7 +148,7 @@ public final class GridController {
      * @param coord coordinate in cui cominciare ad inserire la nave in verticale.
      * @param ship specifica quale nave dev'essere inserita nella mappa.
      */
-    private static void insertShipHorizontal(final Coordinate coord, final Ship ship, final Grid grid) {
+    private void insertShipHorizontal(final Coordinate coord, final Ship ship, final Grid grid) {
         for (int i = 0; i < ship.getSize(); i++) {
             grid.set(coord, ship);
             coord.setCol(coord.getCol() + 1);
@@ -159,7 +167,7 @@ public final class GridController {
      * @return {@code true} se ci sono abbastanza posizioni disponibili nella mappa
      * per ospitare la nave, {@code false} altrimenti.
      */
-    private static boolean isPositionAvailable(final Coordinate coord,
+    private boolean isPositionAvailable(final Coordinate coord,
         final int direction, final Ship ship, final Grid grid) {
             Coordinate temp = (Coordinate) coord.clone();
 
@@ -185,7 +193,7 @@ public final class GridController {
      * @return restituisce {@code true} se c'è abbastanza spazio nella mappa per ospitare
      * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
     */
-    private static boolean checkVerticalPosition(final Coordinate coord, final Ship ship, final Grid grid) {
+    private boolean checkVerticalPosition(final Coordinate coord, final Ship ship, final Grid grid) {
         if (isOutOfRange(coord.getRow(), ship)) {
             return false;
         }
@@ -215,7 +223,7 @@ public final class GridController {
      * @return restituisce {@code true} se c'è abbastanza spazio nella mappa per ospitare
      * una nave e se nelle celle non è già posizionata una nave, {@code false} altrimenti.
      */
-    private static boolean checkHorizontalPosition(final Coordinate coord, final Ship ship, final Grid grid) {
+    private boolean checkHorizontalPosition(final Coordinate coord, final Ship ship, final Grid grid) {
         if (isOutOfRange(coord.getCol(), ship)) {
             return false;
         }

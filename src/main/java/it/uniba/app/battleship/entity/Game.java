@@ -98,7 +98,7 @@ public final class Game {
      */
     public void startSession() {
         grid = new Grid();
-        GridController.randomlyFill(SHIPS, grid);
+        GridController.getInstance().randomlyFill(SHIPS, grid);
         TimeController.setTime(time);
 
         sunkShips = 0;
