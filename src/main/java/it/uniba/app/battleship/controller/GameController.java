@@ -420,4 +420,16 @@ public final class GameController {
         return RAND.nextInt(POSSIBLE_DIRECTIONS);
     }
 
+    /**
+     * Restituisce un nuovo oggetto di tipo {@code Coordinates}
+     * con valori interi randomici compresi
+     * tra 0 e dimensione massima della mappa di gioco.
+     * @return {@code Coordinate} con valori randomici.
+     */
+    private Coordinate getRandomCoordinates() {
+        int first = RAND.nextInt(Grid.getSize());
+        int sec   = RAND.nextInt(Grid.getSize());
+        return new Coordinate(first, sec);
+    }
+
 }
