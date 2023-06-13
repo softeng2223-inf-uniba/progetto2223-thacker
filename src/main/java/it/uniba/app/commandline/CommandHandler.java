@@ -370,6 +370,8 @@ public final class CommandHandler {
     private static void setDefaultDifficulty(final Game game) {
         try {
             GameController.getInstance().setEasyDifficulty(game);     //difficoltà predefinita: Facile
-        } catch (SessionAlreadyStartedException ignored) { }
+        } catch (SessionAlreadyStartedException e) {
+            Output.print(e.getMessage());
+        }
     }
 }
