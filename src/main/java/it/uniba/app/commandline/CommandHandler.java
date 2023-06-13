@@ -8,7 +8,6 @@ import it.uniba.app.battleship.exception.CellAlreadyMarkedException;
 import it.uniba.app.battleship.exception.InvalidValueException;
 import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.controller.GameController;
-import it.uniba.app.battleship.controller.GridController;
 // Import classi entity.
 import it.uniba.app.battleship.entity.Difficulty;
 import it.uniba.app.battleship.entity.Game;
@@ -35,7 +34,6 @@ public final class CommandHandler {
     /* BATTLESHIP CONTROLLERS */
     private static final GameController CONTROL_GAME = GameController.getInstance();
     private static final StrikeController CONTROL_STRIKE = StrikeController.getInstance();
-    private static final GridController CONTROL_GRID = GridController.getInstance();
 
     private static class Holder {
         private static final CommandHandler INSTANCE = new CommandHandler();
@@ -239,7 +237,7 @@ public final class CommandHandler {
     }
     private void handleStandardGrid(final Game game) {
         try {
-            CONTROL_GRID.standardGridSize(game);
+            CONTROL_GAME.standardGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -247,7 +245,7 @@ public final class CommandHandler {
     }
     private void handleLargeGrid(final Game game) {
         try {
-            CONTROL_GRID.largeGridSize(game);
+            CONTROL_GAME.largeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -255,7 +253,7 @@ public final class CommandHandler {
     }
     private void handleExtraLargeGrid(final Game game) {
         try {
-            CONTROL_GRID.extraLargeGridSize(game);
+            CONTROL_GAME.extraLargeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
