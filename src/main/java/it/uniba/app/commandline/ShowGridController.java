@@ -30,7 +30,7 @@ public final class ShowGridController {
      * @return mappa dei colpi in formato stringa
      */
     static String genHitMap(final Game game) throws SessionNotStartedException {
-        Grid gameGrid = GameController.getSessionGrid(game);
+        Grid gameGrid = GameController.getInstance().getSessionGrid(game);
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {
