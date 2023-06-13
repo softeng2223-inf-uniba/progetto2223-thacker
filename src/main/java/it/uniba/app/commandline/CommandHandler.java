@@ -26,11 +26,19 @@ import java.util.Set;
  * con il gioco.
  */
 public final class CommandHandler {
-    /* CONTROLLERS */
-    private static final GameController CONTROL_GAME = GameController.getInstance();
+    /* COMMANDLINE CONTROLLERS */
     private static final ShowGridController CONTROL_SHOWGRID = ShowGridController.getInstance();
     private static final ShowTimeController CONTROL_SHOWTIME = ShowTimeController.getInstance();
+    private static final HelpController CONTROL_HELP = HelpController.getInstance();
+    private static final ShowShipsController CONTROL_SHOWSHIPS = ShowShipsController.getInstance();
+    private static final ExitController CONTROL_EXIT = ExitController.getInstance();
+
+    /* BATTLESHIP CONTROLLERS */
+    private static final GameController CONTROL_GAME = GameController.getInstance();
     private static final StrikeController CONTROL_STRIKE = StrikeController.getInstance();
+    private static final DifficultyController CONTROL_DIFFICULTY = DifficultyController.getInstance();
+    private static final TimeController CONTROL_TIME = TimeController.getInstance();
+    private static final GridController CONTROL_GRID = GridController.getInstance();
 
     private static class Holder {
         private static final CommandHandler INSTANCE = new CommandHandler();
@@ -160,7 +168,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomEasyDifficulty(final Game game, final int num) {
-        DifficultyController.getInstance().setCustomEasy(num);
+        CONTROL_DIFFICULTY.setCustomEasy(num);
         handleEasyDifficulty(game, true);
     }
     /**
@@ -170,7 +178,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomMediumDifficulty(final Game game, final int num) {
-        DifficultyController.getInstance().setCustomMedium(num);
+        CONTROL_DIFFICULTY.setCustomMedium(num);
         handleMediumDifficulty(game, true);
     }
     /**
@@ -180,11 +188,11 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomHardDifficulty(final Game game, final int num) {
-        DifficultyController.getInstance().setCustomHard(num);
+        CONTROL_DIFFICULTY.setCustomHard(num);
         handleHardDifficulty(game, true);
     }
     private boolean gameTimeCheck(final Game game) {
-        if (TimeController.getInstance().isTimeOver(game)) {
+        if (CONTROL_TIME.isTimeOver(game)) {
             try {
                 CONTROL_GAME.endSession(game);
                 CONTROL_GAME.setTime(game, 0);
@@ -232,7 +240,7 @@ public final class CommandHandler {
     }
     private void handleStandardGrid(final Game game) {
         try {
-            GridController.getInstance().standardGridSize(game);
+            CONTROL_GRID.standardGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -240,7 +248,7 @@ public final class CommandHandler {
     }
     private void handleLargeGrid(final Game game) {
         try {
-            GridController.getInstance().largeGridSize(game);
+            CONTROL_GRID.largeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -248,7 +256,7 @@ public final class CommandHandler {
     }
     private void handleExtraLargeGrid(final Game game) {
         try {
-            GridController.getInstance().extraLargeGridSize(game);
+            CONTROL_GRID.extraLargeGridSize(game);
             Output.printSetGridSize(Grid.getSize());
         } catch (SessionAlreadyStartedException e) {
             Output.printCantChangeGridSize();
@@ -256,12 +264,12 @@ public final class CommandHandler {
     }
     private void handleShowShip() {
         Output.clearScreen();
-        Output.println(ShowShipsController.getInstance().getShipInfo());
+        Output.println(CONTROL_SHOWSHIPS.getShipInfo());
     }
 
     private void handleHelp() {
         Output.clearScreen();
-        HelpController.getInstance().showHelp();
+        CONTROL_HELP.showHelp();
     }
 
     private void handlePlay(final Game game) {
@@ -379,7 +387,7 @@ public final class CommandHandler {
             Output.printConfirmOperation("uscire dal gioco");
             String confirm = Input.get().toLowerCase();
             switch (confirm) {
-                case "si" -> ExitController.getInstance().requestExit();
+                case "si" -> CONTROL_EXIT.requestExit();
                 case "no" -> Output.printNotConfirm();
                 default   -> Output.printConfirmCommandNotFound();
             }
