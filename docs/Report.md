@@ -196,7 +196,7 @@ Per assicurarsi che il programma funzioni correttamente su qualsiasi macchina, e
 
 La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda del vostro sistema operativo: 
 
-<p align=center>
+<p align="center">
 
 [Linux](https://docs.docker.com/desktop/linux/install/)
 
