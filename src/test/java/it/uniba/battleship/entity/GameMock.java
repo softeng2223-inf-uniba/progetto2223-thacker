@@ -113,6 +113,7 @@ public class GameMock extends Game{
         return gridMock.clone();
     }
 
+    /** Termina una sessione di gioca. */
     public void endSession() {
         sessionStartedMock = false;
     }
