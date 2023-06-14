@@ -55,6 +55,11 @@ public final class GameController {
         return Holder.INSTANCE;
     }
 
+    /**
+     * Reimposta i valori di default per la difficoltà
+     * e la dimensione della griglia.
+     * @param game oggetto che conserva i dati di gioco.
+     */
     public void reset(final Game game) {
         easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
         mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
