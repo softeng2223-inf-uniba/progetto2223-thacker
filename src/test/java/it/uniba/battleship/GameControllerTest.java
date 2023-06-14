@@ -36,6 +36,15 @@ public class GameControllerTest {
         GameController gc2 = GameController.getInstance();
         assertEquals(gameController, gc2);
     }
+
+    /**
+     * 2) Test: verifica che chiamare setEasyDifficulty() prima
+     * di startSession() imposti correttamente la difficoltà
+     * a Facile.
+     * <p>
+     *     Atteso: non deve lanciare SessionAlreadyStartedException.
+     * </p>
+     */
     @Test
     void testSetEasyDifficultyIfSessionNotStarted() {
         try {
