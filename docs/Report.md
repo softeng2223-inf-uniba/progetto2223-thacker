@@ -213,24 +213,36 @@ sequenceDiagram
   participant ShGriCo as ShowGridController
   participant Ga as :Game
   participant Grid as :Grid
+  participant Diff as :Difficulty
+  participant Time as :Time
 
   App ->> Ga : crea
   activate Ga
 
-  App ->> CH: execute()
+  App ->> CH: handleCommand()
   CH ->> Input: get()
   Input ->> Player: attende comando
-  Player -->> Input: /gioca
+  Player -->> Input: digita "/gioca"
+  Input -->> CH: /gioca
+  CH ->> CH: executeNoArgs()
   CH ->> CH: handlePlay()
   CH ->> GaCo: startSession()
   GaCo ->> GaCo: controlla se sessione non in corso
-  GaCo ->> GaCo: se difficoltà non impostata, setEasyDifficulty()
-  
+  alt difficoltà non impostata
+    GaCo ->> GaCo: setEasyDifficulty()
+    activate Diff
+    GaCo ->> Diff: crea e imposta proprietà
+    GaCo ->> Ga: setDifficulty()
+  end
   GaCo ->> Ga: startSession()
   Ga ->> Grid: crea
   activate Grid
   Ga ->> GaCo: randomlyFill()
-  GaCo ->> Grid: riempimento
+  GaCo ->> Grid: riempimento usando set()
+
+  Ga ->> GaCo: setTime()
+  activate Time
+  GaCo ->> Time: imposta proprietà
   CH ->> ShGriCo: genHitMap()
   ShGriCo ->> Ga: getSessionGrid()
   Ga ->> Grid: clone()
@@ -238,6 +250,8 @@ sequenceDiagram
   CH ->> Output: printHitMap()
   Output -->> Player : mostra griglia vuota
 
+  deactivate Diff
+  deactivate Time
   deactivate Grid
   deactivate Ga
 ```
@@ -287,7 +301,6 @@ classDiagram
 
   GameController .. Game
   GameController ..> Grid
-  GameController ..> Ship
   GameController ..> Difficulty
 
   class ShowGridController {
@@ -309,21 +322,23 @@ classDiagram
 
   Game *-- "1" Difficulty
   Game *-- "1" Grid
+  Game *-- "1" Time
 
-  class Grid
+  class Grid {
+    +set(Coordinate, Ship)
+  }
   <<entity>> Grid
-
-  Grid *-- "*" Ship
 
   class Difficulty {
     name
     maxFailedAttempts
   }
 
-  class Ship {
-    id
+  class Time {
+    +setTimeLimitMillis()
+    +setStartTimeMill()
   }
-  <<entity>> Ship
+  <<entity>> Time
 
 ```
 
