@@ -30,6 +30,7 @@ public final class HelpController {
                     + "/mostratempo \n"
                     + "/mostralivello \n"
                     + "/mostragriglia \n"
+                    + "/svelagriglia \n"
                     + "/mostranavi \n"
                     + "/esci \n"
                     + "/abbandona \n";
