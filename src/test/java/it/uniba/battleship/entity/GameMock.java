@@ -113,4 +113,8 @@ public class GameMock extends Game{
     public Time getTime() {
         return timeMock.clone();
     }
+
+    public void setTime(final Time t) {
+        timeMock = t.clone();
+    }
 }
