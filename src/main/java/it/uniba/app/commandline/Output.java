@@ -442,4 +442,9 @@ public final class Output {
         println("\nSe vuoi giocare di nuovo digita '/gioca'.\n"
                 + "Se vuoi uscire dal gioco digita '/esci'.");
     }
+
+    public static void printSessionAlreadyStarted(String command) {
+        println("[CH] Non puoi eseguire il comando '" + command + "' durante una partita in corso.\n"
+                + "Utilizza il comando '/abbandona' per abbandonare la partita.", ERR_COLOR_CODE);
+    }
 }
