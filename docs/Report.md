@@ -188,9 +188,7 @@ Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
 
 #### (5.A.1) Come _giocatore_ voglio _iniziare una partita_
 
-Pullrequest: #79
-
-Issue: #29
+Issue: [#29](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/29)
 
 **Attori**: giocatore (o Player)
 
@@ -331,9 +329,7 @@ classDiagram
 
 #### (5.A.2) Come _giocatore_ voglio _impostare la difficoltà_
 
-Pullrequest: #58
-
-Issue: #22
+Issue: [#22](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/22)
 
 **Attore:** giocatore
 
@@ -464,7 +460,7 @@ classDiagram
 
 #### (5.A.3) Come _giocatore_ voglio _effettuare un tentativo_ per _colpire una nave_
 
-Issue: #109
+Issue: [#109](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/109)
 
 **Attori**: giocatore (o _Player_)
 
@@ -615,12 +611,12 @@ classDiagram
   <<entity>> Ship
 ```
 **Note:**
-Si osservi che, nel diagramma di sequenza, dopo la stampa dell'esito del tentativo, i passaggi successivi sono gli stessi previsti dalla user story [110](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/110) (mostrare la griglia dei colpi).
+Si osservi che, nel diagramma di sequenza, dopo la stampa dell'esito del tentativo, i passaggi successivi sono gli stessi previsti dalla user story [#110](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/110) (mostrare la griglia dei colpi).
 Di conseguenza anche il diagramma delle classi comprende le relazioni coinvolte nella 110.
 
 #### (5.A.4) come _giocatore voglio_ poter _chiudere il gioco_
 
-Issue: [21](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/21)
+Issue: [#21](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/21)
 
 **Attori**: giocatore (Player)
 
