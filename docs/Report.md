@@ -283,6 +283,7 @@ classDiagram
     +startSession()
     +randomlyFill(Grid, Ship)
     +setEasyDifficulty()
+    +getSessionGrid()
   }
   <<control>> GameController
 
@@ -304,6 +305,7 @@ classDiagram
     +isSessionStarted()
     +isDifficultySet()
     +setDifficulty()
+    +getSessionGrid()
   }
   <<entity>> Game
 
@@ -480,39 +482,50 @@ A quel punto il sistema informa il giocatore dell'esito del tentativo: "_acqua_"
 
 ```mermaid
 sequenceDiagram
-    autonumber
+  autonumber
 
-    participant App
-    actor Player
-    participant Input
-    participant Output
-    participant CH as CommandHandler
-    participant StCo as StrikeController
-    participant GaCo as GameController
-    participant ShGrCo as ShowGridController
-    participant Game as :Game
+  participant App
+  actor Player
+  participant Input
+  participant Output
+  participant CH as CommandHandler
+  participant StCo as StrikeController
+  participant ShGrCo as ShowGridController
+  participant GaCo as GameController
+  participant Game as :Game
+  participant Grid as :Grid (clone)
 
-    App ->> Game: 
-    activate Game
+  activate Game
 
-    App ->> CH: handle()
-    CH ->> Input: get()
-    Input ->> Player: attende comando
-    Player -->> Input: invia "<lettera>-<numero>"
-    Input -->> CH: "<lettera>-<numero>"
-    CH ->> StCo: strike()
-    StCo ->> GaCo: strike()
-    GaCo ->> Game: registra un tentativo
-    GaCo -->> StCo: esito
-    StCo ->> Output: esito
-    Output ->> Player: mostra esito
-    CH ->> ShGrCo: genHitGrid()
-    CH ->> Output: printHitMap()
-    Output ->> Player: mostra griglia dei colpi
+  App ->> CH: handle()
+  CH ->> Input: get()
+  Input ->> Player: attende comando
+  Player -->> Input: invia "<lettera>-<numero>"
+  Input -->> CH: "<lettera>-<numero>"
+  note over CH,Grid: effettuazione di tentativo
+  CH ->> CH: handleDefaultOrShoot()
+  CH ->> StCo: strike()
+  StCo ->> GaCo: strike()
+  GaCo ->> Game: registra un tentativo
+  Game ->> Game: aggiorna la griglia e le navi 
+  GaCo -->> StCo: esito
+  StCo ->> Output: esito
+  Output ->> Player: mostra esito
 
-    deactivate Game
+  note over CH,Grid: mostra la griglia dei colpi aggiornata
+  CH ->> ShGrCo: genHitMap()
+  ShGrCo ->> GaCo: getSessionGrid()
+  GaCo ->> Game: getSessionGrid()
+  activate Grid
+  Game ->> Grid: clone()
+  Grid -->> ShGrCo: 
+  ShGrCo ->> ShGrCo : genera la griglia dei colpi usando servizi di Ship e Grid
+  deactivate Grid
+  CH ->> Output: printHitMap()
+  Output ->> Player: mostra griglia dei colpi
+
+  deactivate Game
 ```
-
 **diagramma delle classi**
 
 ```mermaid
@@ -538,8 +551,8 @@ classDiagram
   <<boundary>> Input
 
   class CommandHandler {
-    +handle()
-    -handleDefaultOrShoot()
+    +handle(Game)
+    -handleDefaultOrShoot(Game,String)
   }
   <<control>> CommandHandler
 
@@ -548,7 +561,7 @@ classDiagram
   CommandHandler ..> Output
 
   class StrikeController {
-    +strike(String)
+    +strike(Game,String)
   }
   <<control>> StrikeController
 
@@ -558,7 +571,7 @@ classDiagram
   StrikeController ..> Output
 
   class GameController {
-    +strike(Coordinate) int
+    +strike(Game,Coordinate) int
   }
   <<control>> GameController
 
@@ -587,7 +600,8 @@ classDiagram
   class Grid {
     +isWithinBounds(Coordinate)
     +isCellEmpty(Coordinate)
-    +get(Coordinate): Ship
+    +get(Coordinate) Ship
+    +clone()
   }
   <<entity>> Grid
 
@@ -600,6 +614,9 @@ classDiagram
   }
   <<entity>> Ship
 ```
+**Note:**
+Si osservi che, nel diagramma di sequenza, dopo la stampa dell'esito del tentativo, i passaggi successivi sono gli stessi previsti dalla user story [110](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/110) (mostrare la griglia dei colpi).
+Di conseguenza anche il diagramma delle classi comprende le relazioni coinvolte nella 110.
 
 ### (5.B) Design pattern applicati
 
