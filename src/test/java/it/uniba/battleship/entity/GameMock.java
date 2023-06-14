@@ -84,4 +84,9 @@ public class GameMock extends Game{
     public void endSession() {
         sessionStartedMock = false;
     }
+
+    public void setDifficulty(final Difficulty choice) {
+        difficultyMock = choice.clone();
+        diffSetMock = true;
+    }
 }
