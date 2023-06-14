@@ -164,6 +164,13 @@ public class GameControllerTest {
         });
     }
 
+    /**
+     * 10) Test: Verifica che il metodo setCustomEasyDifficulty() lanci
+     * un'eccezione se si prova ad impostare la difficolta' 'Facile'
+     * con un numero di tentativi non valido.
+     * <p>
+     *  Atteso: SessionAlreadyStartedException
+     */
     @Test
     void testSetCustomEasyDifficultyIfInvalidValue() {
         assertThrows(InvalidValueException.class, () -> {
