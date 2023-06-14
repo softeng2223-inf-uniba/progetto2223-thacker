@@ -216,9 +216,7 @@ public final class GameController {
         Difficulty diff = new Difficulty();
         diff.setNameLevel(MEDIUM_NAME);
         diff.setMaxFailedAttempts(mediumMaxFailedAttempts);
-        try {
-            game.setDifficulty(diff);
-        } catch (CloneNotSupportedException e) { }
+        game.setDifficulty(diff);
     }
 
     /**
