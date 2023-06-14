@@ -36,6 +36,11 @@ public class GameMock extends Game{
         failedAttemptsMock = 0;
         sessionStartedMock = true;
     }
+
+    /**
+     * Restituisce una lista di navi.
+     * @return lista di navi.
+     */
     private static LinkedList<Ship> getShipSet() {
         LinkedList<Ship> shipsList = new LinkedList<Ship>();
 
