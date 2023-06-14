@@ -618,6 +618,109 @@ classDiagram
 Si osservi che, nel diagramma di sequenza, dopo la stampa dell'esito del tentativo, i passaggi successivi sono gli stessi previsti dalla user story [110](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/110) (mostrare la griglia dei colpi).
 Di conseguenza anche il diagramma delle classi comprende le relazioni coinvolte nella 110.
 
+#### (5.A.4) come _giocatore voglio_ poter _chiudere il gioco_
+
+Issue: [21](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/21)
+
+**Attori**: giocatore (Player)
+
+**Caso d'uso:**
+il giocatore deve poter uscire dalla applicazione attraverso un comando lecito, invece di terminare il processo dell'applicazione per vie alternative.
+Pertanto, attraverso il comando `/esci`, il giocatore, previa conferma, può chiudere l'applicazione.
+
+**diagramma di sequenza**
+
+```mermaid
+sequenceDiagram
+  autonumber
+
+  actor Player
+  participant App
+  participant Input
+  participant Output
+  participant EC as ExitController
+  participant CH as CommandHandler
+
+  activate App
+  App ->> EC: getIstance()
+  activate EC
+  App ->> CH: getIstance()
+  activate CH
+
+  loop until exit is requested
+    App ->> EC: isExitRequested()
+    EC -->> App: stato della richiesta
+    alt stato = false
+      App ->> CH: handleCommand()
+      CH ->> Input: get()
+      Input ->> Player: richiede comando
+      alt giocatore vuole uscire
+        Player -->> Input: digita "/esci"
+        Input -->> CH: /esci
+        CH ->> CH: executeNoArgs()
+        CH ->> CH: handleExit()
+        CH ->> Input: get() (chiede conferma)
+        alt giocatore conferma
+          Player -->> Input: "si"
+          CH ->> EC: requestExit()
+        else giocatore nega
+          Player -->> Input: "no"
+          CH ->> Output: printNotConfirm()
+          Output ->> Player: informa
+        else giocatore digita altro
+          Player -->> Input: qualsiasi cosa
+          CH ->> Output: printConfirmCommandNotFound()
+          Output ->> Player: "risposta non valida, ignoro"
+        end
+      end
+    end
+  end
+
+  deactivate CH
+  deactivate EC
+  deactivate App
+```
+
+**diagramma delle classi**
+
+```mermaid
+classDiagram
+    class App {
+        +main()$
+    }
+
+    App ..> Input
+    App ..> CommandHandler
+
+    class Input {
+        +get()$
+    }
+    <<boundary>> Input
+
+    class Output {
+        +printNotConfirm()$
+        +printConfirmCommandNotFound()$
+    }
+    <<boundary>> Output
+
+    class ExitController {
+        +requestExit()
+        +isExitRequested()
+    }
+    <<control>> ExitController
+
+    class CommandHandler {
+        +handleCommand()
+        -executeNoArgs()
+        -handleExit()
+    }
+    <<control>> CommandHandler
+
+    CommandHandler ..> Output
+    CommandHandler ..> ExitController
+    CommandHandler ..> Input
+```
+
 ### (5.B) Design pattern applicati
 
 Per le classi di tipo control (individuabili nel codice con il suffisso Controller e/o dall'etichetta `<<control>>` nel relativo javadoc) è stato applicato il design pattern "Singleton", come da convenzione.
