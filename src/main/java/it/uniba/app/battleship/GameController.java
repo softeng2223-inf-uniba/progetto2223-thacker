@@ -120,7 +120,7 @@ public final class GameController {
             throw new InvalidValueException();
         }
         Time time = new Time();
-        setTimeLimit(time, value);
+        time.setTimeLimitMin(value);
         game.setTime(time);
     }
 
