@@ -188,6 +188,635 @@ Alla luce di ciò che è stato evidenziato nelle precedenti due sezioni, risulta
 
 ![Stile architetturale](./img/s2-stile-architetturale.png)
 
+
+## (5) Object Oriented Design 
+
+### (5.A) Diagrammi per user-story rilevanti
+
+Nei seguenti diagrammi di classe, è omessa la visibilità degli attributi perchè sottointesa quella privata (-): Il sistema infatti è stato progettato per osservare il principio di *incapsulamento* e *information hiding*.
+
+Seguono i diagrammi di classe e di sequenza per le userstory più importanti.
+
+#### (5.A.1) Come _giocatore_ voglio _iniziare una partita_
+
+Issue: [#29](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/29)
+
+**Attori**: giocatore (o Player)
+
+**Caso d'uso:**
+
+Il giocatore, se non vi è una sessione di gioco in corso, eseguendo il comando `/gioca` è in grado di iniziare una nuova partita e di visualizzare la griglia dei colpi (inizialmente vuota).
+
+Da quel momento in poi sarà possibile, oltre agli altri comandi, effettuare tentativi per colpire una nave.
+
+**diagramma di sequenza**
+
+```mermaid
+sequenceDiagram
+  autonumber
+
+  participant App
+  actor Player
+  participant Input
+  participant Output
+  participant CH as CommandHandler
+  participant GaCo as GameController
+  participant ShGriCo as ShowGridController
+  participant Ga as :Game
+  participant Grid as :Grid
+  participant Diff as :Difficulty
+  participant Time as :Time
+
+  App ->> Ga : crea
+  activate Ga
+  Ga ->> Diff: crea
+  activate Diff
+  Ga ->> Time: crea
+  activate Time
+
+  App ->> CH: handleCommand()
+  CH ->> Input: get()
+  Input ->> Player: attende comando
+  Player -->> Input: digita "/gioca"
+  Input -->> CH: /gioca
+  CH ->> CH: executeNoArgs()
+  CH ->> CH: handlePlay()
+  CH ->> GaCo: startSession()
+  GaCo ->> Ga: isSessionStarted()
+  alt sessione non in corso
+    GaCo ->> Ga: isDifficultySet()
+    alt difficoltà non impostata
+      GaCo ->> GaCo: setEasyDifficulty()
+      GaCo ->> Diff: crea e imposta proprietà
+      GaCo ->> Ga: setDifficulty()
+    end
+    GaCo ->> Ga: startSession()
+    Ga ->> Grid: crea
+    activate Grid
+    Ga ->> GaCo: randomlyFill()
+    GaCo ->> Grid: riempimento usando set()
+    Ga ->> GaCo: setTime()
+    GaCo ->> Time: imposta proprietà
+
+    note over GaCo, Time: segue visualizzazione della griglia dei colpi (vuota)
+    CH ->> ShGriCo: genHitMap()
+    ShGriCo ->> Ga: getSessionGrid()
+    Ga ->> Grid: clone()
+    ShGriCo -->> CH: griglia dei colpi
+    CH ->> Output: printHitMap()
+    Output -->> Player : mostra griglia dei colpi
+  end
+  deactivate Diff
+  deactivate Time
+  deactivate Grid
+  deactivate Ga
+```
+
+**diagramma delle classi**
+
+```mermaid
+classDiagram
+  direction LR
+
+  class App {
+    +main()$
+  }
+
+  App ..> Game
+  App ..> CommandHandler
+
+  class Input {
+    +get()$ String
+  }
+  <<boundary>> Input
+
+  class Output {
+    +printHitMap(String)$
+  }
+  <<boundary>> Output
+
+  class CommandHandler {
+    +handleCommand(Game)
+    -executeNoArgs(Game)
+    -handlePlay(Game)
+  }
+  <<control>> CommandHandler
+
+  CommandHandler ..> Input
+  CommandHandler ..> Output
+  CommandHandler ..> Game
+  CommandHandler ..> GameController
+  CommandHandler .. ShowGridController
+
+  class GameController {
+    +startSession(Game)
+    +randomlyFill(Grid, Ship)
+    +setEasyDifficulty(Game)
+    +getSessionGrid(Game)
+  }
+  <<control>> GameController
+
+  GameController .. Game
+  GameController ..> Grid
+  GameController ..> Difficulty
+
+  class ShowGridController {
+    +genHitMap(Game) String
+  }
+  <<control>> ShowGridController
+
+  ShowGridController ..> Game
+  ShowGridController ..> Grid
+
+  class Game {
+    +startSession()
+    +isSessionStarted()
+    +isDifficultySet()
+    +setDifficulty()
+    +getSessionGrid()
+  }
+  <<entity>> Game
+
+  Game *-- "1" Difficulty
+  Game *-- "1" Grid
+  Game *-- "1" Time
+
+  class Grid {
+    +set(Coordinate, Ship)
+  }
+  <<entity>> Grid
+
+  class Difficulty {
+    name
+    maxFailedAttempts
+  }
+
+  class Time {
+    +setTimeLimitMillis()
+    +setStartTimeMill()
+  }
+  <<entity>> Time
+
+```
+
+#### (5.A.2) Come _giocatore_ voglio _impostare la difficoltà_
+
+Issue: [#22](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/22)
+
+**Attore:** giocatore
+
+**Caso d'uso:**
+Il giocatore, prima di iniziare una partita può impostare un livello di difficoltà attraverso uno dei seguenti comandi:
+- `/facile` : livello facile
+- `/medio` : livello medio
+- `/difficile` : livello difficile
+
+Se dovesse eseguire uno di questi comandi durante una partita, il sistema notificherà il giocatore dell'impossibilità nell'eseguire quella azione.
+
+**diagramma di sequenza:**
+
+```mermaid
+sequenceDiagram
+  autonumber
+
+  participant App
+  actor Player
+  participant Input
+  participant Output
+  participant CH as CommandHandler
+  participant GaCo as GameController
+  participant Game
+  participant DT as :Difficulty
+  participant DG as :Difficulty (Game)
+
+  App ->> Game : crea
+  
+  activate Game
+
+  App ->> CH: handleCommand()
+  CH ->> Input: get()
+  Input ->> Player: attende comando
+  Player -->> Input: invia "/facile"
+  Input -->> CH: /facile
+  CH ->> CH: executeNoArgs()
+  CH ->> CH: handleEasyDifficulty()
+  CH ->> GaCo: setEasyDifficulty()
+  GaCo ->> Game: isSessionStarted()
+  alt sessione non iniziata
+    Game ->> DT: crea
+    activate DT
+    GaCo ->> DT: setNameLevel()
+    GaCo ->> DT: setMaxFailedAttempts()
+    GaCo ->> Game: setDifficulty()
+    Game ->> DT: clone()
+    DT ->> DG: crea
+    activate DG
+    deactivate DT
+    DG -->> Game: difficulty
+    Note over GaCo, DG: livello di difficoltà impostato a "facile"
+    CH ->> Game: getDifficulty()
+    Game ->> DG: clone()
+    DG ->> DT: crea
+    activate DT
+    DT -->> CH: diff
+    CH ->> Output: printSetDifficulty();
+    Output ->> Player: "OK, impostata a facile"
+    deactivate DT
+    deactivate DG
+  else sessione già iniziata
+    CH ->> Output: printCantSetDiffDuringSession()
+    Output ->> Player: feedback
+  end
+  deactivate Game
+
+```
+**diagramma delle classi:**
+
+```mermaid
+classDiagram
+  direction LR
+
+  class App {
+    +main()$
+  }
+  
+  App ..> Game
+  App ..> CommandHandler
+
+  class CommandHandler {
+    +handleCommand(Game)
+    -executeNoArgs(Game)
+    -handleEasyDifficulty(Game)
+    -handleMediumDifficulty(Game)
+    -handleHardDifficulty(Game)
+  }
+  <<control>> CommandHandler
+
+  CommandHandler ..> Game
+  CommandHandler ..> GameController
+  CommandHandler ..> Input
+  CommandHandler ..> Output 
+
+  class Input {
+    +get()$ String
+  }
+  <<boundary>> Input
+
+  class Output {
+    +printSetDifficulty(String)$
+    +printCantSetDiffDuringSession(String)$
+  }
+  <<boundary>> Input
+
+  class GameController {
+    +setEasyDifficulty(Game)
+    +setMediumDifficulty(Game)
+    +setHardDifficulty(Game)
+  }
+  <<control>> GameController
+
+  GameController ..> Game
+  GameController ..> Difficulty
+
+  class Game {
+    +setDifficulty(Difficulty)
+    +isSessionStarted()
+  }
+  <<entity>> Game
+
+  Game *-- "1" Difficulty
+
+  class Difficulty {
+    +setNameLevel(String)
+    +setMaxFailedAttempts(int)
+  }
+  <<entity>> Difficulty
+```
+
+#### (5.A.3) Come _giocatore_ voglio _effettuare un tentativo_ per _colpire una nave_
+
+Issue: [#109](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/109)
+
+**Attori**: giocatore (o _Player_)
+
+**Caso d'uso**:
+
+Il giocatore, dopo aver avviato una nuova partita digita una combinazione *lettera* e *numero* nel formato `<lettera>-<numero>` (per esempio `A-1` o `a-1`) per scegliere la cella da colpire (tentativo per colpire una nave), se non già colpita.
+A quel punto il sistema informa il giocatore dell'esito del tentativo: "_acqua_", "_colpito_" o "_(colpito e) affondato_" per poi mostrare la griglia dei colpi aggiornata.
+
+**Condizioni di partenza**:
+
+- l'attore _Player_ ha già effettuato il comando `/gioca` e quindi avviato una sessione di gioco
+- l'attore _Player_ digita una coordinata lecita (formato `<lettera>-<numero>`) nella comunicazione con _Input_
+
+**diagramma di sequenza**
+
+```mermaid
+sequenceDiagram
+  autonumber
+
+  participant App
+  actor Player
+  participant Input
+  participant Output
+  participant CH as CommandHandler
+  participant StCo as StrikeController
+  participant ShGrCo as ShowGridController
+  participant GaCo as GameController
+  participant Game as :Game
+  participant Grid as :Grid (clone)
+
+  activate Game
+
+  App ->> CH: handleCommand()
+  CH ->> Input: get()
+  Input ->> Player: attende comando
+  Player -->> Input: invia "<lettera>-<numero>"
+  Input -->> CH: "<lettera>-<numero>"
+  CH ->> CH: executeNoArgs()
+  note over CH,Grid: effettuazione di tentativo
+  CH ->> CH: handleDefaultOrShoot()
+  alt coordinata è sintatticamente corretta
+    CH ->> StCo: strike()
+    StCo ->> GaCo: strike()
+    GaCo ->> Game: registra un tentativo
+    Game ->> Game: aggiorna la griglia e le navi 
+    GaCo -->> StCo: esito
+    StCo ->> Output: esito
+    Output ->> Player: mostra esito
+
+    note over CH,Grid: mostra la griglia dei colpi aggiornata
+    CH ->> ShGrCo: genHitMap()
+    ShGrCo ->> GaCo: getSessionGrid()
+    GaCo ->> Game: getSessionGrid()
+    activate Grid
+    Game ->> Grid: clone()
+    Grid -->> ShGrCo: 
+    ShGrCo ->> ShGrCo : genera la griglia dei colpi usando metodi di Ship e Grid
+    deactivate Grid
+    CH ->> Output: printHitMap()
+    Output ->> Player: mostra griglia dei colpi
+  else errore di sintassi
+    CH ->> Output: printCommandWithoutParamsNotRecognised()
+    Output ->> Player: notifica
+  end
+  deactivate Game
+```
+**diagramma delle classi**
+
+```mermaid
+classDiagram
+  direction LR
+
+  class App {
+    main()$
+  }
+
+  App ..> Game
+  App ..> CommandHandler
+
+  class Output {
+    print(String)$
+    printHitMap(String)$
+    printCommandWithoutParamsNotRecognised()$
+  }
+  <<boundary>> Output
+
+  class Input {
+    get()$
+  }
+  <<boundary>> Input
+
+  class CommandHandler {
+    +handleCommand(Game)
+    -executeNoArgs(Game)
+    -handleDefaultOrShoot(Game,String)
+  }
+  <<control>> CommandHandler
+
+  CommandHandler ..> StrikeController
+  CommandHandler ..> Input
+  CommandHandler ..> Output
+  CommandHandler ..> ShowGridController
+  CommandHandler ..> Game
+
+  class StrikeController {
+    +strike(Game,String)
+  }
+  <<control>> StrikeController
+
+  StrikeController ..> Coordinate
+  StrikeController ..> Game
+  StrikeController ..> GameController
+  StrikeController ..> Output
+
+  class ShowGridController {
+    ~genHitMap(Game,String)
+  }
+  <<control>> ShowGridController
+
+  ShowGridController ..> Output
+  ShowGridController ..> GameController
+  ShowGridController ..> Game
+  ShowGridController ..> Ship
+  ShowGridController ..> Grid
+  ShowGridController ..> Coordinate
+
+  class GameController {
+    +strike(Game,Coordinate) int
+  }
+  <<control>> GameController
+
+  GameController ..> Game
+  GameController ..> Coordinate
+  GameController ..> Ship: "colpisce e verifica afondamento"
+  GameController ..> Grid
+
+  class Game {
+    +isAlreadyAttempted(Coordinate)
+    +isAttemptWithinBounds(Coordinate)
+    +addAttempt(Coordinate)
+  }
+  <<entity>> Game
+
+  Game *--> "*" Coordinate: attempts
+  Game ..> Ship
+  Game *-- "1" Grid
+
+  class Coordinate {
+    row
+    col
+    +equals()
+  }
+  <<entity>> Coordinate
+
+  class Grid {
+    +isWithinBounds(Coordinate)
+    +isCellEmpty(Coordinate)
+    +get(Coordinate) Ship
+    +clone()
+  }
+  <<entity>> Grid
+
+  Grid ..> Coordinate
+  Grid *--> Ship
+
+  class Ship {
+    +hit()
+    +isSunk()
+  }
+  <<entity>> Ship
+```
+**Note:**
+Si osservi che, nel diagramma di sequenza, dopo la stampa dell'esito del tentativo, i passaggi successivi sono gli stessi previsti dalla user story [#110](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/110) (mostrare la griglia dei colpi).
+Di conseguenza anche il diagramma delle classi comprende le relazioni coinvolte nella 110.
+
+#### (5.A.4) come _giocatore voglio_ poter _chiudere il gioco_
+
+Issue: [#21](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/21)
+
+**Attori**: giocatore (Player)
+
+**Caso d'uso:**
+il giocatore deve poter uscire dalla applicazione attraverso un comando lecito, invece di terminare il processo dell'applicazione per vie alternative.
+Pertanto, attraverso il comando `/esci`, il giocatore, previa conferma, può chiudere l'applicazione.
+
+**diagramma di sequenza**
+
+```mermaid
+sequenceDiagram
+  autonumber
+
+  actor Player
+  participant App
+  participant Input
+  participant Output
+  participant EC as ExitController
+  participant CH as CommandHandler
+
+  activate App
+  App ->> EC: getIstance()
+  activate EC
+  App ->> CH: getIstance()
+  activate CH
+
+  loop until finchp isExitRequested() = true
+    App ->> EC: isExitRequested()
+    EC -->> App: stato della richiesta
+    alt stato = false
+      App ->> CH: handleCommand()
+      CH ->> Input: get()
+      Input ->> Player: richiede comando
+      alt giocatore vuole uscire
+        Player -->> Input: digita "/esci"
+        Input -->> CH: /esci
+        CH ->> CH: executeNoArgs()
+        CH ->> CH: handleExit()
+        CH ->> Input: get() (chiede conferma)
+        alt giocatore conferma
+          Player -->> Input: "si"
+          CH ->> EC: requestExit()
+        else giocatore nega
+          Player -->> Input: "no"
+          CH ->> Output: printNotConfirm()
+          Output ->> Player: informa
+        else giocatore digita altro
+          Player -->> Input: qualsiasi cosa
+          CH ->> Output: printConfirmCommandNotFound()
+          Output ->> Player: "risposta non valida, ignoro"
+        end
+      end
+    end
+  end
+
+  deactivate CH
+  deactivate EC
+  deactivate App
+```
+
+**diagramma delle classi**
+
+```mermaid
+classDiagram
+    class App {
+        +main()$
+    }
+
+    App ..> Input
+    App ..> CommandHandler
+
+    class Input {
+        +get()$
+    }
+    <<boundary>> Input
+
+    class Output {
+        +printNotConfirm()$
+        +printConfirmCommandNotFound()$
+    }
+    <<boundary>> Output
+
+    class ExitController {
+        +requestExit()
+        +isExitRequested()
+    }
+    <<control>> ExitController
+
+    class CommandHandler {
+        +handleCommand()
+        -executeNoArgs()
+        -handleExit()
+    }
+    <<control>> CommandHandler
+
+    CommandHandler ..> Output
+    CommandHandler ..> ExitController
+    CommandHandler ..> Input
+```
+
+### (5.B) Design pattern applicati
+
+Per le classi di tipo control (individuabili nel codice con il suffisso Controller e/o dall'etichetta `<<control>>` nel relativo javadoc) è stato applicato il design pattern "Singleton", come da convenzione.
+
+### (5.C) Commenti sulle decisioni prese
+
+#### Information Hiding
+
+Ogni classe nasconde la propria struttura all'esterno, ovvero tutte le variabili di istanza sono private (**incapsulamento**).
+Di conseguenza. lo stato degli oggetti istanziati viene modificato solo attraverso le operazioni lecite (metodi pubblici) della classe di appartenenza.
+
+Per quanto riguarda i **package**:
+
+- `it.uniba.app.battleship` : tutte le classi sono visibili all'esterno, essendo un modulo progettato come una API flessibile che altri componenti esterni possono sfruttare per realizzare la propria versione del gioco (vedi sezione successiva _Presentazione separata_)
+
+- `it.uniba.app.commandline` : Poichè questo modulo è realizzato ad hoc per sfruttare l'API di `battleship` per giocare da linea di comando sono state rese visibili solo alcune classi (_CommandHandler, FlagHandler, ExitController, HelpController_) necessarie a _App_ in (`it.uniba.app`) per avviare i gestori.
+
+#### Presentazione separata
+
+Il sistema è stato sviluppato tenendo conto della necessità di separare la _logica di dominio_ (battaglia navale solitario, con tutte le proprietà che appartengono al suo dominio) dalla _logica di presentazione_ (interazione con il terminale per giocare).
+
+Questa separazione è stata implementata suddividendo le classi in due package:
+
+- `it.uniba.app.battleship` : logica di dominio
+- `it.uniba.app.commandline` : logica di presentazione
+
+Questa suddivisione consentirebbe in futuro di riutilizzare i servizi offerti dal package `battleship` per realizzare una presentazione diversa (interfaccia grafica, ad esempio).
+
+#### Do Not Repeat Yourself (DRY)
+
+Il team di sviluppo ha tenuto conto del principio DRY, il quale suggerisce che una certa funzionalità (operazione, procedura, etc..) debba essere astratta a tal punto da poter essere riutilizzata ovunque ce ne dovesse essere bisogno, evitando quindi di scrivere codice duplicato.
+
+#### Accoppiamento e Coesione
+
+Sia in fase di concezione di ogni classe, sia in quella di sviluppo, ci si è interrogati sulle responsabilità tali classi avrebbero dovuto/debbano avere e si sono prese determinate decisioni.
+
+Abbiamo limitato il più possibile l'accoppiamento tra classi (il grado di dipendenza di una classe da altre) in modo tale che future modifiche in una non comportassero grossi cambiamenti in altre.
+
+D'altro canto abbiamo cercato di rendere le classi coese, non assegnandoli troppe responsabiltà.
+
+Laddove questo non è stato fatto fino in fondo, perlomeno si è reso il componente di appartenza ad alta coesione e basso (o nullo) accoppiamento (si osservi la struttura del package `battleship`, sezione 4).
+
+
 ## (7) Manuale Utente
 
 ### Introduzione 
