@@ -61,6 +61,12 @@ public class GameMock extends Game{
         }
         return shipsList;
     }
+
+    /**
+     * Informa se una sessione di gioco e' iniziata e quindi in corso o meno.
+     *
+     * @return true se la sessione e' in corso, false altrimenti.
+     */
     public boolean isSessionStarted() {
         return sessionStartedMock;
     }
