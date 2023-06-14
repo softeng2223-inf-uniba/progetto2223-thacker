@@ -352,3 +352,6 @@ Meeting avvenuto il giorno 19/05/2023
 Con lo Sprint 1 i membri del gruppo Thacker hanno avuto modo di porre le basi per l'inizio di una nuova partita di Battaglia Navale.
 
 Durante l'analisi retrospettiva dello Sprint 1, abbiamo raccolto i seguenti feedback dai membri del team:
+
+- Il collega Antonio Dambra ha espresso l'opinione sul fatto che avremmo potuto adottare soluzioni più semplici per soddisfare i requisiti, evitando di aumentare la complessità del progetto.
+D'altra parte si dimostra soddisfatto del come siano stati affrontati i problemi incontrati, riuscendo a raggiungere l'obiettivo.
