@@ -107,11 +107,14 @@ public final class GameController {
      * a disposizione per giocare.
      * @throws SessionAlreadyStartedException
      */
-    public void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
+    public void setGameTimeMinute(final Game game, final int value)
+            throws SessionAlreadyStartedException, InvalidValueException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
-
+        if (value < 0) {
+            throw new InvalidValueException();
+        }
         Time time = new Time();
         setTimeLimit(time, value);
         game.setTime(time);
