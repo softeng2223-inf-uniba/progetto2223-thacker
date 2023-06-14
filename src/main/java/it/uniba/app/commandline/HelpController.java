@@ -14,7 +14,7 @@ public final class HelpController {
                     + "Per giocare, utilizzare i seguenti comandi:\n\n"
                     + "/help: Mostra l'elenco dei comandi.\n"
                     + "/gioca: Inizia una nuova partita. \n"
-                    + "/tempo @param: Imposta il tempo di gioco a @param minuti\n"
+                    + "/tempo @param: Imposta il tempo di gioco a @param minuti.\n"
                     + "/tentativi @param: Iposta la difficoltà a custom con tentativi fallibili a @param. \n"
                     + "/mostratentativi: Visualizza i tentativi effettuati, quelli falliti"
                     + "e quelli fallibili durante la partita.\n"
