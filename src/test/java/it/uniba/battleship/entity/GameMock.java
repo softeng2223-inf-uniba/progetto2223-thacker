@@ -205,4 +205,8 @@ public class GameMock extends Game{
     public void incrementFailedAttempt() {
         failedAttemptsMock++;
     }
+
+    public void addAttempt(final Coordinate attempt) {
+        attemptsMock.add(attempt);
+    }
 }
