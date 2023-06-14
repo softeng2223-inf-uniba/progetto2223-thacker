@@ -128,6 +128,12 @@ public class GameMock extends Game{
         diffSetMock = true;
     }
 
+    /**
+     * Fornisce le informazioni relative alla difficolta'
+     * impostata in un determinato istante.
+     *
+     * @return difficolta' selezionata
+     */
     public Difficulty getDifficulty() {
         return difficultyMock.clone();
     }
