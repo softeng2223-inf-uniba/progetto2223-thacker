@@ -443,7 +443,13 @@ public final class Output {
                 + "Se vuoi uscire dal gioco digita '/esci'.");
     }
 
-    public static void printSessionAlreadyStarted(String command) {
+    /**
+     * Stampa il messaggio d'errore quando si prova
+     * a eseguire un comando di gioco che non dovrebbe
+     * essere eseguito durante una partita in corso.
+     * @param command Il comando che non può essere eseguito.
+     */
+    public static void printSessionAlreadyStarted(final String command) {
         println("[CH] Non puoi eseguire il comando '" + command + "' durante una partita in corso.\n"
                 + "Utilizza il comando '/abbandona' per abbandonare la partita.", ERR_COLOR_CODE);
     }
