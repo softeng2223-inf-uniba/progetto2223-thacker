@@ -21,6 +21,6 @@ public class GameControllerTest {
     void setUp() {
         gameMock = new GameMock();
         gc = GameController.getInstance();
-        gc.reset();
+        gc.reset(gameMock);
     }
 }
