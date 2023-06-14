@@ -132,7 +132,7 @@ public final class Output {
      * @param command Il comando non riconosciuto.
      */
     public static void printCommandNotRecognised(final String command) {
-        println("[CH] '" + command + "' non è un comando valido.\n"
+        println(command + "' non è un comando valido.\n"
                 + "Usa il comando '/help' per vedere la lista dei comandi disponibili.", ERR_COLOR_CODE);
     }
 
@@ -142,7 +142,7 @@ public final class Output {
      * @param command Il comando con parametro non riconosciuto.
      */
     public static void printCommandWithParamsNotRecognised(final String command) {
-        println("[CH] '" + command + "' non e' un comando con parametro valido.\n"
+        println(command + "' non e' un comando con parametro valido.\n"
                 + "Usa il comando '/help' per vedere la lista dei comandi disponibili.", ERR_COLOR_CODE);
     }
 
@@ -173,7 +173,7 @@ public final class Output {
      * @param command Il comando senza parametro non riconosciuto.
      */
     public static void printCommandWithoutParamsNotRecognised(final String command) {
-        println("[CH] '" + command + "' non e' un comando senza parametro valido.\n"
+        println(command + "' non e' un comando senza parametro valido.\n"
                 + "Usa il comando '/help' per vedere la lista dei comandi disponibili.", ERR_COLOR_CODE);
     }
 
@@ -183,7 +183,7 @@ public final class Output {
      * @param value Il valore non valido.
      */
     public static void printNumberFormatError(final String value) {
-        println("[CH] '" + value + "' non è un numero intero >0.", ERR_COLOR_CODE);
+        println(value + "' non è un numero intero >0.", ERR_COLOR_CODE);
     }
 
     /**
@@ -191,7 +191,7 @@ public final class Output {
      * a lanciare un colpo prima dell'inizio della partita.
      */
     public static void printHitSessionNotStarted() {
-        println("[CH] Non puoi lanciare un colpo se non inizi una partita.\n"
+        println("Non puoi lanciare un colpo se non inizi una partita.\n"
                 + "Utilizza il comando '/gioca' per iniziare una partita.", ERR_COLOR_CODE);
     }
 
@@ -201,7 +201,7 @@ public final class Output {
      * @param coordinate Le coordinate della cella già colpita.
      */
     public static void printHitCellAlreadyHit(final String coordinate) {
-        println("[CH] '" + coordinate + "' e' una cella gia' colpita.", ERR_COLOR_CODE);
+        println(coordinate + "' e' una cella gia' colpita.", ERR_COLOR_CODE);
     }
 
     /**
@@ -210,7 +210,7 @@ public final class Output {
      * @param coordinate Le coordinate della cella fuori dalla griglia.
      */
     public static void printHitOutOfMap(final String coordinate) {
-        println("[CH] '" + coordinate + "' e' una cella fuori dalla griglia.", ERR_COLOR_CODE);
+        println(coordinate + "' e' una cella fuori dalla griglia.", ERR_COLOR_CODE);
     }
 
     /**
@@ -218,7 +218,7 @@ public final class Output {
      * ad avviare una partita durante una partita già in corso.
      */
     public static void printStartSessionAlreadyStarted() {
-        println("[CH] Non puoi iniziare una nuova partita se ne hai gia' una in corso.\n"
+        println("Non puoi iniziare una nuova partita se ne hai gia' una in corso.\n"
                 + "Utilizza il comando '/abbandona' per abbandonare la partita in corso.", ERR_COLOR_CODE);
     }
 
@@ -227,7 +227,7 @@ public final class Output {
      * a cambiare la dimensione della griglia durante una partita.
      */
     public static void printCantChangeGridSize() {
-        println("[CH] Non puoi cambiare la dimensione della griglia se hai gia' iniziato una partita.\n"
+        println("Non puoi cambiare la dimensione della griglia se hai gia' iniziato una partita.\n"
                 + "Utilizza il comando '/abbandona' per abbandonare la partita in corso.", ERR_COLOR_CODE);
     }
 
@@ -236,7 +236,7 @@ public final class Output {
      * a vedere la mappa dei colpi prima dell'inizio della partita.
      */
     public static void printCantShowHitMap() {
-        println("[CH] Non puoi vedere una mappa dei colpi se non hai iniziato una partita.\n"
+        println("Non puoi vedere una mappa dei colpi se non hai iniziato una partita.\n"
                 + "Utilizza il comando '/gioca' per iniziare una partita.", ERR_COLOR_CODE);
     }
 
@@ -246,7 +246,7 @@ public final class Output {
      * a impostare un tempo di gioco durante una partita in corso.
      */
     public static void printCantSetTime() {
-        println("[CH] Non puoi impostare il tempo di gioco se hai gia' iniziato una partita.\n"
+        println("Non puoi impostare il tempo di gioco se hai gia' iniziato una partita.\n"
                 + "Utilizza il comando '/abbandona' per abbandonare la partita in corso.", ERR_COLOR_CODE);
     }
 
@@ -267,7 +267,7 @@ public final class Output {
      * a impostare una difficolta' durante una partita in corso.
      */
     public static void printCantSetDiffDuringSession() {
-        println("[CH] Non puoi impostare la difficolta' se hai gia' iniziato una partita.\n"
+        println("Non puoi impostare la difficolta' se hai gia' iniziato una partita.\n"
                 + "Utilizza il comando '/abbandona' per abbandonare la partita in corso.", ERR_COLOR_CODE);
     }
 
@@ -276,7 +276,7 @@ public final class Output {
      * a modificare le impostazioni di una difficolta' durante una partita in corso.
      */
     public static void printNotSetCustomDiff() {
-        println("[CH] Ok ho variato le caratteristiche della difficolta' che hai selezionato,\n"
+        println("Ok ho variato le caratteristiche della difficolta' che hai selezionato,\n"
                 + "ma non posso applicarla a questa sessione di gioco perche' e' ancora in corso.\n"
                 + "Se vuoi giocare con i tuoi settings devi ricominciare la partita.", ERR_COLOR_CODE);
     }
@@ -297,7 +297,7 @@ public final class Output {
      * a digitare una risposta valida per confermare un'operazione.
      */
     public static void printConfirmCommandNotFound() {
-        println("[CH] Non hai digitato una risposta valida, operazione annullata.", ERR_COLOR_CODE);
+        println("Non hai digitato una risposta valida, operazione annullata.", ERR_COLOR_CODE);
     }
 
     /**
@@ -337,7 +337,7 @@ public final class Output {
      * a uscire dal gioco senza aver iniziato una partita.
      */
     public static void printCantExit() {
-        println("[CH] Non puoi uscire dal gioco se non hai iniziato una partita.\n"
+        println("Non puoi uscire dal gioco se non hai iniziato una partita.\n"
                 + "Utilizza il comando '/gioca' per iniziare una partita.", ERR_COLOR_CODE);
     }
 
