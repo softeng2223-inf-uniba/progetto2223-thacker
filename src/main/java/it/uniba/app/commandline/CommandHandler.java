@@ -85,7 +85,7 @@ public final class CommandHandler {
         // Se il tempo è scaduto, termina la partita.
         if (gameTimeCheck(game)) {
             Output.printTimeOut();
-            GameController.getInstance().reset(game);
+            game.endSession();
             return true;
         }
         // Se hai esausto i tentativi, termina la partita.
