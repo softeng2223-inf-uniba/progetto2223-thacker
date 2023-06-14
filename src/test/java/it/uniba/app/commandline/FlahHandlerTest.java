@@ -26,12 +26,19 @@ class FlahHandlerTest {
      */
     @Test
     void testLengthOfArgsTyped() {
-        String[] args = {"--help", "-help", "-h"};
+        String[] args = {"--help", "-help", "-h" };
         assertFalse(fh.execute(args),
                 "ERR [FH:1]: execute() non restituisce false quando più di un"
                 + "flag viene passato all'applicazione");
     }
 
+    /**
+     * 2) Test: verifica che execute() dia il giusto risultato
+     * passando il giusto numero di flag, ma non valido.
+     * <p>
+     * Atteso: false.
+     * </p>
+     */
     @Test
     void testRightNumberButIncorrectFlag() {
         String[] args = {"--h" };
