@@ -367,7 +367,7 @@ sequenceDiagram
   CH ->> Input: get()
   Input ->> Player: attende comando
   Player -->> Input: invia /facile
-  Input --> CH: /facile
+  Input -->> CH: /facile
 
   CH ->> CH: handleEasyDifficulty()
   CH ->> GaCo: setEasyDifficulty()
