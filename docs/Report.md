@@ -333,7 +333,19 @@ Pullrequest: #58
 
 Issue: #22
 
+**Attore:** giocatore
+
+**Caso d'uso:**
+Il giocatore, prima di iniziare una partita può impostare un livello di difficoltà attraverso uno dei seguenti comandi:
+- `/facile` : livello facile
+- `/medio` : livello medio
+- `/difficile` : livello difficile
+
+Se dovesse eseguire uno di questi comandi durante una partita, il sistema notificherà il giocatore dell'impossibilità nell'eseguire quella azione.
+
 **diagramma di sequenza:**
+
+Si assume che il giocatore non abbia già iniziato una partita.
 
 ```mermaid
 sequenceDiagram
@@ -342,19 +354,16 @@ sequenceDiagram
   participant App
   actor Player
   participant Input
+  participant Output
   participant CH as CommandHandler
-  participant Game
   participant GaCo as GameController
-  participant DC as DifficultyController
-  participant DG as Difficulty
-  participant DT as Difficulty (Temp)
+  participant Game
+  participant DT as :Difficulty
+  participant DG as :Difficulty:difficulty
 
   App ->> Game : crea
   
   activate Game
-
-  Game ->> DG: crea
-  activate DG
 
   App ->> CH: execute()
   CH ->> Input: get()
@@ -365,76 +374,79 @@ sequenceDiagram
   CH ->> GaCo: setEasyDifficulty()
 
   activate DT
-
-  GaCo ->> DC: setEasy()
-  DC ->> DT: setLevel()
-  DC ->> DT: setMaxAttempts()
+  GaCo ->> DT: setNameLevel()
+  GaCo ->> DT: setMaxFailedAttempts()
   GaCo ->> Game: setDifficulty()
   Game ->> DT: clone()
+  activate DG
   deactivate DT
-
-  Game ->> DG: aggiorna 
+  CH ->> Game: getDifficulty()
+  Game ->> DG: clone()
+  DG -->> CH: diff
+  CH ->> Output: printSetDifficulty();
   deactivate DG
   deactivate Game
+
 ```
 **diagramma delle classi:**
 
 ```mermaid
 classDiagram
-    direction LR
+  direction LR
 
-    class App {
-      +main()$
-    }
+  class App {
+    +main()$
+  }
+  
+  App ..> Game
+  App ..> CommandHandler
 
-    class Input {
-      +get()$ String
-    }
-    <<boundary>> Input
+  class CommandHandler {
+    +execute(Game)
+    -handleEasyDifficulty(Game)
+    -handleMediumDifficulty(Game)
+    -handleHardDifficulty(Game)
+  }
+  <<control>> CommandHandler
 
-    class CommandHandler {
-      +execute(Game)$
-      -handleEasyDifficulty(Game)$
-      -handleMediumDifficulty(Game)$
-      -handleHardDifficulty(Game)$
-    }
-    <<control>> CommandHandler
+  CommandHandler ..> Game
+  CommandHandler ..> GameController
+  CommandHandler ..> Input
+  CommandHandler ..> Output 
 
-    class GameController {
-      +setEasyDifficulty(Game)$
-      +setMediumDifficulty(Game)$
-      +setHardDifficulty(Game)$
-    }
-    <<control>> GameController
+  class Input {
+    +get()$ String
+  }
+  <<boundary>> Input
 
-    class DifficultyController {
-      +setEasy(Difficulty)$
-      +setMedium(Difficulty)$
-      +setHard(Difficulty)$
-    }
-    <<control>> DifficultyController
+  class Output {
+    +printSetDifficulty()$ String
+  }
+  <<boundary>> Input
 
-    class Game {
-      +setDifficulty(Difficulty)
-    }
-    <<entity>> Game
+  class GameController {
+    +setEasyDifficulty(Game)
+    +setMediumDifficulty(Game)
+    +setHardDifficulty(Game)
+  }
+  <<control>> GameController
 
-    class Difficulty {
-      +setLevel()
-      +setMaxLevel()
-    }
-    <<entity>> Difficulty
+  GameController ..> Game
+  GameController ..> Difficulty
 
-    App ..> Game
-    App ..> CommandHandler
-    GameController ..> Game
-    CommandHandler ..> Game
-    CommandHandler ..> GameController
-    DifficultyController ..> Difficulty
-    GameController ..> DifficultyController
-    GameController ..> Difficulty
-    CommandHandler .. Input
-    Game *-- "1" Difficulty
+  class Game {
+    +setDifficulty(Difficulty)
+    +isSessionStarted()
+  }
+  <<entity>> Game
+
+  Game *-- "1" Difficulty
+
+  class Difficulty {
+    +setNameLevel()
+    +setMaxFailedAttempts()
+  }
+  <<entity>> Difficulty
 ```
 
 #### (5.A.3) Come _giocatore_ voglio _effettuare un tentativo_ per _colpire una nave_
