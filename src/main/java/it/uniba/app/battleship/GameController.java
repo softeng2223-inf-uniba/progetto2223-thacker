@@ -64,6 +64,8 @@ public final class GameController {
         easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
         mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
         hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+        setEasyDifficulty(game);
+        setGameTimeMinute(game, 0);
         standardGridSize(game);
     }
 
