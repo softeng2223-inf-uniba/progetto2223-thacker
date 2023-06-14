@@ -290,6 +290,13 @@ public class GameControllerTest {
     }
 
     @Test
+    void testGetAttemptsIfSessionNotStarted() {
+        assertThrows(SessionNotStartedException.class, () -> {
+            gameController.getAttempts(gameMock);
+        });
+    }
+
+    @Test
     void testGetFailedAttemptsIfSessionStartedAndNoAttempts() {
         gameController.startSession(gameMock);
         Grid grid = new Grid();
