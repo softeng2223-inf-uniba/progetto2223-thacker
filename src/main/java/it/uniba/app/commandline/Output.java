@@ -127,6 +127,48 @@ public final class Output {
     }
 
     /**
+     * Stampa informazioni legate al tempo durante una partita.
+     * @param minLimit minuti massimo di gioco (0 = infinito)
+     * @param minElapsed minuti di gioco trascorsi
+     */
+    public static void printSessionTime(final long minLimit, final long minElapsed) {
+        String message = "Numero di minuti trascorsi dall'inizio della partita: "
+                + minElapsed
+                + "\nNumero di minuti ancora disponibili per giocare: ";
+
+            if (minLimit > 0) {
+                long remainingMin  = minLimit - minElapsed;
+                message += remainingMin;
+            } else {
+                message += "infiniti";
+            }
+        print(message);
+    }
+
+    /**
+     * Stampa l'impostazione del tempo.
+     * @param minLimit numero di minuti
+     */
+    public static void printTimeSetting(final int minLimit) {
+        switch (minLimit) {
+            case 0:
+                print("Hai a disposizione un tempo illimitato");
+                break;
+            case 1:
+                print("Quando inizierai la partita avrai a disposizione "
+                + minLimit
+                + " minuto");
+                break;
+            default:
+                print("Quando inizierai la partita avrai a disposizione "
+                + minLimit
+                + " minuti");
+                break;
+        }
+
+    }
+
+    /**
      * Stampa il messaggio d'errore quando viene inserito
      * da tastiera un comando non riconosciuto.
      * @param command Il comando non riconosciuto.
