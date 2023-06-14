@@ -207,6 +207,7 @@ public class GameMock extends Game{
         return sunkShipsMock;
     }
 
+    // Additional methods for setting mock values
     /**
      * Restituisce sunkShips aggiornato con
      * il valore passato in input.
@@ -216,6 +217,11 @@ public class GameMock extends Game{
         sunkShipsMock = sunkShips;
     }
 
+    /**
+     * Restituisce una griglia di gioco uguale alla
+     * griglia passata in input.
+     * @param grid
+     */
     public void setGridMock(final Grid grid) {
         gridMock = grid.clone();
     }
