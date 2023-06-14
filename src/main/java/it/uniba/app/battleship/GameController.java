@@ -143,10 +143,17 @@ public final class GameController {
      * viene chiamato il metodo.
      * @param game contiene i dati della partita in corso.
      * @return il tempo trascorso in millisecondi.
+     * @throws SessionNotStartedException
+     *      non è possibile richiedere il tempo trascorso se non vi è una
+     *      sessione in corso.
      */
-    public long checkTimePassedMillis(final Game game) {
-        return game.getTime().getCurrentTimeMillis() - game.getTime().getStartTimeMillis();
-    }
+    public long checkTimePassedMillis(final Game game)
+        throws SessionNotStartedException {
+            if (!game.isSessionStarted()) {
+                throw new SessionNotStartedException();
+            }
+            return game.getTime().getCurrentTimeMillis() - game.getTime().getStartTimeMillis();
+        }
 
     /**
      * Permette di controllare se il tempo a dispozione

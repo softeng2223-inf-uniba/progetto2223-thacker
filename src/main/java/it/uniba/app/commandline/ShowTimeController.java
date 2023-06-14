@@ -2,6 +2,7 @@ package it.uniba.app.commandline;
 
 import it.uniba.app.battleship.GameController;
 import it.uniba.app.battleship.entity.Game;
+import it.uniba.app.battleship.exception.SessionNotStartedException;
 
 /**
  * {@code <<control>}<br>
@@ -25,26 +26,21 @@ public final class ShowTimeController {
     }
 
     /**
-     * Restituisce una oggetto di tipo {@code String} che
-     * contiene il numero di minuti disponibile per giocare
-     * durante una partita in quel momento.
-     * Permette d'implementare il comando {@code /mostratempo}.
+     * Visualizza le informazioni legate al tempo.
+     * Se vi è una sessione in corso, mostra il tempo di gioco trascorso e rimanente.
+     * Se non vi è una sessione in corso, mostra il tempo limite impostato per la
+     * prossima sessione di gioco.
      * @param game contiene i dati relativi alla sessione di gioco.
      */
-    String showTime(final Game game) {
+    void showTime(final Game game) {
         int maxMinute = game.getTime().getTimeLimitMin();
-        long minutePassed = GameController.getInstance().checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
 
-        if (maxMinute == 0) {
-            return "Hai a disposizione un tempo illimitato";
-        } else if (!game.isSessionStarted() && maxMinute == 1) {
-            return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuto";
-        } else if (!game.isSessionStarted() && maxMinute > 1) {
-            return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuti";
-        }  else {
-            long remainingMin  = maxMinute - minutePassed;
-            return "Numero di minuti trascorsi dall'inizio della partita: " + (minutePassed)
-                    + "\nNumero di minuti ancora disponibili per giocare: " + (remainingMin);
+        try {
+            long minutePassed = GameController.getInstance().checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
+            Output.printSessionTime(maxMinute, minutePassed);
+        } catch (SessionNotStartedException e) {
+            // se non vi è una sessione in corso
+            Output.printTimeSetting(maxMinute);
         }
     }
 }

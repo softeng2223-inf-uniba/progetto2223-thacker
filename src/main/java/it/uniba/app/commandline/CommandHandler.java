@@ -183,9 +183,11 @@ public final class CommandHandler {
         Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
                 game.getDifficulty().getMaxFailedAttempts());
     }
+
     private void handleShowTime(final Game game) {
-        Output.println(CONTROL_SHOWTIME.showTime(game));
+        CONTROL_SHOWTIME.showTime(game);
     }
+
     /**
      * Imposta i tentativi massimi fallibili per la difficoltà 'facile' a num.
      * Inoltre imposta la difficoltà della sessione a 'facile'.
