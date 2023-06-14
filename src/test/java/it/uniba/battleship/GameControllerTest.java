@@ -255,6 +255,13 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * 16) Test: Verifica che il metodo getDifficulty() non restituisca
+     * Null se chiamato sull'oggetto game
+     * dopo la sua istanziazione.
+     * <p>
+     *  Atteso: Not Null
+     */
     @Test
     void testGetDifficultyDoesNotReturnNull() {
         assertNotNull(gameController.getDifficulty(gameMock));
