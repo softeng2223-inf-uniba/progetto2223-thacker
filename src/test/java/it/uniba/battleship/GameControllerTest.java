@@ -29,4 +29,12 @@ public class GameControllerTest {
         GameController gc2 = GameController.getInstance();
         assertEquals(gc, gc2);
     }
+    @Test
+    void testSetEasyDifficultyIfSessionNotStarted() {
+        try {
+            gc.setEasyDifficulty(gameMock);
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
+    }
 }
