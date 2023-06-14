@@ -193,4 +193,8 @@ public class GameMock extends Game{
     public void setTimeMock(final Time time) {
         timeMock = time.clone();
     }
+
+    public void setFailedAttemptsMock(final int failedAttempts) {
+        failedAttemptsMock = failedAttempts;
+    }
 }
