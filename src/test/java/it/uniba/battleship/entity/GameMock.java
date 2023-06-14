@@ -105,4 +105,8 @@ public class GameMock extends Game{
     public boolean isAttemptWithinBounds(final Coordinate coord) {
         return gridMock.isWithinBounds(coord);
     }
+
+    public int getFailedAttempts() {
+        return failedAttemptsMock;
+    }
 }
