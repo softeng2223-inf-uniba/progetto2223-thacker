@@ -149,6 +149,13 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * 9) Test: Verifica che il metodo setCustomEasyDifficulty() non imposti
+     * la difficolta' 'Facile' con un numero di tentativi scelto dall'utente
+     * durante una sessione di gioco.
+     * <p>
+     *  Atteso: SessionAlreadyStartedException
+     */
     @Test
     void testSetCustomEasyDifficultyIfSessionStarted() {
         gameController.startSession(gameMock);
