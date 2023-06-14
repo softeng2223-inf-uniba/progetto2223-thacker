@@ -248,4 +248,9 @@ public class GameControllerTest {
         }
     }
 
+    @Test
+    void testGetDifficultyDoesNotReturnNull() {
+        assertNotNull(gameController.getDifficulty(gameMock));
+    }
+
 }
