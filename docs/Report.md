@@ -196,7 +196,7 @@ Per assicurarsi che il programma funzioni correttamente su qualsiasi macchina, e
 
 La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda del vostro sistema operativo: 
 
-<span style="text-align:center">
+<p align=center>
 
 [Linux](https://docs.docker.com/desktop/linux/install/)
 
@@ -204,7 +204,7 @@ La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seg
 
 [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
 
-</span>
+</p>
 
 Dopodiché, si potrà procedere con l'installazione, come per un normale programma. 
 
