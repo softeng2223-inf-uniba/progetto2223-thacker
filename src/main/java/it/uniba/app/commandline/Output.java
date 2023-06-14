@@ -146,6 +146,11 @@ public final class Output {
                 + "Usa il comando '/help' per vedere la lista dei comandi disponibili.", ERR_COLOR_CODE);
     }
 
+    /**
+     * Stampa il messaggio d'errore quando viene inserito
+     * da tastiera un comando con parametro non numerico.
+     * @param command Il comando con parametro non numerico.
+     */
     public static void printCommandWithParamsNotNumber(final String command) {
         println("Il parametro fornito per il comando '" + command + "' richiede un valore intero positivo,\n"
         + "ma e' stato passato un valore alfanumerico.\n"
