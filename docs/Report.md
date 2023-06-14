@@ -138,6 +138,56 @@ In aggiunta, si hanno le seguenti proprietà rilevanti ottenibili attraverso le 
   - (RNF2.3) Eseguire il container docker con il comando `docker run --rm -it ghcr.io/softeng2223-inf-uniba/battleship-thacker:latest`.
 - (RNF3) Il sistema deve essere sviluppato in Java utilizzando la JDK 19.
 
+## (4) System Design
+
+### (4.1) Package
+Ad un alto livello di astrazione la struttura del sistema è la seguente:
+
+![diagramma dei package](./img/s2-package-general.jpg)
+
+Come si può osservare, il package `it.uniba.app`, che contiene il codice relativo al sistema oggetto di discussione di questo report (battleship) è costruito sfruttando l'architettura di **java**; Nei passaggi successivi le relazioni dei sottopackage con l'infrastruttura java verranno date per scontate, semplificando cosi il grafo delle dipendenze.
+
+Scendendo di livello, la struttura del package si articola nel seguente modo:
+
+![diagramma del package](./img/s2-package-it-uniba-app.jpg)
+
+Come verrà anche descritto nella sezione successiva (4.2) i package sono stati realizzati in modo da rendere chiara la separazione tra **logica di dominio** e **logica di presentazione**:
+- `battleship` : contiene i componenti (package o classi) di competenza del domino di interesse (battaglia navale solitario);
+- `commandline` : contiene i componenti che utilizzano i servizi offerti da `battleship` per interfacciarsi con l'utente;
+
+Nel dettaglio, in `it.uniba.app` si ha che:
+
+![diagramma del package it.uniba.app](./img/s2-package-it-uniba-app-in-depth.png)
+
+Dove:
+
+- `entity` contiene parte dei concetti individuati dal modello di dominio (sezione 2)
+- `exceptions` contiene componenti che modellano situazioni eccezionali legate al dominio di interesse in modo che possano essere gestite, dall'esterno, nel modo desiderato;
+
+### (4.2) Componenti
+
+Il sistema è costituito da due componenti principali:
+
+- **Battleship**: fornisce servizi per gestire partite di battaglia navale solitario e di manipolare gli elementi del gioco.
+- **Command Line Interface**: fornisce servizi per giocare a _battleship_ attraverso la linea di comando.
+
+![diagramma dei componenti](./img/s2-componenti.jpg)
+
+**Battleship** offre strumenti che prescindono dal tipo di presentazione (**logica di dominio**), in modo tale che le _core mechanics_ (meccaniche fondamentali) e gli elementi portanti del gioco possano essere gestiti da altri componenti che si occupano di interfacciarsi con l'utente.
+
+Infatti, il secondo componente - **Command Line Interface** - si occupa di comunicare con _Battleship_ nel seguente modo:
+
+1. Interpreta i comandi dell'utente, convertendoli in elementi che l'interfaccia offerta da _Battleship_ può comprendere
+2. Comunica i dati a _Battleship_ attraverso la sua interfaccia
+3. Interpreta il feedback ricevuto da _Battleship_, convertendolo in segnali (e.g. stampe su terminale) che consentono all'utente di venire a conoscenza dello stato corrente del sistema e prendere decisioni successive.
+
+In altre parole, la **logica di presentazione** è di competenza di **Command Line Interface**.
+
+### (4.3) Stile architetturale adottato
+Alla luce di ciò che è stato evidenziato nelle precedenti due sezioni, risulta che la struttura del sistema rimanda ad uno stile architetturale con stratificazione lasca, come indicato dall'immagine (Da leggere da destra verso sinistra, come se fosse dall'alto verso il basso):
+
+![Stile architetturale](./img/s2-stile-architetturale.png)
+
 ## (7) Manuale Utente
 
 ### Introduzione 
