@@ -181,4 +181,8 @@ public class GameMock extends Game{
     public int getSunkShips() {
         return sunkShipsMock;
     }
+
+    public void setSunkShipsMock(final int sunkShips) {
+        sunkShipsMock = sunkShips;
+    }
 }
