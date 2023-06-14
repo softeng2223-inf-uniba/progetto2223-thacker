@@ -422,6 +422,7 @@ public final class CommandHandler {
             Output.printCantReadInput();
         }
     }
+
     private void setDefaultDifficulty(final Game game) {
         try {
             CONTROL_GAME.setEasyDifficulty(game);     //difficoltà predefinita: Facile
