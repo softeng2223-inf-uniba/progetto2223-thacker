@@ -87,6 +87,13 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * 5) Test: Verifica che il metodo setMediumDifficulty() non imposti
+     * la difficolta' a 'Media' durante una sessione
+     * di gioco.
+     * <p>
+     *  Atteso: SessionAlreadyStartedException
+     */
     @Test
     void testSetMediumDifficultyIfSessionStarted() {
         gameController.startSession(gameMock);
