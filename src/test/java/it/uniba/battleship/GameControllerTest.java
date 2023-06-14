@@ -514,6 +514,15 @@ public class GameControllerTest {
                 "err");
     }
 
+    /**
+     * 30) Test: Verifica che il metodo strike() non lanci
+     * un'eccezione se invocato durante una sessione di gioco con
+     * due coordinate che contengono una nave.
+     * Inoltre, verifica che strike() restituisca 1, che e' il valore
+     * restituito quando viene affondata una nave.
+     * <p>
+     *  Atteso: eccezione non lanciata e True
+     */
     @Test
     void testStrikeIfSunkenShip() {
         gameController.startSession(gameMock);
