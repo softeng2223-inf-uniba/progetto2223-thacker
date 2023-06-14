@@ -241,6 +241,12 @@ public class GameMock extends Game {
         gridMock = grid.clone();
     }
 
+    /**
+     * Setta il {@code timeMock} con i valori
+     * contenuti nel {@code time} passato in input.
+     * @param time contiene i valori che servono per
+     * inizializzare il {@code timeMock}.
+     */
     public void setTimeMock(final Time time) {
         timeMock = time.clone();
     }
