@@ -93,4 +93,8 @@ public class GameMock extends Game{
     public Difficulty getDifficulty() {
         return difficultyMock.clone();
     }
+
+    public Grid getSessionGrid() {
+        return gridMock.clone();
+    }
 }
