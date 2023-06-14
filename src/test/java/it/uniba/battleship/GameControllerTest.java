@@ -302,4 +302,14 @@ public class GameControllerTest {
             gameController.strike(gameMock, new Coordinate(Grid.getSize() + 1, Grid.getSize() + 1));
         });
     }
+
+    @Test
+    void testStrikeIfHitOnMap() {
+        gameController.startSession(gameMock);
+        try {
+            gameController.strike(gameMock, new Coordinate(2, 2));
+        } catch (OutOfMapException e) {
+            fail("OutOfMapException");
+        }
+    }
 }
