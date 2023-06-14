@@ -268,8 +268,8 @@ classDiagram
   <<boundary>> Output
 
   class CommandHandler {
-    +execute()
-    -handlePlay()
+    +execute(Game)
+    -handlePlay(Game)
   }
   <<control>> CommandHandler
 
@@ -280,10 +280,10 @@ classDiagram
   CommandHandler .. ShowGridController
 
   class GameController {
-    +startSession()
+    +startSession(Game)
     +randomlyFill(Grid, Ship)
-    +setEasyDifficulty()
-    +getSessionGrid()
+    +setEasyDifficulty(Game)
+    +getSessionGrid(Game)
   }
   <<control>> GameController
 
@@ -293,7 +293,7 @@ classDiagram
   GameController ..> Difficulty
 
   class ShowGridController {
-    +genHitMap() String
+    +genHitMap(Game) String
   }
   <<control>> ShowGridController
 
@@ -432,8 +432,8 @@ classDiagram
   <<boundary>> Input
 
   class Output {
-    +printSetDifficulty()$
-    +printCantSetDiffDuringSession()$
+    +printSetDifficulty(String)$
+    +printCantSetDiffDuringSession(String)$
   }
   <<boundary>> Input
 
@@ -456,8 +456,8 @@ classDiagram
   Game *-- "1" Difficulty
 
   class Difficulty {
-    +setNameLevel()
-    +setMaxFailedAttempts()
+    +setNameLevel(String)
+    +setMaxFailedAttempts(int)
   }
   <<entity>> Difficulty
 ```
@@ -540,8 +540,8 @@ classDiagram
   App ..> CommandHandler
 
   class Output {
-    print()$
-    printHitMap()$
+    print(String)$
+    printHitMap(String)$
   }
   <<boundary>> Output
 
