@@ -173,14 +173,14 @@ public final class GameController {
      * @throws SessionAlreadyStartedException
      *      non è possibile impostare la difficoltà durante una sessione in corso
      * @throws InvalidValueException
-     *      non è possibile inserire un valore minore o uguale a 1
+     *      non è possibile inserire un valore minore o uguale a 0.
      */
     public void setCustomDifficulty(final Game game, final int value)
         throws SessionAlreadyStartedException, InvalidValueException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
-        if (value <= 1) {
+        if (value <= 0) {
             throw new InvalidValueException();
         }
         Difficulty diff = new Difficulty();
