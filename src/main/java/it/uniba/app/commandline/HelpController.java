@@ -26,7 +26,6 @@ public final class HelpController {
                     + "/standard \n"
                     + "/large \n"
                     + "/extralarge \n"
-                    + "/abbandona \n"
                     + "/mostratempo \n"
                     + "/mostralivello \n"
                     + "/mostragriglia \n"
