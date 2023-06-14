@@ -189,6 +189,11 @@ public class GameMock extends Game{
         return timeMock.clone();
     }
 
+    /**
+     * Setta l'oggetto time istanziato in Game ai
+     * valori contenuti nell'oggetto t passato in
+     * input.
+     */
     public void setTime(final Time t) {
         timeMock = t.clone();
     }
