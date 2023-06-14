@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Classe utile al test di FlagHandler.
  */
-class FlahHandlerTest {
+class FlagHandlerTest {
     private FlagHandler fh;
 
     @BeforeEach
