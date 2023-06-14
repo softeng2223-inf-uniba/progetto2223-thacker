@@ -241,6 +241,15 @@ public class GameControllerTest {
     }
 
     @Test
+    void testExtraLargeGridSizeIfSessionNotStarted() {
+        try {
+            gameController.extraLargeGridSize(gameMock);
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
+    }
+
+    @Test
     void testRandomlyFillInsertsEveryShipInTheGrid() {
         gameController.startSession(gameMock);
         int expected = SHIPS_PART;
