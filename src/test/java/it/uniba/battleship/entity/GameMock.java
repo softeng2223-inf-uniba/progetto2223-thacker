@@ -138,6 +138,15 @@ public class GameMock extends Game{
         return difficultyMock.clone();
     }
 
+    /**
+     * Fornisce una copia della griglia di gioco in un determinato istante della sessione in corso.
+     * Non e' possibile ottenere una griglia prima che una sessione di gioco sia iniziata.
+     *
+     * Attenzione: Da usare solo per scopi di presentazione,
+     * operare sulla copia non influenza il corso della sessione.
+     *
+     * @return griglia della sessione corrente nell'istante corrente
+     */
     public Grid getSessionGrid() {
         return gridMock.clone();
     }
