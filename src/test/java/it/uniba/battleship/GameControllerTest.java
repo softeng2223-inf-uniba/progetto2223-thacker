@@ -17,4 +17,10 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
 public class GameControllerTest {
     private GameController gc;
     private GameMock gameMock;
+    @BeforeEach
+    void setUp() {
+        gameMock = new GameMock();
+        gc = GameController.getInstance();
+        gc.reset();
+    }
 }
