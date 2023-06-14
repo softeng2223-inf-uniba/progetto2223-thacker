@@ -197,4 +197,8 @@ public class GameMock extends Game{
     public void setFailedAttemptsMock(final int failedAttempts) {
         failedAttemptsMock = failedAttempts;
     }
+
+    public void incrementSunkShips() {
+        sunkShipsMock++;
+    }
 }
