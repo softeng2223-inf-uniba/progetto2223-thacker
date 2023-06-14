@@ -230,12 +230,13 @@ public final class CommandHandler {
 
     private void handleTime(final Game game, final int value) {
         try {
-            CONTROL_GAME.setTime(game, value);
+            CONTROL_GAME.setGameTimeMinute(game, value);
             Output.printSetTime(value);
         } catch (SessionAlreadyStartedException e) {
             Output.printCantSetTime();
         }
     }
+
     private void handleDefaultOrShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
