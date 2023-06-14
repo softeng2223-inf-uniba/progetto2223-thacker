@@ -44,9 +44,16 @@ class FlahHandlerTest {
         String[] args = {"--h" };
         assertFalse(fh.execute(args),
                 "ERR [FH:2]: execute() non restituisce false quando viene passato un"
-                 + "singolo flag ma il flag non è valido");
+                + "singolo flag ma il flag non è valido");
     }
 
+    /**
+     * 3) Test: verifica che execute() dia il giusto risultato
+     * passando unicamente il falg valod --help
+     * <p>
+     * Atteso: true.
+     * </p>
+     */
     @Test
     void testRightNumberAndCorrectFlagHelp() {
         String[] args = {"--help" };
