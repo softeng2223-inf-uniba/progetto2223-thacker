@@ -106,6 +106,7 @@ public final class GameController {
      * @param value intero che contiene il numero di minuti
      * a disposizione per giocare.
      * @throws SessionAlreadyStartedException
+     * @throws InvalidValueException
      */
     public void setGameTimeMinute(final Game game, final int value)
             throws SessionAlreadyStartedException, InvalidValueException {
