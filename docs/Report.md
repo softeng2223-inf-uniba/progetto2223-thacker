@@ -315,10 +315,6 @@ A seconda della situazione, si verificherò uno dei seguenti tre scenarti:
 In ognuno di questi tre casi, verranno msotrate anche la griglia delle navi avversaria, con tutte le navi colpite o affondate, assieme al numero di tentativi effettuati e il tempo trascorso. 
 
 
-### (7.2) Scopo del gioco
-
-L'obiettivo del giocatore è quello di affondare le navi nemiche prima di esaurire tutti i tentativi dettati dalla difficoltà impostata in fase di preparazione  della partita. 
-
 ## (9) Analisi Retrospettiva
 All'interno di questa sezione si trovano le relazioni dei vari Sprint che verranno eseguiti durante lo sviluppo del progetto.
 ### (9.1) Sprint 0
