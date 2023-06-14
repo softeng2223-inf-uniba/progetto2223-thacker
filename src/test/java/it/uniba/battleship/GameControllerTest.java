@@ -296,6 +296,13 @@ public class GameControllerTest {
         });
     }
 
+    /**
+     * 19) Test: Verifica che il metodo strike() non lanci
+     * un'eccezione se invocato durante una sessione
+     * di gioco.
+     * <p>
+     *  Atteso: eccezione non lanciata
+     */
     @Test
     void testStrikeIfSessionStarted() {
         gameController.startSession(gameMock);
