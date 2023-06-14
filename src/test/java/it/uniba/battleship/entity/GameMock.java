@@ -46,4 +46,7 @@ public class GameMock {
         }
         return shipsList;
     }
+    public boolean isSessionStarted() {
+        return sessionStartedMock;
+    }
 }
