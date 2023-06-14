@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameControllerTest {
     private GameController gameController;
     private GameMock gameMock;
+
     @BeforeEach
     void setUp() {
         gameMock = new GameMock();
@@ -26,10 +27,10 @@ public class GameControllerTest {
     }
 
     /**
-     *  1) Test: verifica che getInstance() funzioni correttamente.
-     *  <p>
-     *      Atteso: true.
-     *  </p>
+     * 1) Test: verifica che getInstance() funzioni correttamente.
+     * <p>
+     * Atteso: true.
+     * </p>
      */
     @Test
     void testGetInstance() {
@@ -42,7 +43,7 @@ public class GameControllerTest {
      * di startSession() imposti correttamente la difficoltà
      * a Facile.
      * <p>
-     *     Atteso: non deve lanciare SessionAlreadyStartedException.
+     * Atteso: non deve lanciare SessionAlreadyStartedException.
      * </p>
      */
     @Test
@@ -58,9 +59,8 @@ public class GameControllerTest {
      * 3) Test: verifica che chiamare setEasyDifficulty() dopo
      * startSession() imposti lanci correttamente l'eccezione.
      * <p>
-     *     Atteso: SessionAlreadyStartedException.
+     * Atteso: SessionAlreadyStartedException.
      * </p>
-     *
      */
     @Test
     void testSetEasyDifficultyIfSessionStarted() {
@@ -68,5 +68,13 @@ public class GameControllerTest {
         assertThrows(SessionAlreadyStartedException.class, () -> {
             gameController.setEasyDifficulty(gameMock);
         });
+    }
+    @Test
+    void testSetMediumDifficultyIfSessionNotStarted() {
+        try {
+            gameController.setMediumDifficulty(gameMock);
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
     }
 }
