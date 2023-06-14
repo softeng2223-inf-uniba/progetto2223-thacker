@@ -6,6 +6,10 @@ import it.uniba.app.battleship.entity.*;
 import java.util.HashSet;
 import java.util.LinkedList;
 
+/**
+ * Classe di mock per il testing.
+ * Questa classe viene utilizzata per simulare un oggetto reale durante i test.
+ */
 public class GameMock extends Game{
     private static final    LinkedList<Ship> SHIPS = getShipSet();
     private boolean sessionStartedMock;
