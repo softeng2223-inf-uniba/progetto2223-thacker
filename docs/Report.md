@@ -302,11 +302,18 @@ Con il comando ``/gioca``, invece, ti sarà possibile iniziare una nuova partita
 Le navi saranno posizionate in maniera **automatica** in una griglia dalla dimensione che hai scelto in precedenza, senza che tu faccia alcuna azione. 
 
 
-#### (7.2.4) Sistema dei colpi
+### Sistema dei colpi
 
-Se il colpo lanciato dall'utente colpisce una casella **vuota**, sulla griglia verrà mostrato il simbolo **"~"**. Se, invece, colpisce una nave, verrà mostrata una **"X"** nella casella colpita. 
+Potrai lanciare un colpo sulla griglia delle navi avversaria semplicemente digitando nella console la coordinata della cella, secondo una sintassi del tipo `<LETTERA>-<NUMERO>`.
 
-Quando non rimane più nessuna cella, della nave colpita,intatta,essa potrà essere dichiarata **affondata**. 
+A seconda della situazione, si verificherò uno dei seguenti tre scenarti:
+
+- Il colpo non va segno; quindi, a schermo comparirà la scritta **acqua**
+- Il colpo intercetta la parte di una nave ma non l'affonda; allora a schermo apparirà la scritta **colpito**
+- Il colpo intercetta una nave e la affonda; allora l'applicazione mostrerà a schermo la parola **colpito e affondato**
+
+In ognuno di questi tre casi, verranno msotrate anche la griglia delle navi avversaria, con tutte le navi colpite o affondate, assieme al numero di tentativi effettuati e il tempo trascorso. 
+
 
 ### (7.2) Scopo del gioco
 
