@@ -172,6 +172,11 @@ public class GameMock extends Game{
         return gridMock.isWithinBounds(coord);
     }
 
+    /**
+     * Fornisce il numero di tentativi falliti fino ad un certo istante di una sessione di gioco.
+     *
+     * @return tentativi falliti all'istante corrente
+     */
     public int getFailedAttempts() {
         return failedAttemptsMock;
     }
