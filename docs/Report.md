@@ -355,3 +355,6 @@ Durante l'analisi retrospettiva dello Sprint 1, abbiamo raccolto i seguenti feed
 
 - Il collega Antonio Dambra ha espresso l'opinione sul fatto che avremmo potuto adottare soluzioni più semplici per soddisfare i requisiti, evitando di aumentare la complessità del progetto.
 D'altra parte si dimostra soddisfatto del come siano stati affrontati i problemi incontrati, riuscendo a raggiungere l'obiettivo.
+
+- Stefano Birardi si ritiene soddisfatto dell'attribuzione delle user story sulla base delle proprie competenze. 
+Tuttavia ha incontrato delle difficoltà nell'implementazione del diagramma delle classi.
