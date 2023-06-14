@@ -238,4 +238,14 @@ public class GameControllerTest {
             gameController.setCustomMediumDifficulty(gameMock, 0);
         });
     }
+
+    @Test
+    void testSetCustomMediumDifficultyIfValidValue() {
+        try {
+            gameController.setCustomMediumDifficulty(gameMock, 1);
+        } catch (InvalidValueException e) {
+            fail("InvalidValueException");
+        }
+    }
+
 }
