@@ -199,7 +199,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomMediumDifficulty(final Game game, final int num) {
-        CONTROL_GAME.setCustomMediumDifficulty(num);
+        CONTROL_GAME.setCustomMediumDifficulty(game, num);
         handleMediumDifficulty(game, true);
     }
     /**
