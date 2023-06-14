@@ -101,4 +101,8 @@ public class GameMock extends Game{
     public boolean isAlreadyAttempted(final Coordinate coord) {
         return attemptsMock.contains(coord);
     }
+
+    public boolean isAttemptWithinBounds(final Coordinate coord) {
+        return gridMock.isWithinBounds(coord);
+    }
 }
