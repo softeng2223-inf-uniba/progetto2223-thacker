@@ -188,6 +188,16 @@ Alla luce di ciò che è stato evidenziato nelle precedenti due sezioni, risulta
 
 ![Stile architetturale](./img/s2-stile-architetturale.png)
 
+## (6) Riepilogo Test
+Introduzione: 
+Nel contesto del progetto di Battaglia Navale, abbiamo sviluppato una suite di casi di test per garantire la qualità del software. In questa sintesi, spiegheremo la strategia adottata dal nostro team nella creazione dei casi di test, focalizzandoci sulle classi rilevanti e considerando un fattore di costo e tempo specifico. Inoltre, illustreremo i motivi validi che ci hanno spinto a utilizzare criteri black-box per progettare i test rispetto ai criteri white-box.
+Strategia di selezione delle classi rilevanti: 
+Abbiamo adottato una strategia mirata nella scelta delle classi da testare considerando il fattore di costo e tempo specifico. Abbiamo deciso in primis di testare la classe principale del gioco, cioè GameController e alcune classi di utilità al gioco come FlagHandler e ExitController. Questa selezione mirata ci ha consentito di ottimizzare l'utilizzo delle risorse e concentrare i nostri sforzi di test dove erano più necessari.
+Scelta dei criteri black-box per progettare i test: Abbiamo deciso di utilizzare criteri black-box per progettare i casi di test per diverse ragioni valide:
+- Indipendenza dall'implementazione: I criteri black-box si basano sull'analisi delle specifiche e dei requisiti del sistema, senza richiedere una conoscenza dettagliata dell'implementazione interna. Questo ci ha permesso di creare test che valutano il comportamento esterno del software, indipendentemente da come è stato codificato. 
+- Copertura dei requisiti funzionali: Utilizzando criteri black-box, siamo stati in grado di garantire una copertura quasi completa dei requisiti funzionali del sistema. Abbiamo sviluppato casi di test che coprono una vasta gamma di funzionalità, verificando che il gioco rispetti i requisiti specificati nelle specifiche. Questo ci ha dato la certezza che il software funzioni come previsto e soddisfi le aspettative degli stakeholder.
+- Semplificazione dei test: I criteri black-box offrono un approccio più semplice nella progettazione e nell'implementazione dei casi di test. Non richiedono una conoscenza dettagliata della struttura interna del codice o la creazione di strutture di test complesse.
+
 ## (7) Manuale Utente
 
 ### Introduzione 
