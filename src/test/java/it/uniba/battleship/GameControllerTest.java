@@ -267,6 +267,12 @@ public class GameControllerTest {
         assertNotNull(gameController.getDifficulty(gameMock));
     }
 
+    /**
+     * 17) Test: Verifica che il metodo setEasyDifficulty() imposti
+     * la difficolta' di game a 'Facile'.
+     * <p>
+     *  Atteso: True
+     */
     @Test
     void testGetDifficultyReturnCorrectly() {
         gameController.setEasyDifficulty(gameMock);
