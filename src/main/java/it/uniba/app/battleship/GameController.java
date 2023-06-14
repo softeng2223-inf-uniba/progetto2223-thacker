@@ -56,6 +56,20 @@ public final class GameController {
     }
 
     /**
+     * Reimposta i valori di default per la difficoltà
+     * e la dimensione della griglia.
+     * @param game oggetto che conserva i dati di gioco.
+     */
+    public void reset(final Game game) {
+        easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
+        mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
+        hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+        setEasyDifficulty(game);
+        setGameTimeMinute(game, 0);
+        standardGridSize(game);
+    }
+
+    /**
      * Avvia una nuova sessione di gioco.<hr>
      * Esegue tutte le inizializzazioni necessarie per giocare.
      *
@@ -91,29 +105,24 @@ public final class GameController {
     /* METODI PER IL TEMPO */
 
     /**
-     * Permette di settare il numero di minuti a disposizione
-     * nella partita per giocare.
-     * @param timeSet contiene i minuti a disposizione per giocare.
-     */
-    public void setTimeLimit(final Time time, final int timeSet) {
-        time.setTimeLimitMin(timeSet);
-    }
-
-    /**
      * Permette di settare il numero massimo di
      * minuti a disposizione per giocare.
      * @param game oggetto che conserva i dati di gioco.
      * @param value intero che contiene il numero di minuti
      * a disposizione per giocare.
      * @throws SessionAlreadyStartedException
+     * @throws InvalidValueException
      */
-    public void setTime(final Game game, final int value) throws SessionAlreadyStartedException {
+    public void setGameTimeMinute(final Game game, final int value)
+            throws SessionAlreadyStartedException, InvalidValueException {
         if (game.isSessionStarted()) {
             throw new SessionAlreadyStartedException();
         }
-
+        if (value < 0) {
+            throw new InvalidValueException();
+        }
         Time time = new Time();
-        setTimeLimit(time, value);
+        time.setTimeLimitMin(value);
         game.setTime(time);
     }
 
@@ -163,18 +172,21 @@ public final class GameController {
      * @param value numero di tentativi fallibili
      * @throws SessionAlreadyStartedException
      *      non è possibile impostare la difficoltà durante una sessione in corso
+     * @throws InvalidValueException
+     *      non è possibile inserire un valore minore o uguale a 0.
      */
     public void setCustomDifficulty(final Game game, final int value)
         throws SessionAlreadyStartedException, InvalidValueException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
         if (value <= 0) {
             throw new InvalidValueException();
         }
         Difficulty diff = new Difficulty();
         diff.setNameLevel(CUSTOM_NAME);
         diff.setMaxFailedAttempts(value);
-        try {
-            game.setDifficulty(diff);
-        } catch (CloneNotSupportedException e) { }
+        game.setDifficulty(diff);
     }
 
     /**
@@ -190,9 +202,7 @@ public final class GameController {
         Difficulty diff = new Difficulty();
         diff.setNameLevel(EASY_NAME);
         diff.setMaxFailedAttempts(easyMaxFailedAttempts);
-        try {
-            game.setDifficulty(diff);
-        } catch (CloneNotSupportedException e) { }
+        game.setDifficulty(diff);
     }
 
      /**
@@ -208,9 +218,7 @@ public final class GameController {
         Difficulty diff = new Difficulty();
         diff.setNameLevel(MEDIUM_NAME);
         diff.setMaxFailedAttempts(mediumMaxFailedAttempts);
-        try {
-            game.setDifficulty(diff);
-        } catch (CloneNotSupportedException e) { }
+        game.setDifficulty(diff);
     }
 
     /**
@@ -226,10 +234,7 @@ public final class GameController {
         Difficulty diff = new Difficulty();
         diff.setNameLevel(HARD_NAME);
         diff.setMaxFailedAttempts(hardMaxFailedAttempts);
-        try {
-            game.setDifficulty(diff);
-        } catch (CloneNotSupportedException e) {
-        }
+        game.setDifficulty(diff);
     }
 
     /**
@@ -237,8 +242,21 @@ public final class GameController {
      * il numero massimo di tentativi falliti a maxFailedAttempts.
      *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
+     *
+     * @throws SessionAlreadyStartedException
+     *         se la sessione è già iniziata non si può modificare la difficoltà.
+     * @throws InvalidValueException
+     *         se il valore inserito è minore di 1 non si può impostare la difficoltà.
      */
-    public void setCustomEasyDifficulty(final int maxFailedAttempts) {
+    public void setCustomEasyDifficulty(final Game game,
+                                        final int maxFailedAttempts)
+            throws SessionAlreadyStartedException, InvalidValueException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        if (maxFailedAttempts < 1) {
+            throw new InvalidValueException();
+        }
         easyMaxFailedAttempts = maxFailedAttempts;
     }
 
@@ -247,8 +265,21 @@ public final class GameController {
      * il numero massimo di tentativi falliti a maxFailedAttempts.
      *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
+     *
+     * @throws SessionAlreadyStartedException
+     *         se la sessione è già iniziata non si può modificare la difficoltà.
+     * @throws InvalidValueException
+     *         se il valore inserito è minore di 1 non si può impostare la difficoltà.
      */
-    public void setCustomMediumDifficulty(final int maxFailedAttempts) {
+    public void setCustomMediumDifficulty(final Game game,
+                                          final int maxFailedAttempts)
+            throws SessionAlreadyStartedException, InvalidValueException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        if (maxFailedAttempts < 1) {
+            throw new InvalidValueException();
+        }
         mediumMaxFailedAttempts = maxFailedAttempts;
     }
 
@@ -257,8 +288,21 @@ public final class GameController {
      * il numero massimo di tentativi falliti a maxFailedAttempts.
      *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
+     *
+     * @throws SessionAlreadyStartedException
+     *         se la sessione è già iniziata non si può modificare la difficoltà.
+     * @throws InvalidValueException
+     *         se il valore inserito è minore di 1 non si può impostare la difficoltà.
      */
-    public void setCustomHardDifficulty(final int maxFailedAttempts) {
+    public void setCustomHardDifficulty(final Game game,
+                                        final int maxFailedAttempts)
+            throws SessionAlreadyStartedException, InvalidValueException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        if (maxFailedAttempts < 1) {
+            throw new InvalidValueException();
+        }
         hardMaxFailedAttempts = maxFailedAttempts;
     }
 
@@ -266,9 +310,8 @@ public final class GameController {
      * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
      *
      * @return difficoltà selezionata
-     * @throws CloneNotSupportedException
      */
-    public Difficulty getDifficulty(final Game game) throws CloneNotSupportedException {
+    public Difficulty getDifficulty(final Game game) {
         return game.getDifficulty();
     }
 

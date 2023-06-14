@@ -115,10 +115,9 @@ public final class Game {
      *
      * @param choice difficoltà da impostare
      */
-    public void setDifficulty(final Difficulty choice)
-        throws CloneNotSupportedException {
-            difficulty = choice.clone();
-            diffSet = true;
+    public void setDifficulty(final Difficulty choice) {
+        difficulty = choice.clone();
+        diffSet = true;
         }
 
     /**
