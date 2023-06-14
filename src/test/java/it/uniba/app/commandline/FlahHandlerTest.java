@@ -61,6 +61,13 @@ class FlahHandlerTest {
                 "ERR [FH:3]: execute() non restiusce true quando viene passato il singolo flag valido --help");
     }
 
+    /**
+     * 4) Test: verifica che execute() dia il giusto risultato
+     * passando unicamente il falg valod -h
+     * <p>
+     * Atteso: true.
+     * </p>
+     */
     @Test
     void testRightNumberAndCorrectFlagH() {
         String[] args = {"-h" };
