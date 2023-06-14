@@ -247,9 +247,6 @@ Una volta assicurato di avere Docker e il WSL (se stai usando Windows) correttam
 
 Seguendo questi passaggi, dovresti essere in grado di eseguire correttamente l'immagine Docker senza incontrare problemi.
 
-#### (7.2) Incominciare il gioco
-
-Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cui potrà digitare **due comandi**. 
 
 #### (7.2.1) Elenco dei comandi 
 
