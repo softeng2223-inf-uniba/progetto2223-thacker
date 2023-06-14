@@ -110,13 +110,9 @@ public final class CommandHandler {
     private void executeArgs(final Game game, final String commandStr, final String valueStr) {
         if (!COMMANDS_WITH_PARAMS.contains(commandStr)) {
             Output.printCommandWithParamsNotRecognised(commandStr);
-        } else if (!valueStr.matches("^[1-9]\\d*$")) {
-            if (commandStr.equals("/tempo") && valueStr.equals("0")) {
-                handleTime(game, 0);
-            } else {
-                Output.printNumberFormatError(valueStr);
-            }
-        } else {
+            return;
+        }
+        try {
             int value = Integer.parseInt(valueStr);
             switch (commandStr) {
                 case "/tentativi" -> handleCustomDifficulty(game, value);
@@ -126,6 +122,12 @@ public final class CommandHandler {
                 case "/difficile" -> handleCustomHardDifficulty(game, value);
                 default -> { }
             }
+        } catch (NumberFormatException e) {
+            // Integer.parseInt() exception
+            Output.printCommandWithParamsNotNumber(commandStr);
+        } catch (InvalidValueException e) {
+            // Command exception
+            Output.printCommandWithParamsNumberNotPositive(commandStr);
         }
     }
     /** Esegue un comando letto dal terminale.
