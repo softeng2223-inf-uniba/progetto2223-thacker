@@ -184,6 +184,16 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 La Battaglia Navale è un gioco da tavolo strategico in cui due giocatori si sfidano cercando di affondare le navi nemiche posizionate su una griglia. Tradizionalmente, il gioco viene giocato da due persone, ma in questa versione avrai il computer come avversario.
 
+### Scopo del gioco 
+
+L'obiettivo del gioco è quello di riuscire ad affondare tutte le navi avversarie prima che i tentativi disponibili finiscano. 
+
+Se si decide di impostare il timer, è necessario raggiungere l'obiettivo prima che il tempo scada. 
+
+Per assicurarsi che il programma funzioni correttamente su qualsiasi macchina, evitando problemi di compatibilità, è consigliabile installare Docker.
+
+
+
 #### **(7.1.1) Installazione Docker**
 
 La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda della versione del sistema operativo che si sta usando : 
