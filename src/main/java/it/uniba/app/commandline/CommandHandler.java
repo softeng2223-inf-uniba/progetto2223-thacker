@@ -66,6 +66,7 @@ public final class CommandHandler {
     public void handleCommand(final Game game) {
         try {
             if (game.isSessionStarted() && isEnd(game)) {
+                GameController.getInstance().reset(game);
                 return;
             }
             Output.printEnterCommand(game.isSessionStarted());
@@ -84,6 +85,7 @@ public final class CommandHandler {
         // Se il tempo è scaduto, termina la partita.
         if (gameTimeCheck(game)) {
             Output.printTimeOut();
+            GameController.getInstance().reset(game);
             return true;
         }
         // Se hai esausto i tentativi, termina la partita.
@@ -396,7 +398,7 @@ public final class CommandHandler {
                     Output.printEndSessionConfirm(CONTROL_SHOWGRID.genShipMap(game.getSessionGrid()));
                     CONTROL_GAME.endSession(game);
                     try {
-                        CONTROL_GAME.setGameTimeMinute(game, 0);
+                        GameController.getInstance().reset(game);
                     } catch (SessionAlreadyStartedException ignored) { }
                 }
                 case "no" -> Output.printNotConfirm();
