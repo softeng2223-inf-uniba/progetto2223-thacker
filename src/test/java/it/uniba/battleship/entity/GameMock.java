@@ -90,6 +90,13 @@ public class GameMock extends Game{
     public void setAttemptsList(HashSet<Coordinate> set) {
         attemptsMock = set;
     }
+
+    /**
+     * Fornisce il numero di tentativi effettuati fino ad un dato istante
+     * durante una sessione di gioco.
+     *
+     * @return tentativi totali nell'istante corrente
+     */
     public int getAttempts() {
         return attemptsMock.size();
     }
