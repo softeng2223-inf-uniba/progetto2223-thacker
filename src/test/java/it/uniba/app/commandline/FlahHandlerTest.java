@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * javadoc momentaneo.
+ * Classe utile al test di FlagHandler.
  */
 class FlahHandlerTest {
     private FlagHandler fh;
