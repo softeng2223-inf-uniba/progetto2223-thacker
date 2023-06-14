@@ -163,4 +163,11 @@ public class GameControllerTest {
             gameController.setCustomEasyDifficulty(gameMock, 1);
         });
     }
+
+    @Test
+    void testSetCustomEasyDifficultyIfInvalidValue() {
+        assertThrows(InvalidValueException.class, () -> {
+            gameController.setCustomEasyDifficulty(gameMock, 0);
+        });
+    }
 }
