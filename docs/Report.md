@@ -198,6 +198,8 @@ Scelta dei criteri black-box per progettare i test: Abbiamo deciso di utilizzare
 - Copertura dei requisiti funzionali: Utilizzando criteri black-box, siamo stati in grado di garantire una copertura quasi completa dei requisiti funzionali del sistema. Abbiamo sviluppato casi di test che coprono una vasta gamma di funzionalità, verificando che il gioco rispetti i requisiti specificati nelle specifiche. Questo ci ha dato la certezza che il software funzioni come previsto e soddisfi le aspettative degli stakeholder.
 - Semplificazione dei test: I criteri black-box offrono un approccio più semplice nella progettazione e nell'implementazione dei casi di test. Non richiedono una conoscenza dettagliata della struttura interna del codice o la creazione di strutture di test complesse.
 
+La suite di Test si può trovare in test.java.it.uniba.app.battleship.
+
 ## (7) Manuale Utente
 
 ### Introduzione 
