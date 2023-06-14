@@ -345,8 +345,6 @@ Se dovesse eseguire uno di questi comandi durante una partita, il sistema notifi
 
 **diagramma di sequenza:**
 
-Si assume che il giocatore non abbia già iniziato una partita.
-
 ```mermaid
 sequenceDiagram
   autonumber
@@ -359,7 +357,7 @@ sequenceDiagram
   participant GaCo as GameController
   participant Game
   participant DT as :Difficulty
-  participant DG as :Difficulty:difficulty
+  participant DG as :Difficulty (Game)
 
   App ->> Game : crea
   
@@ -370,21 +368,33 @@ sequenceDiagram
   Input ->> Player: attende comando
   Player -->> Input: invia /facile
   Input --> CH: /facile
+
   CH ->> CH: handleEasyDifficulty()
   CH ->> GaCo: setEasyDifficulty()
-
-  activate DT
-  GaCo ->> DT: setNameLevel()
-  GaCo ->> DT: setMaxFailedAttempts()
-  GaCo ->> Game: setDifficulty()
-  Game ->> DT: clone()
-  activate DG
-  deactivate DT
-  CH ->> Game: getDifficulty()
-  Game ->> DG: clone()
-  DG -->> CH: diff
-  CH ->> Output: printSetDifficulty();
-  deactivate DG
+  GaCo ->> Game: isSessionStarted()
+  alt false
+    Game -->> GaCo: false
+    Game ->> DT: crea
+    activate DT
+    GaCo ->> DT: setNameLevel()
+    GaCo ->> DT: setMaxFailedAttempts()
+    GaCo ->> Game: setDifficulty()
+    Game ->> DT: clone()
+    DT ->> DG: crea
+    activate DG
+    deactivate DT
+    DG -->> Game: difficulty
+    Note over GaCo, DG: livello di difficoltà impostato a "facile"
+    CH ->> Game: getDifficulty()
+    Game ->> DG: clone()
+    DG -->> CH: diff
+    CH ->> Output: printSetDifficulty();
+    Output ->> Player: "OK, impostata a facile"
+    deactivate DG
+  else true
+    CH ->> Output: printCantSetDiffDuringSession()
+    Output ->> Player: feedback
+  end
   deactivate Game
 
 ```
@@ -420,7 +430,8 @@ classDiagram
   <<boundary>> Input
 
   class Output {
-    +printSetDifficulty()$ String
+    +printSetDifficulty()$
+    +printCantSetDiffDuringSession()$
   }
   <<boundary>> Input
 
