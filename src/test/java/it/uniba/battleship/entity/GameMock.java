@@ -17,6 +17,13 @@ public class GameMock {
     private HashSet<Coordinate> attemptsMock;
     private int failedAttemptsMock;
     public GameMock() {
-
+        sessionStartedMock = false;
+        diffSetMock = false;
+        sunkShipsMock = 0;
+        difficultyMock = new Difficulty();
+        gridMock = new Grid();
+        timeMock = new Time();
+        attemptsMock = new HashSet<>();
+        failedAttemptsMock = 0;
     }
 }
