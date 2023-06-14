@@ -96,7 +96,13 @@ public class GameMock extends Game {
     public HashSet<Coordinate> getAttemptsList() {
         return attemptsMock;
     }
-    public void setAttemptsList(HashSet<Coordinate> set) {
+
+    /**
+    * Imposta attemptsMock con un dato HashSet di oggetti Coordinate.
+    *
+    * @param set l'HashSet di oggetti Coordinate che contiene l'elenco dei tentativi
+    */
+    public void setAttemptsList(final HashSet<Coordinate> set) {
         attemptsMock = set;
     }
 
