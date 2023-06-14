@@ -369,4 +369,22 @@ public class GameControllerTest {
         }
         assertEquals(-1, expectedValue, "ERRORE");
     }
+
+    @Test
+    void testStrikeIfHitOnShip() {
+        gameController.startSession(gameMock);
+        Grid testGrid = new Grid();
+        Ship testShip = new Ship(0);
+        Coordinate testCoord = new Coordinate(0, 0);
+        testGrid.set(testCoord, testShip);
+        gameMock.setGridMock(testGrid);
+        int expectedValue = 0;
+        try {
+            expectedValue = gameController.strike(gameMock, testCoord);
+        } catch (CellAlreadyMarkedException e) {
+            fail("CellAlreadyMarkedException");
+        }
+        assertEquals(0, expectedValue,
+                "err");
+    }
 }
