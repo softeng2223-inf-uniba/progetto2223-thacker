@@ -240,14 +240,25 @@ public class GameControllerTest {
         });
     }
 
+    /**
+     * Verifica se viene sollevata l'eccezione "SessionAlreadyStartedException"
+     * quando si tenta di impostare una dimensione di griglia grande
+     * se la sessione di gioco è già stata avviata.
+     */
     @Test
     void testLargeGridSizeIfSessionStarted() {
         gameController.startSession(gameMock);
         assertThrows(SessionAlreadyStartedException.class, () -> {
             gameController.largeGridSize(gameMock);
-        });
+        },
+        "errore, il metodo non lancia una eccezione di tipo SessionAlreadyStartedExpection");
     }
 
+    /**
+     * Verifica che non venga sollevata l'eccezione "SessionAlreadyStartedException"
+     * quando si tenta di impostare una dimensione di griglia standard
+     * se la sessione di gioco non è ancora stata avviata.
+    */
     @Test
     void testStandardGridSizeIfSessionNotStarted() {
         try {
@@ -257,14 +268,25 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * Verifica che non venga sollevata l'eccezione "SessionAlreadyStartedException"
+     * quando si tenta di impostare una dimensione di griglia standard
+     * se la sessione di gioco non è ancora stata avviata.
+     */
     @Test
     void testStandardGridSizeIfSessionStarted() {
         gameController.startSession(gameMock);
         assertThrows(SessionAlreadyStartedException.class, () -> {
             gameController.standardGridSize(gameMock);
-        });
+        },
+        "errore, standardGridSize() dovrebbe lanciare una ecezione");
     }
 
+    /**
+     * Verifica che non venga sollevata l'eccezione "SessionAlreadyStartedException"
+     * quando si tenta di impostare una dimensione di griglia grande
+     * se la sessione di gioco non è ancora stata avviata.
+     */
     @Test
     void testLargeGridSizeIfSessionNotStarted() {
         try {
@@ -274,6 +296,12 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * Verifica se il metodo "getFailedAttempts" restituisce il numero corretto
+     *  di tentativi falliti quando la sessione di gioco è stata avviata.
+     * Viene effettuato un tentativo di colpo su una griglia di gioco e si verifica
+     * se il numero di tentativi falliti restituito è corretto.
+     */
     @Test
     void testGetFailedAttemptsIfSessionStarted() {
         gameController.startSession(gameMock);
@@ -289,13 +317,27 @@ public class GameControllerTest {
         }
     }
 
+
+    /**
+     * x) Test: verifica che il metodo getAttempts() restituisca una
+     * eccezione di tipo SessionNotStartedException quando una
+     * partita non è un corso.
+     */
     @Test
     void testGetAttemptsIfSessionNotStarted() {
         assertThrows(SessionNotStartedException.class, () -> {
             gameController.getAttempts(gameMock);
-        });
+        },
+        "errore, getAttempts() non lancia una eccezione di tipo"
+        + "SessionNotStartedException quando la sessione non è in corso");
     }
 
+    /**
+     * x) Test: verifica che il numero di tentativi falliti ad
+     * inizio partita sia zero.
+     * <p>
+     * Atteso: 0.
+     */
     @Test
     void testGetFailedAttemptsIfSessionStartedAndNoAttempts() {
         gameController.startSession(gameMock);
@@ -309,6 +351,11 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * x) Test: Verifica che, quando viene effettuato un colpo
+     * la coordinata colpita venga inserita nella lista di coordinate
+     * che sono state colpite.
+     */
     @Test
     void testStrikeAddToListIfCellIsEmpty() {
         gameController.startSession(gameMock);
@@ -321,9 +368,15 @@ public class GameControllerTest {
         }
 
         assertTrue(gameMock.getAttemptsList().contains(testCoord),
-                "Non contiene proprio niente");
+                "errore, la lista dei tentativi non contiene tutti i tentativi effettuati");
     }
 
+    /**
+     * x) test: Verifica che il metodo strike() aumenti correttamente
+     * il numero di navi affondate.
+     * <p>
+     * Atteso: 1.
+     */
     @Test
     void testStrikeIncrementSunkSkipsIfHitSunkShip() {
         gameController.startSession(gameMock);
@@ -345,16 +398,30 @@ public class GameControllerTest {
             fail("CellAlreadyMarkedException");
         }
 
-        assertEquals(expectedValue, gameMock.getSunkShips(), "err");
+        assertEquals(expectedValue, gameMock.getSunkShips(),
+        "errore, il numero di navi affondate non viene incrementato correttamente");
     }
 
+    /**
+     * x) Test: verifica che il metodo getAttempts() restituisca una eccezione
+     * di tipo SessionNotStartedException quando una sessione non è cominciata.
+     * <p>
+     * Atteso: eccezione SessionNotStartedException.
+     */
     @Test
     void testGetFailedAttemptsIfSessionNotStarted() {
         assertThrows(SessionNotStartedException.class, () -> {
             gameController.getFailedAttempts(gameMock);
-        });
+        },
+        "errore, dovrebbe essere lanciata una eccezione di tipo SessionNotStartedException");
     }
 
+    /**
+     * x) Test: verifica che il metodo getAttempts() funzioni
+     * correttamente senza lanciare una eccezione di tipo
+     * SessionNotStartedException quando una sessione è
+     * in corso e sono stati tirati dei colpi.
+     */
     @Test
     void testGetAttemptsIfSessionStarted() {
         gameController.startSession(gameMock);
@@ -363,37 +430,63 @@ public class GameControllerTest {
         try {
             assertEquals(2, gameController.getAttempts(gameMock), "err");
         } catch (SessionAlreadyStartedException e) {
-            fail("SessionAlreadyStartedException");
+            fail("SessionNotStartedException");
         }
     }
 
+    /**
+     * x) Test: verifica che il metodo getAttempts() funzioni
+     * correttamente senza lanciare una eccezione di tipo
+     * SessionNotStartedException quando una sessione è
+     * in corso.
+     */
     @Test
     void testGetAttemptsIfSessionStartedAndNoAttempts() {
-        gc.startSession(gameMock);
+        gameController.startSession(gameMock);
         try {
             assertEquals(0, gameController.getAttempts(gameMock), "err");
         } catch (SessionAlreadyStartedException e) {
-            fail("SessionAlreadyStartedException");
+            fail("SessionNotStartedException");
         }
     }
 
+    /**
+     * x) Test: verifica che il metodo getSessionGrid() funzioni
+     * correttamente senza lanciare una eccezione di tipo
+     * SessionNotStartedException quando una sessione è
+     * in corso.
+     */
     @Test
     void testGetSessionGridIfSessionStarted() {
         gameController.startSession(gameMock);
         try {
             gameController.getSessionGrid(gameMock);
         } catch (SessionAlreadyStartedException e) {
-            fail("SessionAlreadyStartedException");
+            fail("SessionNotStartedException");
         }
     }
 
+
+    /**
+     * x) Test: verifica che il metodo getSessionGrid() lanci una eccezione
+     * di tipo SessionNotStartedException quando una sessione non è ancora
+     * cominciata.
+     * <p>
+     * Atteso: eccezione SessionNotStartedException.
+     */
     @Test
     void testGetSessionGridIfSessionNotStarted() {
         assertThrows(SessionNotStartedException.class, () -> {
             gameController.getSessionGrid(gameMock);
-        });
+        },
+        "errore, il metodo getSessionGrid avrebbe dovuto lanciare una eccezione di tipo SessionNotStartedException");
     }
 
+    /**
+     * x) Test: verifica che il metodo extraLargeGrid() lanci
+     * una eccezione quando una sessione è già in corso.
+     * Atteso: eccezione SessionAlreadyStartedException.
+     */
     @Test
     void testExtraLargeGridSizeIfSessionNotStarted() {
         try {
@@ -403,6 +496,12 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * x) Test: Verifica che il metodo randomlyFill() inserisca
+     * il giusto numero di navi all'interno della mappa.
+     * <p>
+     * Atteso: 30
+     */
     @Test
     void testRandomlyFillInsertsEveryShipInTheGrid() {
         gameController.startSession(gameMock);
