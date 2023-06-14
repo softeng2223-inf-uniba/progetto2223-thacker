@@ -181,6 +181,10 @@ public class GameMock extends Game{
         return failedAttemptsMock;
     }
 
+    /**
+     * Fornisce un clone dell'oggetto di tipo Time
+     * istanziato in Game.
+     */
     public Time getTime() {
         return timeMock.clone();
     }
