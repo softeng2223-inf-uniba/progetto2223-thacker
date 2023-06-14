@@ -371,3 +371,5 @@ Tra le altre cose ha evidenziato l'importanza del fare attenzione agli errori di
 - Annarita Bruno ha riscontrato difficoltà nell'accordarsi sulle scelte da intraprendere in alcune circostanze. 
 
 - Giuseppe D'Urso sottolinea l'importanza di assicurarsi che le regole del gioco siano chiare e facilmente comprensibili per i giocatori.
+
+Questi feedback saranno presi in considerazione per migliorare il processo di sviluppo nel prossimo Sprint. Continueremo a lavorare sui tempi di sviluppo rispettando una tabella di marcia, lavorando inoltre sull'organizzazione e sulla fiducia reciproca per raggiungere gli obiettivi del progetto.
