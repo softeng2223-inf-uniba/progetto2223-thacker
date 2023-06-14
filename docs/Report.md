@@ -264,13 +264,13 @@ ecco una bfreve descrizione di ognuno:
 
 - `/gioca` Inizia una nuova partita
 
-- `/facile + numero` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
+- `/facile <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
 
-- `/medio + numero` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
+- `/medio <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
 
-- `/difficile + numero` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`
+- `/difficile <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`
 
-- `/tentativi + numero` Imopsta secondo la variabile `numero`, stabilita dall'utente, il numero massimo di tentativi disponibili
+- `/tentativi <numero>` Imopsta secondo la variabile `numero`, stabilita dall'utente, il numero massimo di tentativi disponibili
 
 -  `/mostratentativi` Mostra i tentativi ancora disponibili in quel momento
 
@@ -280,7 +280,7 @@ ecco una bfreve descrizione di ognuno:
 
 - `/extralarge` Imposta la dimensione di entrambe griglie di gioco a 26x26
 
-- `/tempo + numero` Imposta un timer, in minuti, secondo il valore di `numero` che l'applicazione chiederà al giocatore. Una volta impostato, la partita in corso o quella che è in procintio di partire sarà a tempo
+- `/tempo <numero>` Imposta un timer, in minuti, secondo il valore di `numero` che l'applicazione chiederà al giocatore. Una volta impostato, la partita in corso o quella che è in procintio di partire sarà a tempo
 
 - `/mostratempo` mostra i minuti rimanenti per il completamento della partita e queeli trascorsi 
 
@@ -297,7 +297,7 @@ ecco una bfreve descrizione di ognuno:
 - `/abbandona` Se il giocatore conferma, l'app mostrerà la posizione delle navi nemiche e aspetterà un comando. Altrimenti, si preparerà per un nuovo tentativo di lancio.
 
 
-Con il comando ``/gioca``, invece, ti sarà possibile iniziare una nuova partita. 
+Con il comando `/gioca`, invece, ti sarà possibile iniziare una nuova partita. 
 
 Le navi saranno posizionate in maniera **automatica** in una griglia dalla dimensione che hai scelto in precedenza, senza che tu faccia alcuna azione. 
 
