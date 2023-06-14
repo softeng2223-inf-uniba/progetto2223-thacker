@@ -277,6 +277,9 @@ public class GameMock extends Game {
         failedAttemptsMock++;
     }
 
+    /**
+     * Aggiunge una coordinata al set di tentativi.
+     */
     public void addAttempt(final Coordinate attempt) {
         attemptsMock.add(attempt);
     }
