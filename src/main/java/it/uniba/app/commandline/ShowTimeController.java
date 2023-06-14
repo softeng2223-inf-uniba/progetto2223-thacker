@@ -2,6 +2,7 @@ package it.uniba.app.commandline;
 
 import it.uniba.app.battleship.GameController;
 import it.uniba.app.battleship.entity.Game;
+import it.uniba.app.battleship.exception.SessionNotStartedException;
 
 /**
  * {@code <<control>}<br>
@@ -25,49 +26,21 @@ public final class ShowTimeController {
     }
 
     /**
-     * Restituisce una oggetto di tipo {@code String} che
-     * contiene il numero di minuti disponibile per giocare
-     * durante una partita in quel momento.
-     * Permette d'implementare il comando {@code /mostratempo}.
+     * Visualizza le informazioni legate al tempo.
+     * Se vi è una sessione in corso, mostra il tempo di gioco trascorso e rimanente.
+     * Se non vi è una sessione in corso, mostra il tempo limite impostato per la
+     * prossima sessione di gioco.
      * @param game contiene i dati relativi alla sessione di gioco.
-     * @return messaggio con informazioni legate al tempo
      */
-    String showTime(final Game game) {
-        String message = new String();
-
+    void showTime(final Game game) {
         int maxMinute = game.getTime().getTimeLimitMin();
-        long minutePassed = GameController.getInstance().checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
 
-        // se una sessione di gioco è in corso
-        if (game.isSessionStarted()) {
-            message = "Numero di minuti trascorsi dall'inizio della partita: "
-                + minutePassed;
-            message += "\nNumero di minuti ancora disponibili per giocare: ";
-
-            if (maxMinute > 0) {
-                long remainingMin  = maxMinute - minutePassed;
-                message += remainingMin;
-            } else {
-                message += "infiniti";
-            }
-            return message;
+        try {
+            long minutePassed = GameController.getInstance().checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
+            Output.printSessionTime(maxMinute, minutePassed);
+        } catch (SessionNotStartedException e) {
+            // se non vi è una sessione in corso
+            Output.printTimeSetting(maxMinute);
         }
-        // se non vi sono sessioni in corso
-        switch (maxMinute) {
-            case 0:
-                message = "Hai a disposizione un tempo illimitato";
-                break;
-            case 1:
-                message = "Quando inizierai la partita avrai a disposizione "
-                + maxMinute
-                + " minuto";
-                break;
-            default:
-                message = "Quando inizierai la partita avrai a disposizione "
-                + maxMinute
-                + " minuti";
-                break;
-        }
-        return message;
     }
 }
