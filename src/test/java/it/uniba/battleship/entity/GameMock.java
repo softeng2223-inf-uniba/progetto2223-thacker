@@ -49,4 +49,7 @@ public class GameMock {
     public boolean isSessionStarted() {
         return sessionStartedMock;
     }
+    public HashSet<Coordinate> getAttemptsList() {
+        return attemptsMock;
+    }
 }
