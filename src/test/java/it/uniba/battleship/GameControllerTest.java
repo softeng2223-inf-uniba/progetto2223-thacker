@@ -465,6 +465,13 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * 28) Test: Verifica che il metodo strike() non lanci
+     * un'eccezione se invocato durante una sessione di gioco con
+     * coordinate che contengono 'acqua'.
+     * <p>
+     *  Atteso: eccezione non lanciata e True
+     */
     @Test
     void testStrikeIfHitOnWater() {
         gameController.startSession(gameMock);
