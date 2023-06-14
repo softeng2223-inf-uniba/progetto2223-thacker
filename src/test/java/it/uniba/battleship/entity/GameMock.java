@@ -185,4 +185,8 @@ public class GameMock extends Game{
     public void setSunkShipsMock(final int sunkShips) {
         sunkShipsMock = sunkShips;
     }
+
+    public void setGridMock(final Grid grid) {
+        gridMock = grid.clone();
+    }
 }
