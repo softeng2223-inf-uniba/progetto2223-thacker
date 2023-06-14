@@ -1,6 +1,7 @@
 package it.uniba.app.commandline;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,9 +27,16 @@ class FlahHandlerTest {
 
     @Test
     void testRightNumberButIncorrectFlag() {
-        String[] args = {"--h"};
+        String[] args = {"--h" };
         assertFalse(fh.execute(args),
-            "ERR [FH:2]: execute() non restituisce false quando viene passato un"
-            + "singolo flag ma il flag non è valido");
+                "ERR [FH:2]: execute() non restituisce false quando viene passato un"
+                 + "singolo flag ma il flag non è valido");
+    }
+
+    @Test
+    void testRightNumberAndCorrectFlagHelp() {
+        String[] args = {"--help"};
+        assertTrue(fh.execute(args),
+            "ERR [FH:3]: execute() non restiusce true quando viene passato il singolo flag valido --help");
     }
 }
