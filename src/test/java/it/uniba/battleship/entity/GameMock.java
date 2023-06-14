@@ -269,6 +269,10 @@ public class GameMock extends Game {
         sunkShipsMock++;
     }
 
+    /**
+     * Incrementa il valore dell'attributo failedAttemptsMock
+     * di 1.
+     */
     public void incrementFailedAttempt() {
         failedAttemptsMock++;
     }
