@@ -268,7 +268,7 @@ public class GameControllerTest {
     @Test
     void testLargeGridSizeIfSessionNotStarted() {
         try {
-            gc.largeGridSize(gameMock);
+            gameController.largeGridSize(gameMock);
         } catch (SessionAlreadyStartedException e) {
             fail("SessionAlreadyStartedException");
         }
