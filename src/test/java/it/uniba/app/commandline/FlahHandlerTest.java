@@ -17,6 +17,13 @@ class FlahHandlerTest {
         fh = FlagHandler.getInstance();
     }
 
+    /**
+     * 1) Test: verifica che execute() dia il giusto risultato
+     * passando più di un flag.
+     * <p>
+     * Atteso: false.
+     * </p>
+     */
     @Test
     void testLengthOfArgsTyped() {
         String[] args = {"--help", "-help", "-h"};
