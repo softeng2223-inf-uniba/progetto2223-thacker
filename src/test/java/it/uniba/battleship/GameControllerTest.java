@@ -354,4 +354,19 @@ public class GameControllerTest {
             fail("OutOfMapException");
         }
     }
+
+    @Test
+    void testStrikeIfHitOnWater() {
+        gameController.startSession(gameMock);
+        Grid grid = new Grid();
+        gameMock.setGridMock(grid);
+        Coordinate testCoord = new Coordinate(1, 1);
+        int expectedValue = 0;
+        try {
+            expectedValue = gameController.strike(gameMock, testCoord);
+        } catch (CellAlreadyMarkedException e) {
+            fail("CellAlreadyMarkedException");
+        }
+        assertEquals(-1, expectedValue, "ERRORE");
+    }
 }
