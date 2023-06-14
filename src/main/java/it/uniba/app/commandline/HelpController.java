@@ -12,14 +12,27 @@ public final class HelpController {
                     + "Scopo del gioco: affondare tutte le navi prima "
                     + "di aver terminato il numero di tentativi fallibili.\n"
                     + "Per giocare, utilizzare i seguenti comandi:\n\n"
+                    + "/help \n"
                     + "/gioca \n"
+                    + "/tempo @param \n"
+                    + "/tentativi @param \n"
+                    + "/mostratentativi \n"
                     + "/facile \n"
+                    + "/facile @param \n"
                     + "/medio \n"
+                    + "/medio @param \n"
                     + "/difficile \n"
+                    + "/difficile @param \n"
+                    + "/standard \n"
+                    + "/large \n"
+                    + "/extralarge \n"
+                    + "/mostratempo \n"
                     + "/mostralivello \n"
+                    + "/mostragriglia \n"
                     + "/svelagriglia \n"
                     + "/mostranavi \n"
-                    + "/esci";
+                    + "/esci \n"
+                    + "/abbandona \n";
 
 
     private static class Holder {
