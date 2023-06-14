@@ -58,4 +58,7 @@ public class GameMock extends Game{
     public void setAttemptsList(HashSet<Coordinate> set) {
         attemptsMock = set;
     }
+    public int getAttempts() {
+        return attemptsMock.size();
+    }
 }
