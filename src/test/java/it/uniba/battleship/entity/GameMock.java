@@ -16,6 +16,11 @@ public class GameMock extends Game{
     private Time timeMock;
     private HashSet<Coordinate> attemptsMock;
     private int failedAttemptsMock;
+
+    /**
+     * Costruttore di GameMock().
+     * Inizializza i valori della classe.
+     */
     public GameMock() {
         sessionStartedMock = false;
         diffSetMock = false;
