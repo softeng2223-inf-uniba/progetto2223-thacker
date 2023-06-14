@@ -19,82 +19,42 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 **Siete pronti per la sfida? Immergetevi in questa battaglia navale epica e dimostrate la vostra abilità strategica per conquistare il mare!**
 ## (2) Modello di Dominio
+La logica del dominio di interesse del sistema software (descritto nel dettaglio nelle sezioni 4 e 5) è costruita in buona parte dei concetti individuati dal seguente diagramma:
 
-### diagramma
-```mermaid
-    
-    classDiagram
-        direction LR
-            
-        Giocatore "1" -- "0..*" Tentativo : Effettua
-        Giocatore "1" -- "0..*" Partita : Svolge
-        Giocatore "0..*" -- "1" Difficolta : Imposta
+![Modello di dominio](./img/s2-modello-dominio.png)
 
-        Difficolta "1" -- "0..*" Partita : Influenza
-        Difficolta <|-- Facile
-        Difficolta <|-- Medio
-        Difficolta <|-- Difficile 
+### Osservazioni: generalizzazioni e composizioni
 
-        Nave <|-- Cacciatorpediniere
-        Nave <|-- Incrociatore
-        Nave <|-- Corazzata
-        Nave <|-- Portaerea
-        
-        Tentativo <|-- Acqua
-        Tentativo <|-- Colpo
-        Tentativo <|-- Affondamento
-        Tentativo "0..*" -- "1" Partita : Appartiene
-        Tentativo "0..1" -- "1" Cella : Colpisce
+Si presti attenzione alla distinzione tra generalizzazione **totale** (freccia piena) e generalizzazione **parziale** (freccia vuota);
+Ad esempio ogni _tentativo_ può essere di uno tra due tipi (generalizzazione totale):
+- _colpo_, se è stata colpita una cella occupata da una nave
+- _acqua_,  se la cella colpita non era occupata da alcuna nave
 
-        Griglia *-- "*" Cella
-        Partita "1" -- "1" Griglia : Genera
-        Cella "0..*" -- "0..1" Nave : è occupata da
-        Colpo "0..*" -- "1" Nave : è subito da
-        Affondamento "0..1" -- "1" Nave : è subito da
+Inoltre un dato tentativo può appartenera a solo uno tra i due tipi (in questo caso la generalizzazione si dice anche **esclusiva**):
+
+Invece, un colpo, _può_ essere di affondamento (generalizzazione parziale), ma non tutti lo sono.
+
+Discorso simile per le composizioni (rombo pieno) e aggregazioni (rombo vuoto, non presenti in questo modello);
+per esempio, una partita è composta da una sola griglia, e tale griglia non fa parte di alcun altra partita (legame forte della composizione).
+Analogo il ragionamento per la composizione tra Nave e Partita e quella tra Griglia e Cella.
 
 
-        class Nave{
-            dimensione
-        }
+### Attributi dei concetti
+Seguono una lista di proprietà assiomatiche legate ad alcuni concetti del modello:
 
-        class Difficolta{
-            maxFallibili
-        }
-
-        class Giocatore{
-            nome
-        }
-
-        class Partita{
-            numFalliti
-        }
-
-        class Cella{
-            coordinate
-        }
-
-        class Griglia{
-            dimensione
-        }
-
-
-```
-### Glossario degli attributi
-|Attributo|Concetto di appartenenza|Descrizione|
+|Concetto di appartenenza |Attributo|Descrizione dell'attributo|
 |-|-|-|
-| coordinate | Cella | coppia che individua univocamente una Cella di una Griglia. |
-| dimensione | Griglia | Numero di righe e di celle per riga. Per esempio, `dimensione=10` implica $10^2$ celle. |
-| dimensione | Nave | Numero di celle che la nave occupa. |
-| maxFallibili | Difficoltà | Numero massimo di tentativi fallibili. |
-| nome | Giocatore | Nome del giocatore |
-| numFalliti | Partita| Numero corrente di tentativi falliti; Si ottiene contando il numero di istanze di Acqua relative alla Partita. |
+| Cella |coordinate| coppia di valori che individua univocamente la cella|
+| Griglia | dimensione | Numero di righe (o colonne) della griglia. Una griglia è sempre quadrata, pertanto per `dimensione=10` si hanno $10^2$ celle. |
+| Nave | dimensione | Numero di celle che la nave occupa |
+| Difficoltà | mfa | Numero massimo di tentativi fallibili. È l'unica proprietà che influenza la partita |
 
-### Note
-- (Definizione) Tra *Griglia* e *Cella* vi è una **composizione**:
-    - Una *Griglia* è composta da più *Celle* (vedi molteplicità `*` nel diagramma)
-    - **dipendenza esistenziale**: Una *Cella* esiste solo se parte di una *Griglia*
-    - **esclusività**: Una *Cella* può appartenere ad una e una sola *Griglia*
-- (Notazione) Si dice fallito un *Tentativo* di tipo *Acqua*.
+In aggiunta, si hanno le seguenti proprietà rilevanti ottenibili attraverso le relazioni tra i concetti.
+
+|Concetto di appartenenza |Attributo (derivato)|Descrizione dell'attributo|
+|-|-|-|
+| Partita | numTentativiFalliti | Numero di tentativi falliti della partita; Si ottiene contando il numero di istanze di Acqua in relazione con la partita in oggetto. |
+| Partita | numTentativi | Numero dei tentativi totali della partita; Si ottiene contando il numero di istanze di Tentativo in relazione con la partita in oggetto|
 
 
 ## (3) Requisiti Specifici
