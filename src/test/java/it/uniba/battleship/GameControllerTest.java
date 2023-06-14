@@ -275,4 +275,13 @@ public class GameControllerTest {
             fail("SessionNotStartedException");
         }
     }
+
+    @Test
+    void testStrikeIfCellAlreadyMarked() {
+        gameController.startSession(gameMock);
+        gameController.strike(gameMock, new Coordinate(1, 1));
+        assertThrows(CellAlreadyMarkedException.class, () -> {
+            gameController.strike(gameMock, new Coordinate(1, 1));
+        });
+    }
 }
