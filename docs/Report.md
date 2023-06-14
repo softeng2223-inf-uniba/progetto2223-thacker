@@ -192,9 +192,9 @@ Se si decide di impostare il timer, è necessario raggiungere l'obiettivo prima 
 
 Per assicurarsi che il programma funzioni correttamente su qualsiasi macchina, evitando problemi di compatibilità, è consigliabile installare Docker.
 
-#### **(7.1.1) Installazione Docker**
+### Installazione Docker
 
-La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda della versione del sistema operativo che si sta usando : 
+La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda del vostro sistema operativo: 
 
 <span style="text-align:center">
 
@@ -206,10 +206,23 @@ La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seg
 
 </span>
 
-Dopodiché, bisognerà eseguire il file appena scaricato (.exe per Windows, .dmg per Apple) e installare 
-Docker.
+Dopodiché, si potrà procedere con l'installazione, come per un normale programma. 
 
+Per gli utenti Windows, una volta installato Docker andrà installato anche il Windows Subsystem Linux. Basterà copiare il comando di seguito in una finestra del terminale. 
+
+```sh
+wsl --install + LINUX
 ```
+Dove al posto di LINUX andrà la distribuzione di vostro gradimento. 
+
+Per visualizzare un elenco delle distro Linux supportate da WSL basterà digitare sempre da terminale: 
+
+```sh
+wsl --list --online 
+```
+
+
+
 #### **(7.1.3) Esecuzione immagine Docker** 
 
 Una volta installato Docker (e il WSL, per gli utenti Windows) andrà eseguita l'immagine creata da Docker.  
