@@ -152,6 +152,11 @@ public final class Output {
         + "Assicurati di fornire un valore numerico valido per il comando '" + command + "'.", ERR_COLOR_CODE);
     }
 
+    public static void printCommandWithParamsNumberNotPositive(final String command) {
+        println("Il parametro fornito per il comando '" + command + "' deve essere un numero intero positivo.\n"
+        + "Assicurati di fornire un valore numerico valido per il comando '" + command + "'.", ERR_COLOR_CODE);
+    }
+
     /**
      * Stampa il messaggio d'errore quando viene inserito
      * da tastiera un comando senza parametro non riconosciuto.
