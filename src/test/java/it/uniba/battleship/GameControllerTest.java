@@ -18,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class GameControllerTest {
     private GameController gameController;
     private GameMock gameMock;
+    private static final int SHIPS_PART = 30;
 
     @BeforeEach
     void setUp() {
@@ -237,5 +238,20 @@ public class GameControllerTest {
         assertThrows(InvalidValueException.class, () -> {
             gameController.setCustomMediumDifficulty(gameMock, 0);
         });
+    }
+
+    @Test
+    void testRandomlyFillInsertsEveryShipInTheGrid() {
+        gameController.startSession(gameMock);
+        int expected = SHIPS_PART;
+        int actual = 0;
+        for (int i = 0; i < Grid.getSize(); i++) {
+            for (int j = 0; j < Grid.getSize(); j++) {
+                if (gameMock.getSessionGrid().get(new Coordinate(i, j)) != null) {
+                    actual += 1;
+                }
+            }
+        }
+        assertEquals(expected, actual, "errore, navi non posizionate correttamente");
     }
 }
