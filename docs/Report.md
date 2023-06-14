@@ -180,7 +180,9 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (7) Manuale Utente
 
+### Introduzione 
 
+La Battaglia Navale è un gioco da tavolo strategico in cui due giocatori si sfidano cercando di affondare le navi nemiche posizionate su una griglia. Tradizionalmente, il gioco viene giocato da due persone, ma in questa versione avrai il computer come avversario.
 
 #### **(7.1.1) Installazione Docker**
 
