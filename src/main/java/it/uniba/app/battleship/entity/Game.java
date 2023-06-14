@@ -32,10 +32,18 @@ public class Game {
         time = new Time();
     }
 
+    /**
+     * Restituisce il tempo impsotat.
+     * @return restituisce il tempo.
+     */
     public Time getTime() {
         return time.clone();
     }
 
+    /**
+     * Permette di impostare il tempo di gioco.
+     * @param t tempo selezionato.
+     */
     public void setTime(final Time t) {
         time = t.clone();
     }
