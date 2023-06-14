@@ -179,13 +179,9 @@ public final class CommandHandler {
         }
     }
     private void handleCustomDifficulty(final Game game, final int value) {
-        try {
-            CONTROL_GAME.setCustomDifficulty(game, value);
-        } catch (SessionAlreadyStartedException e) {
-            Output.printCantSetDiffDuringSession();
-        } catch (InvalidValueException e) {
-            Output.print(e.getMessage());
-        }
+        CONTROL_GAME.setCustomDifficulty(game, value);
+        Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
+                game.getDifficulty().getMaxFailedAttempts());
     }
     private void handleShowTime(final Game game) {
         Output.println(CONTROL_SHOWTIME.showTime(game));
