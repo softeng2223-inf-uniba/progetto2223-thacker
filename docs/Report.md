@@ -361,3 +361,6 @@ Tuttavia ha incontrato delle difficoltà nell'implementazione del diagramma dell
 
 - Alessandro Carli sostiene che i punti da cui ripartire che sono stati evidenziati durante il meeting dello Sprint 0, siano stati fondamentali per lo sviluppo dello Sprint 1.
 Tuttavia non è stato molto felice della gestione dei compiti, poichè ci si è ritrovati a fare molti compiti sotto la scadenza. Suggerisce quindi di organizzarsi meglio col tempo a disposizione.
+
+- Il collega Federico Armagno ha sottolineato con soddisfazione che con impegno si è riusciti a portare a termine tutte le user story in modo corretto, considerando il risultato un ottimo lavoro.
+Durante lo Sprint 1 sostiene di aver incontrato qualche difficoltà nell'organizzare il carico di lavoro assegnato nello sviluppo dello Sprint 1.
