@@ -170,6 +170,8 @@ public final class GameController {
      * @param value numero di tentativi fallibili
      * @throws SessionAlreadyStartedException
      *      non è possibile impostare la difficoltà durante una sessione in corso
+     * @throws InvalidValueException
+     *      non è possibile inserire un valore minore o uguale a 1
      */
     public void setCustomDifficulty(final Game game, final int value)
         throws SessionAlreadyStartedException, InvalidValueException {
