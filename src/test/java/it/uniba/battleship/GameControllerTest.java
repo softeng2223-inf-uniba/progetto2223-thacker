@@ -425,6 +425,16 @@ public class GameControllerTest {
         }
     }
 
+    // fine casi limite strike
+
+    /**
+     * 26) Test: caso limite ->
+     * Verifica che il metodo strike() non lanci
+     * un'eccezione se invocato durante una sessione di gioco e
+     * possa colpire coordinate all'estremo superiore della mappa large.
+     * <p>
+     *  Atteso: eccezione non lanciata
+     */
     @Test
     void testStrikeIfHitOnHighEdgeMap18x18() {
         GameController.getInstance().largeGridSize(gameMock);
