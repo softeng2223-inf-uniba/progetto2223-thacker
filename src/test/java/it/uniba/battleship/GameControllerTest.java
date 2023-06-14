@@ -103,4 +103,12 @@ public class GameControllerTest {
             fail("SessionAlreadyStartedException");
         }
     }
+
+    @Test
+    void testSetHardDifficultyIfSessionStarted() {
+        gameController.startSession(gameMock);
+        assertThrows(SessionAlreadyStartedException.class, () -> {
+            gameController.setHardDifficulty(gameMock);
+        });
+    }
 }
