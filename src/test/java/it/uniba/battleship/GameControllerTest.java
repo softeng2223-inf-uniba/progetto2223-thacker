@@ -294,4 +294,12 @@ public class GameControllerTest {
             fail("CellAlreadyMarkedException");
         }
     }
+
+    @Test
+    void testStrikeIfHitNotOnMap() {
+        gameController.startSession(gameMock);
+        assertThrows(OutOfMapException.class, () -> {
+            gameController.strike(gameMock, new Coordinate(Grid.getSize() + 1, Grid.getSize() + 1));
+        });
+    }
 }
