@@ -571,7 +571,7 @@ classDiagram
   StrikeController ..> Output
 
   class GameController {
-    +strike(Coordinate) int
+    +strike(Game,Coordinate) int
   }
   <<control>> GameController
 
