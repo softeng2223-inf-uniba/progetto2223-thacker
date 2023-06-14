@@ -346,7 +346,7 @@ public final class Output {
      * non riesce a leggere l'input dell'utente.
      */
     public static void printCantReadInput() {
-        println("[CH] Impossibile leggere l'input, qualcosa è andato storto.", ERR_COLOR_CODE);
+        println("Impossibile leggere l'input, qualcosa è andato storto.", ERR_COLOR_CODE);
     }
 
     /**
@@ -354,7 +354,7 @@ public final class Output {
      * non riesce a clonare un oggetto.
      */
     public static void printCantClone() {
-        println("[CH] Si e' verificato un errore con la clonazione di un oggetto.", ERR_COLOR_CODE);
+        println("Si e' verificato un errore con la clonazione di un oggetto.", ERR_COLOR_CODE);
     }
 
     /**
@@ -387,7 +387,7 @@ public final class Output {
      * a vedere i tentativi senza aver iniziato una partita.
      */
     public static void printShowAttemptsSessionNotStarted() {
-        println("[CH] Non puoi vedere i tentativi se non hai iniziato una partita.\n"
+        println("Non puoi vedere i tentativi se non hai iniziato una partita.\n"
                 + "Utilizza il comando '/gioca' per iniziare una partita.", ERR_COLOR_CODE);
     }
 
@@ -396,7 +396,7 @@ public final class Output {
      * a vedere la griglia senza aver iniziato una partita.
      */
     public static void printShowGridSessionNotStarted() {
-        println("[CH] Non puoi vedere la griglia se non hai iniziato una partita.\n"
+        println("Non puoi vedere la griglia se non hai iniziato una partita.\n"
                 + "Utilizza il comando '/gioca' per iniziare una partita.", ERR_COLOR_CODE);
     }
 
@@ -450,7 +450,7 @@ public final class Output {
      * @param command Il comando che non può essere eseguito.
      */
     public static void printSessionAlreadyStarted(final String command) {
-        println("[CH] Non puoi eseguire il comando '" + command + "' durante una partita in corso.\n"
+        println("Non puoi eseguire il comando '" + command + "' durante una partita in corso.\n"
                 + "Utilizza il comando '/abbandona' per abbandonare la partita.", ERR_COLOR_CODE);
     }
 }
