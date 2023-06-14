@@ -94,4 +94,13 @@ public class GameControllerTest {
             gameController.setMediumDifficulty(gameMock);
         });
     }
+
+    @Test
+    void testSetHardDifficultyIfSessionNotStarted() {
+        try {
+            gameController.setEasyDifficulty(gameMock);
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
+    }
 }
