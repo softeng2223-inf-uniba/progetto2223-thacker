@@ -283,6 +283,7 @@ classDiagram
     +startSession()
     +randomlyFill(Grid, Ship)
     +setEasyDifficulty()
+    +getSessionGrid()
   }
   <<control>> GameController
 
