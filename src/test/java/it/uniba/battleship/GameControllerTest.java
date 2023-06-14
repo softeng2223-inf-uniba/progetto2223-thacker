@@ -348,6 +348,17 @@ public class GameControllerTest {
         }
     }
 
+    // fine test delle eccezioni
+
+    // Caso nel dominio dei valori non ammessi
+
+    /**
+     * 22) Test: Verifica che il metodo strike() lanci
+     * un'eccezione se invocato durante una sessione di gioco e
+     * con coordinate fuori mappa, non valide.
+     * <p>
+     *  Atteso: eccezione lanciata
+     */
     @Test
     void testStrikeIfHitNotOnMap() {
         gameController.startSession(gameMock);
