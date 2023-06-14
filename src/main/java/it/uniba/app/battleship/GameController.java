@@ -308,7 +308,6 @@ public final class GameController {
      * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
      *
      * @return difficoltà selezionata
-     * @throws CloneNotSupportedException
      */
     public Difficulty getDifficulty(final Game game) {
         return game.getDifficulty();
