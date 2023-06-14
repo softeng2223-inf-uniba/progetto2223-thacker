@@ -173,15 +173,16 @@ public final class GameController {
      */
     public void setCustomDifficulty(final Game game, final int value)
         throws SessionAlreadyStartedException, InvalidValueException {
-        if (value <= 0) {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        if (value <= 1) {
             throw new InvalidValueException();
         }
         Difficulty diff = new Difficulty();
         diff.setNameLevel(CUSTOM_NAME);
         diff.setMaxFailedAttempts(value);
-        try {
-            game.setDifficulty(diff);
-        } catch (CloneNotSupportedException e) { }
+        game.setDifficulty(diff);
     }
 
     /**
