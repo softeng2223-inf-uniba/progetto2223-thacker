@@ -53,6 +53,15 @@ public class GameControllerTest {
             fail("SessionAlreadyStartedException");
         }
     }
+
+    /**
+     * 3) Test: verifica che chiamare setEasyDifficulty() dopo
+     * startSession() imposti lanci correttamente l'eccezione.
+     * <p>
+     *     Atteso: SessionAlreadyStartedException.
+     * </p>
+     *
+     */
     @Test
     void testSetEasyDifficultyIfSessionStarted() {
         gameController.startSession(gameMock);
