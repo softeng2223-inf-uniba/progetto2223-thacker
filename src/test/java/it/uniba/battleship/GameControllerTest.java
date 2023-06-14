@@ -19,6 +19,7 @@ import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -87,7 +88,7 @@ public class GameControllerTest {
     }
 
     /**
-     * 4) Test: verifica che chiamare setMediumDifficulty() prima
+     * 4) Test: verifica che, chiamare setMediumDifficulty() prima
      * di startSession() imposti correttamente la difficoltà
      * a Media.
      * <p>
