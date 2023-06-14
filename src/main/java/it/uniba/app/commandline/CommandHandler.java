@@ -132,11 +132,14 @@ public final class CommandHandler {
             Output.printCommandWithParamsNumberNotPositive(commandStr);
         }
     }
+
     /** Esegue un comando letto dal terminale.
      * Alcuni dei comandi attualmente interpretati sono:
      * <ul>
      * <li><{@code /help} : mostra l'elenco dei comandi disponibili</li>
      * <li><{@code /mostranavi} : mostra l'elenco delle navi disponibili</li>
+     * <li><{@code /mostragriglia} : mostra la griglia con le navi affondate
+     *              e le sole parti già colpite delle navi non affondate</li>
      * <li><{@code /standard} : imposta la dimensione della griglia a 10x10</li>
      * <li><{@code /large} : imposta la dimensione della griglia a 18x18</li>
      * <li><{@code /extralarge} : imposta la dimensione della griglia a 26x26</li>
