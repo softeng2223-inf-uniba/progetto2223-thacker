@@ -212,19 +212,22 @@ public final class CommandHandler {
         CONTROL_GAME.setCustomHardDifficulty(game, num);
         handleHardDifficulty(game, true);
     }
+
     private boolean gameTimeCheck(final Game game) {
         if (CONTROL_GAME.isTimeOver(game)) {
             try {
                 CONTROL_GAME.endSession(game);
-                CONTROL_GAME.setTime(game, 0);
-            } catch (SessionNotStartedException | SessionAlreadyStartedException e) {
-
+                CONTROL_GAME.setGameTimeMinute(game, 0);
+            } catch (SessionNotStartedException e) {
+                Output.print(e.getMessage());
+            } catch (SessionAlreadyStartedException e) {
+                Output.print(e.getMessage());
             }
-
             return true;
         }
         return false;
     }
+
     private void handleTime(final Game game, final int value) {
         try {
             CONTROL_GAME.setTime(game, value);
