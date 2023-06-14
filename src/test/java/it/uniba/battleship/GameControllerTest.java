@@ -225,6 +225,13 @@ public class GameControllerTest {
         });
     }
 
+    /**
+     * 14) Test: Verifica che il metodo setCustomMediumDifficulty() lanci
+     * un'eccezione se si prova ad impostare la difficolta' 'Media'
+     * con un numero di tentativi non valido.
+     * <p>
+     *  Atteso: SessionAlreadyStartedException
+     */
     @Test
     void testSetCustomMediumDifficultyIfInvalidValue() {
         assertThrows(InvalidValueException.class, () -> {
