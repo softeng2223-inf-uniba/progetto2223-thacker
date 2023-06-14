@@ -266,16 +266,15 @@ Ecco una breve descrizione di ciascuno di essi :
 
 - `/facile` Imposta il livello di difficoltà a facile
 
-- `/facile <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
+- `/facile <numero>` Sovrascrive il numero massimo di tentativi fallibili, al livello facile, in base al valore della variabile `numero`  
 
 - `/medio` Imposta il livello di difficoltà a medio
 
-- `/medio <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
+- `/medio <numero>` Sovrascrive il numero massimo di tentativi fallibili, al livello medio, in base al valore della variabile `numero`   
 
--  `/difficile` Imposta il livello di difficoltà a difficile
+- `/difficile` Imposta il livello di difficoltà a difficile
 
-- `/difficile <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`
-
+- `/difficile <numero>` Sovrascrive il numero massimo di tentativi fallibili, al livello difficile, in base al valore della variabile `numero`  
 
 - `/tentativi <numero>` Imopsta secondo la variabile `numero`, stabilita dall'utente, il numero massimo di tentativi disponibili
 
