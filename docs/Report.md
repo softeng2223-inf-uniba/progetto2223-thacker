@@ -614,7 +614,7 @@ classDiagram
   }
   <<entity>> Ship
 ```
-Note:
+**Note:**
 Si osservi che, nel diagramma di sequenza, dopo la stampa dell'esito del tentativo, i passaggi successivi sono gli stessi previsti dalla user story [110](https://github.com/softeng2223-inf-uniba/progetto2223-thacker/issues/110) (mostrare la griglia dei colpi).
 Di conseguenza anche il diagramma delle classi comprende le relazioni coinvolte nella 110.
 
