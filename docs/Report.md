@@ -334,3 +334,7 @@ In questo meeting abbiamo affrontato diversi punti chiave riguardanti la pianifi
 - Vito Stefano Birardi ha espresso la sua insoddisfazione riguardo la procedura di creazione delle issue nella propria repository GitHub. Il team ha preso atto della sua preoccupazione e si è impegnato a fornire un supporto adeguato per migliorare la procedura e rendere più agevole la creazione delle issue.
 
 In conclusione, il meeting del team ha offerto l'opportunità di affrontare diverse questioni critiche per migliorare la pianificazione, la gestione delle emozioni e la comunicazione interna. Il team ha dimostrato un'impegno comune nel lavorare insieme per affrontare queste sfide e ha apprezzato le esperienze positive di collaborazione emerse durante lo sprint 0.
+
+### (9.2) Sprint 1
+
+![Lavagna retrospettiva dello Sprint 1](img/RetrospettivaSprint1.png "Tabella Riepilogativa del meeting retrospettivo dello Sprint 1")
