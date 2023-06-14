@@ -338,3 +338,13 @@ In conclusione, il meeting del team ha offerto l'opportunità di affrontare dive
 ### (9.2) Sprint 1
 
 ![Lavagna retrospettiva dello Sprint 1](img/RetrospettivaSprint1.png "Tabella Riepilogativa del meeting retrospettivo dello Sprint 1")
+Relazione del meeting del gruppo Thacker riguardo i compiti svolti durante lo Sprint 1 affrontando diverse tematiche.
+Meeting avvenuto il giorno 19/05/2023
+**Partecipanti al meeting:**
+- Federico Armagno
+- Annarita Bruno
+- Vito Stefano Birardi
+- Alessandro Carli
+- Giovanni Cirigliano
+- Antonio Dambra
+- Giuseppe D'Urso
