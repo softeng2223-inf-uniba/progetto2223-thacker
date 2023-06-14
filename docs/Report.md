@@ -47,7 +47,7 @@ Seguono una lista di proprietà assiomatiche legate ad alcuni concetti del model
 | Cella |coordinate| coppia di valori che individua univocamente la cella|
 | Griglia | dimensione | Numero di righe (o colonne) della griglia. Una griglia è sempre quadrata, pertanto per `dimensione=10` si hanno $10^2$ celle. |
 | Nave | dimensione | Numero di celle che la nave occupa |
-| Difficoltà | mfa | Numero massimo di tentativi fallibili. È l'unica proprietà che influenza la partita |
+| Difficoltà | maxTentativiFallibili | Numero massimo di tentativi fallibili. È l'unica proprietà che influenza la partita |
 
 In aggiunta, si hanno le seguenti proprietà rilevanti ottenibili attraverso le relazioni tra i concetti.
 
