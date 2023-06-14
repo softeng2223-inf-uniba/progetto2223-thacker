@@ -1,5 +1,8 @@
 package it.uniba.battleship;
 
+import it.uniba.app.battleship.GameController;
+import it.uniba.battleship.entity.GameMock;
+
 import it.uniba.app.battleship.entity.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,4 +15,6 @@ import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 public class GameControllerTest {
+    private GameController gc;
+    private GameMock gameMock;
 }
