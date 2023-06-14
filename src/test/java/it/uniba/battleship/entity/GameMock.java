@@ -151,6 +151,13 @@ public class GameMock extends Game{
         return gridMock.clone();
     }
 
+    /**
+     * Effettua un controllo sulle coordinate che sono gia' state colpite.
+     * Se la {@code Coordinate} si rivela essere una coordinata gia' colpita,
+     * allora il controllo dara' esito positivo, altrimenti sara' negativo.
+     * @param coord coordinate su cui effettuare il controllo
+     * @return {@code true} se e' una posizione gia' colpita, {@code false} altrimenti
+     */
     public boolean isAlreadyAttempted(final Coordinate coord) {
         return attemptsMock.contains(coord);
     }
