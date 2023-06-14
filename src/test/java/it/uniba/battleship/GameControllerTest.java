@@ -22,6 +22,10 @@ public class GameControllerTest {
     private GameController gameController;
     private GameMock gameMock;
 
+    /**
+     * SetUp della classe GameControllerTest, in cui vengono inizializzati
+     * gameController e gameMock.
+     */
     @BeforeEach
     void setUp() {
         gameMock = new GameMock();
