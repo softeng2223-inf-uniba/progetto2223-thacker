@@ -598,7 +598,8 @@ classDiagram
   class Grid {
     +isWithinBounds(Coordinate)
     +isCellEmpty(Coordinate)
-    +get(Coordinate): Ship
+    +get(Coordinate) Ship
+    +clone()
   }
   <<entity>> Grid
 
