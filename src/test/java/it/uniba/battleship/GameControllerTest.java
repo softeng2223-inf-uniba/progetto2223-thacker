@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  *  Test suite per la classe GameController.
  */
-public class GameControllerTest {
+class GameControllerTest {
     private GameController gameController;
     private GameMock gameMock;
     private static final int SHIPS_PART = 30;
