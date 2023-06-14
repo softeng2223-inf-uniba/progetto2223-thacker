@@ -86,4 +86,12 @@ public class GameControllerTest {
             fail("SessionAlreadyStartedException");
         }
     }
+
+    @Test
+    void testSetMediumDifficultyIfSessionStarted() {
+        gameController.startSession(gameMock);
+        assertThrows(SessionAlreadyStartedException.class, () -> {
+            gameController.setMediumDifficulty(gameMock);
+        });
+    }
 }
