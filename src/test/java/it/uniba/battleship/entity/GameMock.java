@@ -70,6 +70,12 @@ public class GameMock extends Game{
     public boolean isSessionStarted() {
         return sessionStartedMock;
     }
+
+    /**
+     * Informa se la difficolta' e' stata impostata o meno.
+     *
+     * @return <code>true</code> se la difficolta' e' stata impostata, <code>false</code> altrimenti.
+     */
     public boolean isDifficultySet() {
         return diffSetMock;
     }
