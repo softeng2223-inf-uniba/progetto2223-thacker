@@ -314,6 +314,15 @@ A seconda della situazione, si verificherò uno dei seguenti tre scenarti:
 
 In ognuno di questi tre casi, verranno mostrate anche la griglia delle navi avversaria, con tutte le navi colpite o affondate, assieme al numero di tentativi effettuati e il tempo trascorso.
 
+### Operazioni di fine partita 
+
+Al termine di una partita, l'applicazione ritornerà allo stato iniziale, quindi tutte le impostazioni che avrai personalizzato verrano re-impostate a default, come: 
+
+- il timer ad infinito
+- la dimensione della griglia a 10x10
+- la difficoltà a facile 
+- il numero massimo di tentativi falliti, di ogni livello di difficoltà, ai rispettivi valori predefiniti
+
 ### :magic_wand: Tips and tricks  
 
 #### Il tempo è un fattore importante
