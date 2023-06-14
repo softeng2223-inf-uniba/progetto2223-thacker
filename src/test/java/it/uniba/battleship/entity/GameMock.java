@@ -162,6 +162,12 @@ public class GameMock extends Game{
         return attemptsMock.contains(coord);
     }
 
+    /**
+     * Controlla se una coordinata rientra tra quelle possibili per la griglia di gioco.
+     *
+     * @param coord coordinata
+     * @return
+     */
     public boolean isAttemptWithinBounds(final Coordinate coord) {
         return gridMock.isWithinBounds(coord);
     }
