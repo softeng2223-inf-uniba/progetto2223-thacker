@@ -369,3 +369,5 @@ Durante lo Sprint 1 sostiene di aver incontrato qualche difficoltà nell'organiz
 Tra le altre cose ha evidenziato l'importanza del fare attenzione agli errori di logica nel codice per evitare eventuali bug.
 
 - Annarita Bruno ha riscontrato difficoltà nell'accordarsi sulle scelte da intraprendere in alcune circostanze. 
+
+- Giuseppe D'Urso sottolinea l'importanza di assicurarsi che le regole del gioco siano chiare e facilmente comprensibili per i giocatori.
