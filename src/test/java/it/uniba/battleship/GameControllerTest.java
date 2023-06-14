@@ -275,8 +275,15 @@ public class GameControllerTest {
     }
 
     @Test
+    void testGetFailedAttemptsIfSessionNotStarted() {
+        assertThrows(SessionNotStartedException.class, () -> {
+            gameController.getFailedAttempts(gameMock);
+        });
+    }
+
+    @Test
     void testGetSessionGridIfSessionStarted() {
-        gc.startSession(gameMock);
+        gameController.startSession(gameMock);
         try {
             gc.getSessionGrid(gameMock);
         } catch (SessionAlreadyStartedException e) {
