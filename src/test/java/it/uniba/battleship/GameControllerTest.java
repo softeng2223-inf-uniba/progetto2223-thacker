@@ -16,13 +16,13 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GameControllerTest {
-    private GameController gc;
+    private GameController gameController;
     private GameMock gameMock;
     @BeforeEach
     void setUp() {
         gameMock = new GameMock();
-        gc = GameController.getInstance();
-        gc.reset(gameMock);
+        gameController = GameController.getInstance();
+        gameController.reset(gameMock);
     }
     @Test
     void testGetInstance() {
@@ -32,16 +32,16 @@ public class GameControllerTest {
     @Test
     void testSetEasyDifficultyIfSessionNotStarted() {
         try {
-            gc.setEasyDifficulty(gameMock);
+            gameController.setEasyDifficulty(gameMock);
         } catch (SessionAlreadyStartedException e) {
             fail("SessionAlreadyStartedException");
         }
     }
     @Test
     void testSetEasyDifficultyIfSessionStarted() {
-        gc.startSession(gameMock);
+        gameController.startSession(gameMock);
         assertThrows(SessionAlreadyStartedException.class, () -> {
-            gc.setEasyDifficulty(gameMock);
+            gameController.setEasyDifficulty(gameMock);
         });
     }
 }
