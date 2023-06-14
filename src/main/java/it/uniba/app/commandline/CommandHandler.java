@@ -396,7 +396,7 @@ public final class CommandHandler {
                     Output.printEndSessionConfirm(CONTROL_SHOWGRID.genShipMap(game.getSessionGrid()));
                     CONTROL_GAME.endSession(game);
                     try {
-                        CONTROL_GAME.setTime(game, 0);
+                        CONTROL_GAME.setGameTimeMinute(game, 0);
                     } catch (SessionAlreadyStartedException ignored) { }
                 }
                 case "no" -> Output.printNotConfirm();
@@ -408,6 +408,7 @@ public final class CommandHandler {
             Output.printCantReadInput();
         }
     }
+
     private void handleExitGame() {
         try {
             Output.printConfirmOperation("uscire dal gioco");
