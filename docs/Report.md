@@ -314,6 +314,24 @@ A seconda della situazione, si verificherò uno dei seguenti tre scenarti:
 
 In ognuno di questi tre casi, verranno msotrate anche la griglia delle navi avversaria, con tutte le navi colpite o affondate, assieme al numero di tentativi effettuati e il tempo trascorso. 
 
+### Tips and tricks 
+
+#### Il tempo è un fattore importante
+
+Se stai giocando per la prima volta, ti suggeriamo di non mettere un tempo limite troppo breve, in modo da poterti abituare alle regole del gioco. 
+
+Man mano che migliori, potrai sfidarti a completare le partite sempre più velocemente.
+
+#### Obiettivo: distruzione totale
+
+Una volta colpita la nave di un avversario, meglio approfittarne e fare le mosse giuste per affondarla subito. 
+
+Il segreto potrebbe essere quello di continuare a mirare le caselle che sono a ridosso di quella colpita: continuate senza demordere, prima o poi affonderete le navi dell’avversario.
+
+#### Focus sul centro (da vedere)
+
+Le statistiche parlano chiaro: le probabilità di beccare una nave aumentano se si colpisce la parte centrale del tabellone quindi partire proprio da lì potrebbe essere un’ottima idea.
+
 
 ## (9) Analisi Retrospettiva
 All'interno di questa sezione si trovano le relazioni dei vari Sprint che verranno eseguiti durante lo sviluppo del progetto.
