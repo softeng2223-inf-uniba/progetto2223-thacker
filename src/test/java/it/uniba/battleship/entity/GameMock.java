@@ -251,6 +251,11 @@ public class GameMock extends Game {
         timeMock = time.clone();
     }
 
+    /**
+    * Imposta il conteggio dei tentativi falliti con il valore intero specificato.
+    *
+    * @param failedAttempts il numero di tentativi falliti da impostare
+    */
     public void setFailedAttemptsMock(final int failedAttempts) {
         failedAttemptsMock = failedAttempts;
     }
