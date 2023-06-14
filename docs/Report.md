@@ -358,3 +358,6 @@ D'altra parte si dimostra soddisfatto del come siano stati affrontati i problemi
 
 - Stefano Birardi si ritiene soddisfatto dell'attribuzione delle user story sulla base delle proprie competenze. 
 Tuttavia ha incontrato delle difficoltà nell'implementazione del diagramma delle classi.
+
+- Alessandro Carli sostiene che i punti da cui ripartire che sono stati evidenziati durante il meeting dello Sprint 0, siano stati fondamentali per lo sviluppo dello Sprint 1.
+Tuttavia non è stato molto felice della gestione dei compiti, poichè ci si è ritrovati a fare molti compiti sotto la scadenza. Suggerisce quindi di organizzarsi meglio col tempo a disposizione.
