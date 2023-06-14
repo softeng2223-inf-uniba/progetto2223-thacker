@@ -24,10 +24,17 @@ public class GameControllerTest {
         gameController = GameController.getInstance();
         gameController.reset(gameMock);
     }
+
+    /**
+     *  1) Test: verifica che getInstance() funzioni correttamente.
+     *  <p>
+     *      Atteso: true.
+     *  </p>
+     */
     @Test
     void testGetInstance() {
         GameController gc2 = GameController.getInstance();
-        assertEquals(gc, gc2);
+        assertEquals(gameController, gc2);
     }
     @Test
     void testSetEasyDifficultyIfSessionNotStarted() {
