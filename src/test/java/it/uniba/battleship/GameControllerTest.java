@@ -253,4 +253,10 @@ public class GameControllerTest {
         assertNotNull(gameController.getDifficulty(gameMock));
     }
 
+    @Test
+    void testGetDifficultyReturnCorrectly() {
+        gameController.setEasyDifficulty(gameMock);
+        assertEquals("Facile", gameController.getDifficulty(gameMock).getNameLevel());
+    }
+
 }
