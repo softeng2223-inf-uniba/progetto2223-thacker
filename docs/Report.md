@@ -305,6 +305,7 @@ classDiagram
     +isSessionStarted()
     +isDifficultySet()
     +setDifficulty()
+    +getSessionGrid()
   }
   <<entity>> Game
 
