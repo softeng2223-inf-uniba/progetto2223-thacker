@@ -985,6 +985,28 @@ Il segreto potrebbe essere quello di continuare a mirare le caselle che sono a r
 
 Le statistiche parlano chiaro: le probabilità di beccare una nave aumentano se si colpisce la parte centrale del tabellone quindi partire proprio da lì potrebbe essere un’ottima idea.
 
+## (8) Processo di sviluppo e organizzazione del lavoro
+
+Durante il meeting di pianificazione dello Sprint 2, il Product Owner ha richiesto l'inclusione di una sezione dedicata alla descrizione del processo di sviluppo e all'organizzazione del lavoro all'interno del team nel report (/docs/Report.md). In questa relazione, forniremo una panoramica dettagliata su entrambi gli aspetti richiesti.
+
+Processo di sviluppo:
+
+Il nostro team segue un processo di sviluppo agile basato sul framework Scrum. Questo ci consente di gestire in modo efficace e iterativo il ciclo di sviluppo del progetto di Battaglia Navale. Di seguito sono riportati i principali elementi del nostro processo di sviluppo:
+- Sprint: Abbiamo suddiviso il progetto in sprints di durata fissa, di solito due settimane. Ogni sprint rappresenta un periodo di tempo in cui sviluppiamo, testiamo e rilasciamo funzionalità specifiche. All'inizio di ogni sprint, pianifichiamo le attività da completare e definiamo gli obiettivi.
+- Riunioni giornaliere: Ogni giorno, il team si riunisce per una breve riunione di stand-up. Durante questa riunione, ogni membro del team condivide lo stato del proprio lavoro, le sfide incontrate e le attività previste per il giorno. Questo ci consente di avere una visione chiara dei progressi e di affrontare eventuali problemi in modo tempestivo.
+- Backlog del prodotto: Il Product Owner mantiene un backlog del prodotto, che è un elenco di tutte le funzionalità, gli incrementi e le correzioni di bug pianificate per lo sviluppo futuro. Il backlog è dinamico e può essere modificato e prioritizzato in base alle esigenze e al feedback degli stakeholder.
+- Sprint backlog: All'inizio di ogni sprint, selezioniamo un insieme di elementi dal backlog del prodotto e li trasferiamo nello sprint backlog. Questi elementi rappresentano le attività che il team si impegna a completare durante lo sprint.
+- Scrum board: Utilizziamo un scrum board fisico o digitale per visualizzare le attività dello sprint. Utilizziamo colonne come "Da fare", "In corso" e "Completato" per tenere traccia dello stato di ogni attività. Questo ci consente di avere una visione chiara del flusso di lavoro e del progresso complessivo dello sprint.
+
+Organizzazione del lavoro nel team:
+L'organizzazione del lavoro all'interno del team è fondamentale per garantire la collaborazione e l'efficienza. Di seguito sono riportati alcuni aspetti chiave dell'organizzazione del lavoro nel nostro team:
+
+- Ruoli e responsabilità: Abbiamo definito chiaramente i ruoli all'interno del team, come il Product Owner, lo Scrum Master e i membri dello sviluppo. Ogni ruolo ha responsabilità specifiche e contribuisce al successo del progetto.
+- Collaborazione e comunicazione: Promuoviamo una cultura di collaborazione e comunicazione aperta all'interno del team. Utilizziamo strumenti come chat di gruppo, videoconferenze e repository condivisi per facilitare la comunicazione e la condivisione delle informazioni.
+- Delega delle attività: Durante la pianificazione dello sprint, assegniamo le attività in base alle competenze e alle disponibilità dei membri del team. Ci assicuriamo che le responsabilità siano chiare e che ogni membro abbia un carico di lavoro equilibrato.
+- Monitoraggio e adattamento: Durante lo sprint, monitoriamo costantemente il progresso delle attività e affrontiamo eventuali ostacoli o ritardi. Se necessario, apportiamo modifiche al piano o alle risorse per garantire il raggiungimento degli obiettivi dello sprint.
+
+
 ## (9) Analisi Retrospettiva
 All'interno di questa sezione si trovano le relazioni dei vari Sprint che verranno eseguiti durante lo sviluppo del progetto.
 ### (9.1) Sprint 0
