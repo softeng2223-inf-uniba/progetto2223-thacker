@@ -260,6 +260,11 @@ public class GameMock extends Game {
         failedAttemptsMock = failedAttempts;
     }
 
+    // Overridden methods for incrementing values
+    /**
+     * Incrementa il valore dell'attributo sunkShipsMock
+     * di 1.
+     */
     public void incrementSunkShips() {
         sunkShipsMock++;
     }
