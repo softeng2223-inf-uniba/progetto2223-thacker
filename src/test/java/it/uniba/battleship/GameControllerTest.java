@@ -266,4 +266,13 @@ public class GameControllerTest {
         });
     }
 
+    @Test
+    void testStrikeIfSessionStarted() {
+        gameController.startSession(gameMock);
+        try {
+            gameController.strike(gameMock, new Coordinate(1, 1));
+        } catch (SessionNotStartedException e) {
+            fail("SessionNotStartedException");
+        }
+    }
 }
