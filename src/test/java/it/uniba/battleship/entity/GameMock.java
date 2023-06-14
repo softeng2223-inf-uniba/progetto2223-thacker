@@ -189,4 +189,8 @@ public class GameMock extends Game{
     public void setGridMock(final Grid grid) {
         gridMock = grid.clone();
     }
+
+    public void setTimeMock(final Time time) {
+        timeMock = time.clone();
+    }
 }
