@@ -66,6 +66,7 @@ public final class CommandHandler {
     public void handleCommand(final Game game) {
         try {
             if (game.isSessionStarted() && isEnd(game)) {
+                CONTROL_GAME.reset(game);
                 return;
             }
             Output.printEnterCommand(game.isSessionStarted());
@@ -84,6 +85,7 @@ public final class CommandHandler {
         // Se il tempo è scaduto, termina la partita.
         if (gameTimeCheck(game)) {
             Output.printTimeOut();
+            game.endSession();
             return true;
         }
         // Se hai esausto i tentativi, termina la partita.
@@ -110,13 +112,9 @@ public final class CommandHandler {
     private void executeArgs(final Game game, final String commandStr, final String valueStr) {
         if (!COMMANDS_WITH_PARAMS.contains(commandStr)) {
             Output.printCommandWithParamsNotRecognised(commandStr);
-        } else if (!valueStr.matches("^[1-9]\\d*$")) {
-            if (commandStr.equals("/tempo") && valueStr.equals("0")) {
-                handleTime(game, 0);
-            } else {
-                Output.printNumberFormatError(valueStr);
-            }
-        } else {
+            return;
+        }
+        try {
             int value = Integer.parseInt(valueStr);
             switch (commandStr) {
                 case "/tentativi" -> handleCustomDifficulty(game, value);
@@ -126,13 +124,25 @@ public final class CommandHandler {
                 case "/difficile" -> handleCustomHardDifficulty(game, value);
                 default -> { }
             }
+        } catch (NumberFormatException e) {
+            // Integer.parseInt() exception
+            Output.printCommandWithParamsNotNumber(commandStr);
+        } catch (InvalidValueException e) {
+            // Command exception
+            Output.printCommandWithParamsNumberNotPositive(commandStr);
+        } catch (SessionAlreadyStartedException e) {
+            // Game exception
+            Output.printSessionAlreadyStarted(commandStr);
         }
     }
+
     /** Esegue un comando letto dal terminale.
      * Alcuni dei comandi attualmente interpretati sono:
      * <ul>
      * <li><{@code /help} : mostra l'elenco dei comandi disponibili</li>
      * <li><{@code /mostranavi} : mostra l'elenco delle navi disponibili</li>
+     * <li><{@code /mostragriglia} : mostra la griglia con le navi affondate
+     *              e le sole parti già colpite delle navi non affondate</li>
      * <li><{@code /standard} : imposta la dimensione della griglia a 10x10</li>
      * <li><{@code /large} : imposta la dimensione della griglia a 18x18</li>
      * <li><{@code /extralarge} : imposta la dimensione della griglia a 26x26</li>
@@ -169,13 +179,9 @@ public final class CommandHandler {
         }
     }
     private void handleCustomDifficulty(final Game game, final int value) {
-        try {
-            CONTROL_GAME.setCustomDifficulty(game, value);
-        } catch (SessionAlreadyStartedException e) {
-            Output.printCantSetDiffDuringSession();
-        } catch (InvalidValueException e) {
-            Output.print(e.getMessage());
-        }
+        CONTROL_GAME.setCustomDifficulty(game, value);
+        Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
+                game.getDifficulty().getMaxFailedAttempts());
     }
     private void handleShowTime(final Game game) {
         Output.println(CONTROL_SHOWTIME.showTime(game));
@@ -187,7 +193,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomEasyDifficulty(final Game game, final int num) {
-        CONTROL_GAME.setCustomEasyDifficulty(num);
+        CONTROL_GAME.setCustomEasyDifficulty(game, num);
         handleEasyDifficulty(game, true);
     }
     /**
@@ -197,7 +203,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomMediumDifficulty(final Game game, final int num) {
-        CONTROL_GAME.setCustomMediumDifficulty(num);
+        CONTROL_GAME.setCustomMediumDifficulty(game, num);
         handleMediumDifficulty(game, true);
     }
     /**
@@ -207,30 +213,34 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomHardDifficulty(final Game game, final int num) {
-        CONTROL_GAME.setCustomHardDifficulty(num);
+        CONTROL_GAME.setCustomHardDifficulty(game, num);
         handleHardDifficulty(game, true);
     }
+
     private boolean gameTimeCheck(final Game game) {
         if (CONTROL_GAME.isTimeOver(game)) {
             try {
                 CONTROL_GAME.endSession(game);
-                CONTROL_GAME.setTime(game, 0);
-            } catch (SessionNotStartedException | SessionAlreadyStartedException e) {
-
+                CONTROL_GAME.setGameTimeMinute(game, 0);
+            } catch (SessionNotStartedException e) {
+                Output.print(e.getMessage());
+            } catch (SessionAlreadyStartedException e) {
+                Output.print(e.getMessage());
             }
-
             return true;
         }
         return false;
     }
+
     private void handleTime(final Game game, final int value) {
         try {
-            CONTROL_GAME.setTime(game, value);
+            CONTROL_GAME.setGameTimeMinute(game, value);
             Output.printSetTime(value);
         } catch (SessionAlreadyStartedException e) {
             Output.printCantSetTime();
         }
     }
+
     private void handleDefaultOrShoot(final Game game, final String command) {
         String regex = "[a-z]-[0-9]{1,2}";
         if (command.matches(regex)) {
@@ -248,6 +258,7 @@ public final class CommandHandler {
             Output.printCommandWithoutParamsNotRecognised(command);
         }
     }
+
     private void handleShowHitMap(final Game game) {
         try {
             String map = CONTROL_SHOWGRID.genHitMap(game);
@@ -257,6 +268,7 @@ public final class CommandHandler {
             Output.printCantShowHitMap();
         }
     }
+
     private void handleStandardGrid(final Game game) {
         try {
             CONTROL_GAME.standardGridSize(game);
@@ -265,6 +277,7 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
+
     private void handleLargeGrid(final Game game) {
         try {
             CONTROL_GAME.largeGridSize(game);
@@ -273,6 +286,7 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
+
     private void handleExtraLargeGrid(final Game game) {
         try {
             CONTROL_GAME.extraLargeGridSize(game);
@@ -281,6 +295,7 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
+
     private void handleShowShip() {
         Output.clearScreen();
         Output.println(CONTROL_SHOWSHIPS.getShipInfo());
@@ -300,22 +315,20 @@ public final class CommandHandler {
             Output.printStartSessionAlreadyStarted();
         }
     }
+
     private void handleShowDifficulty(final Game game) {
         if (!game.isDifficultySet()) {
             setDefaultDifficulty(game);
         }
-        try {
-            Difficulty diff = CONTROL_GAME.getDifficulty(game);
-            Output.printGameLevel(diff.getNameLevel(), diff.getMaxFailedAttempts());
-        } catch (CloneNotSupportedException e) {
-            Output.printCantClone();
-        }
+        Difficulty diff = CONTROL_GAME.getDifficulty(game);
+        Output.printGameLevel(diff.getNameLevel(), diff.getMaxFailedAttempts());
     }
+
     private void handleEasyDifficulty(final Game game, final boolean custom) {
         try {
             CONTROL_GAME.setEasyDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
-                                      game.getDifficulty().getMaxFailedAttempts());
+                    game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException err) {
             if (!custom) {
                 Output.printCantSetDiffDuringSession();
@@ -324,11 +337,12 @@ public final class CommandHandler {
             }
         }
     }
+
     private void handleMediumDifficulty(final Game game, final boolean custom) {
         try {
             CONTROL_GAME.setMediumDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
-                                      game.getDifficulty().getMaxFailedAttempts());
+                    game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException err) {
             if (!custom) {
                 Output.printCantSetDiffDuringSession();
@@ -337,11 +351,12 @@ public final class CommandHandler {
             }
         }
     }
+
     private void handleHardDifficulty(final Game game, final boolean custom) {
         try {
             CONTROL_GAME.setHardDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
-                                      game.getDifficulty().getMaxFailedAttempts());
+                    game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException e) {
             if (!custom) {
                 Output.printCantSetDiffDuringSession();
@@ -350,6 +365,7 @@ public final class CommandHandler {
             }
         }
     }
+
     private void handleShowGameGrid(final Game game) {
         try {
             Grid grid = CONTROL_GAME.getSessionGrid(game);
@@ -360,6 +376,7 @@ public final class CommandHandler {
             Output.printShowGridSessionNotStarted();
         }
     }
+
     private void handleShowAttempts(final Game game) {
         try {
             GameController gController = CONTROL_GAME;
@@ -368,10 +385,9 @@ public final class CommandHandler {
                                      gController.getDifficulty(game).getMaxFailedAttempts());
         } catch (SessionNotStartedException e) {
             Output.printShowAttemptsSessionNotStarted();
-        } catch (CloneNotSupportedException e) {
-            Output.printCantClone();
         }
     }
+
     private void handleEndSession(final Game game) {
         try {
             if (!game.isSessionStarted()) {
@@ -384,7 +400,7 @@ public final class CommandHandler {
                     Output.printEndSessionConfirm(CONTROL_SHOWGRID.genShipMap(game.getSessionGrid()));
                     CONTROL_GAME.endSession(game);
                     try {
-                        CONTROL_GAME.setTime(game, 0);
+                        GameController.getInstance().reset(game);
                     } catch (SessionAlreadyStartedException ignored) { }
                 }
                 case "no" -> Output.printNotConfirm();
@@ -396,6 +412,7 @@ public final class CommandHandler {
             Output.printCantReadInput();
         }
     }
+
     private void handleExitGame() {
         try {
             Output.printConfirmOperation("uscire dal gioco");
@@ -409,6 +426,7 @@ public final class CommandHandler {
             Output.printCantReadInput();
         }
     }
+
     private void setDefaultDifficulty(final Game game) {
         try {
             CONTROL_GAME.setEasyDifficulty(game);     //difficoltà predefinita: Facile
