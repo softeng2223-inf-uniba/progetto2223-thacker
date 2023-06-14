@@ -220,35 +220,32 @@ Per visualizzare un elenco delle distro Linux supportate da WSL basterà digitar
 ```sh
 wsl --list --online 
 ```
+### Esecuzione immagine Docker 
 
+Una volta assicurato di avere Docker e il WSL (se stai usando Windows) correttamente installati sul tuo sistema, si possono seguire i passaggi qui sotto: 
 
+- Avvia Docker.
 
-#### **(7.1.3) Esecuzione immagine Docker** 
+- Autentica Docker per l'uso di Github Packages:
+- Crea un file di testo chiamato TOKEN.txt e inserisci al suo interno il tuo "personal access token" di Github. Puoi seguire le istruzioni [qui]() per crearlo.
 
-Una volta installato Docker (e il WSL, per gli utenti Windows) andrà eseguita l'immagine creata da Docker.  
-
-Per fare questo, basterà eseguire i passaggi di sotto indicati in maniera sequenziale: 
-
-- Avviare il programma Docker 
-- Autenticare Docker per Github Packages  
-  - creare un file di testo con al suo interno il _personal access token_ di Github ([Istruzioni per la loro creazione](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
-  - digitare il seguente comando  
-    ```sh 
-    cat ./TOKEN.txt | docker login ghcr.io -u <USERNAME> --password-stdin 
-    ```
-    Sostituendo `./TOKEN.txt` con il percorso dove è stato salvato il file di testo e `<USERNAME>` con il proprio username di Github.
-- Copiare il package di Docker della repo di riferimento:
-  
-  - Recarsi nella sezione  principale della repo e cliccare sul nome dell'immagine Docker, sotto la sezione **Packages**
-  - Copiare il comando tramite l'apposito pulsante ed incollarlo nel terminale 
-  - Eseguire il comando per scaricare l'immagine 
-- Digitare il comando 
-  ```sh 
-  docker run --rm -it <nome_immagine>
+- Apri il terminale e digita il seguente comando, sostituendo <USERNAME> con il tuo username di Github e <PERCORSO> con il percorso completo del file TOKEN.txt:
+  ```sh
+  cat <PERCORSO>/TOKEN.txt | docker login ghcr.io -u  <USERNAME> --password-stdin
   ```
-  Sostituendo ``<nome_immagine>`` con il nome dell'immagine Docker di riferimento. 
+- Copia l'URL dell'immagine Docker dalla repository di riferimento.
+- Nel terminale, esegui il seguente comando, incollando l'URL dell'immagine al posto di <URL_IMMAGINE>:
+  ```sh
+  docker pull <URL_IMMAGINE>
+  ```
+  Questo scaricherà l'immagine Docker nel tuo sistema.
+- Infine, esegui il comando per avviare l'immagine Docker:
+  ```sh
+  docker run --rm -it <NOME_IMMAGINE>
+  ```
+  Sostituisci <NOME_IMMAGINE> con il nome dell'immagine Docker che hai scaricato.
 
-Una effettuati questi passaggi, il programma sarà **pronto** per essere eseguito. 
+Seguendo questi passaggi, dovresti essere in grado di eseguire correttamente l'immagine Docker senza incontrare problemi.
 
 #### (7.2) Incominciare il gioco
 
