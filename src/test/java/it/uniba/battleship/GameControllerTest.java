@@ -239,6 +239,13 @@ public class GameControllerTest {
         });
     }
 
+    /**
+     * 15) Test: Verifica che il metodo setCustomMediumDifficulty() non lanci
+     * un'eccezione se si prova ad impostare la difficolta' 'Media'
+     * con un numero di tentativi valido.
+     * <p>
+     *  Atteso: eccezione non lanciata
+     */
     @Test
     void testSetCustomMediumDifficultyIfValidValue() {
         try {
@@ -407,6 +414,7 @@ public class GameControllerTest {
             expectedValue = gameController.strike(gameMock, secCoord);
         } catch (CellAlreadyMarkedException e) {
             fail("messaggio di errore");
+        }
 
         assertEquals(1, expectedValue, "err");
     }
