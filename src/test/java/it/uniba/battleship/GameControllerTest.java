@@ -332,4 +332,15 @@ public class GameControllerTest {
             fail("OutOfMapException");
         }
     }
+
+    @Test
+    void testStrikeIfHitOnHighEdgeMap18x18() {
+        GameController.getInstance().largeGridSize(gameMock);
+        gameController.startSession(gameMock);
+        try {
+            gameController.strike(gameMock, new Coordinate(Grid.getSize() - 1, Grid.getSize() - 1));
+        } catch (OutOfMapException e) {
+            fail("OutOfMapException");
+        }
+    }
 }
