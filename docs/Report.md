@@ -551,8 +551,8 @@ classDiagram
   <<boundary>> Input
 
   class CommandHandler {
-    +handle()
-    -handleDefaultOrShoot()
+    +handle(Game)
+    -handleDefaultOrShoot(Game,String)
   }
   <<control>> CommandHandler
 
