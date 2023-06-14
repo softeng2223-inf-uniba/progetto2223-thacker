@@ -79,6 +79,11 @@ public class GameMock extends Game{
     public boolean isDifficultySet() {
         return diffSetMock;
     }
+
+    /**
+     * Restituisce il set che contiene le coordinate colpite.
+     * @return set di coordinate
+     */
     public HashSet<Coordinate> getAttemptsList() {
         return attemptsMock;
     }
