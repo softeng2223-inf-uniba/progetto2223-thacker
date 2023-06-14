@@ -312,4 +312,14 @@ public class GameControllerTest {
             fail("OutOfMapException");
         }
     }
+
+    @Test
+    void testStrikeIfHitOnLowEdgeMap() {
+        gameController.startSession(gameMock);
+        try {
+            gameController.strike(gameMock, new Coordinate(0, 0));
+        } catch (OutOfMapException e) {
+            fail("OutOfMapException");
+        }
+    }
 }
