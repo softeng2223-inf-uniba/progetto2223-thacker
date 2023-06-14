@@ -240,6 +240,11 @@ public final class GameController {
      * il numero massimo di tentativi falliti a maxFailedAttempts.
      *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
+     *
+     * @throws SessionAlreadyStartedException
+     *         se la sessione è già iniziata non si può modificare la difficoltà.
+     * @throws InvalidValueException
+     *         se il valore inserito è minore di 1 non si può impostare la difficoltà.
      */
     public void setCustomEasyDifficulty(final Game game,
                                         final int maxFailedAttempts)
