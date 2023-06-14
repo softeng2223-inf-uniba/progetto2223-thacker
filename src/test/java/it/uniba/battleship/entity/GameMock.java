@@ -89,4 +89,8 @@ public class GameMock extends Game{
         difficultyMock = choice.clone();
         diffSetMock = true;
     }
+
+    public Difficulty getDifficulty() {
+        return difficultyMock.clone();
+    }
 }
