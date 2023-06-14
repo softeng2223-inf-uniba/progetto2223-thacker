@@ -324,7 +324,7 @@ public final class CommandHandler {
         try {
             CONTROL_GAME.setEasyDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
-                                      game.getDifficulty().getMaxFailedAttempts());
+                    game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException err) {
             if (!custom) {
                 Output.printCantSetDiffDuringSession();
@@ -333,11 +333,12 @@ public final class CommandHandler {
             }
         }
     }
+
     private void handleMediumDifficulty(final Game game, final boolean custom) {
         try {
             CONTROL_GAME.setMediumDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
-                                      game.getDifficulty().getMaxFailedAttempts());
+                    game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException err) {
             if (!custom) {
                 Output.printCantSetDiffDuringSession();
@@ -346,11 +347,12 @@ public final class CommandHandler {
             }
         }
     }
+
     private void handleHardDifficulty(final Game game, final boolean custom) {
         try {
             CONTROL_GAME.setHardDifficulty(game);
             Output.printSetDifficulty(game.getDifficulty().getNameLevel(),
-                                      game.getDifficulty().getMaxFailedAttempts());
+                    game.getDifficulty().getMaxFailedAttempts());
         } catch (SessionAlreadyStartedException e) {
             if (!custom) {
                 Output.printCantSetDiffDuringSession();
@@ -359,6 +361,7 @@ public final class CommandHandler {
             }
         }
     }
+
     private void handleShowGameGrid(final Game game) {
         try {
             Grid grid = CONTROL_GAME.getSessionGrid(game);
@@ -369,6 +372,7 @@ public final class CommandHandler {
             Output.printShowGridSessionNotStarted();
         }
     }
+
     private void handleShowAttempts(final Game game) {
         try {
             GameController gController = CONTROL_GAME;
@@ -377,10 +381,9 @@ public final class CommandHandler {
                                      gController.getDifficulty(game).getMaxFailedAttempts());
         } catch (SessionNotStartedException e) {
             Output.printShowAttemptsSessionNotStarted();
-        } catch (CloneNotSupportedException e) {
-            Output.printCantClone();
         }
     }
+
     private void handleEndSession(final Game game) {
         try {
             if (!game.isSessionStarted()) {
