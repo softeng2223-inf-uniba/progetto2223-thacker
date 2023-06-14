@@ -364,3 +364,6 @@ Tuttavia non è stato molto felice della gestione dei compiti, poichè ci si è 
 
 - Il collega Federico Armagno ha sottolineato con soddisfazione che con impegno si è riusciti a portare a termine tutte le user story in modo corretto, considerando il risultato un ottimo lavoro.
 Durante lo Sprint 1 sostiene di aver incontrato qualche difficoltà nell'organizzare il carico di lavoro assegnato nello sviluppo dello Sprint 1.
+
+- Giovanni Cirigliano ha apprezzato l'entusiasmo e l'impegno di ogni membro del team nel portare avanti il progetto. Inoltre ha sottolineato l'importanza di avere maggiore fiducia reciproca tra i membri del team.
+Tra le altre cose ha evidenziato l'importanza del fare attenzione agli errori di logica nel codice per evitare eventuali bug.
