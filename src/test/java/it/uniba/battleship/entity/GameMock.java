@@ -109,4 +109,8 @@ public class GameMock extends Game{
     public int getFailedAttempts() {
         return failedAttemptsMock;
     }
+
+    public Time getTime() {
+        return timeMock.clone();
+    }
 }
