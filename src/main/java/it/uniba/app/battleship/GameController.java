@@ -241,7 +241,15 @@ public final class GameController {
      *
      * @param maxFailedAttempts il numero massimo di tentativi falliti.
      */
-    public void setCustomEasyDifficulty(final int maxFailedAttempts) {
+    public void setCustomEasyDifficulty(final Game game,
+                                        final int maxFailedAttempts)
+            throws SessionAlreadyStartedException, InvalidValueException {
+        if (game.isSessionStarted()) {
+            throw new SessionAlreadyStartedException();
+        }
+        if (maxFailedAttempts < 1) {
+            throw new InvalidValueException();
+        }
         easyMaxFailedAttempts = maxFailedAttempts;
     }
 
