@@ -194,6 +194,13 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * 12) Test: Verifica che il metodo setCustomMediumDifficulty() imposti
+     * la difficolta' 'Media' con un numero di tentativi scelto dall'utente
+     * prima dell'inizio di una sessione di gioco.
+     * <p>
+     *  Atteso: non deve lanciare SessionAlreadyStartedException.
+     */
     @Test
     void testSetCustomMediumDifficultyIfSessionNotStarted() {
         try {
