@@ -343,3 +343,43 @@ In questo meeting abbiamo affrontato diversi punti chiave riguardanti la pianifi
 - Vito Stefano Birardi ha espresso la sua insoddisfazione riguardo la procedura di creazione delle issue nella propria repository GitHub. Il team ha preso atto della sua preoccupazione e si è impegnato a fornire un supporto adeguato per migliorare la procedura e rendere più agevole la creazione delle issue.
 
 In conclusione, il meeting del team ha offerto l'opportunità di affrontare diverse questioni critiche per migliorare la pianificazione, la gestione delle emozioni e la comunicazione interna. Il team ha dimostrato un'impegno comune nel lavorare insieme per affrontare queste sfide e ha apprezzato le esperienze positive di collaborazione emerse durante lo sprint 0.
+
+### (9.2) Sprint 1
+
+![Lavagna retrospettiva dello Sprint 1](img/RetrospettivaSprint1.png "Tabella Riepilogativa del meeting retrospettivo dello Sprint 1")
+Relazione del meeting del gruppo Thacker riguardo i compiti svolti durante lo Sprint 1 affrontando diverse tematiche.
+Meeting avvenuto il giorno 19/05/2023
+**Partecipanti al meeting:**
+- Federico Armagno
+- Annarita Bruno
+- Vito Stefano Birardi
+- Alessandro Carli
+- Giovanni Cirigliano
+- Antonio Dambra
+- Giuseppe D'Urso
+
+**Relazione:**
+Con lo Sprint 1 i membri del gruppo Thacker hanno avuto modo di porre le basi per l'inizio di una nuova partita di Battaglia Navale.
+
+Durante l'analisi retrospettiva dello Sprint 1, abbiamo raccolto i seguenti feedback dai membri del team:
+
+- Il collega Antonio Dambra ha espresso l'opinione sul fatto che avremmo potuto adottare soluzioni più semplici per soddisfare i requisiti, evitando di aumentare la complessità del progetto.
+D'altra parte si dimostra soddisfatto del come siano stati affrontati i problemi incontrati, riuscendo a raggiungere l'obiettivo.
+
+- Stefano Birardi si ritiene soddisfatto dell'attribuzione delle user story sulla base delle proprie competenze. 
+Tuttavia ha incontrato delle difficoltà nell'implementazione del diagramma delle classi.
+
+- Alessandro Carli sostiene che i punti da cui ripartire che sono stati evidenziati durante il meeting dello Sprint 0, siano stati fondamentali per lo sviluppo dello Sprint 1.
+Tuttavia non è stato molto felice della gestione dei compiti, poichè ci si è ritrovati a fare molti compiti sotto la scadenza. Suggerisce quindi di organizzarsi meglio col tempo a disposizione.
+
+- Il collega Federico Armagno ha sottolineato con soddisfazione che con impegno si è riusciti a portare a termine tutte le user story in modo corretto, considerando il risultato un ottimo lavoro.
+Durante lo Sprint 1 sostiene di aver incontrato qualche difficoltà nell'organizzare il carico di lavoro assegnato nello sviluppo dello Sprint 1.
+
+- Giovanni Cirigliano ha apprezzato l'entusiasmo e l'impegno di ogni membro del team nel portare avanti il progetto. Inoltre ha sottolineato l'importanza di avere maggiore fiducia reciproca tra i membri del team.
+Tra le altre cose ha evidenziato l'importanza del fare attenzione agli errori di logica nel codice per evitare eventuali bug.
+
+- Annarita Bruno ha riscontrato difficoltà nell'accordarsi sulle scelte da intraprendere in alcune circostanze. 
+
+- Giuseppe D'Urso sottolinea l'importanza di assicurarsi che le regole del gioco siano chiare e facilmente comprensibili per i giocatori.
+
+Questi feedback saranno presi in considerazione per migliorare il processo di sviluppo nel prossimo Sprint. Continueremo a lavorare sui tempi di sviluppo rispettando una tabella di marcia, lavorando inoltre sull'organizzazione e sulla fiducia reciproca per raggiungere gli obiettivi del progetto.
