@@ -36,4 +36,14 @@ public class GameMock {
         failedAttemptsMock = 0;
         sessionStartedMock = true;
     }
+    private static LinkedList<Ship> getShipSet() {
+        LinkedList<Ship> shipsList = new LinkedList<Ship>();
+
+        for (int tId = 0; tId < Ship.getNumberOfTypes(); tId++) {
+            for (int i = 0; i < Ship.getMaxInstances(tId); i++) {
+                shipsList.add(new Ship(tId));
+            }
+        }
+        return shipsList;
+    }
 }
