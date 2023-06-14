@@ -264,11 +264,18 @@ Ecco una breve descrizione di ciascuno di essi :
 
 - `/gioca` Inizia una nuova partita
 
+- `/facile` Imposta il livello di difficoltà a facile
+
 - `/facile <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
+
+- `/medio` Imposta il livello di difficoltà a medio
 
 - `/medio <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
 
+-  `/difficile` Imposta il livello di difficoltà a difficile
+
 - `/difficile <numero>` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`
+
 
 - `/tentativi <numero>` Imopsta secondo la variabile `numero`, stabilita dall'utente, il numero massimo di tentativi disponibili
 
@@ -282,7 +289,7 @@ Ecco una breve descrizione di ciascuno di essi :
 
 - `/tempo <numero>` Imposta un timer, in minuti, secondo il valore di `numero` che l'applicazione chiederà al giocatore. Una volta impostato, la partita in corso o quella che è in procinto di partire sarà a tempo. ATTENZIONE! Se imposti il tempo a zero, il timer verrà impostato ad infinito!
 
-- `/mostratempo` mostra i minuti rimanenti per il completamento della partita e queeli trascorsi 
+- `/mostratempo` Mostra i minuti rimanenti per il completamento della partita e queeli trascorsi 
 
 - `/mostralivello` Mostra il livello di difficoltà durante la partita.
 
@@ -308,7 +315,7 @@ Potrai lanciare un colpo sulla griglia delle navi avversaria semplicemente digit
 A seconda della situazione, si verificherò uno dei seguenti tre scenari:
 
 - Il colpo non va segno; quindi, a schermo comparirà la scritta **acqua**
-- Il colpo intercetta la parte di una nave ma non l'affonda; allora a schermo apparirà la scritta **colpito**
+- Il colpo intercetta la parte di una nave ma non l'affonda; a schermo apparirà la scritta **colpito**
 - Il colpo intercetta una nave e la affonda; allora l'applicazione mostrerà a schermo la parola **colpito e affondato**
 
 In ognuno di questi tre casi, verranno mostrate anche la griglia delle navi avversaria, con tutte le navi colpite o affondate, assieme al numero di tentativi effettuati e il tempo trascorso.
@@ -319,7 +326,7 @@ Al termine di una partita, l'applicazione ritornerà allo stato iniziale, quindi
 
 - il timer ad infinito
 - la dimensione della griglia a 10x10
-- la difficoltà a facile 
+- la difficoltà a facile (50 tentativi)
 - il numero massimo di tentativi falliti, di ogni livello di difficoltà, ai rispettivi valori predefiniti
 
 ### :magic_wand: Tips and tricks  
