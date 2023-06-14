@@ -275,6 +275,13 @@ public class GameControllerTest {
     }
 
     @Test
+    void testGetSessionGridIfSessionNotStarted() {
+        assertThrows(SessionNotStartedException.class, () -> {
+            gameController.getSessionGrid(gameMock);
+        });
+    }
+
+    @Test
     void testExtraLargeGridSizeIfSessionNotStarted() {
         try {
             gameController.extraLargeGridSize(gameMock);
