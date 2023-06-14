@@ -387,6 +387,16 @@ public class GameControllerTest {
         }
     }
 
+    // casi limite strike
+
+    /**
+     * 24) Test: caso limite ->
+     * Verifica che il metodo strike() non lanci
+     * un'eccezione se invocato durante una sessione di gioco e
+     * possa colpire coordinate all'estremo inferiore della mappa.
+     * <p>
+     *  Atteso: eccezione non lanciata
+     */
     @Test
     void testStrikeIfHitOnLowEdgeMap() {
         gameController.startSession(gameMock);
