@@ -247,6 +247,59 @@ Una volta assicurato di avere Docker e il WSL (se stai usando Windows) correttam
 
 Seguendo questi passaggi, dovresti essere in grado di eseguire correttamente l'immagine Docker senza incontrare problemi.
 
+### Avvio del gioco
+
+Una volta avviata l'immagine docker, potrai scegliere di digitare due comandi: 
+
+```sh
+  /help o --help o -h
+``` 
+```sh 
+  /gioca
+```
+
+Con il comando `/help` il sul tuo schermo compariranno tutti i comandi di gioco possibli. 
+
+ecco una bfreve descrizione di ognuno: 
+
+- `/gioca` Inizia una nuova partita
+
+- `/facile + numero` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
+
+- `/medio + numero` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`  
+
+- `/difficile + numero` Imposta il numero di tentativi disponibili secondo il valore della variabile `numero`
+
+- `/tentativi + numero` Imopsta secondo la variabile `numero`, stabilita dall'utente, il numero massimo di tentativi disponibili
+
+-  `/mostratentativi` Mostra i tentativi ancora disponibili in quel momento
+
+- `/standard` Imposta la dimensione di entrambe griglie di gioco a 10x10 
+
+- `/large` Imposta la dimensione di entrambe griglie di gioco a 18x18 
+
+- `/extralarge` Imposta la dimensione di entrambe griglie di gioco a 26x26
+
+- `/tempo + numero` Imposta un timer, in minuti, secondo il valore di `numero` che l'applicazione chiederà al giocatore. Una volta impostato, la partita in corso o quella che è in procintio di partire sarà a tempo
+
+- `/mostratempo` mostra i minuti rimanenti per il completamento della partita e queeli trascorsi 
+
+- `/mostralivello` Mostra il livello di difficoltà durante la partita.
+
+- `/mostragriglia` Mostra a schermo la griglia con i colpi andati a buon fine, nel senso che hanno colpito una nave avversaria
+
+- `/svelagriglia` Mostra la griglia dell'avversario
+
+- `/mostranavi` Mostra le informazioni sulle navi, inclusi nomi, rappresentazione e quantità disponibili
+
+- `/esci` Termina il programma se arriva una conferma dall'utente
+
+- `/abbandona` Se il giocatore conferma, l'app mostrerà la posizione delle navi nemiche e aspetterà un comando. Altrimenti, si preparerà per un nuovo tentativo di lancio.
+
+
+Con il comando ``/gioca``, invece, ti sarà possibile iniziare una nuova partita. 
+
+Le navi saranno posizionate in maniera **automatica** in una griglia dalla dimensione che hai scelto in precedenza, senza che tu faccia alcuna azione. 
 
 
 #### (7.2.2) Inizio di una partita
