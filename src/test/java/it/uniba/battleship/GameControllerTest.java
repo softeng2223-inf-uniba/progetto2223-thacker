@@ -310,6 +310,30 @@ public class GameControllerTest {
     }
 
     @Test
+    void testStrikeIncrementSunkSkipsIfHitSunkShip() {
+        gameController.startSession(gameMock);
+
+        Grid testGrid = new Grid();
+        Ship testShip = new Ship(0);
+        Coordinate firstCoord = new Coordinate(0, 0);
+        Coordinate secCoord = new Coordinate(0, 1);
+
+        testGrid.set(firstCoord, testShip);
+        testGrid.set(secCoord, testShip);
+        gameMock.setGridMock(testGrid);
+
+        int expectedValue = gameMock.getSunkShips() + 1;
+        try {
+            gameController.strike(gameMock, firstCoord);
+            gameController.strike(gameMock, secCoord);
+        } catch (CellAlreadyMarkedException e) {
+            fail("CellAlreadyMarkedException");
+        }
+
+        assertEquals(expectedValue, gameMock.getSunkShips(), "err");
+    }
+
+    @Test
     void testGetFailedAttemptsIfSessionNotStarted() {
         assertThrows(SessionNotStartedException.class, () -> {
             gameController.getFailedAttempts(gameMock);
