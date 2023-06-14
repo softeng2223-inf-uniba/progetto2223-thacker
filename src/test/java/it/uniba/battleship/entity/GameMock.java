@@ -26,6 +26,11 @@ public class GameMock extends Game{
         attemptsMock = new HashSet<>();
         failedAttemptsMock = 0;
     }
+
+    /**
+     * Permette di avviare una partita e imposta correttamente
+     * i valori necessari per poter giocare.
+     */
     public void startSession() {
         gridMock = new Grid();
         GameController.getInstance().randomlyFill(SHIPS, gridMock);
