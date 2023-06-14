@@ -302,13 +302,6 @@ Con il comando ``/gioca``, invece, ti sarà possibile iniziare una nuova partita
 Le navi saranno posizionate in maniera **automatica** in una griglia dalla dimensione che hai scelto in precedenza, senza che tu faccia alcuna azione. 
 
 
-#### (7.2.2) Inizio di una partita
-
-```
-/gioca
-```
-Con questo comando sarà possibile iniziare una nuova partita. Una volta eseguito questo comando, verranno disposte, in maniera casuale, tutte le navi.
-
 #### (7.2.3) Posizionare le navi
 
 Le navi verranno posizionate in maniera **automatica** in una griglia di dimensione 10x10, senza il bisogno dell'intervento del giocatore. 
