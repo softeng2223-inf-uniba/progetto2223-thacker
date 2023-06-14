@@ -254,6 +254,7 @@ public final class CommandHandler {
             Output.printCommandWithoutParamsNotRecognised(command);
         }
     }
+
     private void handleShowHitMap(final Game game) {
         try {
             String map = CONTROL_SHOWGRID.genHitMap(game);
@@ -263,6 +264,7 @@ public final class CommandHandler {
             Output.printCantShowHitMap();
         }
     }
+
     private void handleStandardGrid(final Game game) {
         try {
             CONTROL_GAME.standardGridSize(game);
@@ -271,6 +273,7 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
+
     private void handleLargeGrid(final Game game) {
         try {
             CONTROL_GAME.largeGridSize(game);
@@ -279,6 +282,7 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
+
     private void handleExtraLargeGrid(final Game game) {
         try {
             CONTROL_GAME.extraLargeGridSize(game);
@@ -287,6 +291,7 @@ public final class CommandHandler {
             Output.printCantChangeGridSize();
         }
     }
+
     private void handleShowShip() {
         Output.clearScreen();
         Output.println(CONTROL_SHOWSHIPS.getShipInfo());
@@ -306,17 +311,15 @@ public final class CommandHandler {
             Output.printStartSessionAlreadyStarted();
         }
     }
+
     private void handleShowDifficulty(final Game game) {
         if (!game.isDifficultySet()) {
             setDefaultDifficulty(game);
         }
-        try {
-            Difficulty diff = CONTROL_GAME.getDifficulty(game);
-            Output.printGameLevel(diff.getNameLevel(), diff.getMaxFailedAttempts());
-        } catch (CloneNotSupportedException e) {
-            Output.printCantClone();
-        }
+        Difficulty diff = CONTROL_GAME.getDifficulty(game);
+        Output.printGameLevel(diff.getNameLevel(), diff.getMaxFailedAttempts());
     }
+
     private void handleEasyDifficulty(final Game game, final boolean custom) {
         try {
             CONTROL_GAME.setEasyDifficulty(game);
