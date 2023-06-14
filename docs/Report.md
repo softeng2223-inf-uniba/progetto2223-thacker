@@ -348,3 +348,7 @@ Meeting avvenuto il giorno 19/05/2023
 - Giovanni Cirigliano
 - Antonio Dambra
 - Giuseppe D'Urso
+
+Con lo Sprint 1 i membri del gruppo Thacker hanno avuto modo di porre le basi per l'inizio di una nuova partita di Battaglia Navale.
+
+Durante l'analisi retrospettiva dello Sprint 1, abbiamo raccolto i seguenti feedback dai membri del team:
