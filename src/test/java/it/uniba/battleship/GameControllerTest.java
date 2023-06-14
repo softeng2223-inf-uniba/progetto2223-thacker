@@ -179,4 +179,13 @@ public class GameControllerTest {
             fail("InvalidValueException");
         }
     }
+
+    @Test
+    void testSetCustomMediumDifficultyIfSessionNotStarted() {
+        try {
+            gameController.setCustomMediumDifficulty(gameMock, 1);
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
+    }
 }
