@@ -140,14 +140,23 @@ In aggiunta, si hanno le seguenti proprietà rilevanti ottenibili attraverso le 
 
 ## (7) Manuale Utente
 
-### **(7.1) Prerequisiti**
-Al fine di garantire una corretta esecuzione del programma su qualsiasi macchina, evitando dunque imcompatibilità varie, è necessaria l'installazione preventiva della piattaforma Docker.
+### Introduzione 
 
-#### **(7.1.1) Installazione Docker**
+La Battaglia Navale è un gioco da tavolo strategico in cui due giocatori si sfidano cercando di affondare le navi nemiche posizionate su una griglia. Tradizionalmente, il gioco viene giocato da due persone, ma in questa versione avrai il computer come avversario.
 
-La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda della versione del sistema operativo che si sta usando : 
+### Scopo del gioco 
 
-<span style="text-align:center">
+L'obiettivo del gioco è quello di riuscire ad affondare tutte le navi avversarie prima che i tentativi disponibili finiscano. 
+
+Se si decide di impostare il timer, è necessario raggiungere l'obiettivo prima che il tempo scada. 
+
+Per assicurarsi che il programma funzioni correttamente su qualsiasi macchina, evitando problemi di compatibilità, è consigliabile installare Docker.
+
+### Installazione Docker
+
+La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seguito, a seconda del vostro sistema operativo: 
+
+<p align="center">
 
 [Linux](https://docs.docker.com/desktop/linux/install/)
 
@@ -155,107 +164,147 @@ La prima cosa da fare è scaricare il contenuto di uno dei link riportati di seg
 
 [Windows](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module)
 
-</span>
+</p>
 
-Dopodiché, bisognerà eseguire il file appena scaricato (.exe per Windows, .dmg per Apple) e installare 
-Docker.
+Dopodiché, si potrà procedere con l'installazione, come per un normale programma. 
 
-#### **(7.1.2) Installazione WSL (Windows)**
-
-Se si sta cercando di eseguire il programma su una macchina con MacOS o Linux, si può saltare questo passaggio.
-
-Se,invece, si sta utilizzando Windows, Docker non funzionerà se prima non verrà installato il Windows Subsystem Linux. Sarà necessario solamente scrivere la seguente riga all'interno di un qualsiasi terminale: 
+Per gli utenti Windows, una volta installato Docker andrà installato anche il Windows Subsystem Linux. Basterà copiare il comando di seguito in una finestra del terminale. 
 
 ```sh
 wsl --install + LINUX
 ```
 Dove al posto di LINUX andrà la distribuzione di vostro gradimento. 
 
-Per visualizzare un elenco delle distro Linux supportate nella WSL basterà digitare sempre da terminale: 
+Per visualizzare un elenco delle distro Linux supportate da WSL basterà digitare sempre da terminale: 
+
 ```sh
 wsl --list --online 
 ```
-#### **(7.1.3) Esecuzione immagine Docker** 
+### Esecuzione immagine Docker 
 
-Una volta installato Docker (e il WSL, per gli utenti Windows) andrà eseguita l'immagine creata da Docker.  
+Una volta assicurato di avere Docker e il WSL (se stai usando Windows) correttamente installati sul tuo sistema, si possono seguire i passaggi qui sotto: 
 
-Per fare questo, basterà eseguire i passaggi di sotto indicati in maniera sequenziale: 
+- Avvia Docker.
 
-- Avviare il programma Docker 
-- Autenticare Docker per Github Packages  
-  - creare un file di testo con al suo interno il _personal access token_ di Github ([Istruzioni per la loro creazione](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
-  - digitare il seguente comando  
-    ```sh 
-    cat ./TOKEN.txt | docker login ghcr.io -u <USERNAME> --password-stdin 
-    ```
-    Sostituendo `./TOKEN.txt` con il percorso dove è stato salvato il file di testo e `<USERNAME>` con il proprio username di Github.
-- Copiare il package di Docker della repo di riferimento:
-  
-  - Recarsi nella sezione  principale della repo e cliccare sul nome dell'immagine Docker, sotto la sezione **Packages**
-  - Copiare il comando tramite l'apposito pulsante ed incollarlo nel terminale 
-  - Eseguire il comando per scaricare l'immagine 
-- Digitare il comando 
-  ```sh 
-  docker run --rm -it <nome_immagine>
+- Autentica Docker per l'uso di Github Packages:
+- Crea un file di testo chiamato TOKEN.txt e inserisci al suo interno il tuo "personal access token" di Github. Puoi seguire le istruzioni [qui]() per crearlo.
+
+- Apri il terminale e digita il seguente comando, sostituendo <USERNAME> con il tuo username di Github e <PERCORSO> con il percorso completo del file TOKEN.txt:
+  ```sh
+  cat <PERCORSO>/TOKEN.txt | docker login ghcr.io -u  <USERNAME> --password-stdin
   ```
-  Sostituendo ``<nome_immagine>`` con il nome dell'immagine Docker di riferimento. 
+- Copia l'URL dell'immagine Docker dalla repository di riferimento.
+- Nel terminale, esegui il seguente comando, incollando l'URL dell'immagine al posto di <URL_IMMAGINE>:
+  ```sh
+  docker pull <URL_IMMAGINE>
+  ```
+  Questo scaricherà l'immagine Docker nel tuo sistema.
+- Infine, esegui il comando per avviare l'immagine Docker:
+  ```sh
+  docker run --rm -it <NOME_IMMAGINE>
+  ```
+  Sostituisci <NOME_IMMAGINE> con il nome dell'immagine Docker che hai scaricato.
 
-Una effettuati questi passaggi, il programma sarà **pronto** per essere eseguito. 
+Seguendo questi passaggi, dovresti essere in grado di eseguire correttamente l'immagine Docker senza incontrare problemi.
 
-#### (7.2) Incominciare il gioco
+### Avvio del gioco
 
-Eseguita l'immagine Docker, il giocatore si troverà davanti una schermata in cui potrà digitare **due comandi**. 
-
-#### (7.2.1) Elenco dei comandi 
+Una volta avviata l'immagine docker, potrai scegliere di digitare due comandi: 
 
 ```sh
-/help o --help o -h
+  /help o --help o -h
+``` 
+```sh 
+  /gioca
 ```
 
-  Con il seguente comando verranno mostrati a schermo tutti i comandi utilizzabili di cui segue una breve descrizione di ognuno: 
+Con il comando `/help` il sul tuo schermo compariranno tutti i comandi di gioco possibli. 
+
+Ecco una breve descrizione di ciascuno di essi : 
+
+- `/gioca` Inizia una nuova partita
+
+- `/facile` Imposta il livello di difficoltà a facile
+
+- `/facile <numero>` Sovrascrive il numero massimo di tentativi fallibili, al livello facile, in base al valore della variabile `numero`  
+
+- `/medio` Imposta il livello di difficoltà a medio
+
+- `/medio <numero>` Sovrascrive il numero massimo di tentativi fallibili, al livello medio, in base al valore della variabile `numero`   
+
+- `/difficile` Imposta il livello di difficoltà a difficile
+
+- `/difficile <numero>` Sovrascrive il numero massimo di tentativi fallibili, al livello difficile, in base al valore della variabile `numero`  
+
+- `/tentativi <numero>` Imopsta secondo la variabile `numero`, stabilita dall'utente, il numero massimo di tentativi disponibili
+
+-  `/mostratentativi` Mostra i tentativi ancora disponibili in quel momento
+
+- `/standard` Imposta la dimensione di entrambe griglie di gioco a 10x10 
+
+- `/large` Imposta la dimensione di entrambe griglie di gioco a 18x18 
+
+- `/extralarge` Imposta la dimensione di entrambe griglie di gioco a 26x26
+
+- `/tempo <numero>` Imposta un timer, in minuti, secondo il valore di `numero` che l'applicazione chiederà al giocatore. Una volta impostato, la partita in corso o quella che è in procinto di partire sarà a tempo. ATTENZIONE! Se imposti il tempo a zero, il timer verrà impostato ad infinito!
+
+- `/mostratempo` Mostra i minuti rimanenti per il completamento della partita e queeli trascorsi 
+
+- `/mostralivello` Mostra il livello di difficoltà durante la partita.
+
+- `/mostragriglia` Mostra a schermo la griglia con i colpi andati a buon fine, nel senso che hanno colpito una nave avversaria
+
+- `/svelagriglia` Mostra la griglia dell'avversario
+
+- `/mostranavi` Mostra le informazioni sulle navi, inclusi nomi, rappresentazione e quantità disponibili
+
+- `/esci` Termina il programma se arriva una conferma dall'utente
+
+- `/abbandona` Se il giocatore conferma, l'app mostrerà la posizione delle navi nemiche e aspetterà un comando. Altrimenti, si preparerà per un nuovo tentativo di lancio.
 
 
-  - ``/gioca`` permette di iniziare una nuova partita;
-  - ``/facile`` imposta il livello di difficoltà su facile, quindi si avranno a disposizione massimo 50 tentativi a vuoto   
-  - ``/medio`` imposta il livello di difficoltà su medio, quindi si avranno a disposizione massimo 30 tentativi a vuoto   
-  - ``/difficile`` imposta il livello di difficoltà su difficile, quindi si avranno a disposizione massimo 10 tentativi a vuoto   
-  - ``/mostralivello`` permette di mostrare, durante una partita, il livello di difficoltà 
-  - ``/svelagriglia`` permette di mostrare la griglia dell'avversario 
-  - ``/mostranavi`` mostra il nome delle navi, la loro rappresentazione nel gioco e la loro rispettiva quantità disponibile, come riportato nella seguente tabella: 
+Con il comando `/gioca`, invece, ti sarà possibile iniziare una nuova partita. 
 
-      |Nome|Numero esemplari|
-      |-|-|
-      | Cacciatorpediniere   | 4 |
-      | Incrociatore  | 3 |
-      | Corazzata  | 2 |
-      | Portaerei  | 1 |   
+Le navi saranno posizionate in maniera **casuale** in una griglia dalla dimensione che hai scelto in precedenza, senza che tu faccia alcuna azione. 
 
-  - ``/esci`` permette di terminare l'esecuzione del programma, dietro previa conferma
+### Sistema dei colpi
 
+Potrai lanciare un colpo sulla griglia delle navi avversaria semplicemente digitando nella console la coordinata della cella, secondo una sintassi del tipo `<LETTERA>-<NUMERO>` (Es. `B-4`).
 
-#### (7.2.2) Inizio di una partita
+A seconda della situazione, si verificherò uno dei seguenti tre scenari:
 
-```
-/gioca
-```
-Con questo comando sarà possibile iniziare una nuova partita. Una volta eseguito questo comando, verranno disposte, in maniera casuale, tutte le navi.
+- Il colpo non va segno; quindi, a schermo comparirà la scritta **acqua**
+- Il colpo intercetta la parte di una nave ma non l'affonda; a schermo apparirà la scritta **colpito**
+- Il colpo intercetta una nave e la affonda; allora l'applicazione mostrerà a schermo la parola **colpito e affondato**
 
-#### (7.2.3) Posizionare le navi
+In ognuno di questi tre casi, verranno mostrate anche la griglia delle navi avversaria, con tutte le navi colpite o affondate, assieme al numero di tentativi effettuati e il tempo trascorso.
 
-Le navi verranno posizionate in maniera **automatica** in una griglia di dimensione 10x10, senza il bisogno dell'intervento del giocatore. 
+### Operazioni di fine partita 
 
-Le righe della griglia saranno numerate da 1 a 10, mentre le sue colonne saranno contrassegnate dalle lettere dalla A alla J. 
+Al termine di una partita, l'applicazione ritornerà allo stato iniziale, quindi tutte le impostazioni che avrai personalizzato verrano re-impostate a default, come: 
 
+- il timer ad infinito
+- la dimensione della griglia a 10x10
+- la difficoltà a facile (50 tentativi)
+- il numero massimo di tentativi falliti, di ogni livello di difficoltà, ai rispettivi valori predefiniti
 
-#### (7.2.4) Sistema dei colpi
+### :magic_wand: Tips and tricks  
 
-Se il colpo lanciato dall'utente colpisce una casella **vuota**, sulla griglia verrà mostrato il simbolo **"~"**. Se, invece, colpisce una nave, verrà mostrata una **"X"** nella casella colpita. 
+#### Il tempo è un fattore importante
 
-Quando non rimane più nessuna cella, della nave colpita,intatta,essa potrà essere dichiarata **affondata**. 
+Se stai giocando per la prima volta, ti suggeriamo di non mettere un tempo limite troppo breve, in modo da poterti abituare alle regole del gioco. 
 
-### (7.2) Scopo del gioco
+Man mano che migliori, potrai sfidarti a completare le partite sempre più velocemente.
 
-L'obiettivo del giocatore è quello di affondare le navi nemiche prima di esaurire tutti i tentativi dettati dalla difficoltà impostata in fase di preparazione  della partita. 
+#### Obiettivo: distruzione totale
+
+Una volta colpita una nave, è bene fare le mosse giuste per affondarla subito. 
+
+Il segreto potrebbe essere quello di continuare a mirare le caselle che sono a ridosso di quella colpita: continuate senza demordere, prima o poi affonderete le navi dell’avversario.
+
+#### Focus sul centro
+
+Le statistiche parlano chiaro: le probabilità di beccare una nave aumentano se si colpisce la parte centrale del tabellone quindi partire proprio da lì potrebbe essere un’ottima idea.
 
 ## (9) Analisi Retrospettiva
 All'interno di questa sezione si trovano le relazioni dei vari Sprint che verranno eseguiti durante lo sviluppo del progetto.
