@@ -118,6 +118,11 @@ public class GameMock extends Game{
         sessionStartedMock = false;
     }
 
+    /**
+     * Imposta una difficolta'.
+     *
+     * @param choice difficolta' da impostare
+     */
     public void setDifficulty(final Difficulty choice) {
         difficultyMock = choice.clone();
         diffSetMock = true;
