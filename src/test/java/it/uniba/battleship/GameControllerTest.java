@@ -259,4 +259,11 @@ public class GameControllerTest {
         assertEquals("Facile", gameController.getDifficulty(gameMock).getNameLevel());
     }
 
+    @Test
+    void testStrikeIfSessionNotStarted() {
+        assertThrows(SessionNotStartedException.class, () -> {
+            gameController.strike(gameMock, new Coordinate(1, 1));
+        });
+    }
+
 }
