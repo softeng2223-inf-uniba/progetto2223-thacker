@@ -207,6 +207,11 @@ public class GameMock extends Game{
         return sunkShipsMock;
     }
 
+    /**
+     * Restituisce sunkShips aggiornato con
+     * il valore passato in input.
+     * @param sunkShips
+     */
     public void setSunkShipsMock(final int sunkShips) {
         sunkShipsMock = sunkShips;
     }
