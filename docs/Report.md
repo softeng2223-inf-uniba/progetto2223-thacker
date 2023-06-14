@@ -367,3 +367,5 @@ Durante lo Sprint 1 sostiene di aver incontrato qualche difficoltà nell'organiz
 
 - Giovanni Cirigliano ha apprezzato l'entusiasmo e l'impegno di ogni membro del team nel portare avanti il progetto. Inoltre ha sottolineato l'importanza di avere maggiore fiducia reciproca tra i membri del team.
 Tra le altre cose ha evidenziato l'importanza del fare attenzione agli errori di logica nel codice per evitare eventuali bug.
+
+- Annarita Bruno ha riscontrato difficoltà nell'accordarsi sulle scelte da intraprendere in alcune circostanze. 
