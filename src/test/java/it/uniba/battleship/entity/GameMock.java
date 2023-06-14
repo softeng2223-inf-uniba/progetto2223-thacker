@@ -101,6 +101,14 @@ public class GameMock extends Game{
         return attemptsMock.size();
     }
 
+    /**
+     * Fornisce una copia della griglia di gioco in un determinato istante della sessione in corso.
+     *
+     * Attenzione: Da usare solo per scopi di presentazione,
+     * operare sulla copia non influenza il corso della sessione.
+     *
+     * @return griglia della sessione corrente nell'istante corrente
+     */
     public Grid getGrid() {
         return gridMock.clone();
     }
