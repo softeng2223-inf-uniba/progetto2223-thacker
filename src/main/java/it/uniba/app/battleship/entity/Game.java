@@ -9,7 +9,7 @@ import it.uniba.app.battleship.GameController;
  * {@code <<entity>>}
  * Fornisce servizi per gestire una sessione di gioco (o partita) di <i>Battleship solitaire</i>.
  */
-public final class Game {
+public class Game {
     private static final LinkedList<Ship> SHIPS = getShipSet();
 
     private boolean sessionStarted;

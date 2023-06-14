@@ -6,7 +6,7 @@ import it.uniba.app.battleship.entity.*;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-public class GameMock {
+public class GameMock extends Game{
     private static final    LinkedList<Ship> SHIPS = getShipSet();
     private boolean sessionStartedMock;
     private boolean diffSetMock;
