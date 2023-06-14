@@ -317,6 +317,18 @@ public class GameControllerTest {
     }
 
     @Test
+    void testGetAttemptsIfSessionStarted() {
+        gameController.startSession(gameMock);
+        gameController.strike(gameMock, new Coordinate(0, 0));
+        gameController.strike(gameMock, new Coordinate(1, 1));
+        try {
+            assertEquals(2, gameController.getAttempts(gameMock), "err");
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
+    }
+
+    @Test
     void testGetAttemptsIfSessionStartedAndNoAttempts() {
         gc.startSession(gameMock);
         try {
