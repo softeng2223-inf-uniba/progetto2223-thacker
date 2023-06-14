@@ -284,4 +284,14 @@ public class GameControllerTest {
             gameController.strike(gameMock, new Coordinate(1, 1));
         });
     }
+
+    @Test
+    void testStrikeIfCellNotAlreadyMarked() {
+        gameController.startSession(gameMock);
+        try {
+            gameController.strike(gameMock, new Coordinate(1, 1));
+        } catch (CellAlreadyMarkedException e) {
+            fail("CellAlreadyMarkedException");
+        }
+    }
 }
