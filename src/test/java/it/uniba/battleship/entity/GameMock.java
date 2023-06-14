@@ -52,4 +52,7 @@ public class GameMock {
     public HashSet<Coordinate> getAttemptsList() {
         return attemptsMock;
     }
+    public void setAttemptsList(HashSet<Coordinate> set) {
+        attemptsMock = set;
+    }
 }
