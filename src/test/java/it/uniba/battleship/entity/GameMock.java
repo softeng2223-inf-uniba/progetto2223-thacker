@@ -80,4 +80,8 @@ public class GameMock extends Game{
     public Grid getGrid() {
         return gridMock.clone();
     }
+
+    public void endSession() {
+        sessionStartedMock = false;
+    }
 }
