@@ -189,7 +189,7 @@ public final class CommandHandler {
      * @param num numero di tentativi massimi fallibili.
      */
     private void handleCustomEasyDifficulty(final Game game, final int num) {
-        CONTROL_GAME.setCustomEasyDifficulty(num);
+        CONTROL_GAME.setCustomEasyDifficulty(game, num);
         handleEasyDifficulty(game, true);
     }
     /**
