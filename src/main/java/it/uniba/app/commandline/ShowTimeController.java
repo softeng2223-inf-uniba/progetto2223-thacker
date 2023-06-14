@@ -30,21 +30,44 @@ public final class ShowTimeController {
      * durante una partita in quel momento.
      * Permette d'implementare il comando {@code /mostratempo}.
      * @param game contiene i dati relativi alla sessione di gioco.
+     * @return messaggio con informazioni legate al tempo
      */
     String showTime(final Game game) {
+        String message = new String();
+
         int maxMinute = game.getTime().getTimeLimitMin();
         long minutePassed = GameController.getInstance().checkTimePassedMillis(game) / CONVERSION_DENOMINATOR;
 
-        if (maxMinute == 0) {
-            return "Hai a disposizione un tempo illimitato";
-        } else if (!game.isSessionStarted() && maxMinute == 1) {
-            return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuto";
-        } else if (!game.isSessionStarted() && maxMinute > 1) {
-            return "Quando inizierai la partita avrai a disposizione " + maxMinute + " minuti";
-        }  else {
-            long remainingMin  = maxMinute - minutePassed;
-            return "Numero di minuti trascorsi dall'inizio della partita: " + (minutePassed)
-                    + "\nNumero di minuti ancora disponibili per giocare: " + (remainingMin);
+        // se una sessione di gioco è in corso
+        if (game.isSessionStarted()) {
+            message = "Numero di minuti trascorsi dall'inizio della partita: "
+                + minutePassed;
+            message += "\nNumero di minuti ancora disponibili per giocare: ";
+
+            if (maxMinute > 0) {
+                long remainingMin  = maxMinute - minutePassed;
+                message += remainingMin;
+            } else {
+                message += "infiniti";
+            }
+            return message;
         }
+        // se non vi sono sessioni in corso
+        switch (maxMinute) {
+            case 0:
+                message = "Hai a disposizione un tempo illimitato";
+                break;
+            case 1:
+                message = "Quando inizierai la partita avrai a disposizione "
+                + maxMinute
+                + " minuto";
+                break;
+            default:
+                message = "Quando inizierai la partita avrai a disposizione "
+                + maxMinute
+                + " minuti";
+                break;
+        }
+        return message;
     }
 }
