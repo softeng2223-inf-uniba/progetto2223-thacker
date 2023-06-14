@@ -232,10 +232,7 @@ public final class GameController {
         Difficulty diff = new Difficulty();
         diff.setNameLevel(HARD_NAME);
         diff.setMaxFailedAttempts(hardMaxFailedAttempts);
-        try {
-            game.setDifficulty(diff);
-        } catch (CloneNotSupportedException e) {
-        }
+        game.setDifficulty(diff);
     }
 
     /**
