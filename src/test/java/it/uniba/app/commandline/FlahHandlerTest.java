@@ -75,6 +75,13 @@ class FlahHandlerTest {
                 "ERR [FH:4]: execute() non restituisce true quando viene passato il singolo flag valido -h");
     }
 
+    /**
+     * 5) Test: verifica che execute() dia il giusto risultato
+     * passando contemporaneamente i due flag validi --help e -h
+     * <p>
+     * Atteso: false.
+     * </p>
+     */
     @Test
     void testCorrectFlagsCombinedTogether() {
         String[] args = {"--help", "-h"};
