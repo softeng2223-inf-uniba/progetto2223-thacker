@@ -201,4 +201,8 @@ public class GameMock extends Game{
     public void incrementSunkShips() {
         sunkShipsMock++;
     }
+
+    public void incrementFailedAttempt() {
+        failedAttemptsMock++;
+    }
 }
