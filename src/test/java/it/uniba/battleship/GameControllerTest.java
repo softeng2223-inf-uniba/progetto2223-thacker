@@ -133,6 +133,13 @@ public class GameControllerTest {
         });
     }
 
+    /**
+     * 8) Test: Verifica che il metodo setCustomEasyDifficulty() imposti
+     * la difficolta' 'Facile' con un numero di tentativi scelto dall'utente
+     * prima dell'inizio di una sessione di gioco.
+     * <p>
+     *  Atteso: non deve lanciare SessionAlreadyStartedException.
+     */
     @Test
     void testSetCustomEasyDifficultyIfSessionNotStarted() {
         try {
