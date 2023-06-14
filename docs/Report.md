@@ -218,6 +218,10 @@ sequenceDiagram
 
   App ->> Ga : crea
   activate Ga
+  Ga ->> Diff: crea
+  activate Diff
+  Ga ->> Time: crea
+  activate Time
 
   App ->> CH: handleCommand()
   CH ->> Input: get()
@@ -227,29 +231,30 @@ sequenceDiagram
   CH ->> CH: executeNoArgs()
   CH ->> CH: handlePlay()
   CH ->> GaCo: startSession()
-  GaCo ->> GaCo: controlla se sessione non in corso
-  alt difficoltà non impostata
-    GaCo ->> GaCo: setEasyDifficulty()
-    activate Diff
-    GaCo ->> Diff: crea e imposta proprietà
-    GaCo ->> Ga: setDifficulty()
+  GaCo ->> Ga: isSessionStarted()
+  alt sessione non in corso
+    GaCo ->> Ga: isDifficultySet()
+    alt difficoltà non impostata
+      GaCo ->> GaCo: setEasyDifficulty()
+      GaCo ->> Diff: crea e imposta proprietà
+      GaCo ->> Ga: setDifficulty()
+    end
+    GaCo ->> Ga: startSession()
+    Ga ->> Grid: crea
+    activate Grid
+    Ga ->> GaCo: randomlyFill()
+    GaCo ->> Grid: riempimento usando set()
+    Ga ->> GaCo: setTime()
+    GaCo ->> Time: imposta proprietà
+
+    note over GaCo, Time: segue visualizzazione della griglia dei colpi (vuota)
+    CH ->> ShGriCo: genHitMap()
+    ShGriCo ->> Ga: getSessionGrid()
+    Ga ->> Grid: clone()
+    ShGriCo -->> CH: griglia dei colpi
+    CH ->> Output: printHitMap()
+    Output -->> Player : mostra griglia dei colpi
   end
-  GaCo ->> Ga: startSession()
-  Ga ->> Grid: crea
-  activate Grid
-  Ga ->> GaCo: randomlyFill()
-  GaCo ->> Grid: riempimento usando set()
-
-  Ga ->> GaCo: setTime()
-  activate Time
-  GaCo ->> Time: imposta proprietà
-  CH ->> ShGriCo: genHitMap()
-  ShGriCo ->> Ga: getSessionGrid()
-  Ga ->> Grid: clone()
-  ShGriCo -->> CH: griglia dei colpi (vuota)
-  CH ->> Output: printHitMap()
-  Output -->> Player : mostra griglia vuota
-
   deactivate Diff
   deactivate Time
   deactivate Grid
@@ -280,7 +285,8 @@ classDiagram
   <<boundary>> Output
 
   class CommandHandler {
-    +execute(Game)
+    +handleCommand(Game)
+    -executeNoArgs(Game)
     -handlePlay(Game)
   }
   <<control>> CommandHandler
@@ -376,17 +382,16 @@ sequenceDiagram
   
   activate Game
 
-  App ->> CH: execute()
+  App ->> CH: handleCommand()
   CH ->> Input: get()
   Input ->> Player: attende comando
-  Player -->> Input: invia /facile
+  Player -->> Input: invia "/facile"
   Input -->> CH: /facile
-
+  CH ->> CH: executeNoArgs()
   CH ->> CH: handleEasyDifficulty()
   CH ->> GaCo: setEasyDifficulty()
   GaCo ->> Game: isSessionStarted()
-  alt false
-    Game -->> GaCo: false
+  alt sessione non iniziata
     Game ->> DT: crea
     activate DT
     GaCo ->> DT: setNameLevel()
@@ -400,11 +405,14 @@ sequenceDiagram
     Note over GaCo, DG: livello di difficoltà impostato a "facile"
     CH ->> Game: getDifficulty()
     Game ->> DG: clone()
-    DG -->> CH: diff
+    DG ->> DT: crea
+    activate DT
+    DT -->> CH: diff
     CH ->> Output: printSetDifficulty();
     Output ->> Player: "OK, impostata a facile"
+    deactivate DT
     deactivate DG
-  else true
+  else sessione già iniziata
     CH ->> Output: printCantSetDiffDuringSession()
     Output ->> Player: feedback
   end
@@ -425,7 +433,8 @@ classDiagram
   App ..> CommandHandler
 
   class CommandHandler {
-    +execute(Game)
+    +handleCommand(Game)
+    -executeNoArgs(Game)
     -handleEasyDifficulty(Game)
     -handleMediumDifficulty(Game)
     -handleHardDifficulty(Game)
@@ -508,33 +517,38 @@ sequenceDiagram
 
   activate Game
 
-  App ->> CH: handle()
+  App ->> CH: handleCommand()
   CH ->> Input: get()
   Input ->> Player: attende comando
   Player -->> Input: invia "<lettera>-<numero>"
   Input -->> CH: "<lettera>-<numero>"
+  CH ->> CH: executeNoArgs()
   note over CH,Grid: effettuazione di tentativo
   CH ->> CH: handleDefaultOrShoot()
-  CH ->> StCo: strike()
-  StCo ->> GaCo: strike()
-  GaCo ->> Game: registra un tentativo
-  Game ->> Game: aggiorna la griglia e le navi 
-  GaCo -->> StCo: esito
-  StCo ->> Output: esito
-  Output ->> Player: mostra esito
+  alt coordinata è sintatticamente corretta
+    CH ->> StCo: strike()
+    StCo ->> GaCo: strike()
+    GaCo ->> Game: registra un tentativo
+    Game ->> Game: aggiorna la griglia e le navi 
+    GaCo -->> StCo: esito
+    StCo ->> Output: esito
+    Output ->> Player: mostra esito
 
-  note over CH,Grid: mostra la griglia dei colpi aggiornata
-  CH ->> ShGrCo: genHitMap()
-  ShGrCo ->> GaCo: getSessionGrid()
-  GaCo ->> Game: getSessionGrid()
-  activate Grid
-  Game ->> Grid: clone()
-  Grid -->> ShGrCo: 
-  ShGrCo ->> ShGrCo : genera la griglia dei colpi usando servizi di Ship e Grid
-  deactivate Grid
-  CH ->> Output: printHitMap()
-  Output ->> Player: mostra griglia dei colpi
-
+    note over CH,Grid: mostra la griglia dei colpi aggiornata
+    CH ->> ShGrCo: genHitMap()
+    ShGrCo ->> GaCo: getSessionGrid()
+    GaCo ->> Game: getSessionGrid()
+    activate Grid
+    Game ->> Grid: clone()
+    Grid -->> ShGrCo: 
+    ShGrCo ->> ShGrCo : genera la griglia dei colpi usando metodi di Ship e Grid
+    deactivate Grid
+    CH ->> Output: printHitMap()
+    Output ->> Player: mostra griglia dei colpi
+  else errore di sintassi
+    CH ->> Output: printCommandWithoutParamsNotRecognised()
+    Output ->> Player: notifica
+  end
   deactivate Game
 ```
 **diagramma delle classi**
@@ -553,6 +567,7 @@ classDiagram
   class Output {
     print(String)$
     printHitMap(String)$
+    printCommandWithoutParamsNotRecognised()$
   }
   <<boundary>> Output
 
@@ -562,7 +577,8 @@ classDiagram
   <<boundary>> Input
 
   class CommandHandler {
-    +handle(Game)
+    +handleCommand(Game)
+    -executeNoArgs(Game)
     -handleDefaultOrShoot(Game,String)
   }
   <<control>> CommandHandler
@@ -570,6 +586,8 @@ classDiagram
   CommandHandler ..> StrikeController
   CommandHandler ..> Input
   CommandHandler ..> Output
+  CommandHandler ..> ShowGridController
+  CommandHandler ..> Game
 
   class StrikeController {
     +strike(Game,String)
@@ -581,6 +599,18 @@ classDiagram
   StrikeController ..> GameController
   StrikeController ..> Output
 
+  class ShowGridController {
+    ~genHitMap(Game,String)
+  }
+  <<control>> ShowGridController
+
+  ShowGridController ..> Output
+  ShowGridController ..> GameController
+  ShowGridController ..> Game
+  ShowGridController ..> Ship
+  ShowGridController ..> Grid
+  ShowGridController ..> Coordinate
+
   class GameController {
     +strike(Game,Coordinate) int
   }
@@ -589,6 +619,7 @@ classDiagram
   GameController ..> Game
   GameController ..> Coordinate
   GameController ..> Ship: "colpisce e verifica afondamento"
+  GameController ..> Grid
 
   class Game {
     +isAlreadyAttempted(Coordinate)
@@ -658,7 +689,7 @@ sequenceDiagram
   App ->> CH: getIstance()
   activate CH
 
-  loop until exit is requested
+  loop until finchp isExitRequested() = true
     App ->> EC: isExitRequested()
     EC -->> App: stato della richiesta
     alt stato = false
