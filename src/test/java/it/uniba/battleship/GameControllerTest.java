@@ -313,6 +313,15 @@ public class GameControllerTest {
         }
     }
 
+    // cellAlreadyMarked
+
+    /**
+     * 20) Test: Verifica che il metodo strike() lanci
+     * un'eccezione se invocato durante una sessione di gioco e
+     * con coordinate di una cella gia' colpita.
+     * <p>
+     *  Atteso: eccezione lanciata
+     */
     @Test
     void testStrikeIfCellAlreadyMarked() {
         gameController.startSession(gameMock);
