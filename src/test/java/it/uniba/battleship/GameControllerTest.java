@@ -279,6 +279,16 @@ public class GameControllerTest {
         assertEquals("Facile", gameController.getDifficulty(gameMock).getNameLevel());
     }
 
+    // test delle eccezioni
+    // sessionNotStarted
+
+    /**
+     * 18) Test: Verifica che il metodo strike() lanci
+     * un'eccezione se invocato prima dell'inizio di una sessione
+     * di gioco.
+     * <p>
+     *  Atteso: eccezione lanciata
+     */
     @Test
     void testStrikeIfSessionNotStarted() {
         assertThrows(SessionNotStartedException.class, () -> {
