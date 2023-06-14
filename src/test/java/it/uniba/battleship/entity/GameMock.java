@@ -76,4 +76,8 @@ public class GameMock extends Game{
     public int getAttempts() {
         return attemptsMock.size();
     }
+
+    public Grid getGrid() {
+        return gridMock.clone();
+    }
 }
