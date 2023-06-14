@@ -97,4 +97,8 @@ public class GameMock extends Game{
     public Grid getSessionGrid() {
         return gridMock.clone();
     }
+
+    public boolean isAlreadyAttempted(final Coordinate coord) {
+        return attemptsMock.contains(coord);
+    }
 }
