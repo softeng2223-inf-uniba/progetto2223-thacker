@@ -223,6 +223,11 @@ Infatti, il secondo componente - **Command Line Interface** - si occupa di comun
 
 In altre parole, la **logica di presentazione** è di competenza di **Command Line Interface**.
 
+### (4.3) Stile architetturale adottato
+Alla luce di ciò che è stato evidenziato nelle precedenti due sezioni, risulta che la struttura del sistema rimanda ad uno stile architetturale con stratificazione lasca, come indicato dall'immagine (Da leggere da destra verso sinistra, come se fosse dall'alto verso il basso):
+
+![Stile architetturale](./img/s2-stile-architetturale.png)
+
 ## (7) Manuale Utente
 
 ### **(7.1) Prerequisiti**
