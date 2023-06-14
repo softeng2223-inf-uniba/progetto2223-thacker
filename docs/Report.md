@@ -260,7 +260,7 @@ Una volta avviata l'immagine docker, potrai scegliere di digitare due comandi:
 
 Con il comando `/help` il sul tuo schermo compariranno tutti i comandi di gioco possibli. 
 
-ecco una bfreve descrizione di ognuno: 
+Ecco una breve descrizione di ciascuno di essi : 
 
 - `/gioca` Inizia una nuova partita
 
@@ -280,7 +280,7 @@ ecco una bfreve descrizione di ognuno:
 
 - `/extralarge` Imposta la dimensione di entrambe griglie di gioco a 26x26
 
-- `/tempo <numero>` Imposta un timer, in minuti, secondo il valore di `numero` che l'applicazione chiederà al giocatore. Una volta impostato, la partita in corso o quella che è in procintio di partire sarà a tempo
+- `/tempo <numero>` Imposta un timer, in minuti, secondo il valore di `numero` che l'applicazione chiederà al giocatore. Una volta impostato, la partita in corso o quella che è in procinto di partire sarà a tempo. ATTENZIONE! Se imposti il tempo a zero, il timer verrà impostato ad infinito!
 
 - `/mostratempo` mostra i minuti rimanenti per il completamento della partita e queeli trascorsi 
 
@@ -299,14 +299,13 @@ ecco una bfreve descrizione di ognuno:
 
 Con il comando `/gioca`, invece, ti sarà possibile iniziare una nuova partita. 
 
-Le navi saranno posizionate in maniera **automatica** in una griglia dalla dimensione che hai scelto in precedenza, senza che tu faccia alcuna azione. 
-
+Le navi saranno posizionate in maniera **casuale** in una griglia dalla dimensione che hai scelto in precedenza, senza che tu faccia alcuna azione. 
 
 ### Sistema dei colpi
 
-Potrai lanciare un colpo sulla griglia delle navi avversaria semplicemente digitando nella console la coordinata della cella, secondo una sintassi del tipo `<LETTERA>-<NUMERO>`.
+Potrai lanciare un colpo sulla griglia delle navi avversaria semplicemente digitando nella console la coordinata della cella, secondo una sintassi del tipo `<LETTERA>-<NUMERO>` (Es. `B-4`).
 
-A seconda della situazione, si verificherò uno dei seguenti tre scenarti:
+A seconda della situazione, si verificherò uno dei seguenti tre scenari:
 
 - Il colpo non va segno; quindi, a schermo comparirà la scritta **acqua**
 - Il colpo intercetta la parte di una nave ma non l'affonda; allora a schermo apparirà la scritta **colpito**
