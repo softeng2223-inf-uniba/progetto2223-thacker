@@ -1,13 +1,13 @@
 package it.uniba.battleship.entity;
 
-import it.uniba.app.battleship.entity.Coordinate;
-import it.uniba.app.battleship.entity.Difficulty;
-import it.uniba.app.battleship.entity.Grid;
-import it.uniba.app.battleship.entity.Time;
+import it.uniba.app.battleship.GameController;
+import it.uniba.app.battleship.entity.*;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 
 public class GameMock {
+    private static final    LinkedList<Ship> SHIPS = getShipSet();
     private boolean sessionStartedMock;
     private boolean diffSetMock;
     private int sunkShipsMock;
@@ -25,5 +25,15 @@ public class GameMock {
         timeMock = new Time();
         attemptsMock = new HashSet<>();
         failedAttemptsMock = 0;
+    }
+    public void startSession() {
+        gridMock = new Grid();
+        GameController.getInstance().randomlyFill(SHIPS, gridMock);
+        GameController.getInstance().setTime(timeMock);
+
+        sunkShipsMock = 0;
+        attemptsMock = new HashSet<>();
+        failedAttemptsMock = 0;
+        sessionStartedMock = true;
     }
 }
