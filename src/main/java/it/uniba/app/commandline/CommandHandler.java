@@ -130,6 +130,9 @@ public final class CommandHandler {
         } catch (InvalidValueException e) {
             // Command exception
             Output.printCommandWithParamsNumberNotPositive(commandStr);
+        } catch (SessionAlreadyStartedException e) {
+            // Game exception
+            Output.printSessionAlreadyStarted(commandStr);
         }
     }
 
