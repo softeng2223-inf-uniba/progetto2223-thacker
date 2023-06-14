@@ -17,22 +17,22 @@ public final class HelpController {
                     + "/tempo @param \n"
                     + "/tentativi @param \n"
                     + "/mostratentativi \n"
-                    + "/facile"
+                    + "/facile \n"
                     + "/facile @param \n"
-                    + "/medio"
+                    + "/medio \n"
                     + "/medio @param \n"
-                    + "/difficile"
+                    + "/difficile \n"
                     + "/difficile @param \n"
-                    + "/standard"
-                    + "/large"
-                    + "/extralarge"
-                    + "/abbandona"
-                    + "/mostratempo"
+                    + "/standard \n"
+                    + "/large \n"
+                    + "/extralarge \n"
+                    + "/abbandona \n"
+                    + "/mostratempo \n"
                     + "/mostralivello \n"
                     + "/mostragriglia \n"
                     + "/mostranavi \n"
                     + "/esci \n"
-                    + "/abbandona";
+                    + "/abbandona \n";
 
 
     private static class Holder {
