@@ -275,6 +275,34 @@ public class GameControllerTest {
     }
 
     @Test
+    void testGetFailedAttemptsIfSessionStarted() {
+        gameController.startSession(gameMock);
+        Grid grid = new Grid();
+        gameMock.setGridMock(grid);
+        gameController.strike(gameMock, new Coordinate(0, 0));
+        gameController.strike(gameMock, new Coordinate(1, 1));
+        try {
+            assertEquals(2, gameController.getFailedAttempts(gameMock),
+                "errore, i tentativi falliti non vengono aggiornati correttamente");
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
+    }
+
+    @Test
+    void testGetFailedAttemptsIfSessionStartedAndNoAttempts() {
+        gameController.startSession(gameMock);
+        Grid grid = new Grid();
+        gameMock.setGridMock(grid);
+        try {
+            assertEquals(0, gameController.getFailedAttempts(gameMock),
+                "errore, il numero di tentativi falliti ad inizio partita non è zero");
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
+    }
+
+    @Test
     void testGetFailedAttemptsIfSessionNotStarted() {
         assertThrows(SessionNotStartedException.class, () -> {
             gameController.getFailedAttempts(gameMock);
