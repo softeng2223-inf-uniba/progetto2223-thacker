@@ -170,4 +170,13 @@ public class GameControllerTest {
             gameController.setCustomEasyDifficulty(gameMock, 0);
         });
     }
+
+    @Test
+    void testSetCustomEasyDifficultyIfValidValue() {
+        try {
+            gameController.setCustomEasyDifficulty(gameMock, 1);
+        } catch (InvalidValueException e) {
+            fail("InvalidValueException");
+        }
+    }
 }
