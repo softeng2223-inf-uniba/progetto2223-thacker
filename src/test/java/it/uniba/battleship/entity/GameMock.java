@@ -260,14 +260,26 @@ public class GameMock extends Game {
         failedAttemptsMock = failedAttempts;
     }
 
+    // Overridden methods for incrementing values
+    /**
+     * Incrementa il valore dell'attributo sunkShipsMock
+     * di 1.
+     */
     public void incrementSunkShips() {
         sunkShipsMock++;
     }
 
+    /**
+     * Incrementa il valore dell'attributo failedAttemptsMock
+     * di 1.
+     */
     public void incrementFailedAttempt() {
         failedAttemptsMock++;
     }
 
+    /**
+     * Aggiunge una coordinata al set di tentativi.
+     */
     public void addAttempt(final Coordinate attempt) {
         attemptsMock.add(attempt);
     }

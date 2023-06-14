@@ -3,7 +3,12 @@ package it.uniba.battleship;
 import it.uniba.app.battleship.GameController;
 import it.uniba.battleship.entity.GameMock;
 
-import it.uniba.app.battleship.entity.*;
+import it.uniba.app.battleship.entity.Coordinate;
+import it.uniba.app.battleship.entity.Ship;
+import it.uniba.app.battleship.entity.Grid;
+
+
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,13 +18,23 @@ import it.uniba.app.battleship.exception.OutOfMapException;
 import it.uniba.app.battleship.exception.SessionAlreadyStartedException;
 import it.uniba.app.battleship.exception.SessionNotStartedException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/**
+ *  Test suite per la classe GameController.
+ */
 public class GameControllerTest {
     private GameController gameController;
     private GameMock gameMock;
     private static final int SHIPS_PART = 30;
 
+    /**
+     * SetUp della classe GameControllerTest, in cui vengono inizializzati
+     * gameController e gameMock.
+     */
     @BeforeEach
     void setUp() {
         gameMock = new GameMock();
