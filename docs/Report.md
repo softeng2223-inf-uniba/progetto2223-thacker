@@ -180,8 +180,7 @@ _Durante la partita, è possibile abbandonare il gioco in qualsiasi momento_. In
 
 ## (7) Manuale Utente
 
-### **(7.1) Prerequisiti**
-Al fine di garantire una corretta esecuzione del programma su qualsiasi macchina, evitando dunque imcompatibilità varie, è necessaria l'installazione preventiva della piattaforma Docker.
+
 
 #### **(7.1.1) Installazione Docker**
 
