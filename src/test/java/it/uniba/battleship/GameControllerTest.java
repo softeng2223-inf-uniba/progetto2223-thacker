@@ -52,7 +52,8 @@ class GameControllerTest {
     @Test
     void testGetInstance() {
         GameController gc2 = GameController.getInstance();
-        assertEquals(gameController, gc2);
+        assertEquals(gameController, gc2,
+            "errore, deve essere restituita la stessa istanza");
     }
 
     /**
