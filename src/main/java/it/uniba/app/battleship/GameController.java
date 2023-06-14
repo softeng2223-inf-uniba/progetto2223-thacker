@@ -310,7 +310,7 @@ public final class GameController {
      * @return difficoltà selezionata
      * @throws CloneNotSupportedException
      */
-    public Difficulty getDifficulty(final Game game) throws CloneNotSupportedException {
+    public Difficulty getDifficulty(final Game game) {
         return game.getDifficulty();
     }
 
