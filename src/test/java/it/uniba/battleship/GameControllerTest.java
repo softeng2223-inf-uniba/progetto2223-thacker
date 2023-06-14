@@ -102,6 +102,13 @@ public class GameControllerTest {
         });
     }
 
+    /**
+     * 6) Test: Verifica che il metodo setHardDifficulty() imposti
+     * la difficolta' a 'Difficile' prima dell'inizio di una sessione
+     * di gioco.
+     * <p>
+     *  Atteso:  non deve lanciare SessionAlreadyStartedException.
+     */
     @Test
     void testSetHardDifficultyIfSessionNotStarted() {
         try {
