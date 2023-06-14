@@ -198,6 +198,11 @@ public class GameMock extends Game{
         timeMock = t.clone();
     }
 
+    /**
+     * Restituisce il valore delle navi che sono
+     * state gia' affondate.
+     * @return numero di navi affondate
+     */
     public int getSunkShips() {
         return sunkShipsMock;
     }
