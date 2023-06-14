@@ -15,6 +15,9 @@ import it.uniba.app.battleship.exception.SessionNotStartedException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ *  Test suite per la classe GameController.
+ */
 public class GameControllerTest {
     private GameController gameController;
     private GameMock gameMock;
