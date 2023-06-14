@@ -317,10 +317,20 @@ public class GameControllerTest {
     }
 
     @Test
+    void testGetAttemptsIfSessionStartedAndNoAttempts() {
+        gc.startSession(gameMock);
+        try {
+            assertEquals(0, gc.getAttempts(gameMock), "err");
+        } catch (SessionAlreadyStartedException e) {
+            fail("SessionAlreadyStartedException");
+        }
+    }
+
+    @Test
     void testGetSessionGridIfSessionStarted() {
         gameController.startSession(gameMock);
         try {
-            gc.getSessionGrid(gameMock);
+            gameController.getSessionGrid(gameMock);
         } catch (SessionAlreadyStartedException e) {
             fail("SessionAlreadyStartedException");
         }
