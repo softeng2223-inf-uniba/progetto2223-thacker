@@ -561,7 +561,7 @@ classDiagram
   CommandHandler ..> Output
 
   class StrikeController {
-    +strike(String)
+    +strike(Game,String)
   }
   <<control>> StrikeController
 
