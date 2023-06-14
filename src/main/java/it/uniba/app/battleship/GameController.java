@@ -55,6 +55,13 @@ public final class GameController {
         return Holder.INSTANCE;
     }
 
+    public void reset(final Game game) {
+        easyMaxFailedAttempts   = DEFAULT_EASY_MAX_FAILED_ATTEMPTS;
+        mediumMaxFailedAttempts = DEFAULT_MEDIUM_MAX_FAILED_ATTEMPTS;
+        hardMaxFailedAttempts   = DEFAULT_HARD_MAX_FAILED_ATTEMPTS;
+        standardGridSize(game);
+    }
+
     /**
      * Avvia una nuova sessione di gioco.<hr>
      * Esegue tutte le inizializzazioni necessarie per giocare.
