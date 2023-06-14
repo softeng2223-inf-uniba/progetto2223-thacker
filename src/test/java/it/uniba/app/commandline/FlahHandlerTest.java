@@ -63,7 +63,7 @@ class FlahHandlerTest {
 
     /**
      * 4) Test: verifica che execute() dia il giusto risultato
-     * passando unicamente il falg valod -h
+     * passando unicamente il falg valido -h
      * <p>
      * Atteso: true.
      * </p>
