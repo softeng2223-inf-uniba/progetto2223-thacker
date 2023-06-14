@@ -302,13 +302,6 @@ Con il comando ``/gioca``, invece, ti sarà possibile iniziare una nuova partita
 Le navi saranno posizionate in maniera **automatica** in una griglia dalla dimensione che hai scelto in precedenza, senza che tu faccia alcuna azione. 
 
 
-#### (7.2.3) Posizionare le navi
-
-Le navi verranno posizionate in maniera **automatica** in una griglia di dimensione 10x10, senza il bisogno dell'intervento del giocatore. 
-
-Le righe della griglia saranno numerate da 1 a 10, mentre le sue colonne saranno contrassegnate dalle lettere dalla A alla J. 
-
-
 #### (7.2.4) Sistema dei colpi
 
 Se il colpo lanciato dall'utente colpisce una casella **vuota**, sulla griglia verrà mostrato il simbolo **"~"**. Se, invece, colpisce una nave, verrà mostrata una **"X"** nella casella colpita. 
