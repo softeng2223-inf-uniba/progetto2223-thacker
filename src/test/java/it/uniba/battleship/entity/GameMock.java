@@ -1,7 +1,12 @@
 package it.uniba.battleship.entity;
 
 import it.uniba.app.battleship.GameController;
-import it.uniba.app.battleship.entity.*;
+import it.uniba.app.battleship.entity.Game;
+import it.uniba.app.battleship.entity.Difficulty;
+import it.uniba.app.battleship.entity.Time;
+import it.uniba.app.battleship.entity.Grid;
+import it.uniba.app.battleship.entity.Coordinate;
+import it.uniba.app.battleship.entity.Ship;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -10,7 +15,7 @@ import java.util.LinkedList;
  * Classe di mock per il testing.
  * Questa classe viene utilizzata per simulare un oggetto reale durante i test.
  */
-public class GameMock extends Game{
+public class GameMock extends Game {
     private static final    LinkedList<Ship> SHIPS = getShipSet();
     private boolean sessionStartedMock;
     private boolean diffSetMock;
