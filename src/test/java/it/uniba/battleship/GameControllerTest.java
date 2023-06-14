@@ -118,6 +118,13 @@ public class GameControllerTest {
         }
     }
 
+    /**
+     * 7) Test: Verifica che il metodo setHardDifficulty() non imposti
+     * la difficolta' a 'Difficile' durante una sessione
+     * di gioco.
+     * <p>
+     *  Atteso: SessionAlreadyStartedException
+     */
     @Test
     void testSetHardDifficultyIfSessionStarted() {
         gameController.startSession(gameMock);
