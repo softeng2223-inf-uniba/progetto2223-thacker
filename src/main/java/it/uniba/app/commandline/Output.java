@@ -142,7 +142,7 @@ public final class Output {
             } else {
                 message += "infiniti";
             }
-        print(message);
+        println(message);
     }
 
     /**
@@ -152,15 +152,15 @@ public final class Output {
     public static void printTimeSetting(final int minLimit) {
         switch (minLimit) {
             case 0:
-                print("Hai a disposizione un tempo illimitato");
+                println("Hai a disposizione un tempo illimitato");
                 break;
             case 1:
-                print("Quando inizierai la partita avrai a disposizione "
+                println("Quando inizierai la partita avrai a disposizione "
                 + minLimit
                 + " minuto");
                 break;
             default:
-                print("Quando inizierai la partita avrai a disposizione "
+                println("Quando inizierai la partita avrai a disposizione "
                 + minLimit
                 + " minuti");
                 break;
