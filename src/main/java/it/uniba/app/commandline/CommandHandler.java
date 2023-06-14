@@ -66,7 +66,7 @@ public final class CommandHandler {
     public void handleCommand(final Game game) {
         try {
             if (game.isSessionStarted() && isEnd(game)) {
-                GameController.getInstance().reset(game);
+                CONTROL_GAME.reset(game);
                 return;
             }
             Output.printEnterCommand(game.isSessionStarted());
