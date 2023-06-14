@@ -3,12 +3,10 @@ package it.uniba.app.battleship.entity;
 import java.util.HashSet;
 import java.util.LinkedList;
 
-import it.uniba.app.battleship.controller.GridController;
-import it.uniba.app.battleship.controller.TimeController;
+import it.uniba.app.battleship.GameController;
 
 /**
- * Entity class <hr>
- *
+ * {@code <<entity>>}
  * Fornisce servizi per gestire una sessione di gioco (o partita) di <i>Battleship solitaire</i>.
  */
 public final class Game {
@@ -98,8 +96,8 @@ public final class Game {
      */
     public void startSession() {
         grid = new Grid();
-        GridController.randomlyFill(SHIPS, grid);
-        TimeController.setTime(time);
+        GameController.getInstance().randomlyFill(SHIPS, grid);
+        GameController.getInstance().setTime(time);
 
         sunkShips = 0;
         attempts = new HashSet<>();
@@ -127,9 +125,8 @@ public final class Game {
      * Fornisce le informazioni relative alla difficoltà impostata in un determinato istante.
      *
      * @return difficoltà selezionata
-     * @throws CloneNotSupportedException
      */
-    public Difficulty getDifficulty() throws CloneNotSupportedException {
+    public Difficulty getDifficulty() {
         return difficulty.clone();
     }
 

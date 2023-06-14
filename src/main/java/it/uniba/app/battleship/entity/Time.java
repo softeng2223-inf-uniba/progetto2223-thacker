@@ -1,6 +1,7 @@
 package it.uniba.app.battleship.entity;
 
 /**
+ * {@code <<entity>>}
  * La classe {@code Time} permette di conservare
  * i valori del tempo, utilizzati dal {@code TimeController},
  * necessari per poter aggiungere a

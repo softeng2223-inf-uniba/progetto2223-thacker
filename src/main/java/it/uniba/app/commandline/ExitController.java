@@ -6,7 +6,10 @@ package it.uniba.app.commandline;
  */
 public final class ExitController {
     private boolean requestedExit = false;
-    private static ExitController instance;
+
+    private static class Holder {
+        private static final ExitController INSTANCE = new ExitController();
+    }
 
     private ExitController() { };
 
@@ -17,10 +20,7 @@ public final class ExitController {
      * @return Oggetto della classe (@code ExitController).
      */
     public static ExitController getInstance() {
-        if (instance == null) {
-            instance = new ExitController();
-        }
-        return instance;
+        return Holder.INSTANCE;
     }
 
     /**

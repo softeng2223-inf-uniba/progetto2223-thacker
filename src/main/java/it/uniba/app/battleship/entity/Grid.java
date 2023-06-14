@@ -3,7 +3,9 @@ package it.uniba.app.battleship.entity;
 import java.util.Arrays;
 import java.util.HashMap;
 
+
 /**
+ * {@code <<entity>>}
  * La classe {@code Grid} rappresenta la mappa delle navi
  * e tiene traccia delle coordinate già colpite.
  * Ha un solo costruttore che non prende parametri e si dichiara

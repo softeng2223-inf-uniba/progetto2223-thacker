@@ -1,6 +1,6 @@
 package it.uniba.app.commandline;
 
-import it.uniba.app.battleship.controller.GameController;
+import it.uniba.app.battleship.GameController;
 import it.uniba.app.battleship.entity.Coordinate;
 import it.uniba.app.battleship.entity.Game;
 import it.uniba.app.battleship.entity.Grid;
@@ -21,7 +21,21 @@ public final class ShowGridController {
         "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
     };
 
-    private ShowGridController() { }
+
+    private static class Holder {
+            private static final ShowGridController INSTANCE = new ShowGridController();
+    }
+
+    private ShowGridController() { };
+
+    /**
+     * Fornisce l'istanza del gestore della visualizzazione della
+     * griglia dei colpi e la griglia delle navi.
+     * @return istanza di ShowGridController
+     */
+    public static ShowGridController getInstance() {
+            return Holder.INSTANCE;
+    }
 
     /**
      * Restituisce un oggetto di tipo {@code String} che contiene
@@ -29,8 +43,8 @@ public final class ShowGridController {
      * @param game sessione di gioco
      * @return mappa dei colpi in formato stringa
      */
-    static String genHitMap(final Game game) throws SessionNotStartedException {
-        Grid gameGrid = GameController.getSessionGrid(game);
+    String genHitMap(final Game game) throws SessionNotStartedException {
+        Grid gameGrid = GameController.getInstance().getSessionGrid(game);
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {
@@ -83,7 +97,7 @@ public final class ShowGridController {
      * @param grid oggetto che contiene la mappa delle navi.
      * @return stringa contenente tutta la mappa delle navi.
     */
-    static String genShipMap(final Grid grid) {
+    String genShipMap(final Grid grid) {
         String str = LETTER_WHITE_SPACE;
         StringBuilder b = new StringBuilder();
         for (int i = 0; i < Grid.getSize(); i++) {

@@ -16,40 +16,22 @@ public final class ShowShipsController {
     private static final String INSTANCE_WHITE_SPACE = "       ";
     private static final String NAME_WHITE_SPACE = "";
 
-    private ShowShipsController() { }
+
+    private static class Holder {
+            private static final ShowShipsController INSTANCE = new ShowShipsController();
+    }
+
+    private ShowShipsController() { };
 
     /**
-     * Stampa a video, per ogni tipo di nave,
-     * il nome, la dimensione in quadrati
-     * e il numero di esemplari da affondare.
+     * Fornisce l'istanza del gestore della visualizzazione delle navi.
+     * @return istanza di ShowShipsController
      */
-    static String getShipInfo() {
-        String numOfInstancesWhiteSpace = INSTANCE_WHITE_SPACE;
-        String nameWhiteSpace = NAME_WHITE_SPACE;
-
-        String str = "";
-        StringBuilder b = new StringBuilder();
-        for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
-            Ship ship = new Ship(i);
-            nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
-            b.append(ship.getName());
-            b.append(nameWhiteSpace);
-
-            for (int j = 0; j < ship.getSize(); j++) {
-                b.append(Color.get(ship.getColor()));
-                b.append(ship);
-                b.append(Color.getReset());
-            }
-
-            b.append(numOfInstancesWhiteSpace);
-            b.append("Esemplari:");
-            b.append(Ship.getMaxInstances(i));
-            numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
-            b.append("\n");
-        }
-        str = b.toString();
-        return str;
+    public static ShowShipsController getInstance() {
+            return Holder.INSTANCE;
     }
+
+    /* METODI STATICI DI SUPPORTO */
 
     /**
      * Restiituisce una stringa contenente il nome
@@ -79,6 +61,7 @@ public final class ShowShipsController {
         }
         return nameSpace;
     }
+
     /**
      * Restituisce lo spazio decrementato necessario
      * per stampare in maniera allineata il numero di
@@ -92,4 +75,40 @@ public final class ShowShipsController {
         String subStr = space.substring(0, strDim);
         return subStr;
     }
+
+    /* METODI DI ISTANZA */
+
+    /**
+     * Stampa a video, per ogni tipo di nave,
+     * il nome, la dimensione in quadrati
+     * e il numero di esemplari da affondare.
+     */
+    String getShipInfo() {
+        String numOfInstancesWhiteSpace = INSTANCE_WHITE_SPACE;
+        String nameWhiteSpace = NAME_WHITE_SPACE;
+
+        String str = "";
+        StringBuilder b = new StringBuilder();
+        for (int i = 0; i < Ship.getNumberOfTypes(); i++) {
+            Ship ship = new Ship(i);
+            nameWhiteSpace = incrementNameWhiteSpace(nameWhiteSpace, ship);
+            b.append(ship.getName());
+            b.append(nameWhiteSpace);
+
+            for (int j = 0; j < ship.getSize(); j++) {
+                b.append(Color.get(ship.getColor()));
+                b.append(ship);
+                b.append(Color.getReset());
+            }
+
+            b.append(numOfInstancesWhiteSpace);
+            b.append("Esemplari:");
+            b.append(Ship.getMaxInstances(i));
+            numOfInstancesWhiteSpace = decrementNumberOfInstancesWhiteSpace(numOfInstancesWhiteSpace);
+            b.append("\n");
+        }
+        str = b.toString();
+        return str;
+    }
+
 }

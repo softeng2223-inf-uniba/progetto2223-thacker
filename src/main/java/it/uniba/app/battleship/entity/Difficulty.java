@@ -1,5 +1,6 @@
 package it.uniba.app.battleship.entity;
 /**
+ * {@code <<entity>>}
  * La classe Difficulty rappresenta una singola difficoltà di gioco.
  */
 public class Difficulty implements Cloneable {
@@ -45,9 +46,12 @@ public class Difficulty implements Cloneable {
      * Crea e restituisce una copia dell'oggetto Difficulty.
      *
      * @return una copia dell'oggetto Difficulty
-     * @throws CloneNotSupportedException se la clonazione non è supportata
      */
-    public Difficulty clone() throws CloneNotSupportedException {
-        return (Difficulty) super.clone();
+    public Difficulty clone() {
+        try {
+            return (Difficulty) super.clone();
+        } catch (CloneNotSupportedException e) {
+            return null;
+        }
     }
 }
