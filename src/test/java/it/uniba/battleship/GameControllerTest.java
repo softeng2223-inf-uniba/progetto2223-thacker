@@ -310,6 +310,21 @@ public class GameControllerTest {
     }
 
     @Test
+    void testStrikeAddToListIfCellIsEmpty() {
+        gameController.startSession(gameMock);
+        Coordinate testCoord = new Coordinate(0, 0);
+
+        try {
+            gameController.strike(gameMock, testCoord);
+        } catch (CellAlreadyMarkedException e) {
+            fail("CellAlreadyMarkedException");
+        }
+
+        assertTrue(gameMock.getAttemptsList().contains(testCoord),
+                "Non contiene proprio niente");
+    }
+
+    @Test
     void testStrikeIncrementSunkSkipsIfHitSunkShip() {
         gameController.startSession(gameMock);
 
@@ -356,7 +371,7 @@ public class GameControllerTest {
     void testGetAttemptsIfSessionStartedAndNoAttempts() {
         gc.startSession(gameMock);
         try {
-            assertEquals(0, gc.getAttempts(gameMock), "err");
+            assertEquals(0, gameController.getAttempts(gameMock), "err");
         } catch (SessionAlreadyStartedException e) {
             fail("SessionAlreadyStartedException");
         }
