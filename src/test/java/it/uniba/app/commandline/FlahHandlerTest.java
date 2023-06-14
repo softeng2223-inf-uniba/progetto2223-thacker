@@ -42,8 +42,16 @@ class FlahHandlerTest {
 
     @Test
     void testRightNumberAndCorrectFlagH() {
-        String[] args = {"-h"};
+        String[] args = {"-h" };
         assertTrue(fh.execute(args),
-            "ERR [FH:4]: execute() non restituisce true quando viene passato il singolo flag valido -h");
+                "ERR [FH:4]: execute() non restituisce true quando viene passato il singolo flag valido -h");
+    }
+
+    @Test
+    void testCorrectFlagsCombinedTogether() {
+        String[] args = {"--help", "-h"};
+        assertFalse(fh.execute(args),
+            "ERR [FH:5]: execute() non restituisce false quando vengono passati entrambi i flag validi"
+            + " --help e -h contemporaneamente");
     }
 }
