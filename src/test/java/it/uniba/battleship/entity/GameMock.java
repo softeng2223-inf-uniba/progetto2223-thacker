@@ -177,4 +177,8 @@ public class GameMock extends Game{
     public void setTime(final Time t) {
         timeMock = t.clone();
     }
+
+    public int getSunkShips() {
+        return sunkShipsMock;
+    }
 }
