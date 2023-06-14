@@ -248,32 +248,6 @@ Una volta assicurato di avere Docker e il WSL (se stai usando Windows) correttam
 Seguendo questi passaggi, dovresti essere in grado di eseguire correttamente l'immagine Docker senza incontrare problemi.
 
 
-#### (7.2.1) Elenco dei comandi 
-
-```sh
-/help o --help o -h
-```
-
-  Con il seguente comando verranno mostrati a schermo tutti i comandi utilizzabili di cui segue una breve descrizione di ognuno: 
-
-
-  - ``/gioca`` permette di iniziare una nuova partita;
-  - ``/facile`` imposta il livello di difficoltà su facile, quindi si avranno a disposizione massimo 50 tentativi a vuoto   
-  - ``/medio`` imposta il livello di difficoltà su medio, quindi si avranno a disposizione massimo 30 tentativi a vuoto   
-  - ``/difficile`` imposta il livello di difficoltà su difficile, quindi si avranno a disposizione massimo 10 tentativi a vuoto   
-  - ``/mostralivello`` permette di mostrare, durante una partita, il livello di difficoltà 
-  - ``/svelagriglia`` permette di mostrare la griglia dell'avversario 
-  - ``/mostranavi`` mostra il nome delle navi, la loro rappresentazione nel gioco e la loro rispettiva quantità disponibile, come riportato nella seguente tabella: 
-
-      |Nome|Numero esemplari|
-      |-|-|
-      | Cacciatorpediniere   | 4 |
-      | Incrociatore  | 3 |
-      | Corazzata  | 2 |
-      | Portaerei  | 1 |   
-
-  - ``/esci`` permette di terminare l'esecuzione del programma, dietro previa conferma
-
 
 #### (7.2.2) Inizio di una partita
 
